@@ -1,2 +1,2 @@
 # WwwTasks
-Handling of tasks in the jazzclub
+Source code for the JAZZ live AARAU Aufgaben application
