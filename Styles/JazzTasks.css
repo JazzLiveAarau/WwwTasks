@@ -1,0 +1,185 @@
+/* 
+File: HomepageCommom.css Date: 2020-06-23 Author: Hanni Heller
+
+General information
+===================
+Definiert alle Style-Klassen für Applikation Tasks
+*/
+
+.cl_tasks_page
+{
+border: solid 2px blue;
+font-family: 'Arial';
+width: 500px;
+height: 670px;
+}
+
+.cl_tasks_task_title
+{
+/* border: solid 2px red; */
+margin-top: 20px;
+padding: 6px;
+width: 95%;
+clear: both;
+}
+
+.cl_tasks_header
+{
+border: solid 2px yellow;
+text-align: center;
+background-color: black;
+color: rgb(255, 0, 40);
+font-size: 20px;
+font-weight: bold;
+width: 100%;
+}
+
+.cl_tasks_select_task
+{
+/* border:solid 2px black; */
+width: 80%;
+padding: 2px;
+float: left;
+}
+
+.cl_div_reg_number
+{
+    /* border:solid 2px black; */
+    width: 15%;
+    float: left;
+}
+
+.cl_div_select_reg_number
+{
+    clear: both;
+    margin-top:10px;
+    overflow: hidden;
+    
+}
+
+.cl_tasks_task_remark
+{
+    /* border: solid 2px rgb(255, 0, 40); */
+    margin-top: 20px;
+    width: 95%;
+    padding: 6px; 
+}
+
+.cl_tasks_task_link_doc_file
+{
+/* border: solid 2px rgb(44, 7, 131); */
+width: 70%;
+padding: 6px;  
+float: left;  
+}
+
+.cl_div_upload_doc_button
+{
+    /* border: solid 2px rgb(44, 7, 131); */
+    width: 15%;
+    margin-left: 5px;
+    padding-top: 25px;
+    float: left;
+}
+
+.cl_div_display_upload_button
+{
+    margin-top: 20px;
+    overflow: hidden;
+    clear: both;
+}
+
+.cl_div_upload_doc
+{
+    border: solid 2px rgb(143, 50, 110);
+    background-color: rgb(255, 174, 0);
+    margin-top: 5px;
+    width: 95%;
+    padding: 6px;  
+    clear: both;  
+}
+
+.cl_div_upload_pdf
+{
+    border: solid 2px rgb(143, 50, 110);
+    margin-top: 20px;
+    width: 95%;
+    padding: 6px;  
+    clear: both;  
+}
+
+.cl_div_remind_date
+{
+    /* border: solid 2px rgb(143, 50, 110); */
+    width: 30%;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    clear: both;
+}
+
+.cl_tasks_task_saving
+{
+/* border: solid 2px rgb(7, 131, 79); */
+margin-top: 10px;
+width: 30%;
+padding: 6px;  
+float: right;     
+}
+
+.cl_tasks_test_button
+{
+border: solid 2px green;
+margin-top: 50px;
+margin-left: 50px;
+padding: 8px;
+cursor: pointer;
+width: 100px;
+}
+
+.cl_display_xml
+{
+    border: solid 2px rgb(255, 174, 0);
+    display: none;
+    font-family: 'Arial';
+    text-align: center;
+    margin-top: 40px;
+    width: 900px;
+    min-height: 200px; 
+}
+
+
+.cl_div_ref_dropdown
+{
+    /* border: solid 1px rgb(194, 171, 121); */
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    clear: both;
+}
+
+.cl_div_ref_link
+{
+    /* border: solid 1px rgb(194, 171, 121); */
+    width: 95%;
+    height: 40px;
+    clear: both;  
+}
+.cl_div_ref_descr
+{
+    /* border: solid 1px rgb(194, 171, 121); */
+    width: 95%;
+    height: 40px;
+    clear: both;  
+}
+
+.cl_display_xml textarea
+{
+    
+    margin-top: 10px;
+}
+
+input
+{
+    margin-left: 10px;
+}
