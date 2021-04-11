@@ -1,11 +1,21 @@
 /* 
-File: HomepageCommom.css Date: 2020-06-23 Author: Hanni Heller
+File: JazzTasks.css Date: 2021-04-11 Author: Hanni Heller / Gunnar Liden
 
-General information
-===================
-Definiert alle Style-Klassen für Applikation Tasks
+Allgemeine Informationen
+========================
+
+Definiert alle Style-Klassen für die Applikation Tasks
+
+Die meisten Klassen sind für die <div> Elemente in Datei JazzTasks.htm definiert
+
+Referenz
+--------
+Im Dokument /www/JazzTasksDokumente/JazzTasksPictures.pptx gibt es Bilder, die 
+die <div> Elemente der Datei JazzTasks.htm zeigen
+
 */
 
+/* Seitenumriss <div> Element */
 .cl_tasks_page
 {
 border: solid 2px blue;
@@ -14,15 +24,7 @@ width: 500px;
 height: 670px;
 }
 
-.cl_tasks_task_title
-{
-/* border: solid 2px red; */
-margin-top: 20px;
-padding: 6px;
-width: 95%;
-clear: both;
-}
-
+/* Header <div> Element */
 .cl_tasks_header
 {
 border: solid 2px yellow;
@@ -32,6 +34,57 @@ color: rgb(255, 0, 40);
 font-size: 20px;
 font-weight: bold;
 width: 100%;
+}
+
+/* Bild <img> Elemente im <div> Element Header */
+.cl_tasks_header img
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Title und delete button <div> element */
+.cl_div_title_delete_number
+{
+    width: 100%;
+    clear: both;
+}
+
+/* Title <div> element */
+.cl_tasks_task_title
+{
+/* border: solid 2px red; */
+padding: 6px;
+
+float: left;
+}
+
+/* Delete <div> element */
+.cl_tasks_task_delete
+{
+    padding-right: 13px;
+    padding-top: 24px;
+    float: right;  
+}
+
+/* Description <div> element */
+.cl_tasks_task_description
+{
+    /* border: solid 2px rgb(255, 0, 40); */
+    padding: 6px; 
+}
+
+/* Remark <div> element */
+.cl_tasks_task_remark
+{
+    /* border: solid 2px rgb(255, 0, 40); */
+    padding: 6px; 
+}
+
+/* For all <label> elements */
+label
+{
+    margin-left: 10px;
 }
 
 .cl_tasks_select_task
@@ -52,17 +105,10 @@ float: left;
 .cl_div_select_reg_number
 {
     clear: both;
-    margin-top:10px;
+    margin-top: 10px;
+    margin-left: 10px;
     overflow: hidden;
     
-}
-
-.cl_tasks_task_remark
-{
-    /* border: solid 2px rgb(255, 0, 40); */
-    margin-top: 20px;
-    width: 95%;
-    padding: 6px; 
 }
 
 .cl_tasks_task_link_doc_file
@@ -153,6 +199,7 @@ width: 100px;
 {
     /* border: solid 1px rgb(194, 171, 121); */
     margin-top: 10px;
+    margin-left: 10px;
     width: 300px;
     height: 40px;
     clear: both;
@@ -163,6 +210,7 @@ width: 100px;
     /* border: solid 1px rgb(194, 171, 121); */
     width: 95%;
     height: 40px;
+    margin-bottom: 5px;
     clear: both;  
 }
 .cl_div_ref_descr

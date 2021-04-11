@@ -1,6 +1,6 @@
 // File: JazzTasksElements.js
-// Date: 2020-05-28
-// Author: Hanni Heller
+// Date: 2021-04-11
+// Author: Hanni Heller / Gunnar Liden
 
 // File content
 // =============
@@ -34,17 +34,6 @@
 // Definition von Get-Funktionen
 // -----------------------------
 
-// Funktionsrückgabewert ist die Identität für die Titel Div-Element
-// Return value is the identity of the <div> element that will be used to display 
-// the title of the task
-function getIdDivElementTitle()
-{
-    // Tip: Get this identity string with cut and paste from the file JazzTasks.htm
-    return 'id_tasks_task_title';  
-
-} // getIdDivElementTitle
-
-
 // Funktionsrückgabewert ist das Div-Element für den Titel
 // Return value is <div> element that will be used to display the title of the task
 function getDivElementTitle()
@@ -53,21 +42,30 @@ function getDivElementTitle()
 
 } // getDivElementTitle
 
-// TODO ...
+// Funktionsrückgabewert ist die Identität für das Beschreibung-Div-Element
+// Return value is the identity of the <div> element for the task description 
 function getIdDivElementDescription()
 {
     return 'id_tasks_task_description';
 
 } // getIdDivElementDescription
 
-// TODO 
+// Funktionsrückgabewert ist das Beschreibung-Div-Element
+// Return value is the <div> element for the task description 
 function getDivElementDescription()
 {
     return document.getElementById(getIdDivElementDescription());
 
 } // getDivElementDescription
 
-// TODO
+// Funktionsrückgabewert ist die Identität für das Titel-Div-Element
+// Return value is the identity of the <div> element displaying the title 
+function getIdDivElementTitle()
+{
+    // Tip: Get this identity string with cut and paste from the file JazzTasks.htm
+    return 'id_tasks_task_title';  
+
+} // getIdDivElementTitle
 
 // Funktionsrückgabewert ist die Identität des Div-Elements für die Bemerkung
 // Return value is the identity of the div element that is used for the remark
@@ -77,8 +75,8 @@ function getIdDivElementRemark()
 
 } // getIdDivElementRemark
 
-// Funktionsrückgabewert ist die Identität des Div-Elements für die Bemerkung
-// Return value is the identity of the div element that is used for the remark
+// Funktionsrückgabewert ist die Identität des Div-Elements für das DOC Dokument
+// Return value is the identity of the div element for the DOC document
 function getIdDivElementDoc()
 {
     return 'id_tasks_task_link_doc_file';
@@ -94,6 +92,13 @@ function getIdDivElementDropdown()
 
 } // getIdDivElementDropdown
 
+// Return value is the identity of the div element that is used for the delete button
+function getIdDivElementButtonDelete()
+{
+    return 'id_tasks_task_delete';
+
+} // getIdDivElementButtonDelete
+
 // Return value is the identity of the div element that is used for the save button
 function getIdDivElementButtonSave()
 {
@@ -101,8 +106,137 @@ function getIdDivElementButtonSave()
 
 } // getIdDivElementButtonSave
 
+// Get the element of the input element for the doc document
+function getElementInputDoc()
+{
+    return document.getElementById(getIdElementInputDoc());
 
-// TODO Funktionen für alle übrigen Elemente in der Datei JazzTasks.htm
-//      zu definieren
+} // getElementInputDoc
 
+// Returns the identity of the input element for the doc document
+function getIdElementInputDoc()
+{
+    return 'id_doc_file_input';
+
+} // getIdElementInputDoc
+
+// Returns the div element for the doc document input element
+function getDivElementInputDoc()
+{
+    return document.getElementById(getIdDivElementInputDoc());
+
+} // getDivElementInputDoc
+
+// Returns the identity of the div for the doc document element
+function getIdDivElementInputDoc()
+{
+    return 'id_tasks_task_link_doc_file';
+
+} // getIdDivElementInputDoc
+
+
+// Get the div for the display of the XML file
+function getElementDivDisplayXml()
+{
+    return document.getElementById(getIdDivDisplayXml());
+
+} // getElementDivDisplayXml
+
+// Returns the identity of the div for the display of the XML file
+function getIdDivDisplayXml()
+{
+    return 'id_display_xml';
+
+} // getIdDivDisplayXml
+
+// Returns the class of the div for the display of the XML file
+function getClassDivDisplayXml()
+{
+    return 'cl_display_xml';
+
+} // getClassDivDisplayXml
+
+// Get the text area element for the display of the XML file
+function getElementDisplayXmlTextArea()
+{
+    return document.getElementById(getIdDisplayXmlTextArea());
+
+} // getElementDisplayXmlTextArea
+
+// Returns the identity of the text area element for the display of the XML file
+function getIdDisplayXmlTextArea()
+{
+    return 'id_display_xml_text_area';
+
+} // getIdDisplayXmlTextArea
+
+// Returns the identity of the div container for upload of the DOC file
+function getIdDivUploadDoc()
+{
+    return 'id_div_upload_doc';
+
+} // getIdDivUploadDoc
+
+// Returns the identity of input element for upload of the DOC file
+function getIdUploadDoc()
+{
+    return 'id_upload_doc';
+
+} // getIdUploadDoc
+
+// Returns the identity of the div container for upload of the PDF file
+function getIdDivUploadPdf()
+{
+    return 'id_div_upload_pdf';
+
+} // getIdDivUploadPdf
+
+// Returns the identity of input element for upload of the PDF file
+function getIdUploadPdf()
+{
+    return 'id_upload_pdf';
+
+} // getIdUploadPdf
+
+// Return value is the identity of the div element that is used for the reference dropdown
+function getIdDivElementRefDropdown()
+{
+    return 'id_div_ref_dropdown';
+
+} // getIdDivElementRefDropdown
+
+// Return value is the identity of element reference dropdown
+function getIdElementRefDropdown()
+{
+    return 'id_ref_dropdown';
+
+} // getIdElementRefDropdown
+
+// Return value is the identity of the div element that is used for the reference link
+function getIdDivElementRefLink()
+{
+    return 'id_div_ref_link';
+
+} // getIdDivElementRefLink
+
+// Return value is the identity element reference link
+function getIdElementRefLink()
+{
+    return 'id_ref_link';
+
+} // getIdElementRefLink
+
+// Return value is the identity of the div element that is used for the reference description
+function getIdDivElementRefDescr()
+{
+    return 'id_div_ref_descr';
+
+} // getIdDivElementRefDescr
+
+// Return value is the identity of the element reference description
+function getIdElementRefDescr()
+{
+    return 'id_ref_descr';
+
+} // getIdElementRefDescr
 

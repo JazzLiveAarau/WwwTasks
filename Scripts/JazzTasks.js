@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2020-06-29
+// Date: 2021-04-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -56,8 +56,14 @@ var g_pdf_upload = null;
 // Control upload of a DOC document to the server
 var g_upload_doc_button = null;
 
+// The text box for the description
+var g_description_text_box = null;
+
 // The text box for the remark
 var g_remark_text_box = null;
+
+// The button delete task
+var g_task_delete_button = null;
 
 // The button save task
 var g_task_save_button = null;
@@ -191,7 +197,6 @@ function eventUserSelectedPdf()
 
 } // eventUserSelectedPdf
 
-
 // The user selected a new task with the dropdown control
 function eventSelectTaskDropDown()
 {
@@ -235,6 +240,30 @@ function eventSelectReferenceDropDown()
     setControlValues();
 
 } // eventSelectReferenceDropDown
+
+// User clicked the delete button
+function eventClickButtonDelete()
+{
+    var msg_str = 'Willst du wirklich Aufgabe "' + g_record_active_task.getJazzTaskTitle() + '" löschen?';
+
+    var b_confirm = confirm(msg_str);
+
+    if (!b_confirm)
+    {
+        return;
+    }
+
+    g_table.deleteJazzTaskRecord(g_record_active_number);
+
+    g_table.deleteJazzTaskRecordXml(g_record_active_number);
+
+    g_table.saveJazzTasksXmlOnServer();
+
+    reCreateTaskDropdown(1);
+
+    debugDisplayXmlAsText();
+
+} // eventClickButtonDelete
 
 // User clicked the save button
 function eventClickButtonSave()
@@ -306,6 +335,13 @@ function oninputDoc()
     //alert("New value is" + g_doc_text_box.getValue());
 
 } // oninputDoc
+
+// Event function when user added or deleted a character in the description text box
+function oninputDescription()
+{
+    //alert("New value is" + g_description_text_box.getValue());
+
+} // oninputDescription
 
 // Event function when user added or deleted a character in the remark text box
 function oninputRemark()
@@ -429,6 +465,10 @@ function createControls()
 
     createTextBoxTitle();
 
+    createTaskDeleteButton();
+
+    createTextBoxDescription();
+
     createTextBoxRemark();
 
     createTextBoxDoc();
@@ -454,7 +494,7 @@ function createControls()
 // Creates the task dropdown control
 function createTaskDropdown()
 {
-    g_task_drop_down = new JazzDropdown("id_task_drop_down", getIdDivElementDropdownGunnar());
+    g_task_drop_down = new JazzDropdown("id_task_drop_down", getIdDivElementDropdown());
 
     var name_array = g_table.getJazzTasksNameArray('title');
 
@@ -511,9 +551,24 @@ function reCreateTaskDropdown(i_active_task_number)
 } // reCreateTaskDropdown
 
 // Creates the save button control
+function createTaskDeleteButton()
+{
+    g_task_delete_button = new JazzButton("id_button_delete", getIdDivElementButtonDelete());
+
+    g_task_delete_button.setOnclickFunctionName("eventClickButtonDelete");
+
+    g_task_delete_button.setCaption("Löschen");
+
+    g_task_delete_button.setLabelText("");
+
+    g_task_delete_button.setTitle("Aufgabe löschen");
+
+} // createTaskDeleteButton
+
+// Creates the save button control
 function createTaskSaveButton()
 {
-    g_task_save_button = new JazzButton("id_button_save", getIdDivElementButtonSaveGunnar());
+    g_task_save_button = new JazzButton("id_button_save", getIdDivElementButtonSave());
 
     g_task_save_button.setOnclickFunctionName("eventClickButtonSave");
 
@@ -522,7 +577,6 @@ function createTaskSaveButton()
     g_task_save_button.setLabelText("");
 
     g_task_save_button.setTitle("Aufgabedaten kontrollieren und speichern");
-
 
 } // createTaskSaveButton
 
@@ -542,7 +596,7 @@ function createUploadDocButton()
 // Create the title text box
 function createTextBoxTitle()
 {
-    g_title_text_box = new JazzTextBox("id_title_text_box", getIdDivElementTitleGunnar());
+    g_title_text_box = new JazzTextBox("id_title_text_box", getIdDivElementTitle());
 
     g_title_text_box.setLabelText("Titel");
 
@@ -573,10 +627,27 @@ function createTextBoxRegNumber()
 
 } // createTextBoxRegNumber
 
+// Create the description text box
+function createTextBoxDescription()
+{
+    g_description_text_box = new JazzTextBox("id_description_text_box", getIdDivElementDescription());
+
+    g_description_text_box.setLabelText("Beschreibung");
+
+    g_description_text_box.setLabelTextPositionAbove();
+
+    g_description_text_box.setSize("60");
+
+    g_description_text_box.setTitle("Hier kann eine zusätzliche Beschreibung über die Aufgabe eingegeben werden");
+
+    g_description_text_box.setOninputFunctionName("oninputDescription");
+  
+} // createTextBoxDescription
+
 // Create the remark text box
 function createTextBoxRemark()
 {
-    g_remark_text_box = new JazzTextBox("id_remark_text_box", getIdDivElementRemarkGunnar());
+    g_remark_text_box = new JazzTextBox("id_remark_text_box", getIdDivElementRemark());
 
     g_remark_text_box.setLabelText("Bemerkung");
 
@@ -593,7 +664,7 @@ function createTextBoxRemark()
 // Create the DOC text box
 function createTextBoxDoc()
 {
-    g_doc_text_box = new JazzTextBox("id_doc_text_box", getIdDivElementDocGunnar());
+    g_doc_text_box = new JazzTextBox("id_doc_text_box", getIdDivElementDoc());
 
     g_doc_text_box.setLabelText("DOC");
 
@@ -639,7 +710,6 @@ function createUploadPdfControl()
 
 } // createUploadPdfControl
 
-
 // Create the title text box
 function createRemindDatePickerControl()
 {
@@ -662,7 +732,7 @@ function createTextBoxReferenceLink()
 {
     g_ref_link_text_box = new JazzTextBox(getIdElementRefLink(), getIdDivElementRefLink());
 
-    g_ref_link_text_box.setLabelText("Link");
+    g_ref_link_text_box.setLabelText("Link Referenz");
 
     g_ref_link_text_box.setSize("60");
 
@@ -677,235 +747,17 @@ function createTextBoxReferenceDescription()
 {
     g_ref_descr_text_box = new JazzTextBox(getIdElementRefDescr(), getIdDivElementRefDescr());
 
-    g_ref_descr_text_box.setLabelText("Beschreibung");
+    g_ref_descr_text_box.setLabelText("Beschreibung Referenz");
 
     g_ref_descr_text_box.setSize("60");
 
     g_ref_descr_text_box.setLabelTextPositionAbove();
 
-    g_ref_descr_text_box.setTitle("Referenze Beschreibung.");
+    g_ref_descr_text_box.setTitle("Referenz Beschreibung.");
   
 } // createTextBoxReferenceDescription
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Create Controls /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
-
-
-///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Start Get Html Elements, Identities And Classes /////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-
-// Get the element of the input element for the doc document
-function getElementInputDoc()
-{
-    return document.getElementById(getIdElementInputDoc());
-
-} // getElementInputDoc
-
-// Returns the identity of the input element for the doc document
-function getIdElementInputDoc()
-{
-    return 'id_doc_file_input';
-
-} // getIdElementInputDoc
-
-// Returns the div element for the doc document input element
-function getDivElementInputDoc()
-{
-    return document.getElementById(getIdDivElementInputDoc());
-
-} // getDivElementInputDoc
-
-// Returns the identity of the div for the doc document element
-function getIdDivElementInputDoc()
-{
-    return 'id_tasks_task_link_doc_file';
-
-} // getIdDivElementInputDoc
-
-///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// End Get Html Elements, Identities And Classes ///////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Start Get Html Elements, Identities And Classes /////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-
-// Get the div for the display of the XML file
-function getElementDivDisplayXml()
-{
-    return document.getElementById(getIdDivDisplayXml());
-
-} // getElementDivDisplayXml
-
-// Returns the identity of the div for the display of the XML file
-function getIdDivDisplayXml()
-{
-    return 'id_display_xml';
-
-} // getIdDivDisplayXml
-
-// Returns the class of the div for the display of the XML file
-function getClassDivDisplayXml()
-{
-    return 'cl_display_xml';
-
-} // getClassDivDisplayXml
-
-// Get the text area element for the display of the XML file
-function getElementDisplayXmlTextArea()
-{
-    return document.getElementById(getIdDisplayXmlTextArea());
-
-} // getElementDisplayXmlTextArea
-
-// Returns the identity of the text area element for the display of the XML file
-function getIdDisplayXmlTextArea()
-{
-    return 'id_display_xml_text_area';
-
-} // getIdDisplayXmlTextArea
-
-// Returns the identity of the div container for upload of the DOC file
-function getIdDivUploadDoc()
-{
-    return 'id_div_upload_doc';
-
-} // getIdDivUploadDoc
-
-// Returns the identity of input element for upload of the DOC file
-function getIdUploadDoc()
-{
-    return 'id_upload_doc';
-
-} // getIdDivUploadDoc
-
-// Returns the identity of the div container for upload of the PDF file
-function getIdDivUploadPdf()
-{
-    return 'id_div_upload_pdf';
-
-} // getIdDivUploadPdf
-
-// Returns the identity of input element for upload of the PDF file
-function getIdUploadPdf()
-{
-    return 'id_upload_pdf';
-
-} // getIdDivUploadPdf
-
-///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// End Get Html Elements, Identities And Classes ///////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-
-// Funktionsrückgabewert ist die Identität für die Titel Div-Element
-// Return value is the identity of the <div> element that will be used to display 
-// the title of the task
-function getIdDivElementTitleGunnar()
-{
-    // Tip: Get this identity string with cut and paste from the file JazzTasks.htm
-    return 'id_tasks_task_title';  
-
-} // getIdDivElementTitleGunnar
-
-
-// Funktionsrückgabewert ist das Div-Element für den Titel
-// Return value is <div> element that will be used to display the title of the task
-function getDivElementTitleGunnar()
-{
-    return document.getElementById(getIdDivElementTitleGunnar());
-
-} // getDivElementTitleGunnar
-
-// TODO ...
-function getIdDivElementDescriptionGunnar()
-{
-    return 'id_tasks_task_description';
-
-} // getIdDivElementDescriptionGunnar
-
-// TODO 
-function getDivElementDescriptionGunnar()
-{
-    return document.getElementById(getIdDivElementDescriptionGunnar());
-
-} // getDivElementDescriptionGunnar
-
-// TODO
-
-// Funktionsrückgabewert ist die Identität des Div-Elements für die Bemerkung
-// Return value is the identity of the div element that is used for the remark
-function getIdDivElementRemarkGunnar()
-{
-    return 'id_tasks_task_remark';
-
-} // getIdDivElementRemarkGunnar
-
-// Funktionsrückgabewert ist die Identität des Div-Elements für die Bemerkung
-// Return value is the identity of the div element that is used for the remark
-function getIdDivElementDocGunnar()
-{
-    return 'id_tasks_task_link_doc_file';
-
-} // getIdDivElementDocGunnar
-
-// id_tasks_select_task
-
-// Return value is the identity of the div element that is used for the dropdown
-function getIdDivElementDropdownGunnar()
-{
-    return 'id_tasks_select_task';
-
-} // getIdDivElementDropdownGunnar
-
-// Return value is the identity of the div element that is used for the save button
-function getIdDivElementButtonSaveGunnar()
-{
-    return 'id_tasks_task_saving';
-
-} // getIdDivElementButtonSaveGunnar
-
-
-// Return value is the identity of the div element that is used for the reference dropdown
-function getIdDivElementRefDropdown()
-{
-    return 'id_div_ref_dropdown';
-
-} // getIdDivElementRefDropdown
-
-// Return value is the identity of element reference dropdown
-function getIdElementRefDropdown()
-{
-    return 'id_ref_dropdown';
-
-} // getIdElementRefDropdown
-
-// Return value is the identity of the div element that is used for the reference link
-function getIdDivElementRefLink()
-{
-    return 'id_div_ref_link';
-
-} // getIdDivElementRefLink
-
-// Return value is the identity element reference link
-function getIdElementRefLink()
-{
-    return 'id_ref_link';
-
-} // getIdElementRefLink
-
-// Return value is the identity of the div element that is used for the reference description
-function getIdDivElementRefDescr()
-{
-    return 'id_div_ref_descr';
-
-} // getIdDivElementRefDescr
-
-// Return value is the identity of the element reference description
-function getIdElementRefDescr()
-{
-    return 'id_ref_descr';
-
-} // getIdElementRefDescr
 

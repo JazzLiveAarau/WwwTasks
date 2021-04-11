@@ -71,11 +71,16 @@
 
     <title>Aufgaben JAZZ live AARAU</title>
 </head>
+
 <body onload= "initJazzTasks()">
     
     <div id= 'id_tasks_page' class= 'cl_tasks_page'>
 
-        <div id= 'id_tasks_header' class= 'cl_tasks_header'>JAZZ <i>live</i> AARAU Aufgaben</div>
+        <div id= 'id_tasks_header' class= 'cl_tasks_header'>
+            <img src="Icons/JazzNote.png" >
+            JAZZ <i>live</i> AARAU Aufgaben
+            <img src="Icons/JazzNote.png" >
+        </div>
 
         <div id= "id_div_select_reg_number" class= "cl_div_select_reg_number">
             <div id= 'id_tasks_select_task' class='cl_tasks_select_task'></div>
@@ -83,9 +88,14 @@
             <div id= 'id_div_reg_number' class='cl_div_reg_number'></div>
         </div>
 
-        <div id= 'id_tasks_task_title' class= 'cl_tasks_task_title'>
-            <label for="id_title_input">Titel:</label><input type="text" id="id_title_input" size="55" maxlength="80"> 
-        </div> 
+        <div id= "id_div_title_delete_number" class= "cl_div_title_delete_number">
+            <div id= 'id_tasks_task_title' class= 'cl_tasks_task_title'></div> 
+            <div id= 'id_tasks_task_delete' class='cl_tasks_task_delete'></div>
+        </div>
+
+        
+
+        <div id= 'id_tasks_task_description' class='cl_tasks_task_description'></div>
 
         <div id= 'id_tasks_task_remark' class='cl_tasks_task_remark'></div>
 
@@ -111,7 +121,7 @@
 
         <div id= 'id_tasks_task_saving' class='cl_tasks_task_saving'></div>
         
-        <div id= 'id_tasks_test_button' class= 'cl_tasks_test_button' onclick="onClickOfTestButton()">Aufgabe löschen</div>
+        <div id= 'id_tasks_test_button' class= 'cl_tasks_test_button' onclick="onClickOfTestButton()">Test</div>
 
     </div>  
     
