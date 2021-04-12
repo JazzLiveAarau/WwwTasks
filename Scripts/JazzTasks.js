@@ -147,7 +147,18 @@ function initJazzTasksAfterLoadOfXml()
 ///////////////////////// Start Event Functions ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// The user selected a DOC that shall be uploaded
+// The user has selected a DOC local file that shall be uploaded
+// 1. Check if the selected file is OK. Call of JazzUploadFile.checkSelectedFileName
+//    Return if the file is unvalid. The check function has displayed an error message
+// 2. Set the server full file name in the DOC text box. Please note however that the
+//    actual server directory name is set by UploadFileToServer.php
+//    Call of JazzUploadFile.getSelectedFileServerUrl and JazztextBox.setValue
+// 3. Return with the message that upload cannot be done with VSC Live server
+//    Call of execApplicationOnServer
+// 4. Set the active record full file name. Call of getUserInputFromFormSetActiveRecordLinkDoc
+//    Return from php uses this value
+// 5. Set the caption for the button that the user shall klick to upload the selected file
+//    Call of JazzUploadFile.displayButtonCaption
 function eventUserSelectedDoc()
 {
     var selected_doc = g_doc_upload.getSelectedFileName();
@@ -168,9 +179,18 @@ function eventUserSelectedDoc()
 
             return;
         }
-        
+
+        if (!getUserInputFromFormSetActiveRecordLinkDoc()) 
+        {
+            alert("eventUserSelectedDoc getUserInputFromFormSetActiveRecordLinkDoc failed");
+
+            //?? return;
+        }
+
         g_doc_upload.displayButtonCaption();
-    }
+        
+    } // b_check
+ 
 
 } // eventUserSelectedDoc
 
@@ -372,6 +392,27 @@ function oninputRemark()
 // Returns false for not valid input data
 function getUserInputFromFormSetActiveRecord()
 {
+    if (!getUserInputFromFormSetActiveRecordTitle()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordDescription()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordRemark()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordRemindDay()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordRefLink()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordRefDescription()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordLinkDoc()) return false;
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecord
+
+// Gets, checks and sets the input form data for the title
+function getUserInputFromFormSetActiveRecordTitle()
+{
     var task_title = g_title_text_box.getValue();
 
     if (!JazzTask.checkJazzTaskTitle(task_title))
@@ -383,7 +424,14 @@ function getUserInputFromFormSetActiveRecord()
 
     g_record_active_task.setJazzTaskTitle(task_title);
 
-    var task_description = g_description_text_box.getValue();
+    return true;
+
+} // getUserInputFromFormSetActiveRecordTitle
+
+// Gets, checks and sets the input form data for the description
+function getUserInputFromFormSetActiveRecordDescription()
+{
+     var task_description = g_description_text_box.getValue();
 
     if (!JazzTask.checkJazzTaskDescription(task_description))
     {
@@ -392,9 +440,15 @@ function getUserInputFromFormSetActiveRecord()
         return false;
     }
 	
-	g_record_active_task.setJazzTaskDescription(task_remark);
-	    
+	g_record_active_task.setJazzTaskDescription(task_description);
 
+    return true;
+
+} // getUserInputFromFormSetActiveRecordDescription
+
+// Gets, checks and sets the input form data for the remark
+function getUserInputFromFormSetActiveRecordRemark()
+{
     var task_remark = g_remark_text_box.getValue();
 
     if (!JazzTask.checkJazzTaskRemark(task_remark))
@@ -406,6 +460,13 @@ function getUserInputFromFormSetActiveRecord()
 
     g_record_active_task.setJazzTaskRemark(task_remark);
 
+    return true;
+
+} // getUserInputFromFormSetActiveRecordRemark
+
+// Gets, checks and sets the input form data for the remind day
+function getUserInputFromFormSetActiveRecordRemindDay()
+{
     var remind_date_str = g_remind_date_text_box.getValue();
 
     var remind_month = getMonthFromIsoDateString(remind_date_str);
@@ -416,18 +477,42 @@ function getUserInputFromFormSetActiveRecord()
 
     g_record_active_task.setJazzTaskRemindDay(remind_day);
 
+    return true;
+
+} // getUserInputFromFormSetActiveRecordRemindDay
+
+// Gets, checks and sets the input form data for the reference link
+function getUserInputFromFormSetActiveRecordRefLink()
+{
     var ref_link_str = g_ref_link_text_box.getValue();
 
     g_record_active_task.setJazzTaskRefLink(g_active_reference_number, ref_link_str);
 
+    return true;
+
+} // getUserInputFromFormSetActiveRecordRefLink
+
+// Gets, checks and sets the input form data for the reference description
+function getUserInputFromFormSetActiveRecordRefDescription()
+{
     var ref_descr_str = g_ref_descr_text_box.getValue();
 
     g_record_active_task.setJazzTaskRefDescription(g_active_reference_number, ref_descr_str);
 
     return true;
 
-} // getUserInputFromFormSetActiveRecord
+} // getUserInputFromFormSetActiveRecordRefDescription
 
+// Gets, checks and sets the input form data for the link DOC document
+function getUserInputFromFormSetActiveRecordLinkDoc()
+{
+    var link_doc_str = g_doc_text_box.getValue();
+
+    g_record_active_task.setJazzTaskLinkDoc(link_doc_str);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordLinkDoc
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Get User Form Input /////////////////////////////////////////

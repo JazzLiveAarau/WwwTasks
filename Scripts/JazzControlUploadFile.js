@@ -1,5 +1,5 @@
 // File: JazzControlUploadFile.js
-// Date: 2020-06-25
+// Date: 2021-04-12
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -121,7 +121,7 @@ class JazzUploadFile
     {
         var ret_url = '';
 
-        ret_url = ret_url + '/www/JazzTasks/Documents/' + this.getSelectedFileName();
+        ret_url = ret_url + '/www/Tasks/Documents/' + this.getSelectedFileName();
 
         return ret_url;
 

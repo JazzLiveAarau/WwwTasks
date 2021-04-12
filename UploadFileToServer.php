@@ -3,7 +3,7 @@
         <?php
 
         // File: UploadFileToServer.php
-        // Date: 2020-06-12
+        // Date: 2021-04-12
         // Author: Gunnar Lidén
 
         // Uploads a file to the server
@@ -65,6 +65,8 @@
         } 
         else 
         {
+            echo "Datei ". $file_name . " wird (mit Funktion move_uploaded_file) zum Ordner ". $target_dir . "hochgeladen<br>";
+
             if (move_uploaded_file($_FILES["name_file_to_upload"]["tmp_name"], $target_file)) 
             {
                 echo "Datei ". $file_name . " ist zum Server hochgeladen (Ordner ". $target_dir . ")<br>";
@@ -73,7 +75,7 @@
             } 
             else 
             {
-                echo "UploadFileToServer Sorry, there was an error uploading your file.<br>";
+                echo "UploadFileToServer Sorry, there was an error uploading your file. Function move_uploaded_file failed.<br>";
 
                 $status_msg = $status_msg . "UploadFileToServer Sorry, there was an error uploading your file.";
             }

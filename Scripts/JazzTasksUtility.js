@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2020-06-24
+// Date: 2021-04-12
 // Author: Gunnar Lidén
 
 // Content
@@ -11,15 +11,13 @@
 ///////////////////////// Start Server Execution Mode /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-//  http://www.jazzliveaarau.ch/GunnarTask
-
 // Returns true if the jazz tasks application is running on the server
 // Returns false if it is running on the Visual Studio Code Live Server
 function execApplicationOnServer()
 {
     var current_base = window.location.href;
 
-    var server_url = 'http://www.jazzliveaarau.ch';
+    var server_url = 'https://www.jazzliveaarau.ch';
 
     var index_url = current_base.indexOf(server_url);
 
