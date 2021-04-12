@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-11
+// Date: 2021-04-12
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -55,6 +55,9 @@ var g_pdf_upload = null;
 
 // Control upload of a DOC document to the server
 var g_upload_doc_button = null;
+
+// Control download of a DOC document from the server
+var g_download_doc_button = null;
 
 // The text box for the description
 var g_description_text_box = null;
@@ -322,6 +325,13 @@ function eventClickUploadDoc()
 
 } // eventClickUploadDoc
 
+// User clicked the download DOC button
+function eventClickDownloadDoc()
+{
+    alert("Enter eventClickDownloadDoc");
+
+} // eventClickDownloadDoc
+
 // Event function when user added or deleted a character in the title text box
 function oninputTitle()
 {
@@ -366,15 +376,31 @@ function getUserInputFromFormSetActiveRecord()
 
     if (!JazzTask.checkJazzTaskTitle(task_title))
     {
+        alert("Title error");
+
         return false;
     }
 
     g_record_active_task.setJazzTaskTitle(task_title);
 
+    var task_description = g_description_text_box.getValue();
+
+    if (!JazzTask.checkJazzTaskDescription(task_description))
+    {
+        alert("Description error");
+
+        return false;
+    }
+	
+	g_record_active_task.setJazzTaskDescription(task_remark);
+	    
+
     var task_remark = g_remark_text_box.getValue();
 
     if (!JazzTask.checkJazzTaskRemark(task_remark))
     {
+        alert("Remark error");
+
         return false;
     }
 
@@ -421,6 +447,10 @@ function setControlValues()
     var task_title = g_record_active_task.getJazzTaskTitle();
 
     g_title_text_box.setValue(task_title);
+
+    var task_description = g_record_active_task.getJazzTaskDescription();
+
+    g_description_text_box.setValue(task_description);
 
     var task_remark = g_record_active_task.getJazzTaskRemark();
 
@@ -480,6 +510,8 @@ function createControls()
     // createUploadPdfControl();
 
     createUploadDocButton();
+
+    createDownloadDocButton();
 
     createRemindDatePickerControl();
 
@@ -583,7 +615,7 @@ function createTaskSaveButton()
 // Creates the upload doc button control
 function createUploadDocButton()
 {
-    g_upload_doc_button = new JazzButton("id_button_upload_doc", "id_div_upload_doc_button");
+    g_upload_doc_button = new JazzButton("id_button_upload_doc", getIdDivElementUploadDocButton());
 
     g_upload_doc_button.setOnclickFunctionName("eventClickUploadDoc");
 
@@ -592,6 +624,19 @@ function createUploadDocButton()
     g_upload_doc_button.setTitle("Ein DOC Datei hochladen");
 
 } // createUploadDocButton
+
+// Creates the download doc button control
+function createDownloadDocButton()
+{
+    g_download_doc_button = new JazzButton("id_button_download_doc", getIdDivElementDownloadDocButton());
+
+    g_download_doc_button.setOnclickFunctionName("eventClickDownloadDoc");
+
+    g_download_doc_button.setCaption("Download");
+
+    g_download_doc_button.setTitle("Ein DOC Datei herunterladen");
+
+} // createDownloadDocButton
 
 // Create the title text box
 function createTextBoxTitle()

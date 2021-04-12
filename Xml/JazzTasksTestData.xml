@@ -4,7 +4,7 @@
     <JazzTask>
         <JazzTaskRegNumber>A0001</JazzTaskRegNumber>
         <JazzTaskTitle>Fotos auf die Homepage stellen und auf dem Server speichern</JazzTaskTitle>
-        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskDescription>Additional (short) description of the task</JazzTaskDescription>
         <JazzTaskRemark>Remark set by a JavaScript function initJazzTasksAfterLoadOfXml</JazzTaskRemark>
         <JazzTaskLinkDoc>/www/Administration/Aufgaben/A0001.docx</JazzTaskLinkDoc>
         <JazzTaskLinkPdf>/www/Administration/Aufgaben/A0001.pdf</JazzTaskLinkPdf>

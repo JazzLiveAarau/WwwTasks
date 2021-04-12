@@ -240,3 +240,17 @@ function getIdElementRefDescr()
 
 } // getIdElementRefDescr
 
+// Return value is the identity of the div element upload DOC button
+function getIdDivElementUploadDocButton()
+{
+    return 'id_div_upload_doc_button';
+
+} // getIdDivElementUploadDocButton
+
+// Return value is the identity of the div element download DOC button
+function getIdDivElementDownloadDocButton()
+{
+    return 'id_div_download_doc_button';
+
+} // getIdDivElementDownloadDocButton
+

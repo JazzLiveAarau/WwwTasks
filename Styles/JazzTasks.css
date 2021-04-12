@@ -1,5 +1,5 @@
 /* 
-File: JazzTasks.css Date: 2021-04-11 Author: Hanni Heller / Gunnar Liden
+File: JazzTasks.css Date: 2021-04-12 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -24,6 +24,12 @@ width: 500px;
 height: 670px;
 }
 
+/* For all <label> elements */
+label
+{
+    margin-left: 10px;
+}
+
 /* Header <div> Element */
 .cl_tasks_header
 {
@@ -41,6 +47,32 @@ width: 100%;
 {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+/* Select task and registration number <div> element */
+.cl_div_select_reg_number
+{
+    clear: both;
+    margin-top: 10px;
+    margin-left: 10px;
+    overflow: hidden;   
+}
+
+/* Select task <div> element */
+.cl_tasks_select_task
+{
+/* border:solid 2px black; */
+width: 80%;
+padding: 2px;
+float: left;
+}
+
+/* Registration number <div> element */
+.cl_div_reg_number
+{
+    /* border:solid 2px black; */
+    width: 15%;
+    float: left;
 }
 
 /* Title und delete button <div> element */
@@ -81,60 +113,40 @@ float: left;
     padding: 6px; 
 }
 
-/* For all <label> elements */
-label
+/* DOC link text, upload and download <div> element */
+.cl_div_display_upload_button
 {
-    margin-left: 10px;
-}
-
-.cl_tasks_select_task
-{
-/* border:solid 2px black; */
-width: 80%;
-padding: 2px;
-float: left;
-}
-
-.cl_div_reg_number
-{
-    /* border:solid 2px black; */
-    width: 15%;
-    float: left;
-}
-
-.cl_div_select_reg_number
-{
-    clear: both;
-    margin-top: 10px;
-    margin-left: 10px;
     overflow: hidden;
-    
+    clear: both;
 }
 
+/* DOC link text <div> element */
 .cl_tasks_task_link_doc_file
 {
-/* border: solid 2px rgb(44, 7, 131); */
-width: 70%;
-padding: 6px;  
-float: left;  
+    /* border: solid 2px rgb(44, 7, 131); */
+    padding: 6px;  
+    float: left;  
 }
-
+/* DOC upload <div> element */
 .cl_div_upload_doc_button
 {
-    /* border: solid 2px rgb(44, 7, 131); */
-    width: 15%;
+    /* border: solid 2px rgb(44, 7, 131); */  
     margin-left: 5px;
     padding-top: 25px;
     float: left;
 }
 
-.cl_div_display_upload_button
+/* DOC download <div> element */
+.cl_div_download_doc_button
 {
-    margin-top: 20px;
-    overflow: hidden;
-    clear: both;
+    /* border: solid 2px rgb(44, 7, 131); */
+    margin-left: 5px;
+    margin-right: 10px;
+    padding-top: 25px;
+    float: right;
 }
 
+/* DOC <div> element that opens when user clicks the upload button*/
 .cl_div_upload_doc
 {
     border: solid 2px rgb(143, 50, 110);
@@ -153,6 +165,7 @@ float: left;
     padding: 6px;  
     clear: both;  
 }
+
 
 .cl_div_remind_date
 {
