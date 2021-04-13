@@ -92,6 +92,53 @@ function saveFileWithJQueryPostFunction(i_file_name, i_content_string)
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Basic Backup File Function  ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Backup a file with the JQuery function "post"
+// Please refer to BackupFileOnServer.php for a detailed description of "post"
+// Input parameter i_url_file_to_copy is the url for server file name that shall be copied
+// Input parameter i_url_file_backup is the url for server file name for the backup copy
+// The function returns false for failure
+function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
+{
+    if (!execApplicationOnServer())
+    {
+        alert("backupFileWithJQueryPostFunction BackupFileOnServer.php cannot be executed on the local (live) server");
+
+        return false;
+    }
+
+    $.post
+      ('BackupFileOnServer.php',
+        {
+          file_to_copy: i_url_file_to_copy,
+          file_backup: i_url_file_backup
+        },
+        function(data_save,status_save)
+		{
+            if (status_save == "success")
+            {
+                alert(data_save);
+            }
+            else
+            {
+				alert("Execution of BackupFileOnServer.php failed");
+				return false;
+            }          
+        } // function
+      ); // post
+	  
+    return true;	  
+	
+} // backupFileWithJQueryPostFunction
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Basic Backup File Function  /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Date Functions ////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 

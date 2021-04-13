@@ -169,6 +169,9 @@ function eventUserSelectedDoc()
 
     if (b_check)
     {
+        var case_str = "DOC";
+
+        createBackupIfFileExistsOnServer(case_str);
 
         var file_server_url = g_doc_upload.getSelectedFileServerUrl();
 
@@ -193,8 +196,73 @@ function eventUserSelectedDoc()
         
     } // b_check
  
-
 } // eventUserSelectedDoc
+
+// Creates a backup if file exists on the server
+function createBackupIfFileExistsOnServer(i_case_str)
+{
+    var path_file_name = '';
+
+    if ('DOC' == i_case_str)
+    {
+        path_file_name = g_record_active_task.getJazzTaskLinkDoc();
+    }
+    else if ('PDF' == i_case_str)
+    {
+        path_file_name = g_record_active_task.getJazzTaskLinkPdf();
+    }
+    else
+    {
+        return;
+    }
+
+    if (path_file_name.length == 0)
+    {
+        return;
+    }
+
+    var file_name = getFileBasename(path_file_name);
+
+    var backup_file_name = getBackupFileName(file_name);
+
+    var url_file_to_copy = "Documents/" + file_name;
+
+    var url_file_backup = "Documents/Backups/" + backup_file_name;
+
+    backupFileWithJQueryPostFunction(url_file_to_copy, url_file_backup);
+
+} // createBackupIfFileExistsOnServer
+
+// Returns the basename, i.e the file name without path
+function getFileBasename(i_path_file)
+{
+    var index_last_slash = -1;
+
+    for (var index_char = 0; index_char < i_path_file.length; index_char++)
+    {
+        var current_char = i_path_file.substring(index_char, index_char+1);
+
+        if (current_char == "/")
+        {
+            index_last_slash = index_char;
+        }
+
+        if (current_char == ".")
+        {
+            break;
+        }
+    }
+
+    if (index_last_slash < 0)
+    {
+        return i_path_file;
+    }
+
+    var ret_base_name = i_path_file.substring(index_last_slash + 1);
+
+    return ret_base_name;
+
+} // getFileBasename
 
 // The user selected a PDF that shall be uploaded
 function eventUserSelectedPdf()

@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-04-12
+// Date: 2021-04-13
 // Author: Gunnar Lidén
 
 // Content
@@ -173,4 +173,74 @@ function getDayFromIsoDateString(i_iso_date_str)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Date Functions //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Backup File Name Functions ////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Returns a backup file name
+function getBackupFileName(i_file_name)
+{
+    var ret_backup_name = '';
+
+    var index_slash = i_file_name.indexOf("/");
+    if (index_slash >= 0)
+    {
+        alert("getBackupFileName Input file with path is not allowed (" + i_file_name + ")");
+
+        return ret_backup_name;
+    }
+
+    var index_pt = i_file_name.indexOf(".");
+    
+    if (index_pt < 0)
+    {
+        alert("getBackupFileName Input file with no extension is not allowed (" + i_file_name + ")");
+        
+        return ret_backup_name;
+    }
+
+    var file_name_without_ext = i_file_name.substring(0, index_pt);
+
+    var file_ext = i_file_name.substring(index_pt);
+
+    var current_date = new Date();
+
+    var current_year = current_date.getFullYear().toString();
+
+    var current_month = addZeroDateTime(current_date.getMonth() + 1); // 0, 1, ...
+
+    var current_day = addZeroDateTime(current_date.getDate());
+  
+    var current_hour = addZeroDateTime(current_date.getHours());
+  
+    var current_minutes = addZeroDateTime(current_date.getMinutes());
+
+    var current_seconds = addZeroDateTime(current_date.getSeconds());
+
+    ret_backup_name = file_name_without_ext + '_' + current_year + current_month + 
+                      current_day + '_' + current_hour + '_' + current_minutes + '_' + current_seconds;
+
+    ret_backup_name = ret_backup_name + file_ext;
+  
+    return ret_backup_name;
+
+} // getBackupFileName
+
+function addZeroDateTime(i_time)
+{
+    var ret_time = i_time.toString();
+
+    if (ret_time.length == 1)
+    {
+      ret_time = '0' + ret_time;
+    }
+
+    return ret_time;
+
+} // addZeroDateTime
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Backup File Name Functions //////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
