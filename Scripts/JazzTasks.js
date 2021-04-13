@@ -148,20 +148,22 @@ function initJazzTasksAfterLoadOfXml()
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // The user has selected a DOC local file that shall be uploaded
-// 1. Check if the selected file is OK. Call of JazzUploadFile.checkSelectedFileName
+// 1. Set the selected file name and activate the upload file function.
+//    Call setSelectedFileNameActivateUploadFileFunction
+// 2. Check if the selected file is OK. Call of JazzUploadFile.checkSelectedFileName
 //    Return if the file is unvalid. The check function has displayed an error message
-// 2. Set the server full file name in the DOC text box. Please note however that the
+// 3. Set the server full file name in the DOC text box. Please note however that the
 //    actual server directory name is set by UploadFileToServer.php
 //    Call of JazzUploadFile.getSelectedFileServerUrl and JazztextBox.setValue
-// 3. Return with the message that upload cannot be done with VSC Live server
+// 4. Return with the message that upload cannot be done with VSC Live server
 //    Call of execApplicationOnServer
-// 4. Set the active record full file name. Call of getUserInputFromFormSetActiveRecordLinkDoc
+// 5. Set the active record full file name. Call of getUserInputFromFormSetActiveRecordLinkDoc
 //    Return from php uses this value
-// 5. Set the caption for the button that the user shall klick to upload the selected file
+// 6. Set the caption for the button that the user shall klick to upload the selected file
 //    Call of JazzUploadFile.displayButtonCaption
 function eventUserSelectedDoc()
 {
-    var selected_doc = g_doc_upload.getSelectedFileName();
+    g_doc_upload.setSelectedFileNameActivateUploadFileFunction();
 
     var b_check = g_doc_upload.checkSelectedFileName(g_record_active_task.getJazzTaskRegNumber());
 
@@ -197,7 +199,7 @@ function eventUserSelectedDoc()
 // The user selected a PDF that shall be uploaded
 function eventUserSelectedPdf()
 {
-    var selected_pdf = g_pdf_upload.getSelectedFileName();
+    g_pdf_upload.setSelectedFileNameActivateUploadFileFunction();
 
     var b_check = g_pdf_upload.checkSelectedFileName(g_record_active_task.getJazzTaskRegNumber());
 

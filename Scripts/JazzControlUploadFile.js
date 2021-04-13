@@ -101,8 +101,8 @@ class JazzUploadFile
     // Set and get functions
     // =====================
  
-    // Get the selected file name
-    getSelectedFileName()
+    // Set the selected file name and activate the upload file function
+    setSelectedFileNameActivateUploadFileFunction()
     {
         var el_upload = this.getHtmlElement();
 
@@ -110,13 +110,19 @@ class JazzUploadFile
 
         this.m_selected_file_name = this.getOnlyFileName(path_file_name);
 
-        this.upLoadFileWithAjax();
+        this.activateAjaxUploadFunction();
 
-        return this.m_selected_file_name;
+    } // setSelectedFileNameActivateUploadFileFunction
+
+    // Returns the selected file name (without path)
+    getSelectedFileName()
+    {
+        return  this.m_selected_file_name;
 
     } // getSelectedFileName
 
     // Get the server URL (address) for the selected file.
+    // Please note that the actual directory path is set by UploadFileToServer.php
     getSelectedFileServerUrl()
     {
         var ret_url = '';
@@ -348,16 +354,23 @@ function replaceAll(txt, replace, with_this) {
 
     } // checkContainerElement
 
-    upLoadFileWithAjax()
+    // Activates the function (the form) that will upload a file. When the user clicks the
+    // submit button of the form the file will be uploaded.  
+    // The input data is the <form> that holds the input data for the upload. 
+    // The submit button event function is set to the file UploadFileToServer.php and
+    // the one input variable is the file name.
+    // Do not fully understand how it works...
+    activateAjaxUploadFunction()
     {
-    //$(document).ready(function() { 
+        // alert("Enter activateAjaxUploadFunction");
+
         $('#' + this.m_id_upload_form).ajaxForm(function() { 
-           //???? undefined ????? alert(this.m_selected_file_name + ' ist hochgeladen');
            alert('Datei ist hochgeladen');
         }); 
-    //});
 
-    } // upLoadFileWithAjax
+        // alert("Exit activateAjaxUploadFunction");
+
+    } // activateAjaxUploadFunction
 
     // Sets the control
     setControl()
