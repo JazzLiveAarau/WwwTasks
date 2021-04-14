@@ -158,15 +158,23 @@ float: left;
     clear: both;  
 }
 
+/* Container <div> element for dates */
+.cl_div_dates
+{
+    /* border: solid 1px rgb(143, 50, 110); */
+    overflow: hidden;
+    width: 90%;
+    padding: 6px;  
+    clear: both;   
+}
 
-.cl_div_remind_date
+/* Date - remind and due - <div> element */
+.cl_div_date
 {
     /* border: solid 2px rgb(143, 50, 110); */
-    width: 30%;
-    height: 40px;
-    margin-top: 10px;
+    width: 25%;
     margin-left: 20px;
-    clear: both;
+    float: left;
 }
 
 .cl_tasks_task_saving

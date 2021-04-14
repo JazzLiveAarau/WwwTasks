@@ -44,6 +44,9 @@ var g_title_text_box = null;
 // The text box for the remind date picker
 var g_remind_date_text_box = null;
 
+// The text box for the due date picker
+var g_due_date_text_box = null;
+
 // The text box for the document doc
 var g_doc_text_box = null;
 
@@ -466,6 +469,8 @@ function getUserInputFromFormSetActiveRecord()
 
     if (!getUserInputFromFormSetActiveRecordRemindDay()) return false;
 
+    if (!getUserInputFromFormSetActiveRecordFinishDay()) return false;
+
     if (!getUserInputFromFormSetActiveRecordRefLink()) return false;
 
     if (!getUserInputFromFormSetActiveRecordRefDescription()) return false;
@@ -546,6 +551,23 @@ function getUserInputFromFormSetActiveRecordRemindDay()
     return true;
 
 } // getUserInputFromFormSetActiveRecordRemindDay
+
+// Gets, checks and sets the input form data for the finish (due) day
+function getUserInputFromFormSetActiveRecordFinishDay()
+{
+    var finish_date_str = g_due_date_text_box.getValue();
+
+    var finish_month = getMonthFromIsoDateString(finish_date_str);
+
+    var finish_day = getDayFromIsoDateString(finish_date_str);
+
+    g_record_active_task.setJazzTaskFinishMonth(finish_month);
+
+    g_record_active_task.setJazzTaskFinishDay(finish_day);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordFinishDay
 
 // Gets, checks and sets the input form data for the reference link
 function getUserInputFromFormSetActiveRecordRefLink()
@@ -634,6 +656,14 @@ function setControlValues()
 
     g_remind_date_text_box.setValue(date_remind_str);
 
+    var finish_day = g_record_active_task.getJazzTaskFinishDay();
+
+    var finish_month = g_record_active_task.getJazzTaskFinishMonth();
+
+    var date_finish_str = getRemindFinishDateWithYear(finish_month, finish_day);
+
+    g_due_date_text_box.setValue(date_finish_str);
+	
     var ref_link_str = g_record_active_task.getJazzTaskRefLink(g_active_reference_number);
 
     g_ref_link_text_box.setValue(ref_link_str);
@@ -686,6 +716,8 @@ function createControls()
     createDownloadPdfButton();
 
     createRemindDatePickerControl();
+
+    createDueDatePickerControl();
 
     createReferenceDropdown();
 
@@ -972,10 +1004,10 @@ function createUploadPdfControl()
 
 } // createUploadPdfControl
 
-// Create the title text box
+// Create the remind date control
 function createRemindDatePickerControl()
 {
-    g_remind_date_text_box = new JazzDatePicker("id_remind_date", 'id_div_remind_date');
+    g_remind_date_text_box = new JazzDatePicker('id_remind_date', getIdDivElementRemindDate());
 
     g_remind_date_text_box.setLabelText("Remind date");
 
@@ -988,6 +1020,23 @@ function createRemindDatePickerControl()
     g_remind_date_text_box.startDatePicker();
   
 } // createRemindDatePickerControl
+
+// Create the due date control
+function createDueDatePickerControl()
+{
+    g_due_date_text_box = new JazzDatePicker('id_due_date', getIdDivElementDueDate());
+
+    g_due_date_text_box.setLabelText("Due date");
+
+    g_due_date_text_box.setSize("10");
+
+    g_due_date_text_box.setLabelTextPositionAbove();
+
+    g_due_date_text_box.setTitle("Kommende Datum wird gezeigt. Nur Monat und Tag werden gespeichert.");
+
+    g_due_date_text_box.startDatePicker();
+  
+} // createDueDatePickerControl
 
 // Create the reference link text box
 function createTextBoxReferenceLink()

@@ -274,3 +274,17 @@ function getIdDivElementDownloadPdfButton()
     return 'id_div_download_pdf_button';
 
 } // getIdDivElementDownloadPdfButton
+
+// Return value is the identity of the div element remind date
+function getIdDivElementRemindDate()
+{
+    return 'id_div_remind_date';
+
+} // getIdDivElementDownloadPdfButton
+
+// Return value is the identity of the div element finish (due) date
+function getIdDivElementDueDate()
+{
+    return 'id_div_due_date';
+
+} // getIdDivElementDueDate

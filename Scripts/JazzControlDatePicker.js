@@ -1,5 +1,5 @@
 // File: JazzControlDatePicker.js
-// Date: 2020-06-24
+// Date: 2021-04-14
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -74,8 +74,10 @@ class JazzDatePicker
     // Start the date picker
     startDatePicker()
     {
+        var ref_id_str = '#' + this.m_id_date_picker;
+
         $(function() { 
-            $( '#' + this.m_id_date_picker).datepicker(
+            $(ref_id_str).datepicker(
                 { 
                 dateFormat: 'yy-mm-dd'
             }); 
@@ -235,7 +237,7 @@ class JazzDatePicker
     // Returns the HTML text box element 
     getHtmlElement()
     {
-        return document.getElementById(this.m_id_text_box);
+        return document.getElementById(this.m_id_date_picker);
 
     } // getHtmlElement
 
@@ -248,16 +250,16 @@ class JazzDatePicker
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'left')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
+                getHtmlElementLabelString(this.m_label_text, this.m_id_date_picker, this.m_title);
         }
 
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'above')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title) + '<br>';
+                getHtmlElementLabelString(this.m_label_text, this.m_id_date_picker, this.m_title) + '<br>';
         }
 
-        ret_html_str = ret_html_str + '<input type="text" id="' + this.m_id_text_box + '" ';
+        ret_html_str = ret_html_str + '<input type="text" id="' + this.m_id_date_picker + '" ';
 
         if (this.m_class.length > 0)
         {
@@ -286,7 +288,7 @@ class JazzDatePicker
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'right')
         {
             ret_html_str = ret_html_str + 
-                getHtmlElementLabelString(this.m_label_text, this.m_id_text_box, this.m_title);
+                getHtmlElementLabelString(this.m_label_text, this.m_id_date_picker, this.m_title);
         }
 
         return ret_html_str;
