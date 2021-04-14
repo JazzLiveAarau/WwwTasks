@@ -47,6 +47,9 @@ var g_remind_date_text_box = null;
 // The text box for the document doc
 var g_doc_text_box = null;
 
+// The text box for the document pdf
+var g_pdf_text_box = null;
+
 // The object of class JazzUploadFile for the upload of the DOC file 
 var g_doc_upload = null;
 
@@ -56,8 +59,14 @@ var g_pdf_upload = null;
 // Control upload of a DOC document to the server
 var g_upload_doc_button = null;
 
+// Control upload of a PDF document to the server
+var g_upload_pdf_button = null;
+
 // Control download of a DOC document from the server
 var g_download_doc_button = null;
+
+// Control download of a PDF document from the server
+var g_download_pdf_button = null;
 
 // The text box for the description
 var g_description_text_box = null;
@@ -205,6 +214,10 @@ function eventUserSelectedPdf()
 
     if (b_check)
     {
+        var case_str = "PDF";
+
+        createBackupIfFileExistsOnServer(case_str);
+
         var file_server_url = g_pdf_upload.getSelectedFileServerUrl();
 
         g_pdf_text_box.setValue(file_server_url);
@@ -216,9 +229,15 @@ function eventUserSelectedPdf()
 
             return;
         }
-        
+
+        if (!getUserInputFromFormSetActiveRecordLinkPdf()) 
+        {
+            alert("eventUserSelectedDoc getUserInputFromFormSetActiveRecordLinkPdf failed");
+        }
+
         g_pdf_upload.displayButtonCaption();
-    }
+        
+    } // b_check
 
 } // eventUserSelectedPdf
 
@@ -251,9 +270,11 @@ function eventSelectTaskDropDown()
 
     g_doc_upload.hideUploadDiv(true);
 
-    //g_pdf_upload.hideButtonCaption();
+    g_pdf_upload.hideButtonCaption();
 
-    //g_pdf_upload.initSelectedFileName();
+    g_pdf_upload.initSelectedFileName();
+
+    g_pdf_upload.hideUploadDiv(true);
 
 } // eventSelectTaskDropDown
 
@@ -347,6 +368,13 @@ function eventClickUploadDoc()
 
 } // eventClickUploadDoc
 
+// User clicked the upload PDF button
+function eventClickUploadPdf()
+{
+    g_pdf_upload.hideUploadDiv(false);
+
+} // eventClickUploadPdf
+
 // User clicked the download DOC button
 function eventClickDownloadDoc()
 {
@@ -365,6 +393,24 @@ function eventClickDownloadDoc()
 
 } // eventClickDownloadDoc
 
+// User clicked the download PDF button
+function eventClickDownloadPdf()
+{
+    var pdf_path_file_name = g_record_active_task.getJazzTaskLinkPdf();
+
+    if (pdf_path_file_name.length == 0)
+    {
+        return;
+    }
+
+    var pdf_file_name = getFileBasename(pdf_path_file_name);
+
+    var pdf_url = 'https://jazzliveaarau.ch/Tasks/Documents/' + pdf_file_name;
+
+    window.open(pdf_url);
+
+} // eventClickDownloadPdf
+
 // Event function when user added or deleted a character in the title text box
 function oninputTitle()
 {
@@ -378,6 +424,13 @@ function oninputDoc()
     //alert("New value is" + g_doc_text_box.getValue());
 
 } // oninputDoc
+
+// Event function when user added or deleted a character in the pdf text box
+function oninputPdf()
+{
+    //alert("New value is" + g_pdf_text_box.getValue());
+
+} // oninputPdf
 
 // Event function when user added or deleted a character in the description text box
 function oninputDescription()
@@ -527,6 +580,17 @@ function getUserInputFromFormSetActiveRecordLinkDoc()
 
 } // getUserInputFromFormSetActiveRecordLinkDoc
 
+// Gets, checks and sets the input form data for the link DOC document
+function getUserInputFromFormSetActiveRecordLinkPdf()
+{
+    var link_pdf_str = g_pdf_text_box.getValue();
+
+    g_record_active_task.setJazzTaskLinkPdf(link_pdf_str);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordLinkPdf
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Get User Form Input /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -557,6 +621,10 @@ function setControlValues()
     var task_doc = g_record_active_task.getJazzTaskLinkDoc();
 
     g_doc_text_box.setValue(task_doc);
+
+    var task_pdf = g_record_active_task.getJazzTaskLinkPdf();
+
+    g_pdf_text_box.setValue(task_pdf);
 
     var remind_day = g_record_active_task.getJazzTaskRemindDay();
 
@@ -601,15 +669,21 @@ function createControls()
 
     createTextBoxDoc();
 
+    createTextBoxPdf();
+
     createTaskSaveButton();
 
     createUploadDocControl();
 
-    // createUploadPdfControl();
+    createUploadPdfControl();
 
     createUploadDocButton();
 
+    createUploadPdfButton();
+
     createDownloadDocButton();
+
+    createDownloadPdfButton();
 
     createRemindDatePickerControl();
 
@@ -723,6 +797,19 @@ function createUploadDocButton()
 
 } // createUploadDocButton
 
+// Creates the upload pdf button control
+function createUploadPdfButton()
+{
+    g_upload_pdf_button = new JazzButton("id_button_upload_pdf", getIdDivElementUploadPdfButton());
+
+    g_upload_pdf_button.setOnclickFunctionName("eventClickUploadPdf");
+
+    g_upload_pdf_button.setCaption("Upload");
+
+    g_upload_pdf_button.setTitle("Ein PDF Datei hochladen");
+
+} // createUploadPdfButton
+
 // Creates the download doc button control
 function createDownloadDocButton()
 {
@@ -735,6 +822,19 @@ function createDownloadDocButton()
     g_download_doc_button.setTitle("Ein DOC Datei herunterladen");
 
 } // createDownloadDocButton
+
+// Creates the download pdf button control
+function createDownloadPdfButton()
+{
+    g_download_pdf_button = new JazzButton("id_button_download_pdf", getIdDivElementDownloadPdfButton());
+
+    g_download_pdf_button.setOnclickFunctionName("eventClickDownloadPdf");
+
+    g_download_pdf_button.setCaption("Download");
+
+    g_download_pdf_button.setTitle("Ein PDF Datei herunterladen");
+
+} // createDownloadPdfButton
 
 // Create the title text box
 function createTextBoxTitle()
@@ -821,6 +921,23 @@ function createTextBoxDoc()
   
 } // createTextBoxDoc
 
+// Create the PDF text box
+function createTextBoxPdf()
+{
+    g_pdf_text_box = new JazzTextBox("id_pdf_text_box", getIdDivElementPdf());
+
+    g_pdf_text_box.setLabelText("PDF");
+
+    g_pdf_text_box.setLabelTextPositionAbove();
+
+    g_pdf_text_box.setSize("40");
+
+    g_pdf_text_box.setTitle("Link zu einem PDF Dokument, das die Aufgabe beschreibt.");
+
+    g_pdf_text_box.setOninputFunctionName("oninputPdf");
+  
+} // createTextBoxPdf
+
 // Create control for uploading of a DOC file
 function createUploadDocControl()
 {
@@ -850,6 +967,8 @@ function createUploadPdfControl()
     g_pdf_upload.setButtonCaption("Datei hochladen");
 
     g_pdf_upload.setExtensions(".pdf");
+
+    g_pdf_upload.hideUploadDiv(true);
 
 } // createUploadPdfControl
 

@@ -83,7 +83,13 @@ function getIdDivElementDoc()
 
 } // getIdDivElementDoc
 
-// id_tasks_select_task
+// Funktionsrückgabewert ist die Identität des Div-Elements für das DOC Dokument
+// Return value is the identity of the div element for the DOC document
+function getIdDivElementPdf()
+{
+    return 'id_tasks_task_link_pdf_file';
+
+} // getIdDivElementPdf
 
 // Return value is the identity of the div element that is used for the dropdown
 function getIdDivElementDropdown()
@@ -120,6 +126,7 @@ function getIdElementInputDoc()
 
 } // getIdElementInputDoc
 
+/*QQQQ
 // Returns the div element for the doc document input element
 function getDivElementInputDoc()
 {
@@ -130,10 +137,10 @@ function getDivElementInputDoc()
 // Returns the identity of the div for the doc document element
 function getIdDivElementInputDoc()
 {
-    return 'id_tasks_task_link_doc_file';
+    return 'id_ tasks_task_link_doc_file';
 
 } // getIdDivElementInputDoc
-
+QQQ*/
 
 // Get the div for the display of the XML file
 function getElementDivDisplayXml()
@@ -247,6 +254,13 @@ function getIdDivElementUploadDocButton()
 
 } // getIdDivElementUploadDocButton
 
+// Return value is the identity of the div element upload PDF button
+function getIdDivElementUploadPdfButton()
+{
+    return 'id_div_upload_pdf_button';
+
+} // getIdDivElementUploadPdfButton
+
 // Return value is the identity of the div element download DOC button
 function getIdDivElementDownloadDocButton()
 {
@@ -254,3 +268,9 @@ function getIdDivElementDownloadDocButton()
 
 } // getIdDivElementDownloadDocButton
 
+// Return value is the identity of the div element download PDF button
+function getIdDivElementDownloadPdfButton()
+{
+    return 'id_div_download_pdf_button';
+
+} // getIdDivElementDownloadPdfButton
