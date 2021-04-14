@@ -1,5 +1,5 @@
 // File: JazzUtils.js
-// Date: 2020-06-24
+// Date: 2021-04-14
 // Author: Gunnar Lidén
 
 // File content
@@ -133,13 +133,12 @@ function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
 	
 } // backupFileWithJQueryPostFunction
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Basic Backup File Function  /////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Start Date Functions ////////////////////////////////////////////
+///////////////////////// Start Date/Time Functions ///////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // Copied from H:\Jazz\MyWeb\Homepage\Scripts\Utility.js
@@ -222,7 +221,45 @@ function getFormattedTenNumber(i_number)
 
 } // getFormattedTenNumber
 
+// Returns the current date and time as string
+function getCurrentDateTimeString()
+{
+  var current_date = new Date();
+
+  var current_year = current_date.getFullYear().toString();
+
+  var current_month = addZeroDateTime(current_date.getMonth() + 1); // 0, 1, ...
+
+  var current_day = addZeroDateTime(current_date.getDate());
+
+  var current_hour = addZeroDateTime(current_date.getHours());
+
+  var current_minutes = addZeroDateTime(current_date.getMinutes());
+
+  var current_seconds = addZeroDateTime(current_date.getSeconds());
+
+  var ret_date_time = current_year + current_month + current_day + '_' + 
+                      current_hour + '_' + current_minutes + '_' + current_seconds;  
+
+  return ret_date_time;
+
+} // getCurrentDateTimeString
+
+// Add zero if date or time is less than ten
+function addZeroDateTime(i_time)
+{
+    var ret_time = i_time.toString();
+
+    if (ret_time.length == 1)
+    {
+      ret_time = '0' + ret_time;
+    }
+
+    return ret_time;
+
+} // addZeroDateTime
+
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// End Date Functions //////////////////////////////////////////////
+///////////////////////// End Date/Time Functions /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 

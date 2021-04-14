@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-04-13
+// Date: 2021-04-14
 // Author: Gunnar Lidén
 
 // Content
@@ -176,8 +176,43 @@ function getDayFromIsoDateString(i_iso_date_str)
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Start Backup File Name Functions ////////////////////////////////
+///////////////////////// Start Backup File Functions /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
+
+// Creates a backup if file exists on the server
+function createBackupIfFileExistsOnServer(i_case_str)
+{
+    var path_file_name = '';
+
+    if ('DOC' == i_case_str)
+    {
+        path_file_name = g_record_active_task.getJazzTaskLinkDoc();
+    }
+    else if ('PDF' == i_case_str)
+    {
+        path_file_name = g_record_active_task.getJazzTaskLinkPdf();
+    }
+    else
+    {
+        return;
+    }
+
+    if (path_file_name.length == 0)
+    {
+        return;
+    }
+
+    var file_name = getFileBasename(path_file_name);
+
+    var backup_file_name = getBackupFileName(file_name);
+
+    var url_file_to_copy = "Documents/" + file_name;
+
+    var url_file_backup = "Documents/Backups/" + backup_file_name;
+
+    backupFileWithJQueryPostFunction(url_file_to_copy, url_file_backup);
+
+} // createBackupIfFileExistsOnServer
 
 // Returns a backup file name
 function getBackupFileName(i_file_name)
@@ -205,22 +240,9 @@ function getBackupFileName(i_file_name)
 
     var file_ext = i_file_name.substring(index_pt);
 
-    var current_date = new Date();
+    var current_date_time_str = getCurrentDateTimeString();
 
-    var current_year = current_date.getFullYear().toString();
-
-    var current_month = addZeroDateTime(current_date.getMonth() + 1); // 0, 1, ...
-
-    var current_day = addZeroDateTime(current_date.getDate());
-  
-    var current_hour = addZeroDateTime(current_date.getHours());
-  
-    var current_minutes = addZeroDateTime(current_date.getMinutes());
-
-    var current_seconds = addZeroDateTime(current_date.getSeconds());
-
-    ret_backup_name = file_name_without_ext + '_' + current_year + current_month + 
-                      current_day + '_' + current_hour + '_' + current_minutes + '_' + current_seconds;
+    ret_backup_name = file_name_without_ext + '_' + current_date_time_str;
 
     ret_backup_name = ret_backup_name + file_ext;
   
@@ -228,19 +250,46 @@ function getBackupFileName(i_file_name)
 
 } // getBackupFileName
 
-function addZeroDateTime(i_time)
-{
-    var ret_time = i_time.toString();
-
-    if (ret_time.length == 1)
-    {
-      ret_time = '0' + ret_time;
-    }
-
-    return ret_time;
-
-} // addZeroDateTime
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Backup File Functions ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// End Backup File Name Functions //////////////////////////////////
+///////////////////////// Start File Functions ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Returns the basename, i.e the file name without path
+// Input case is DOC or PDF
+function getFileBasename(i_path_file)
+{
+    var index_last_slash = -1;
+
+    for (var index_char = 0; index_char < i_path_file.length; index_char++)
+    {
+        var current_char = i_path_file.substring(index_char, index_char+1);
+
+        if (current_char == "/")
+        {
+            index_last_slash = index_char;
+        }
+
+        if (current_char == ".")
+        {
+            break;
+        }
+    }
+
+    if (index_last_slash < 0)
+    {
+        return i_path_file;
+    }
+
+    var ret_base_name = i_path_file.substring(index_last_slash + 1);
+
+    return ret_base_name;
+
+} // getFileBasename
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End File Functions //////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

@@ -366,6 +366,7 @@ function replaceAll(txt, replace, with_this) {
 
         $('#' + this.m_id_upload_form).ajaxForm(function() { 
            alert('Datei ist hochgeladen');
+           location.reload(); // Close <div>
         }); 
 
         // alert("Exit activateAjaxUploadFunction");

@@ -33,7 +33,7 @@ label
 /* Header <div> Element */
 .cl_tasks_header
 {
-border: solid 2px yellow;
+/* border: solid 2px yellow; */
 text-align: center;
 background-color: black;
 color: rgb(255, 0, 40);
@@ -113,22 +113,22 @@ float: left;
     padding: 6px; 
 }
 
-/* DOC link text, upload and download <div> element */
+/* Link text, upload and download <div> element */
 .cl_div_display_upload_button
 {
     overflow: hidden;
     clear: both;
 }
 
-/* DOC link text <div> element */
-.cl_tasks_task_link_doc_file
+/* Link text <div> element */
+.cl_tasks_task_link_file
 {
     /* border: solid 2px rgb(44, 7, 131); */
     padding: 6px;  
     float: left;  
 }
-/* DOC upload <div> element */
-.cl_div_upload_doc_button
+/* Upload button <div> element */
+.cl_div_upload_button
 {
     /* border: solid 2px rgb(44, 7, 131); */  
     margin-left: 5px;
@@ -136,8 +136,8 @@ float: left;
     float: left;
 }
 
-/* DOC download <div> element */
-.cl_div_download_doc_button
+/* Download button <div> element */
+.cl_div_download_button
 {
     /* border: solid 2px rgb(44, 7, 131); */
     margin-left: 5px;
@@ -146,22 +146,14 @@ float: left;
     float: right;
 }
 
-/* DOC <div> element that opens when user clicks the upload button*/
-.cl_div_upload_doc
+/* Form <div> element that opens when user clicks the upload button*/
+.cl_div_upload_form
 {
     border: solid 2px rgb(143, 50, 110);
     background-color: rgb(255, 174, 0);
     margin-top: 5px;
-    width: 95%;
-    padding: 6px;  
-    clear: both;  
-}
-
-.cl_div_upload_pdf
-{
-    border: solid 2px rgb(143, 50, 110);
-    margin-top: 20px;
-    width: 95%;
+    margin-left: 15px;
+    width: 90%;
     padding: 6px;  
     clear: both;  
 }
