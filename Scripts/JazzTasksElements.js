@@ -112,6 +112,22 @@ function getIdDivElementButtonSave()
 
 } // getIdDivElementButtonSave
 
+
+// Return value is the identity of the div element that is used for the cancel button
+function getIdDivElementButtonCancel()
+{
+    return 'id_tasks_task_cancel';
+
+} // getIdDivElementButtonCancel
+
+
+// Return value is the identity of the div element that is used for the test button
+function getIdDivElementButtonTest()
+{
+    return 'id_tasks_test_button';
+
+} // getIdDivElementButtonTest
+
 // Get the element of the input element for the doc document
 function getElementInputDoc()
 {

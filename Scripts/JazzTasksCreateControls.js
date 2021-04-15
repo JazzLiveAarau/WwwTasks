@@ -67,6 +67,12 @@ var g_task_delete_button = null;
 // The button save task
 var g_task_save_button = null;
 
+// The button cancel changes made to task
+var g_task_cancel_button = null;
+
+// The test button
+var g_task_test_button = null;
+
 // Reference drop down
 var g_ref_drop_down = null;
 
@@ -115,6 +121,10 @@ function createControls()
 
     createTaskSaveButton();
 
+    createTaskCancelButton();
+
+    createTaskTestButton();
+
     createUploadDocControl();
 
     createUploadPdfControl();
@@ -138,6 +148,8 @@ function createControls()
     createTextBoxReferenceLink();
 
     createTextBoxReferenceDescription();
+
+    hideTestButton();
 
 } // createControls
 
@@ -252,6 +264,57 @@ function createTaskSaveButton()
     g_task_save_button.setTitle("Aufgabedaten kontrollieren und speichern");
 
 } // createTaskSaveButton
+
+// Creates the cancel changes button control
+function createTaskCancelButton()
+{
+    g_task_cancel_button = new JazzButton("id_button_cancel", getIdDivElementButtonCancel());
+
+    g_task_cancel_button.setOnclickFunctionName("eventClickButtonCancel");
+
+    g_task_cancel_button.setCaption("Cancel");
+
+    g_task_cancel_button.setLabelText("");
+
+    g_task_cancel_button.setTitle("Die ursprüngliche Daten zurückholen");
+
+} // createTaskCancelButton
+
+// Hides the test button
+function hideCancelButton()
+{
+    g_task_test_button.hideButton();
+
+} // hideCancelButton
+
+// Hides the cancel button
+function showCancelButton()
+{
+    g_task_test_button.showButton();
+
+} // showCancelButton
+
+// Creates the test button control
+function createTaskTestButton()
+{
+    g_task_test_button = new JazzButton("id_button_test", getIdDivElementButtonTest());
+
+    g_task_test_button.setOnclickFunctionName("onClickOfTestButton");
+
+    g_task_test_button.setCaption("Test");
+
+    g_task_test_button.setLabelText("");
+
+    g_task_test_button.setTitle("Für Test von neuen Funktionen");
+
+} // createTaskTestButton
+
+// Hides the test button
+function hideTestButton()
+{
+    g_task_test_button.hideButton();
+
+} // hideTestButton
 
 // Creates the upload doc button control
 function createUploadDocButton()

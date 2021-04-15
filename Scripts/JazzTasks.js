@@ -94,6 +94,7 @@ function initJazzTasksAfterLoadOfXml()
 
 } // initJazzTasksAfterLoadOfXml
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Main Functions //////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -315,6 +316,15 @@ function eventClickButtonSave()
     debugDisplayXmlAsText();
 
 } // eventClickButtonSave
+
+// User clicked the cancel button
+function eventClickButtonCancel()
+{
+    alert("The values will be reset");
+
+    setControlValues();
+
+} // eventClickButtonCancel
 
 // User clicked the upload DOC button
 function eventClickUploadDoc()

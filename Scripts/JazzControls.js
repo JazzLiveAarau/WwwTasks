@@ -1,5 +1,5 @@
 // File: JazzControls.js
-// Date: 2020-06-09
+// Date: 2021-04-15
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -463,6 +463,21 @@ class JazzButton
         return document.getElementById(this.m_id_button);
 
     } // getButtonElement
+
+    // Hide the button
+    hideButton()
+    {
+        this.getButtonElement().style.display = 'none';
+
+    } // hideButton
+
+ 
+    // Display the button
+    showButton()
+    {
+        this.getButtonElement().style.display = 'block';
+
+    } // showButton   
 
     // Sets the onchange function name. Only the name is input
     setOnclickFunctionName(i_onclick_function) 

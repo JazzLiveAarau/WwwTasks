@@ -21,7 +21,7 @@ die <div> Elemente der Datei JazzTasks.htm zeigen
 border: solid 2px blue;
 font-family: 'Arial';
 width: 500px;
-height: 670px;
+height: 620px;
 }
 
 /* For all <label> elements */
@@ -224,25 +224,56 @@ float: left;
     clear: both;
 }
 
+.cl_div_tasks_test_cancel_save
+{
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 3px;
+    overflow: hidden;
+    clear: both;
+}
+
+/* Save button <div> element */
+.cl_tasks_task_cancel
+{
+    /* border: solid 2px rgb(230, 52, 52); */
+    margin-top: 10px;
+    width: 33%;
+    padding: 6px;
+    cursor: pointer;
+    float: left;     
+}
+
+/* The cancel button to the right in the <div> */
+.cl_tasks_task_cancel button
+{
+    float: right; 
+}
+
+/* Cancel button <div> element */
 .cl_tasks_task_saving
 {
-/* border: solid 2px rgb(7, 131, 79); */
-margin-top: 10px;
-width: 30%;
-padding: 6px;  
-float: right;     
+    /* border: solid 2px rgb(7, 131, 79); */
+    margin-top: 10px;
+    width: 20%;
+    padding: 6px;
+    cursor: pointer;
+    float: right;     
 }
 
+/* Test button <div> element */
 .cl_tasks_test_button
 {
-border: solid 2px green;
-margin-top: 50px;
-margin-left: 50px;
-padding: 8px;
-cursor: pointer;
-width: 100px;
+    /* border: solid 1px blue; */
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 6px;
+    cursor: pointer;
+    width: 35%;
+    float: left;
 }
 
+/* The XML display <div> element */
 .cl_display_xml
 {
     border: solid 2px rgb(255, 174, 0);
