@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-14
+// Date: 2021-04-15
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -31,6 +31,9 @@ var g_record_active_task = null;
 
 // The active reference number
 var g_active_reference_number = 1;
+
+// The active deputy number
+var g_active_deputy_number = 1;
 
 // The tasks dropdown control
 var g_task_drop_down = null;
@@ -74,6 +77,9 @@ var g_download_pdf_button = null;
 // The text box for the description
 var g_description_text_box = null;
 
+// The text box for a deputy name
+var g_deputy_name_text_box = null;
+
 // The text box for the remark
 var g_remark_text_box = null;
 
@@ -86,11 +92,17 @@ var g_task_save_button = null;
 // Reference drop down
 var g_ref_drop_down = null;
 
+// Deputy drop down
+var g_deputy_drop_down = null;
+
 // Reference link text box
 var g_ref_link_text_box = null;
 
 // Reference description text box
 var g_ref_descr_text_box = null;
+
+// Responsible text box
+var g_responsible_text_box = null;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -290,6 +302,15 @@ function eventSelectReferenceDropDown()
 
 } // eventSelectReferenceDropDown
 
+// User selected deputy
+function eventSelectDeputyDropDown()
+{
+    g_active_deputy_number = g_deputy_drop_down.getSelectOptionNumber();
+
+    setControlValues();
+
+} // eventSelectDeputyDropDown
+
 // User clicked the delete button
 function eventClickButtonDelete()
 {
@@ -442,12 +463,27 @@ function oninputDescription()
 
 } // oninputDescription
 
+// Event function when user added or deleted a character in the deputy name text box
+function oninputDeputyName()
+{
+    //alert("New value is" + g_deputy_name_text_box.getValue());
+
+} // oninputDeputyName
+
+
 // Event function when user added or deleted a character in the remark text box
 function oninputRemark()
 {
     //alert("New value is" + g_remark_text_box.getValue());
 
 } // oninputRemark
+
+// Event function when user added or deleted a character in the responsible text box
+function oninputResponsible()
+{
+    //alert("New value is" + g_responsible_text_box.getValue());
+
+} // oninputResponsible
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
@@ -476,6 +512,10 @@ function getUserInputFromFormSetActiveRecord()
     if (!getUserInputFromFormSetActiveRecordRefDescription()) return false;
 
     if (!getUserInputFromFormSetActiveRecordLinkDoc()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordResponsible()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordDeputyName()) return false;
 
     return true;
 
@@ -516,6 +556,24 @@ function getUserInputFromFormSetActiveRecordDescription()
     return true;
 
 } // getUserInputFromFormSetActiveRecordDescription
+
+// Gets, checks and sets the input form data for the responsible
+function getUserInputFromFormSetActiveRecordResponsible()
+{
+     var task_responible = g_responsible_text_box.getValue();
+
+    if (!JazzTask.checkJazzTaskResponsible(task_responible))
+    {
+        alert("Responsible error");
+
+        return false;
+    }
+	
+	g_record_active_task.setJazzTaskResponsible(task_responible);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordResponsible
 
 // Gets, checks and sets the input form data for the remark
 function getUserInputFromFormSetActiveRecordRemark()
@@ -613,6 +671,17 @@ function getUserInputFromFormSetActiveRecordLinkPdf()
 
 } // getUserInputFromFormSetActiveRecordLinkPdf
 
+// Gets, checks and sets the input form data for the deputy name
+function getUserInputFromFormSetActiveRecordDeputyName()
+{
+    var deputy_name = g_deputy_name_text_box.getValue();
+
+    g_record_active_task.setJazzTaskDeputyByNumber(g_active_deputy_number, deputy_name);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordDeputyName	
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Get User Form Input /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -635,6 +704,10 @@ function setControlValues()
     var task_description = g_record_active_task.getJazzTaskDescription();
 
     g_description_text_box.setValue(task_description);
+
+    var task_responsible = g_record_active_task.getJazzTaskResponsible();
+
+    g_responsible_text_box.setValue(task_responsible);   
 
     var task_remark = g_record_active_task.getJazzTaskRemark();
 
@@ -672,6 +745,10 @@ function setControlValues()
 
     g_ref_descr_text_box.setValue(ref_descr_str);
 
+    var deputy_name = g_record_active_task.getJazzTaskDeputyByNumber(g_active_deputy_number);
+
+    g_deputy_name_text_box.setValue(deputy_name);
+
 } // setControlValues
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -694,6 +771,10 @@ function createControls()
     createTaskDeleteButton();
 
     createTextBoxDescription();
+
+    createTextBoxResponsible();
+
+    createTextBoxDeputyName();
 
     createTextBoxRemark();
 
@@ -720,6 +801,8 @@ function createControls()
     createDueDatePickerControl();
 
     createReferenceDropdown();
+
+    createDeputyDropdown();
 
     createTextBoxReferenceLink();
 
@@ -748,7 +831,7 @@ function createTaskDropdown()
 
 } // createTaskDropdown
 
-// Creates the task dropdown control
+// Creates the reference dropdown control
 function createReferenceDropdown()
 {
     g_ref_drop_down = new JazzDropdown(getIdElementRefDropdown(), getIdDivElementRefDropdown());
@@ -765,11 +848,34 @@ function createReferenceDropdown()
 
     g_ref_drop_down.setLabelText("Referenz wählen");
 
-    g_ref_drop_down.setLabelTextPositionAbove();
+    g_ref_drop_down.setLabelTextPositionRight();
 
-    g_ref_drop_down.setTitle("Referenz zum Editieren wählen. Bevor eine neue Refeferenz zu wählen, bitte zuerst speichern wenn neue Daten eingegeben sind.");
+    g_ref_drop_down.setTitle("Referenz zum Editieren wählen. \nBevor eine neue Referenz gewählt wird, \nbitte zuerst speichern wenn neue Daten \neingegeben wurden.");
 
 } // createReferenceDropdown
+
+// Creates the deputy dropdown control
+function createDeputyDropdown()
+{
+    g_deputy_drop_down = new JazzDropdown(getIdElementDeputyDropdown(), getIdDivElementDeputyDropdown());
+
+    var deputy_name_array = [];
+    deputy_name_array[0] = 'Stellvertreter 1';
+    deputy_name_array[1] = 'Stellvertreter 2';
+    deputy_name_array[2] = 'Stellvertreter 3';
+    deputy_name_array[3] = 'Stellvertreter 4';
+
+    g_deputy_drop_down.setNameArray(deputy_name_array);
+
+    g_deputy_drop_down.setOnchangeFunctionName("eventSelectDeputyDropDown");
+
+    g_deputy_drop_down.setLabelText("wählen");
+
+    g_deputy_drop_down.setLabelTextPositionRight();
+
+    g_deputy_drop_down.setTitle("Stellvertreter zum Editieren wählen. \nBevor eine neue Stellvertreter gewählt wird, \nbitte zuerst Name speichern, wenn Text \ngeändert/zugefügt wurde.");
+
+} // createDeputyDropdown
 
 // Recreate the dropdown after append and delete of jazz task
 function reCreateTaskDropdown(i_active_task_number)
@@ -825,7 +931,7 @@ function createUploadDocButton()
 
     g_upload_doc_button.setCaption("Upload");
 
-    g_upload_doc_button.setTitle("Ein DOC Datei hochladen");
+    g_upload_doc_button.setTitle("Eine DOC Datei hochladen");
 
 } // createUploadDocButton
 
@@ -838,7 +944,7 @@ function createUploadPdfButton()
 
     g_upload_pdf_button.setCaption("Upload");
 
-    g_upload_pdf_button.setTitle("Ein PDF Datei hochladen");
+    g_upload_pdf_button.setTitle("Eine PDF Datei hochladen");
 
 } // createUploadPdfButton
 
@@ -851,7 +957,7 @@ function createDownloadDocButton()
 
     g_download_doc_button.setCaption("Download");
 
-    g_download_doc_button.setTitle("Ein DOC Datei herunterladen");
+    g_download_doc_button.setTitle("Eine DOC Datei herunterladen");
 
 } // createDownloadDocButton
 
@@ -862,9 +968,9 @@ function createDownloadPdfButton()
 
     g_download_pdf_button.setOnclickFunctionName("eventClickDownloadPdf");
 
-    g_download_pdf_button.setCaption("Download");
+    g_download_pdf_button.setCaption("Öffnen");
 
-    g_download_pdf_button.setTitle("Ein PDF Datei herunterladen");
+    g_download_pdf_button.setTitle("Die PDF Datei öffnen");
 
 } // createDownloadPdfButton
 
@@ -907,17 +1013,51 @@ function createTextBoxDescription()
 {
     g_description_text_box = new JazzTextBox("id_description_text_box", getIdDivElementDescription());
 
-    g_description_text_box.setLabelText("Beschreibung");
+    g_description_text_box.setLabelText("Beschreibung/Suchwörter");
 
     g_description_text_box.setLabelTextPositionAbove();
 
     g_description_text_box.setSize("60");
 
-    g_description_text_box.setTitle("Hier kann eine zusätzliche Beschreibung über die Aufgabe eingegeben werden");
+    g_description_text_box.setTitle("Hier kann eine zusätzliche Beschreibung über und \nSuchwörter für die Aufgabe eingegeben werden");
 
     g_description_text_box.setOninputFunctionName("oninputDescription");
   
 } // createTextBoxDescription
+
+// Create the responsible text box
+function createTextBoxResponsible()
+{
+    g_responsible_text_box = new JazzTextBox("id_responsible_text_box", getIdDivElementResponsible());
+
+    g_responsible_text_box.setLabelText("Verantwortlich");
+
+    g_responsible_text_box.setLabelTextPositionAbove();
+
+    g_responsible_text_box.setSize("22");
+
+    g_responsible_text_box.setTitle("Verantwortlich für die Aufgabe");
+
+    g_responsible_text_box.setOninputFunctionName("oninputResponsible");
+  
+} // createTextBoxResponsible
+
+// Create the description text box
+function createTextBoxDeputyName()
+{
+    g_deputy_name_text_box = new JazzTextBox("id_deputy_text_box", getIdDivElementDeputyText());
+
+    // No label g_deputy_name_text_box.setLabelText("");
+
+    g_deputy_name_text_box.setLabelTextPositionAbove();
+
+    g_deputy_name_text_box.setSize("22");
+
+    g_deputy_name_text_box.setTitle("Der Name des Stellvertreters");
+
+    g_deputy_name_text_box.setOninputFunctionName("oninputDescription");
+  
+} // createTextBoxDeputyName
 
 // Create the remark text box
 function createTextBoxRemark()

@@ -177,6 +177,53 @@ float: left;
     float: left;
 }
 
+/* Container <div> element for responsible and deputy */
+.cl_div_responsible_deputy
+{
+    /* border: solid 1px rgb(143, 50, 110); */
+    overflow: hidden;
+    width: 100%;
+    padding: 6px;  
+    clear: both;   
+}
+
+/* Responsible <div> element */
+.cl_div_responsible
+{
+    /* border: solid 2px rgb(143, 50, 110); */
+    margin-top: 8px;
+    width: 40%;
+    float: left;
+}
+
+/* Deputy dropdown and text <div> element */
+.cl_div_deputy_dropdown_text
+{
+    /* border: solid 2px rgb(143, 50, 110); */
+    width: 50%;
+    margin-left: 10px;
+    float: left;
+}
+
+/* Deputy dropdow <div> element */
+.cl_div_deputy_dropdown
+{
+    /* border: solid 2px rgb(143, 50, 110); */
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 4px;
+    clear: both;
+}
+/* Deputy text <div> element */
+.cl_div_deputy_text
+{
+    /* border: solid 2px rgb(143, 50, 110); */
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 3px;
+    clear: both;
+}
+
 .cl_tasks_task_saving
 {
 /* border: solid 2px rgb(7, 131, 79); */
@@ -210,13 +257,20 @@ width: 100px;
 
 .cl_div_ref_dropdown
 {
-    /* border: solid 1px rgb(194, 171, 121); */
+    /* border: solid 1px rgb(189, 62, 73); */
     margin-top: 10px;
     margin-left: 10px;
+    padding-left: 120px;
     width: 300px;
-    height: 40px;
     clear: both;
 }
+
+.cl_div_ref_dropdown label
+{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 
 .cl_div_ref_link
 {

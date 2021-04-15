@@ -1,5 +1,5 @@
 // File: JazzTasksElements.js
-// Date: 2021-04-11
+// Date: 2021-04-15
 // Author: Hanni Heller / Gunnar Liden
 
 // File content
@@ -288,3 +288,31 @@ function getIdDivElementDueDate()
     return 'id_div_due_date';
 
 } // getIdDivElementDueDate
+
+// Return value is the identity of the div element responsible
+function getIdDivElementResponsible()
+{
+    return 'id_div_responsible';
+
+} // getIdDivElementResponsible
+
+// Return value is the identity of the div element deputy dropdown
+function getIdDivElementDeputyDropdown()
+{
+    return 'id_div_deputy_dropdown';
+
+} // getIdDivElementDeputyDropdown
+
+// Return value is the identity of the element deputy dropdown
+function getIdElementDeputyDropdown()
+{
+    return 'id_deputy_dropdown';
+
+} // getIdElementDeputyDropdown
+
+// Return value is the identity of the div element deputy text
+function getIdDivElementDeputyText()
+{
+    return 'id_div_deputy_text';
+
+} // getIdDivElementDeputyText

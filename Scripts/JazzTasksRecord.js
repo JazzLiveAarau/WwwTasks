@@ -396,6 +396,22 @@ class JazzTask
         return ret_deputy;
 
     } // getJazzTaskDeputyByNumber    
+
+       // Sets a jazz task deputy name by number
+       setJazzTaskDeputyByNumber(i_jazz_task_deputy_number, i_jazz_deputy_name) 
+       {
+           var n_deputies = this.m_jazz_task_deputies.length;
+   
+           if (i_jazz_task_deputy_number <= 0 || i_jazz_task_deputy_number > n_deputies)
+           {
+               return 'Error: Not a valid jazz task deputy number';
+           }
+   
+           this.m_jazz_task_deputies[i_jazz_task_deputy_number - 1] = i_jazz_deputy_name;
+   
+           return '';
+   
+       } // setJazzTaskDeputyByNumber
     
     // Check functions for the member variables (the record fields)
     // ============================================================
