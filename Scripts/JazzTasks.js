@@ -453,6 +453,15 @@ function eventClickDownloadPdf()
 
 } // eventClickDownloadPdf
 
+// The user clicked the help button
+function onClickOfHelpButton()
+{
+    var help_url = 'https://jazzliveaarau.ch/Tasks/JazzTasksHelp.htm';
+
+    window.open(help_url);
+
+} // onClickOfHelpButton
+
 // Event function when user added or deleted a character in the title text box
 function oninputTitle()
 {

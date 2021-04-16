@@ -70,8 +70,8 @@ var g_task_save_button = null;
 // The button cancel changes made to task
 var g_task_cancel_button = null;
 
-// The test button
-var g_task_test_button = null;
+// The help button
+var g_task_help_button = null;
 
 // Reference drop down
 var g_ref_drop_down = null;
@@ -123,7 +123,7 @@ function createControls()
 
     createTaskCancelButton();
 
-    createTaskTestButton();
+    cl_tasks_help_button();
 
     createUploadDocControl();
 
@@ -148,8 +148,6 @@ function createControls()
     createTextBoxReferenceLink();
 
     createTextBoxReferenceDescription();
-
-    hideTestButton();
 
 } // createControls
 
@@ -294,27 +292,20 @@ function showCancelButton()
 
 } // showCancelButton
 
-// Creates the test button control
-function createTaskTestButton()
+// Creates the help button control
+function cl_tasks_help_button()
 {
-    g_task_test_button = new JazzButton("id_button_test", getIdDivElementButtonTest());
+    g_task_help_button = new JazzButton("id_button_help", getIdDivElementButtonHelp());
 
-    g_task_test_button.setOnclickFunctionName("onClickOfTestButton");
+    g_task_help_button.setOnclickFunctionName("onClickOfHelpButton");
 
-    g_task_test_button.setCaption("Test");
+    g_task_help_button.setCaption("Help");
 
-    g_task_test_button.setLabelText("");
+    g_task_help_button.setLabelText("");
 
-    g_task_test_button.setTitle("Für Test von neuen Funktionen");
+    g_task_help_button.setTitle("Information über diese Applikation");
 
-} // createTaskTestButton
-
-// Hides the test button
-function hideTestButton()
-{
-    g_task_test_button.hideButton();
-
-} // hideTestButton
+} // cl_tasks_help_button
 
 // Creates the upload doc button control
 function createUploadDocButton()
