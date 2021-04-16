@@ -1,5 +1,5 @@
 // File: JazzTasksCreateControls.js
-// Date: 2021-04-15
+// Date: 2021-04-16
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -272,7 +272,7 @@ function createTaskCancelButton()
 
     g_task_cancel_button.setOnclickFunctionName("eventClickButtonCancel");
 
-    g_task_cancel_button.setCaption("Cancel");
+    g_task_cancel_button.setCaption("Änderungen verwerfen");
 
     g_task_cancel_button.setLabelText("");
 
@@ -283,14 +283,14 @@ function createTaskCancelButton()
 // Hides the test button
 function hideCancelButton()
 {
-    g_task_test_button.hideButton();
+    g_task_cancel_button.hideButton();
 
 } // hideCancelButton
 
 // Hides the cancel button
 function showCancelButton()
 {
-    g_task_test_button.showButton();
+    g_task_cancel_button.showButton();
 
 } // showCancelButton
 
@@ -551,6 +551,8 @@ function createRemindDatePickerControl()
 
     g_remind_date_text_box.setTitle("Kommende Datum wird gezeigt. Nur Monat und Tag werden gespeichert.");
 
+    g_remind_date_text_box.setOnchangeFunctionName("eventUserSelectedRemindDate");
+
     g_remind_date_text_box.startDatePicker();
   
 } // createRemindDatePickerControl
@@ -567,6 +569,8 @@ function createDueDatePickerControl()
     g_due_date_text_box.setLabelTextPositionAbove();
 
     g_due_date_text_box.setTitle("Kommende Datum wird gezeigt. Nur Monat und Tag werden gespeichert.");
+
+    g_due_date_text_box.setOnchangeFunctionName("eventUserSelectedDueDate");
 
     g_due_date_text_box.startDatePicker();
   

@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-15
+// Date: 2021-04-16
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -34,6 +34,18 @@ var g_active_reference_number = 1;
 
 // The active deputy number
 var g_active_deputy_number = 1;
+
+// Flag telling if the user has changed data on the input form for the task record
+var g_record_was_changed = false;
+
+// Prompt string when user tries to change to another task, reference or Deputy
+// without first saving
+var g_record_was_changed_str = 
+    'Daten sind zugefügt oder geändert. Bitte Daten speichern bevor eine neue' + 
+    'Aufgabe, Referenz oder Stellvertreter gewählt wird.';
+
+var g_record_changed_original_data_set_str =
+    'Die urprüngliche Daten wurden geholt.';
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -91,6 +103,10 @@ function initJazzTasksAfterLoadOfXml()
     g_record_active_task = g_table.getJazzTaskRecord(g_record_active_number);
 
     setControlValues();
+
+    g_record_was_changed = false;
+
+    hideCancelButton();
 
 } // initJazzTasksAfterLoadOfXml
 
@@ -191,6 +207,13 @@ function eventUserSelectedPdf()
 // The user selected a new task with the dropdown control
 function eventSelectTaskDropDown()
 {
+    if (g_record_was_changed)
+    {
+        alert(g_record_was_changed_str);
+
+        return;
+    }
+
     g_record_active_number = g_task_drop_down.getSelectOptionNumber();
 
     var b_append = g_task_drop_down.selectedOptionNumberIsAppendItem(g_record_active_number);
@@ -208,6 +231,8 @@ function eventSelectTaskDropDown()
         g_record_active_task.setJazzTaskRegNumber(append_reg_number);
 
     }
+
+    initReferenceAndDeputyDropdowns();
     
     setControlValues();
 
@@ -228,6 +253,13 @@ function eventSelectTaskDropDown()
 // User selected reference
 function eventSelectReferenceDropDown()
 {
+    if (g_record_was_changed)
+    {
+        alert(g_record_was_changed_str);
+        
+        return;
+    }
+
     g_active_reference_number = g_ref_drop_down.getSelectOptionNumber();
 
     setControlValues();
@@ -237,6 +269,13 @@ function eventSelectReferenceDropDown()
 // User selected deputy
 function eventSelectDeputyDropDown()
 {
+    if (g_record_was_changed)
+    {
+        alert(g_record_was_changed_str);
+        
+        return;
+    }
+
     g_active_deputy_number = g_deputy_drop_down.getSelectOptionNumber();
 
     setControlValues();
@@ -263,9 +302,24 @@ function eventClickButtonDelete()
 
     reCreateTaskDropdown(1);
 
+    initReferenceAndDeputyDropdowns();
+
     debugDisplayXmlAsText();
 
 } // eventClickButtonDelete
+
+// Sets the reference and deputy dropdown numbers to one
+function initReferenceAndDeputyDropdowns()
+{
+    g_active_reference_number = 1;
+
+    g_active_deputy_number = 1;    
+
+    g_ref_drop_down.setSelectOptionNumber(g_active_reference_number);
+
+    g_deputy_drop_down.setSelectOptionNumber(g_active_deputy_number);
+
+} // initReferenceAndDeputyDropdowns
 
 // User clicked the save button
 function eventClickButtonSave()
@@ -320,16 +374,30 @@ function eventClickButtonSave()
 // User clicked the cancel button
 function eventClickButtonCancel()
 {
-    alert("The values will be reset");
-
     setControlValues();
 
+    g_record_was_changed = false;
+
+    hideCancelButton();
+
+    alert(g_record_changed_original_data_set_str);
+
 } // eventClickButtonCancel
+
+// Display button cancel when the user has made a change to data
+function displayButtonCancelSetChangedFlag()
+{
+    showCancelButton();
+
+    g_record_was_changed = true;
+}
 
 // User clicked the upload DOC button
 function eventClickUploadDoc()
 {
     g_doc_upload.hideUploadDiv(false);
+
+    g_pdf_upload.hideUploadDiv(true);    
 
 } // eventClickUploadDoc
 
@@ -337,6 +405,8 @@ function eventClickUploadDoc()
 function eventClickUploadPdf()
 {
     g_pdf_upload.hideUploadDiv(false);
+
+    g_doc_upload.hideUploadDiv(true);
 
 } // eventClickUploadPdf
 
@@ -349,6 +419,9 @@ function eventClickDownloadDoc()
     {
         return;
     }
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
 
     var doc_file_name = getFileBasename(doc_path_file_name);
 
@@ -368,6 +441,10 @@ function eventClickDownloadPdf()
         return;
     }
 
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
     var pdf_file_name = getFileBasename(pdf_path_file_name);
 
     var pdf_url = 'https://jazzliveaarau.ch/Tasks/Documents/' + pdf_file_name;
@@ -381,19 +458,29 @@ function oninputTitle()
 {
     //alert("New value is" + g_title_text_box.getValue());
 
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);    
+
 } // oninputTitle
 
 // Event function when user added or deleted a character in the doc text box
 function oninputDoc()
 {
-    //alert("New value is" + g_doc_text_box.getValue());
+    alert("New value is" + g_doc_text_box.getValue());
+
+    //TODO
 
 } // oninputDoc
 
 // Event function when user added or deleted a character in the pdf text box
 function oninputPdf()
 {
-    //alert("New value is" + g_pdf_text_box.getValue());
+    alert("New value is" + g_pdf_text_box.getValue());
+
+    // TODO
 
 } // oninputPdf
 
@@ -402,12 +489,24 @@ function oninputDescription()
 {
     //alert("New value is" + g_description_text_box.getValue());
 
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
 } // oninputDescription
 
 // Event function when user added or deleted a character in the deputy name text box
 function oninputDeputyName()
 {
     //alert("New value is" + g_deputy_name_text_box.getValue());
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
 
 } // oninputDeputyName
 
@@ -417,6 +516,12 @@ function oninputRemark()
 {
     //alert("New value is" + g_remark_text_box.getValue());
 
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
 } // oninputRemark
 
 // Event function when user added or deleted a character in the responsible text box
@@ -424,7 +529,39 @@ function oninputResponsible()
 {
     //alert("New value is" + g_responsible_text_box.getValue());
 
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
 } // oninputResponsible
+
+// Event function when user added or changed remind date
+function eventUserSelectedRemindDate()
+{
+    //alert("New value is" + g_responsible_text_box.getValue());
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // eventUserSelectedRemindDate
+
+// Event function when user added or changed due (finish) date
+function eventUserSelectedDueDate()
+{
+    //alert("New value is" + g_responsible_text_box.getValue());
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // eventUserSelectedDueDate
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////

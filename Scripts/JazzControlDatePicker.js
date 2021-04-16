@@ -1,5 +1,5 @@
 // File: JazzControlDatePicker.js
-// Date: 2021-04-14
+// Date: 2021-04-16
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -64,6 +64,9 @@ class JazzDatePicker
         // The information is most often shown as a tooltip text when the mouse 
         // moves over the element.
         this.m_title = '';    
+
+        // The onchange function name. Only the name is input
+        this.m_onchange_function = '';
         
         this.setDivContainerElement();
 
@@ -126,6 +129,15 @@ class JazzDatePicker
       this.setControl();
 
     } // setClass
+
+    // Sets the onchange function name. Only the name is input
+    setOnchangeFunctionName(i_onchange_function) 
+    {
+      this.m_onchange_function = i_onchange_function;
+
+      this.setControl();
+
+    } // setOnchangeFunctionName 
 
     // Sets the label text for the text box 
     // There will be no label if the text not is set
@@ -276,6 +288,11 @@ class JazzDatePicker
         if (this.m_maxlength.length > 0)
         {
             ret_html_str = ret_html_str + ' maxlength="' + this.m_maxlength + '" ';
+        }
+        
+        if (this.m_onchange_function.length > 0)
+        {
+            ret_html_str = ret_html_str + ' onchange="' + this.m_onchange_function + '()" ';
         }
 
         if (this.m_title.length > 0)
