@@ -572,6 +572,32 @@ function eventUserSelectedDueDate()
 
 } // eventUserSelectedDueDate
 
+//  Event function when user added or deleted a character in the reference link text box
+function oninputReferenceUrl()
+{
+    //alert("New value is" + g_ref_link_text_box.getValue());
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // oninputReferenceUrl
+
+//  Event function when user added or deleted a character in the reference description text box
+function oninputReferenceDescription()
+{
+    //alert("New value is" + g_ref_descr_text_box.getValue());
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // oninputReferenceDescription
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

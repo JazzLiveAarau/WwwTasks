@@ -579,6 +579,8 @@ function createTextBoxReferenceLink()
     g_ref_link_text_box.setLabelTextPositionAbove();
 
     g_ref_link_text_box.setTitle("Link zur Referenz Webseite oder Dokument.");
+
+    g_ref_link_text_box.setOninputFunctionName("oninputReferenceUrl");
   
 } // createTextBoxReferenceLink
 
@@ -594,6 +596,8 @@ function createTextBoxReferenceDescription()
     g_ref_descr_text_box.setLabelTextPositionAbove();
 
     g_ref_descr_text_box.setTitle("Referenz Beschreibung.");
+
+    g_ref_descr_text_box.setOninputFunctionName("oninputReferenceDescription");
   
 } // createTextBoxReferenceDescription
 
