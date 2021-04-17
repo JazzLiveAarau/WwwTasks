@@ -119,7 +119,7 @@ function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
 		{
             if (status_save == "success")
             {
-                alert(data_save);
+                // alert(data_save);
             }
             else
             {

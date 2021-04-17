@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-16
+// Date: 2021-04-17
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -149,6 +149,8 @@ function eventUserSelectedDoc()
 
         g_doc_text_box.setValue(file_server_url);
 
+        displayButtonCancelSetChangedFlag();
+
         var b_server_exec = execApplicationOnServer();
         if (!b_server_exec)
         {
@@ -184,6 +186,8 @@ function eventUserSelectedPdf()
         var file_server_url = g_pdf_upload.getSelectedFileServerUrl();
 
         g_pdf_text_box.setValue(file_server_url);
+
+        displayButtonCancelSetChangedFlag();
 
         var b_server_exec = execApplicationOnServer();
         if (!b_server_exec)
@@ -367,6 +371,14 @@ function eventClickButtonSave()
 
     }
 
+    g_record_was_changed = false;
+
+    hideCancelButton();
+
+    g_doc_upload.hideUploadDiv(true);
+
+    g_pdf_upload.hideUploadDiv(true);    
+
     debugDisplayXmlAsText();
 
 } // eventClickButtonSave
@@ -478,18 +490,22 @@ function oninputTitle()
 // Event function when user added or deleted a character in the doc text box
 function oninputDoc()
 {
-    alert("New value is" + g_doc_text_box.getValue());
+    // alert("New value is" + g_doc_text_box.getValue());
 
-    //TODO
+    displayButtonCancelSetChangedFlag();
+
+    //TODO Check by save if value is empty or 'right'
 
 } // oninputDoc
 
 // Event function when user added or deleted a character in the pdf text box
 function oninputPdf()
 {
-    alert("New value is" + g_pdf_text_box.getValue());
+    // alert("New value is" + g_pdf_text_box.getValue());
 
-    // TODO
+    displayButtonCancelSetChangedFlag();
+
+    // TODO Check by save if value is empty or 'right'
 
 } // oninputPdf
 
