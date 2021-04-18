@@ -505,20 +505,30 @@ function oninputTitle()
 // Event function when user added or deleted a character in the doc text box
 function oninputDoc()
 {
+    alert("Dateiname kann nicht geändert werden (und Datei kann nicht gelöscht werden)");
+
+    var task_doc = g_record_active_task.getJazzTaskLinkDoc();
+
+    g_doc_text_box.setValue(task_doc);
+
+    // g_doc_text_box.setValue();
     // alert("New value is" + g_doc_text_box.getValue());
-
-    displayButtonCancelSetChangedFlag();
-
-    //TODO Check by save if value is empty or 'right'
+    // displayButtonCancelSetChangedFlag();
 
 } // oninputDoc
 
 // Event function when user added or deleted a character in the pdf text box
 function oninputPdf()
 {
+    alert("Dateiname kann nicht geändert werden (und Datei kann nicht gelöscht werden)");
+
+    var task_pdf = g_record_active_task.getJazzTaskLinkPdf();
+
+    g_pdf_text_box.setValue(task_pdf);
+
     // alert("New value is" + g_pdf_text_box.getValue());
 
-    displayButtonCancelSetChangedFlag();
+    // displayButtonCancelSetChangedFlag();
 
     // TODO Check by save if value is empty or 'right'
 
