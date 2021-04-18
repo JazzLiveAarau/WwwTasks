@@ -363,7 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # JAZZ live AARAU XML file for tasks
-# Temporarely /Xml/
+/Xml/
 
 # JAZZ live AARAU task documents (DOC and PDF)
 /Documents/
@@ -372,5 +372,5 @@ FodyWeavers.xsd
 # ftp-sync.json
 *.json
 
-// FTP log files
+# FTP log files
 WS_FTP.LOG

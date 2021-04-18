@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-17
+// Date: 2021-04-18
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -90,6 +90,10 @@ function initJazzTasks()
 //    be edited by the user. Call of JazzTasksTable.getJazzTaskRecord
 // 5. Set (display) all controls with data from the JazzTask object. 
 //    Call of setControlValues
+// 6. Set the flag g_record_was_changed to false telling that user has made no 
+//    text changes to the active jazz task record
+// 7. Hide the cancel button. Call of hideCancelButton
+// 8. Make a backup of the XML file. Call of makeXmlBackup. 
 function initJazzTasksAfterLoadOfXml()
 {
     g_table = new JazzTasksTable(g_xml);
@@ -107,6 +111,8 @@ function initJazzTasksAfterLoadOfXml()
     g_record_was_changed = false;
 
     hideCancelButton();
+
+    makeXmlBackup();
 
 } // initJazzTasksAfterLoadOfXml
 

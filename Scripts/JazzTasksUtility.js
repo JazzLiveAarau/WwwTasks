@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-04-14
+// Date: 2021-04-18
 // Author: Gunnar Lidén
 
 // Content
@@ -250,6 +250,31 @@ function getBackupFileName(i_file_name)
 
 } // getBackupFileName
 
+// Make a backup of the XML file JazzTasks.xml.
+// It is assumed that there is a subdirectory Backups in the directory for JazzTasks.xml.
+function makeXmlBackup()
+{
+    if (!execApplicationOnServer())
+    {
+        //alert("makeXmlBackup No backup for local (live) server");
+
+        return;
+    }
+
+    var path_file_name =  g_xml.getFileNameJazzTasksXml();
+
+    var file_name = getFileBasename(path_file_name);
+
+    var file_path = getFilePath(path_file_name);
+
+    var backup_file_name = getBackupFileName(file_name);
+
+    var backup_path_file_name = file_path + 'Backups/' + backup_file_name;
+
+    backupFileWithJQueryPostFunction(path_file_name, backup_path_file_name);
+
+} // makeXmlBackup
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Backup File Functions ///////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -289,6 +314,26 @@ function getFileBasename(i_path_file)
     return ret_base_name;
 
 } // getFileBasename
+
+// Returns the path
+function getFilePath(i_path_file)
+{
+    var ret_path = '';
+
+    var file_name = getFileBasename(i_path_file);
+
+    if (file_name.length == i_path_file.length)
+    {
+        return '';
+    }
+
+    var index_file_name = i_path_file.indexOf(file_name);
+
+    var ret_path = i_path_file.substring(0, index_file_name);
+
+    return ret_path;
+
+} // getFilePath
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End File Functions //////////////////////////////////////////////

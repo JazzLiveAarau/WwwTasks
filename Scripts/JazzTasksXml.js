@@ -1,5 +1,5 @@
 // File: JazzTasksXml.js
-// Date: 2020-06-19
+// Date: 2021-04-18
 // Author: Gunnar Lidén
 
 // File content
@@ -51,10 +51,11 @@ class JazzTasksXml
         // ================
 
         // Path and name of XML file on the server
-        this.m_xml_file_name_server = '../XML/JazzTasks.xml';
+        this.m_xml_file_name_server = 'Xml/JazzTasks.xml';
+        // this.m_xml_file_name_server = '../XML/JazzTasks.xml';
 
         // Path and name of XML file in the computer
-        this.m_xml_file_name_local = 'Xml/JazzTasksTestData.xml';
+        this.m_xml_file_name_local = 'XmlTestData/JazzTasksTestData.xml';
 
         // Call back function name
         this.m_callback_function_name = i_callback_function_name;
