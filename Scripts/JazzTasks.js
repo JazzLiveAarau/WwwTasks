@@ -309,6 +309,10 @@ function eventClickButtonDelete()
         return;
     }
 
+    backupDocumentFileAndDeleteFile("DOC");
+
+    backupDocumentFileAndDeleteFile("PDF");
+
     g_table.deleteJazzTaskRecord(g_record_active_number);
 
     g_table.deleteJazzTaskRecordXml(g_record_active_number);
@@ -448,7 +452,7 @@ function eventClickDownloadDoc()
 
     var doc_file_name = getFileBasename(doc_path_file_name);
 
-    var doc_url = 'https://jazzliveaarau.ch/Tasks/Documents/' + doc_file_name;
+    var doc_url = getFullPathTaskDocumentServerDirectory() + doc_file_name;
 
     window.open(doc_url);
 
@@ -470,7 +474,7 @@ function eventClickDownloadPdf()
 
     var pdf_file_name = getFileBasename(pdf_path_file_name);
 
-    var pdf_url = 'https://jazzliveaarau.ch/Tasks/Documents/' + pdf_file_name;
+    var pdf_url = getFullPathTaskDocumentServerDirectory() + pdf_file_name;
 
     window.open(pdf_url);
 

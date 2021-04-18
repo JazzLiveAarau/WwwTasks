@@ -182,6 +182,48 @@ function getDayFromIsoDateString(i_iso_date_str)
 // Creates a backup if file exists on the server
 function createBackupIfFileExistsOnServer(i_case_str)
 {
+    var file_name = getTaskDocumentFileName(i_case_str);
+
+    if (file_name.length == 0)
+    {
+        return;
+    }
+
+    var backup_file_name = getBackupFileName(file_name);
+
+    var url_file_to_copy = getTaskDocumentServerDirectory() + file_name;
+
+    var url_file_backup = getTaskDocumentBackupServerDirectory() + backup_file_name;
+
+    backupFileWithJQueryPostFunction(url_file_to_copy, url_file_backup);
+
+} // createBackupIfFileExistsOnServer
+
+// Backup document file and delete it 
+function backupDocumentFileAndDeleteFile(i_case_str)
+{
+    var file_name = getTaskDocumentFileName(i_case_str);
+
+    if (file_name.length == 0)
+    {
+        return;
+    }
+
+    var backup_file_name_delete = getBackupFileNameDelete(file_name);
+
+    var url_file_copy_delete = getTaskDocumentServerDirectory() + file_name;
+
+    var url_file_backup = getTaskDocumentBackupServerDirectory() + backup_file_name_delete;
+
+    backupFileAndDeleteWithJQueryPostFunction(url_file_copy_delete, url_file_backup);
+
+} // backupDocumentFileAndDeleteFile
+
+// Returns the task document file name (the basename)
+function getTaskDocumentFileName(i_case_str)
+{
+    var ret_file_name = '';
+
     var path_file_name = '';
 
     if ('DOC' == i_case_str)
@@ -194,25 +236,66 @@ function createBackupIfFileExistsOnServer(i_case_str)
     }
     else
     {
-        return;
+        alert("getTaskDocumentFilePath Case not DOC or PDF");
+
+        return ret_file_name;
     }
 
-    if (path_file_name.length == 0)
+    ret_file_name = getFileBasename(path_file_name);
+
+    return ret_file_name;
+
+} // getTaskDocumentFilePath
+
+// Returns the server directory for the task documents
+function getTaskDocumentServerDirectory()
+{
+    return "Documents/";
+
+} // getTaskDocumentServerDirectory
+
+// Returns the server backup directory for the task documents
+function getTaskDocumentBackupServerDirectory()
+{
+    return "Documents/Backups/";
+
+} // getTaskDocumentServerDirectory
+
+// Returns the full path to the server directory for the task documents
+function getFullPathTaskDocumentServerDirectory()
+{
+    return 'https://jazzliveaarau.ch/Tasks/Documents/';
+
+} // getFullPathTaskDocumentServerDirectory
+
+// Returns the full path to the server directory for the task application
+function getFullPathTasksServerDirectory()
+{
+    return 'https://jazzliveaarau.ch/Tasks/';
+
+} // getFullPathTasksServerDirectory
+
+// Returns a backup delete file name 
+function getBackupFileNameDelete(i_file_name)
+{
+    var ret_backup_delete_name = '';
+
+    var backup_name =  getBackupFileName(i_file_name);
+
+    var index_pt = backup_name.indexOf(".");
+    
+    if (index_pt < 0)
     {
-        return;
-    }
+        alert("getBackupFileNameDelete Programming error backup_name= (" + backup_name + ")");
+        
+        return ret_backup_delete_name;
+    } 
 
-    var file_name = getFileBasename(path_file_name);
+    ret_backup_delete_name = backup_name.substring(0, index_pt) + '_delete' + backup_name.substring(index_pt);
 
-    var backup_file_name = getBackupFileName(file_name);
+    return ret_backup_delete_name;
 
-    var url_file_to_copy = "Documents/" + file_name;
-
-    var url_file_backup = "Documents/Backups/" + backup_file_name;
-
-    backupFileWithJQueryPostFunction(url_file_to_copy, url_file_backup);
-
-} // createBackupIfFileExistsOnServer
+} // getBackupFileNameDelete
 
 // Returns a backup file name
 function getBackupFileName(i_file_name)
@@ -293,13 +376,13 @@ function createStartDocPdfDocumentsSetRecord(i_append_reg_number, i_append_recor
         return;
     }
 
-    var file_path_master_doc = 'Documents/AufgabeVorlage.docx';
+    var file_path_master_doc = getTaskDocumentServerDirectory() + 'AufgabeVorlage.docx';
 
-    var file_path_master_pdf = 'Documents/AufgabeVorlage.pdf';
+    var file_path_master_pdf = getTaskDocumentServerDirectory() + 'AufgabeVorlage.pdf';
 
-    var file_path_doc = 'Documents/' + i_append_reg_number + '.docx';
+    var file_path_doc = getTaskDocumentServerDirectory() + i_append_reg_number + '.docx';
 
-    var file_path_pdf = 'Documents/' + i_append_reg_number + '.pdf';
+    var file_path_pdf = getTaskDocumentServerDirectory() + i_append_reg_number + '.pdf';
 
     backupFileWithJQueryPostFunction(file_path_master_doc, file_path_doc);
 

@@ -1,5 +1,5 @@
 // File: JazzUtils.js
-// Date: 2021-04-14
+// Date: 2021-04-18
 // Author: Gunnar Lidén
 
 // File content
@@ -132,6 +132,44 @@ function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
     return true;	  
 	
 } // backupFileWithJQueryPostFunction
+
+// Backup a file an then delete it with the JQuery function "post"
+// Please refer to BackupFileDelete.php for a detailed description of "post"
+// Input parameter i_url_file_copy_delete is the url for server file name that shall be copied
+// Input parameter i_url_file_backup is the url for server file name for the backup copy
+// The function returns false for failure
+function backupFileAndDeleteWithJQueryPostFunction(i_url_file_copy_delete, i_url_file_backup)
+{
+    if (!execApplicationOnServer())
+    {
+        alert("backupFileAndDeleteWithJQueryPostFunction BackupFileDelete.php cannot be executed on the local (live) server");
+
+        return false;
+    }
+
+    $.post
+      ('BackupFileDelete.php',
+        {
+          file_to_copy_delete: i_url_file_copy_delete,
+          file_backup: i_url_file_backup
+        },
+        function(data_save,status_save)
+		{
+            if (status_save == "success")
+            {
+                // alert(data_save);
+            }
+            else
+            {
+				alert("Execution of BackupFileDelete.php failed");
+				return false;
+            }          
+        } // function
+      ); // post
+	  
+    return true;	  
+	
+} // backupFileAndDeleteWithJQueryPostFunction
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Basic Backup File Function  /////////////////////////////////
