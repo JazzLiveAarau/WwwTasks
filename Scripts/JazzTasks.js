@@ -240,6 +240,11 @@ function eventSelectTaskDropDown()
 
         g_record_active_task.setJazzTaskRegNumber(append_reg_number);
 
+        createStartDocPdfDocumentsSetRecord(append_reg_number, g_record_active_task);
+
+        // Should perhaps save directly
+        // showCancelButton();
+        // g_record_was_changed = true;
     }
 
     initReferenceAndDeputyDropdowns();
