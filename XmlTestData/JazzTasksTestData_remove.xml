@@ -1429,38 +1429,4 @@
         <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
         <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
     </JazzTask>
-    <JazzTask>
-        <JazzTaskRegNumber>A0043</JazzTaskRegNumber>
-        <JazzTaskTitle>Test references</JazzTaskTitle>
-        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
-        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
-        <JazzTaskLinkDoc>Documents/A0043.docx</JazzTaskLinkDoc>
-        <JazzTaskLinkPdf>Documents/A0043.pdf</JazzTaskLinkPdf>
-        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
-        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
-        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
-        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
-        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
-        <JazzTaskReference>
-            <JazzTaskRefLink>Link_1</JazzTaskRefLink>
-            <JazzTaskRefDescription>Descr_1</JazzTaskRefDescription>
-        </JazzTaskReference>
-        <JazzTaskReference>
-            <JazzTaskRefLink>Link_2</JazzTaskRefLink>
-            <JazzTaskRefDescription>ref_desc_2</JazzTaskRefDescription>
-        </JazzTaskReference>
-        <JazzTaskReference>
-            <JazzTaskRefLink>link_3</JazzTaskRefLink>
-            <JazzTaskRefDescription>descr_3</JazzTaskRefDescription>
-        </JazzTaskReference>
-        <JazzTaskReference>
-            <JazzTaskRefLink>link_4</JazzTaskRefLink>
-            <JazzTaskRefDescription>descr_4</JazzTaskRefDescription>
-        </JazzTaskReference>
-        <JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-    </JazzTask>
 </HomepageJazzTasks>

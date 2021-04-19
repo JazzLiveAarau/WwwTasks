@@ -148,5 +148,6 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 .cl_active_record_reference_description
 {
     width: 100%;
+    padding: 5px;
     clear: both;
 }

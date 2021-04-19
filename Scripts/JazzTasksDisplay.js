@@ -44,7 +44,7 @@ function initJazzTasksDisplayAfterLoadOfXml()
 {
     g_display_table = new JazzTasksTable(g_display_xml);
 
-    g_display_number = 1;
+    g_display_number = 43;
 
     g_active_record = g_display_table.getJazzTaskRecord(g_display_number);
 
@@ -132,7 +132,19 @@ function setActiveRecordDiv()
 
     setActiveRecordDivReferenceOneUrl();
 
+    setActiveRecordDivReferenceTwoUrl();
+
+    setActiveRecordDivReferenceThreeUrl();
+
+    setActiveRecordDivReferenceFourUrl();
+
     setActiveRecordDivReferenceOneDescription();
+
+    setActiveRecordDivReferenceTwoDescription();
+
+    setActiveRecordDivReferenceThreeDescription();
+
+    setActiveRecordDivReferenceFourDescription();
 
 } // setActiveRecordDiv
 
@@ -241,6 +253,96 @@ function setActiveRecordDivReferenceOneUrl()
 
 } // setActiveRecordDivReferenceOneUrl
 
+// Sets the text of the active record reference two URL <div> element
+function setActiveRecordDivReferenceTwoUrl()
+{
+    var el_div_ref_two_url = getDivElementActiveRecordReferenceTwoUrl();
+	
+	var reference_number = 2;
+
+    var url_str = g_active_record.getJazzTaskRefLink(reference_number);
+
+    if (url_str.length == 0)
+    {
+        hideActiveRecordReferenceTwo();
+
+        return;
+    }
+    else
+    {
+        displayActiveRecordReferenceTwo();
+    }
+
+    var ref_two_url_str = '';
+
+    ref_two_url_str = ref_two_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+
+    ref_two_url_str = ref_two_url_str + url_str;
+
+    el_div_ref_two_url.innerHTML = ref_two_url_str;
+
+} // setActiveRecordDivReferenceTwoUrl
+
+// Sets the text of the active record reference three URL <div> element
+function setActiveRecordDivReferenceThreeUrl()
+{
+    var el_div_ref_three_url = getDivElementActiveRecordReferenceThreeUrl();
+	
+	var reference_number = 3;
+
+    var url_str = g_active_record.getJazzTaskRefLink(reference_number);
+
+    if (url_str.length == 0)
+    {
+        hideActiveRecordReferenceThree();
+
+        return;
+    }
+    else
+    {
+        displayActiveRecordReferenceThree();
+    }
+
+    var ref_three_url_str = '';
+
+    ref_three_url_str = ref_three_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+
+    ref_three_url_str = ref_three_url_str + url_str;
+
+    el_div_ref_three_url.innerHTML = ref_three_url_str;
+
+} // setActiveRecordDivReferenceThreeUrl
+
+// Sets the text of the active record reference four URL <div> element
+function setActiveRecordDivReferenceFourUrl()
+{
+    var el_div_ref_four_url = getDivElementActiveRecordReferenceFourUrl();
+	
+	var reference_number = 4;
+
+    var url_str = g_active_record.getJazzTaskRefLink(reference_number);
+
+    if (url_str.length == 0)
+    {
+        hideActiveRecordReferenceFour();
+
+        return;
+    }
+    else
+    {
+        displayActiveRecordReferenceFour();
+    }
+
+    var ref_four_url_str = '';
+
+    ref_four_url_str = ref_four_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+
+    ref_four_url_str = ref_four_url_str + url_str;
+
+    el_div_ref_four_url.innerHTML = ref_four_url_str;
+
+} // setActiveRecordDivReferenceFourUrl
+
 // Sets the text of the active record reference one description <div> element
 function setActiveRecordDivReferenceOneDescription()
 {
@@ -258,7 +360,56 @@ function setActiveRecordDivReferenceOneDescription()
 
 } // setActiveRecordDivReferenceOneDescription
 
+// Sets the text of the active record reference two description <div> element
+function setActiveRecordDivReferenceTwoDescription()
+{
+    var el_div_ref_two_description = getDivElementActiveRecordReferenceTwoDescription();
+	
+	var reference_number = 2;
 
+    var description_str = g_active_record.getJazzTaskRefDescription(reference_number);
+
+    var ref_two_description_str = '';
+
+    ref_two_description_str = ref_two_description_str + description_str;
+
+    el_div_ref_two_description.innerHTML = ref_two_description_str;
+
+} // setActiveRecordDivReferenceTwoDescription
+
+// Sets the text of the active record reference three description <div> element
+function setActiveRecordDivReferenceThreeDescription()
+{
+    var el_div_ref_three_description = getDivElementActiveRecordReferenceThreeDescription();
+	
+	var reference_number = 3;
+
+    var description_str = g_active_record.getJazzTaskRefDescription(reference_number);
+
+    var ref_three_description_str = '';
+
+    ref_three_description_str = ref_three_description_str + description_str;
+
+    el_div_ref_three_description.innerHTML = ref_three_description_str;
+
+} // setActiveRecordDivReferenceThreeDescription
+
+// Sets the text of the active record reference four description <div> element
+function setActiveRecordDivReferenceFourDescription()
+{
+    var el_div_ref_four_description = getDivElementActiveRecordReferenceFourDescription();
+	
+	var reference_number = 4;
+
+    var description_str = g_active_record.getJazzTaskRefDescription(reference_number);
+
+    var ref_four_description_str = '';
+
+    ref_four_description_str = ref_four_description_str + description_str;
+
+    el_div_ref_four_description.innerHTML = ref_four_description_str;
+
+} // setActiveRecordDivReferenceFourDescription
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Active Record Functions /////////////////////////////////////
@@ -417,6 +568,48 @@ function getIdDivElementActiveRecordReferenceOneUrl()
 
 } // getIdDivElementActiveRecordReferenceOneUrl
 
+// Returns the active record reference two URL <div> element
+function getDivElementActiveRecordReferenceTwoUrl()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceTwoUrl());
+
+} // getDivElementActiveRecordReferenceTwoUrl
+
+//Returns the identity of the active record reference two URL <div> element
+function getIdDivElementActiveRecordReferenceTwoUrl()
+{
+    return 'id_active_record_reference_two_url';
+
+} // getIdDivElementActiveRecordReferenceTwoUrl
+
+// Returns the active record reference three URL <div> element
+function getDivElementActiveRecordReferenceThreeUrl()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceThreeUrl());
+
+} // getDivElementActiveRecordReferenceThreeUrl
+
+//Returns the identity of the active record reference three URL <div> element
+function getIdDivElementActiveRecordReferenceThreeUrl()
+{
+    return 'id_active_record_reference_three_url';
+
+} // getIdDivElementActiveRecordReferenceThreeUrl
+
+// Returns the active record reference four URL <div> element
+function getDivElementActiveRecordReferenceFourUrl()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceFourUrl());
+
+} // getDivElementActiveRecordReferenceFourUrl
+
+//Returns the identity of the active record reference four URL <div> element
+function getIdDivElementActiveRecordReferenceFourUrl()
+{
+    return 'id_active_record_reference_four_url';
+
+} // getIdDivElementActiveRecordReferenceFourUrl
+
 // Returns the active record reference one description <div> element
 function getDivElementActiveRecordReferenceOneDescription()
 {
@@ -431,6 +624,144 @@ function getIdDivElementActiveRecordReferenceOneDescription()
 
 } // getIdDivElementActiveRecordReferenceOneDescription
 
+// Returns the active record reference two description <div> element
+function getDivElementActiveRecordReferenceTwoDescription()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceTwoDescription());
+
+} // getDivElementActiveRecordReferenceTwoDescription
+
+//Returns the identity of the active record reference two <div> element
+function getIdDivElementActiveRecordReferenceTwoDescription()
+{
+    return 'id_active_record_reference_two_description';
+
+} // getIdDivElementActiveRecordReferenceTwoDescription
+
+// Returns the active record reference two description <div> element
+function getDivElementActiveRecordReferenceThreeDescription()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceThreeDescription());
+
+} // getDivElementActiveRecordReferenceThreeDescription
+
+//Returns the identity of the active record reference three <div> element
+function getIdDivElementActiveRecordReferenceThreeDescription()
+{
+    return 'id_active_record_reference_three_description';
+
+} // getIdDivElementActiveRecordReferenceThreeDescription
+
+// Returns the active record reference four <div> element
+function getDivElementActiveRecordReferenceFourDescription()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceFourDescription());
+
+} // getDivElementActiveRecordReferenceFourDescription
+
+//Returns the identity of the active record reference four <div> element
+function getIdDivElementActiveRecordReferenceFourDescription()
+{
+    return 'id_active_record_reference_four_description';
+
+} // getIdDivElementActiveRecordReferenceFourDescription
+
+// Returns the active record reference two <div> element
+function getDivElementActiveRecordReferenceTwo()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceTwo());
+
+} // getDivElementActiveRecordReferenceTwo
+
+//Returns the identity of the active record reference two <div> element
+function getIdDivElementActiveRecordReferenceTwo()
+{
+    return 'id_active_record_reference_two';
+
+} // getIdDivElementActiveRecordReferenceTwo
+
+// Hides the active reference two <div>
+function hideActiveRecordReferenceTwo()
+{
+    var el_active_reference_two = getDivElementActiveRecordReferenceTwo();
+
+    el_active_reference_two.style.display = 'none';
+
+} // hideActiveRecordReferenceTwo
+
+// Shows the active reference two <div>
+function displayActiveRecordReferenceTwo()
+{
+    var el_active_reference_two = getDivElementActiveRecordReferenceTwo();
+
+    el_active_reference_two.style.display = 'block';
+
+} // displayActiveRecordReferenceTwo
+
+
+// Returns the active record reference three <div> element
+function getDivElementActiveRecordReferenceThree()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceThree());
+
+} // getDivElementActiveRecordReferenceThree
+
+//Returns the identity of the active record reference three <div> element
+function getIdDivElementActiveRecordReferenceThree()
+{
+    return 'id_active_record_reference_three';
+
+} // getIdDivElementActiveRecordReferenceThree
+
+// Hides the active reference three <div>
+function hideActiveRecordReferenceThree()
+{
+    var el_active_reference_three = getDivElementActiveRecordReferenceThree();
+
+    el_active_reference_three.style.display = 'none';
+
+} // hideActiveRecordReferenceThree
+
+// Shows the active reference three <div>
+function displayActiveRecordReferenceThree()
+{
+    var el_active_reference_three = getDivElementActiveRecordReferenceThree();
+
+    el_active_reference_three.style.display = 'block';
+
+} // displayActiveRecordReferenceThree
+
+// Returns the active record reference four <div> element
+function getDivElementActiveRecordReferenceFour()
+{
+    return document.getElementById(getIdDivElementActiveRecordReferenceFour());
+
+} // getDivElementActiveRecordReferenceFour
+
+//Returns the identity of the active record reference four <div> element
+function getIdDivElementActiveRecordReferenceFour()
+{
+    return 'id_active_record_reference_four';
+
+} // getIdDivElementActiveRecordReferenceFour
+
+// Hides the active reference four <div>
+function hideActiveRecordReferenceFour()
+{
+    var el_active_reference_four = getDivElementActiveRecordReferenceFour();
+
+    el_active_reference_four.style.display = 'none';
+
+} // hideActiveRecordReferenceFour
+
+// Shows the active reference four <div>
+function displayActiveRecordReferenceFour()
+{
+    var el_active_reference_four = getDivElementActiveRecordReferenceFour();
+
+    el_active_reference_four.style.display = 'block';
+
+} // displayActiveRecordReferenceFour
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Element Functions ///////////////////////////////////////////
