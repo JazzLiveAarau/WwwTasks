@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administration von JAZZ live AARAU Aufgaben">
+    <title>Aufgaben JAZZ live AARAU</title>
+
+    <!-- Styles für die Applikation Tasks Display  -->
+    <link rel="stylesheet" href="Styles/JazzTasksDisplay.css">
+
+    <!--  Haupt-Funktionen für die Applikation Tasks Display -->
+    <script type="text/javascript" src="Scripts/JazzTasksDisplay.js"></script>
+
+    <!--  Class corresponding to the XML file JazzTasks.xml -->
+    <script type="text/javascript" src="Scripts/JazzTasksXml.js"></script>
+
+    <!--  Record (class) corresponding to one JazzTask in JazzTasks.xml -->
+    <script type="text/javascript" src="Scripts/JazzTasksRecord.js"></script>
+
+    <!--  Table with all records defined in JazzTasks.xml and table functions -->
+    <script type="text/javascript" src="Scripts/JazzTasksTable.js"></script>
+
+    <!--  Get HTML element functions -->
+    <script type="text/javascript" src="Scripts/JazzTasksElements.js"></script>   
+    
+     <!--  Utility functions for jazz applications -->
+     <script type="text/javascript" src="Scripts/JazzUtils.js"></script>       
+
+     <!--  Utility functions for the application Jazz Tasks -->
+    <script type="text/javascript" src="Scripts/JazzTasksUtility.js"></script>   
+
+</head>
+
+<body onload= "initJazzTasksDisplay()">
+
+    <div class= 'cl_tasks_display_page'>
+
+        <div class= 'cl_tasks_display_header'>
+
+            <img src="Icons/JazzNote.png" >
+            JAZZ <i>live</i> AARAU Aufgaben
+            <img src="Icons/JazzNote.png" >
+
+        </div> <!-- cl_tasks_display_header -->
+
+        <div id= 'id_display_active_record' class= 'cl_display_active_record'>
+            <div class= 'cl_active_record_close'>
+                <button type="button" onclick="onClickCloseActiveRecord()" >&times;</button>
+            </div> <!-- cl_display_active_record -->
+
+            <div id= 'id_active_record_title' class= 'cl_active_record_title'>
+
+            </div> <!-- cl_active_record_title -->
+
+
+        </div> <!-- cl_display_active_record -->
+
+    </div> <!-- cl_tasks_display_page -->
+    
+</body>
+</html>

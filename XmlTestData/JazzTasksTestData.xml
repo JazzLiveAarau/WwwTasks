@@ -222,8 +222,8 @@
             <JazzTaskRefDescription>Webapplikation Flyer</JazzTaskRefDescription>
         </JazzTaskReference>
         <JazzTaskReference>
-            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
-            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+            <JazzTaskRefLink> https://www.jazzliveaarau.ch/Flyer/Manual/FlyerPrinterManual.docx</JazzTaskRefLink>
+            <JazzTaskRefDescription>Handbuch Drucker</JazzTaskRefDescription>
         </JazzTaskReference>
         <JazzTaskReference>
             <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
@@ -405,6 +405,1026 @@
         </JazzTaskReference>
         <JazzTaskResponsible>Alex</JazzTaskResponsible>
         <JazzTaskDeputy>Hubert</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0013</JazzTaskRegNumber>
+        <JazzTaskTitle>Computername ändern für Checkout und Backup</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0013.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0013.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alle</JazzTaskResponsible>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0014</JazzTaskRegNumber>
+        <JazzTaskTitle>Alle Jazz-Dokumente im Intranet speichern</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0014.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0014.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alle</JazzTaskResponsible>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0015</JazzTaskRegNumber>
+        <JazzTaskTitle>Tischplan Spaghetti Factory ändern</JazzTaskTitle>
+        <JazzTaskDescription>Reservationen</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0015.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0015.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Reservation/CreateLayout.pdf</JazzTaskRefLink>
+            <JazzTaskRefDescription>Webseiten Create Layout</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Reservation/CreateLayout.pdf</JazzTaskRefLink>
+            <JazzTaskRefDescription>Webseiten Create Layout</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Reservation/Reservation.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet Reservation</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0016</JazzTaskRegNumber>
+        <JazzTaskTitle>Datei zum/vom Server mit einer FTP Applikation</JazzTaskTitle>
+        <JazzTaskDescription>Empfehlung WS_FTP95 LE oder WS_FTP32.</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0016.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0016.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Applikationen/Applikationen_ftp.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>WS_FTP95 </JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Markus Meier</JazzTaskDeputy>
+        <JazzTaskDeputy>Gunnar Liden</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0017</JazzTaskRegNumber>
+        <JazzTaskTitle>Newsletter senden</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Zufügen, dass Newsletter auf der Homepage automatisch gezeigt wird</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0017.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0017.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Applikationen/Applikationen_newsletter.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet Newsletter</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alex Vimposek</JazzTaskResponsible>
+        <JazzTaskDeputy>Hanni Heller</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0018</JazzTaskRegNumber>
+        <JazzTaskTitle>Plakate kreieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0018.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0018.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Plakat/Plakat_bild_start.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Anforderungen eines Plakatfotos</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Plakat/Plakat_kreieren.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Internet: Plakate kreieren (Diese Webseite sollte gelöscht werden. Nicht länger aktuell)</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0019</JazzTaskRegNumber>
+        <JazzTaskTitle>Saisonbriefe und Gesuche schreiben</JazzTaskTitle>
+        <JazzTaskDescription>Für Philip zu schreiben</JazzTaskDescription>
+        <JazzTaskRemark>Sollte zwei Aufgaben werden.</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0019.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0019.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Gesuche/Gesuche.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Gesuche</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Versand/Versand.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Briefversand von Saison-Programm</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Plakat/Plakat_drucken.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Drucken vom Brief</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hubert Keller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0020</JazzTaskRegNumber>
+        <JazzTaskTitle>SUISA Abrechnung</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Für Philip zu schreiben</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0020.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0020.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/SUISA/SUISA.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: SUISA</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Vakanz</JazzTaskResponsible>
+        <JazzTaskDeputy>Hubert Keller</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0021</JazzTaskRegNumber>
+        <JazzTaskTitle>Supporter und Sponsoren suchen</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0021.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0021.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Sponsoren/Sponsoren.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Sponsoren suchen</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Supporters/Supporters.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Supporters suchen und betreuen</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hubert Keller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0022</JazzTaskRegNumber>
+        <JazzTaskTitle>Gesuche schreiben</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Philip sollte die Aufgabeschreibung schreiben</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0022.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0022.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Gesuche/Gesuche.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Internet: Gesuche</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hubert Keller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0023</JazzTaskRegNumber>
+        <JazzTaskTitle>Test der Android App</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0023.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0023.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Applikationen/Applikationen_uebersicht.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Die App</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alle</JazzTaskResponsible>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0024</JazzTaskRegNumber>
+        <JazzTaskTitle>Programmgestaltung Web - Intranet</JazzTaskTitle>
+        <JazzTaskDescription>Spieldaten bestimmen. Admin Anfragen. Admin XML Editieren. Applikation Flyer</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0024.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0024.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Flyer/Flyer.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Web-Applikation Flyer</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alex Vimposek</JazzTaskResponsible>
+        <JazzTaskDeputy>Laura Cesar</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0025</JazzTaskRegNumber>
+        <JazzTaskTitle>Konzert-Programm Band-Auswahl</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0025.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0025.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alex Vimposek</JazzTaskResponsible>
+        <JazzTaskDeputy>Laura Cesar</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0026</JazzTaskRegNumber>
+        <JazzTaskTitle>Programm Snagit</JazzTaskTitle>
+        <JazzTaskDescription>Für Plakate, Fotos und Galerien verwenden</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0026.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0026.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Applikationen/Applikationen_snagit.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Programm Snagit</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Alle</JazzTaskResponsible>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0027</JazzTaskRegNumber>
+        <JazzTaskTitle>In Flyer die Seite 1 gestalten</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0027.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0027.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Flyer/Flyer.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Web-Applikation Flyer</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0028</JazzTaskRegNumber>
+        <JazzTaskTitle>Logos aktualisieren</JazzTaskTitle>
+        <JazzTaskDescription>Für Plakate, gedrucktes Saisonprogramm, App, Flyer und Reservationsplan</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0028.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0028.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Logos/Logos.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Logos</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0029</JazzTaskRegNumber>
+        <JazzTaskTitle>Admin – News für die Homepage anpassen</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0029.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0029.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0030</JazzTaskRegNumber>
+        <JazzTaskTitle>Admin – Ändern von Tooltip-Texten</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Alle sind verantwortlich die Tooltip-Texten zu überprüfen</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0030.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0030.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Gunnar Liden</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0031</JazzTaskRegNumber>
+        <JazzTaskTitle>Reservationen sperren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0031.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0031.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Reservation/Reservation.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: Reservation</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0032</JazzTaskRegNumber>
+        <JazzTaskTitle>Instrument Abkürzung registrieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Beschreibung nicht aktuell. Jetzt wird GitHub verwendet</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0032.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0032.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0033</JazzTaskRegNumber>
+        <JazzTaskTitle>Sommerpausenbild einfügen</JazzTaskTitle>
+        <JazzTaskDescription>Für die Homepage. Visual Studio Code, GitHub und Fotoprogramme werden verwendet</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0033.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0033.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0034</JazzTaskRegNumber>
+        <JazzTaskTitle>Erstellen einer eigenen Hostpoint ID</JazzTaskTitle>
+        <JazzTaskDescription>Für Administration von E-Mail-Adressen. Konten und Weiterleitungen</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0034.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0034.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Email/Email.htm</JazzTaskRefLink>
+            <JazzTaskRefDescription>Intranet: E-Mail</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0035</JazzTaskRegNumber>
+        <JazzTaskTitle>Saisonprogramm als PDF auf der Homepage</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0035.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0035.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Markus Meier</JazzTaskResponsible>
+        <JazzTaskDeputy>Hanni Heller</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0036</JazzTaskRegNumber>
+        <JazzTaskTitle>Instrument auf der Homepage registrieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>Wegen GitHub die Beschreibung anpasssen</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0036.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0036.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Vakanz</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0037</JazzTaskRegNumber>
+        <JazzTaskTitle>Visual Studio Code für Homepage initialisieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0037.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0037.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Gunnar Liden</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0038</JazzTaskRegNumber>
+        <JazzTaskTitle>Visual Studio Code für Homepage aktualisieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0038.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0038.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Gunnar Liden</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0039</JazzTaskRegNumber>
+        <JazzTaskTitle>VS Code für Flyer und Reservationen initialisieren</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0039.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0039.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Gunnar Liden</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0040</JazzTaskRegNumber>
+        <JazzTaskTitle>Visual Studio Code</JazzTaskTitle>
+        <JazzTaskDescription>Für die Entwicklung von der Homepage, Flyer, Reservationen, Tasks</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0040.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0040.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Hanni Heller</JazzTaskResponsible>
+        <JazzTaskDeputy>Gunnar Liden</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0041</JazzTaskRegNumber>
+        <JazzTaskTitle>To be defined</JazzTaskTitle>
+        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>Documents/A0041.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>Documents/A0041.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+    </JazzTask>
+    <JazzTask>
+        <JazzTaskRegNumber>A0042</JazzTaskRegNumber>
+        <JazzTaskTitle>GitHub Beschreibung</JazzTaskTitle>
+        <JazzTaskDescription>Administration Quellcode. Für Homepage, Flyer, Tasks, Reservation </JazzTaskDescription>
+        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskLinkDoc>/www/Tasks/Documents/A0042.docx</JazzTaskLinkDoc>
+        <JazzTaskLinkPdf>/www/Tasks/Documents/A0042.pdf</JazzTaskLinkPdf>
+        <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskReference>
+            <JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+            <JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+        </JazzTaskReference>
+        <JazzTaskResponsible>Gunnar Liden</JazzTaskResponsible>
+        <JazzTaskDeputy>Hanni Heller</JazzTaskDeputy>
         <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
         <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
         <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
