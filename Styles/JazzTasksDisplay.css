@@ -13,7 +13,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 {
     border: solid 1px black;
     font-family: 'Arial';
-    font-size: 12px;
+    font-size: 15px;
     width: 500px;
     overflow: hidden;
 }
@@ -38,6 +38,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     height: 450px;
 }
 
+/* Active close <div> Element */
 .cl_active_record_close 
 {
     text-align: right;
@@ -46,10 +47,106 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     padding-right: 20px;
 }
 
+/* Active record title-number <div> element */
+.cl_active_record_title_number
+{
+    width: 100%;
+    clear: both;
+}
+
 /* Active record title <div> element */
 .cl_active_record_title
 {
+    /* border: solid 1px red; */
+    width: 82%;
+    padding: 5px;
+    float: left;
+}
+
+/* Active record number <div> element */
+.cl_active_record_number
+{
+    /* border: solid 1px blue; */
+    padding: 5px;
+    float: right;
+}
+
+/* Active record description <div> element */
+.cl_active_record_description
+{
     width: 100%;
     padding: 5px;
+    clear: both;
+}
+
+/* Active record remark <div> element */
+.cl_active_record_remark
+{
+    width: 100%;
+    padding: 5px;
+    clear: both;
+}
+
+/* Active record document <div> element */
+.cl_active_record_document
+{
+    width: 100%;
+    clear: both;
+}
+
+/* Active record document name <div> element */
+.cl_active_record_document_name
+{
+    /* border: solid 1px red; */
+    width: 30%;
+    padding: 5px;
+    float: left;
+}
+
+/* Active record document DOC <div> element */
+.cl_active_record_document_doc
+{
+    /* border: solid 1px blue; */
+    padding: 5px;
+    float: left;
+}
+
+/* Active record document PDF <div> element */
+.cl_active_record_document_pdf
+{
+    /* border: solid 1px blue; */
+    margin-left: 8px;
+    padding: 5px;
+    float: left;
+}
+
+/* Active record reference <div> element */
+.cl_active_record_reference
+{
+    width: 100%;
+    clear: both;
+}
+
+/* Active record reference URL <div> element */
+.cl_active_record_reference_url
+{
+    /* border: solid 1px red; */
+    width: 80%;
+    padding: 5px;
+    float: left;
+}
+
+/* Active reference <button> element */
+.cl_active_record_reference_button 
+{
+    text-align: right;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+/* Active record reference description <div> element */
+.cl_active_record_reference_description
+{
+    width: 100%;
     clear: both;
 }

@@ -50,10 +50,37 @@
                 <button type="button" onclick="onClickCloseActiveRecord()" >&times;</button>
             </div> <!-- cl_display_active_record -->
 
-            <div id= 'id_active_record_title' class= 'cl_active_record_title'>
+            <div class= 'cl_active_record_title_number'>
+            
+                <div id= 'id_active_record_title' class= 'cl_active_record_title'></div>
 
-            </div> <!-- cl_active_record_title -->
+                <div id= 'id_active_record_number' class= 'cl_active_record_number'></div>
 
+            </div> <!-- cl_active_record_title_number -->
+
+            <div id= 'id_active_record_description' class= 'cl_active_record_description'></div>
+
+            <div id= 'id_active_record_remark' class= 'cl_active_record_remark'></div>
+
+            <div class= 'cl_active_record_document'>
+
+                <div id= 'id_active_record_document_name' class= 'cl_active_record_document_name'></div>
+
+                <button type="button" class= 'cl_active_record_document_doc'onclick="onClickDownloadDoc()" ><b>DOC</b></button>
+
+                <button type="button" class= 'cl_active_record_document_pdf'onclick="onClickDownloadPdf()" ><b>PDF</b></button>
+
+            </div> <!-- cl_active_record_document -->
+
+            <div id= 'id_active_record_reference_one' class= 'cl_active_record_reference'>
+
+                <div id= 'id_active_record_reference_one_url' class= 'cl_active_record_reference_url'></div>
+
+                <button type="button" class= 'cl_active_record_reference_button' onclick="onClickOpenUrlOne()" ><b>Öffnen</b></button>
+
+                <div id= 'id_active_record_reference_one_description' class= 'cl_active_record_reference_description'></div>
+
+            </div> <!-- cl_active_record_reference -->
 
         </div> <!-- cl_display_active_record -->
 
