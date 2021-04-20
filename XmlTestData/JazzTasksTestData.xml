@@ -9,10 +9,10 @@
         <JazzTaskLinkDoc>/www/Tasks/Documents/A0001.docx</JazzTaskLinkDoc>
         <JazzTaskLinkPdf>/www/Tasks/Documents/A0001.pdf</JazzTaskLinkPdf>
         <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
-        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
-        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
-        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
-        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskRemindDay>5</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>8</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>6</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>10</JazzTaskFinishMonth>
         <JazzTaskReference>
             <JazzTaskRefLink>https://jazzliveaarau.ch/Administration/Fotos/Fotos.htm</JazzTaskRefLink>
             <JazzTaskRefDescription>Fotos suchen auf der Homepage, mit der App und mit Admin. Urheber-Rechte</JazzTaskRefDescription>
@@ -1432,15 +1432,15 @@
     <JazzTask>
         <JazzTaskRegNumber>A0043</JazzTaskRegNumber>
         <JazzTaskTitle>Test references</JazzTaskTitle>
-        <JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
-        <JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+        <JazzTaskDescription>Test-Wort</JazzTaskDescription>
+        <JazzTaskRemark>Test-Bemerkung</JazzTaskRemark>
         <JazzTaskLinkDoc>Documents/A0043.docx</JazzTaskLinkDoc>
         <JazzTaskLinkPdf>Documents/A0043.pdf</JazzTaskLinkPdf>
         <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
-        <JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
-        <JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
-        <JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
-        <JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+        <JazzTaskRemindDay>14</JazzTaskRemindDay>
+        <JazzTaskRemindMonth>8</JazzTaskRemindMonth>
+        <JazzTaskFinishDay>15</JazzTaskFinishDay>
+        <JazzTaskFinishMonth>10</JazzTaskFinishMonth>
         <JazzTaskReference>
             <JazzTaskRefLink>Link_1</JazzTaskRefLink>
             <JazzTaskRefDescription>Descr_1</JazzTaskRefDescription>
@@ -1457,10 +1457,10 @@
             <JazzTaskRefLink>link_4</JazzTaskRefLink>
             <JazzTaskRefDescription>descr_4</JazzTaskRefDescription>
         </JazzTaskReference>
-        <JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
-        <JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+        <JazzTaskResponsible>Kalle Svensson</JazzTaskResponsible>
+        <JazzTaskDeputy>Ingrid Oskarsson</JazzTaskDeputy>
+        <JazzTaskDeputy>Felix Gustavsson</JazzTaskDeputy>
+        <JazzTaskDeputy>Anders Svenningson</JazzTaskDeputy>
+        <JazzTaskDeputy>Helga Ingmansdotter</JazzTaskDeputy>
     </JazzTask>
 </HomepageJazzTasks>

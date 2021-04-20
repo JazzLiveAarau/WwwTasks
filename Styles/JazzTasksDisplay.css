@@ -1,5 +1,6 @@
 /* 
-File: JazzTasksDisplay.css Date: 2021-04-19 Author: Hanni Heller / Gunnar Liden
+File: JazzTasksDisplay.css 
+Date: 2021-04-20 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -35,7 +36,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 {
     border: solid 1px yellow;
     width: 100%;
-    height: 450px;
+    height: auto;
 }
 
 /* Active close <div> Element */
@@ -73,6 +74,14 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 
 /* Active record description <div> element */
 .cl_active_record_description
+{
+    width: 100%;
+    padding: 5px;
+    clear: both;
+}
+
+/* Active record responsibles <div> element */
+.cl_active_record_responsibles
 {
     width: 100%;
     padding: 5px;
@@ -146,6 +155,14 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 
 /* Active record reference description <div> element */
 .cl_active_record_reference_description
+{
+    width: 100%;
+    padding: 5px;
+    clear: both;
+}
+
+/* Active record for the remind an due date <div> element */
+.cl_active_record_remind_due_date
 {
     width: 100%;
     padding: 5px;

@@ -1,5 +1,5 @@
 // File: JazzTasksCreateControls.js
-// Date: 2021-04-18
+// Date: 2021-04-20
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -398,7 +398,7 @@ function createTextBoxDescription()
 {
     g_description_text_box = new JazzTextBox("id_description_text_box", getIdDivElementDescription());
 
-    g_description_text_box.setLabelText("Beschreibung/Suchwörter");
+    g_description_text_box.setLabelText("Inhalt (Suchwörter)");
 
     g_description_text_box.setLabelTextPositionAbove();
 

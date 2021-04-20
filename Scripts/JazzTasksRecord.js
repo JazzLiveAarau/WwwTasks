@@ -365,6 +365,37 @@ class JazzTask
 
     } // setJazzTaskDeputies
 
+    // Returns a string with the responsible persons for a task
+    // Input i_case is not yet used
+    getJazzTaskResponsiblesString(i_case)
+    {
+        var ret_str = '';
+
+        if (this.getJazzTaskResponsible().length > 0)
+        {
+            ret_str = ret_str + this.getJazzTaskResponsible();
+        }
+        else
+        {
+            ret_str = ret_str + 'Niemanden';
+        }
+
+        var deputy_abbrev_str = ' (StV)';
+
+        for (var deputy_number = 1; deputy_number <= this.getNumberOfJazzTaskDeputies(); deputy_number++)
+        {
+            var deputy_name = this.getJazzTaskDeputyByNumber(deputy_number);
+
+            if (deputy_name.length > 0)
+            {
+                ret_str = ret_str + '&nbsp;&nbsp;&nbsp;' + deputy_name + deputy_abbrev_str;
+            }
+        }
+
+        return ret_str;
+
+    } // getJazzTaskResponsiblesString
+
     // Returns a jazz task reference link by number
     // TODO Remove this function
     getJazzTaskRefLinkByNumber(i_reference_number) 

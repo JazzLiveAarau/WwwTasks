@@ -1,5 +1,5 @@
 // File: JazzUtils.js
-// Date: 2021-04-18
+// Date: 2021-04-20
 // Author: Gunnar Lidén
 
 // File content
@@ -296,6 +296,64 @@ function addZeroDateTime(i_time)
     return ret_time;
 
 } // addZeroDateTime
+
+// Returns the name of the month for a given month number
+function getMonthName(i_concert_month)
+{
+    var ret_month = 'Undefined';
+
+    if (1 == i_concert_month)
+    {
+        ret_month = 'Januar';
+    }
+    else if (2 == i_concert_month)
+    {
+        ret_month = 'Februar';
+    }
+    else if (3 == i_concert_month)
+    {
+        ret_month = 'März';
+    }
+    else if (4 == i_concert_month)
+    {
+        ret_month = 'April';
+    }
+    else if (5 == i_concert_month)
+    {
+        ret_month = 'Mai';
+    }
+    else if (6 == i_concert_month)
+    {
+        ret_month = 'Juni';
+    }
+    else if (7 == i_concert_month)
+    {
+        ret_month = 'Juli';
+    }
+    else if (8 == i_concert_month)
+    {
+        ret_month = 'August';
+    }
+    else if (9 == i_concert_month)
+    {
+        ret_month = 'September';
+    }
+    else if (10 == i_concert_month)
+    {
+        ret_month = 'Oktober';
+    }
+    else if (11 == i_concert_month)
+    {
+        ret_month = 'November';
+    }
+    else if (12 == i_concert_month)
+    {
+        ret_month = 'Dezember';
+    }
+
+    return ret_month;
+
+} // getMonthName
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Date/Time Functions /////////////////////////////////////////

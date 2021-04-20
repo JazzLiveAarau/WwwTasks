@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-04-19
+// Date: 2021-04-20
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -92,6 +92,24 @@ function getDivElementActiveRecordRemark()
 
 } // getDivElementActiveRecordRemark
 
+// Hides the active reference one <div>
+function hideActiveRecordRemark()
+{
+    var el_active_remark = getDivElementActiveRecordRemark();
+
+    el_active_remark.style.display = 'none';
+
+} // hideActiveRecordRemark
+
+// Shows the active reference one <div>
+function displayActiveRecordRemark()
+{
+    var el_active_remark = getDivElementActiveRecordRemark();
+
+    el_active_remark.style.display = 'block';
+
+} // displayActiveRecordRemark
+
 //Returns the identity of the active record remark <div> element
 function getIdDivElementActiveRecordRemark()
 {
@@ -112,7 +130,6 @@ function getIdDivElementActiveRecordDocumentName()
     return 'id_active_record_document_name';
 
 } // getIdDivElementActiveRecordDocumentName
-
 
 // Returns the active record reference one <div> element
 function getDivElementActiveRecordReferenceOne()
@@ -354,6 +371,52 @@ function displayActiveRecordReferenceFour()
     el_active_reference_four.style.display = 'block';
 
 } // displayActiveRecordReferenceFour
+
+// Returns the active record remind and due date <div> element
+function getDivElementActiveRecordRemindDueDate()
+{
+    return document.getElementById(getIdDivElementActiveRecordRemindDueDate());
+
+} // getDivElementActiveRecordRemindDueDate
+
+//Returns the identity of the active record remind and due date <div> element
+function getIdDivElementActiveRecordRemindDueDate()
+{
+    return 'id_active_record_remind_due_date';
+
+} // getIdDivElementActiveRecordRemindDueDate
+
+// Hides the active remind and due date <div>
+function hideActiveRecordRemindDueDate()
+{
+    var el_active_remind_due_date = getDivElementActiveRecordRemindDueDate();
+
+    el_active_remind_due_date.style.display = 'none';
+
+} // hideActiveRecordRemindDueDate
+
+// Shows the active remind and due date <div>
+function displayActiveRecordRemindDueDate()
+{
+    var el_active_remind_due_date = getDivElementActiveRecordRemindDueDate();
+
+    el_active_remind_due_date.style.display = 'block';
+
+} // displayActiveRecordRemindDueDate
+
+// Returns the active record responsibles <div> element
+function getDivElementActiveRecordResponsibles()
+{
+    return document.getElementById(getIdDivElementActiveRecordResponsibles());
+
+} // getDivElementActiveRecordResponsibles
+
+//Returns the identity of the active record responsibles <div> element
+function getIdDivElementActiveRecordResponsibles()
+{
+    return 'id_active_record_responsibles';
+
+} // getIdDivElementActiveRecordResponsibles
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Element Functions ///////////////////////////////////////////

@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-04-19
+// Date: 2021-04-20
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -124,6 +124,8 @@ function setActiveRecordDiv()
 
     setActiveRecordDivNumber();
 
+    setActiveRecordDivResponsibles();
+
     setActiveRecordDivDescription();
 
     setActiveRecordDivRemark();
@@ -145,6 +147,8 @@ function setActiveRecordDiv()
     setActiveRecordDivReferenceThreeDescription();
 
     setActiveRecordDivReferenceFourDescription();
+
+    setActiveRecordDivRemindDueDate();
 
 } // setActiveRecordDiv
 
@@ -185,9 +189,16 @@ function setActiveRecordDivDescription()
 
     var description_str = '';
 
-    description_str = description_str + '<b>' + 'Beschreibung/Suchwörter' + '</b>' + '<br>';
+    description_str = description_str + '<b>' + 'Inhalt' + '</b>' + '<br>';
 
-    description_str = description_str + g_active_record.getJazzTaskDescription();
+    if (g_active_record.getJazzTaskDescription().length > 0)
+    {
+        description_str = description_str + g_active_record.getJazzTaskDescription();
+    }
+    else
+    {
+        description_str = description_str + '&nbsp;&nbsp;';
+    }
 
     el_div_description.innerHTML = description_str;
 
@@ -197,6 +208,17 @@ function setActiveRecordDivDescription()
 function setActiveRecordDivRemark()
 {
     var el_div_remark = getDivElementActiveRecordRemark();
+
+    if (g_active_record.getJazzTaskRemark().length == 0)
+    {
+        hideActiveRecordRemark();
+
+        return;
+    }
+    else
+    {
+        displayActiveRecordRemark();
+    }
 
     var remark_str = '';
 
@@ -410,6 +432,78 @@ function setActiveRecordDivReferenceFourDescription()
     el_div_ref_four_description.innerHTML = ref_four_description_str;
 
 } // setActiveRecordDivReferenceFourDescription
+
+// Sets the text of the active record remind and due date <div> element
+function setActiveRecordDivRemindDueDate()
+{
+    var el_div_remind_due_date = getDivElementActiveRecordRemindDueDate();
+	
+	var remind_day = g_active_record.getJazzTaskRemindDay();
+	
+	var remind_month = g_active_record.getJazzTaskRemindMonth();
+	
+	var finish_day = g_active_record.getJazzTaskFinishDay();
+	
+	var finish_month = g_active_record.getJazzTaskFinishMonth();
+	
+	var remind_str = '';
+	
+	var finish_str = '';
+	
+	if (remind_day.length > 0)
+	{
+		remind_str = '<b>' + 'Remind date ' + '</b>' + 
+			remind_day.toString() + '. ' + getMonthName(remind_month);
+	}
+	
+	if (finish_day.length > 0)
+	{
+		finish_str = '<b>' + 'Due date ' + '</b>' + 
+			finish_day.toString() + '. ' + getMonthName(finish_month);
+	}	
+	
+	if (remind_str.length == 0 && finish_str.lenght == 0)
+	{
+		hideActiveRecordRemindDueDate();
+		
+		return;
+	}
+	else
+	{
+		displayActiveRecordRemindDueDate();
+	}
+	
+    var date_str = '';
+
+    date_str = date_str + remind_str;
+	
+	if (remind_str.length > 0)
+	{
+		date_str = date_str + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	}
+
+    date_str = date_str + finish_str;
+
+    el_div_remind_due_date.innerHTML = date_str;
+
+} // setActiveRecordDivRemindDueDate
+
+// Sets the text of the active record remind and due date <div> element
+function setActiveRecordDivResponsibles()
+{
+    var el_div_responsibles = getDivElementActiveRecordResponsibles();
+	
+	var responsibles_str = g_active_record.getJazzTaskResponsiblesString("NotYetUsed");
+
+    var html_str = '';
+
+    html_str = html_str + '<b>' + 'Verantwortliche ' + '</b>' + '<br>';
+	
+    html_str = html_str + responsibles_str;
+
+    el_div_responsibles.innerHTML = html_str;
+
+} // setActiveRecordDivResponsibles
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Active Record Functions /////////////////////////////////////

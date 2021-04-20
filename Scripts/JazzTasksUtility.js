@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-04-18
+// Date: 2021-04-20
 // Author: Gunnar Lidén
 
 // Content
