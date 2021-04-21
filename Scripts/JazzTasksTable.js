@@ -32,6 +32,9 @@ class JazzTasksTable
         // registration numbers (= 'reg_number') or titles (= 'title')
         this.m_jazz_tasks_name_array_case = 'undefined';
 
+		// Two dimensional array mapping task number to registration number (Axxxx)
+		this.m_map_number_task_registration = [];
+
         // Initialization of the JazzTasks table. Set array m_jazz_tasks_table.
         this.initJazzTasksTable();
 
@@ -61,11 +64,21 @@ class JazzTasksTable
         
         var n_tasks = this.m_xml.getNumberOfJazzTasks();
 
+		var index_map = 0;
+
         for (var task_number=1; task_number <= n_tasks; task_number++)
         {
             var current_task = this.getJazzTaskRecordXml(task_number);
 
             this.m_jazz_tasks_table[task_number - 1] = current_task;
+
+			var reg_number = current_task.getJazzTaskRegNumber();
+
+			this.m_map_number_task_registration[index_map, 0] = task_number;
+
+			this.m_map_number_task_registration[index_map, 1] = reg_number;
+
+			index_map = index_map + 1;
 
         } // task_number
 
@@ -73,6 +86,34 @@ class JazzTasksTable
 
     // Get and set member functions for the member variables (fields)
     // ==============================================================
+
+	// Returns the task number for a given registration number
+	getTaskNumberFromRegistrationNumber(i_registration_number)
+	{
+		var ret_task_number = -1;
+
+		var n_tasks = this.m_xml.getNumberOfJazzTasks();
+
+		for (var task_number=1; task_number <= n_tasks; task_number++)
+        {
+            var current_task = this.getJazzTaskRecordXml(task_number);
+
+            this.m_jazz_tasks_table[task_number - 1] = current_task;
+
+			var reg_number = current_task.getJazzTaskRegNumber();
+
+			if (i_registration_number == reg_number)
+			{
+				ret_task_number = task_number;
+
+				break;
+			}
+
+		}
+
+		return ret_task_number;
+
+	} // getTaskNumberFromRegistrationNumber
 
     // Returns the array with all JazzTask records defined by the file JazzTasks.xml
     getJazzTasksTable()

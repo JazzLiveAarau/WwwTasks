@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-04-20
+// Date: 2021-04-21
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -49,7 +49,7 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     g_search = new JazzTasksSearch(g_display_table);
 
-    g_display_number = 12;
+    g_display_number = 1;
 
     g_active_record = g_display_table.getJazzTaskRecord(g_display_number);
 
@@ -64,6 +64,8 @@ function initJazzTasksDisplayAfterLoadOfXml()
     var el_list = getDivElementSearchTaskList();
 
     el_list.innerHTML = list_str;
+
+    closeActiveRecord();
 
 } // initJazzTasksDisplayAfterLoadOfXml
 
@@ -85,49 +87,95 @@ function onClickCloseActiveRecord()
 // User clicked a task record
 function onClickTaskRecord(i_reg_number)
 {
-    alert("onClickTaskRecord User clicked " + i_reg_number);
+    g_display_number = g_display_table.getTaskNumberFromRegistrationNumber(i_reg_number);
+
+    g_active_record = g_display_table.getJazzTaskRecord(g_display_number);
+
+    setActiveRecordDiv();
+
+    displayActiveRecord();
+
+    window.scrollTo(0, 0);
 
 } // onClickTaskRecord
 
 // Download the DOC document
 function onClickDownloadDoc()
 {
-    alert("onClickDownloadDoc Enter");
+    var doc_path_file_name = g_active_record.getJazzTaskLinkDoc();
+
+    if (doc_path_file_name.length == 0)
+    {
+        return;
+    }
+
+    var doc_file_name = getFileBasename(doc_path_file_name);
+
+    var doc_url = getFullPathTaskDocumentServerDirectory() + doc_file_name;
+
+    window.open(doc_url);
 
 } // onClickDownloadDoc
 
 // Download the DOC document
 function onClickDownloadPdf()
 {
-    alert("onClickDownloadPdf Enter");
+    var pdf_path_file_name = g_active_record.getJazzTaskLinkPdf();
+
+    if (pdf_path_file_name.length == 0)
+    {
+        return;
+    }
+
+    var pdf_file_name = getFileBasename(pdf_path_file_name);
+
+    var pdf_url = getFullPathTaskDocumentServerDirectory() + pdf_file_name;
+
+    window.open(pdf_url);
 
 } // onClickDownloadPdf
 
 // Open reference one URL
 function onClickOpenUrlOne()
 {
-    alert("onClickOpenUrlOne Enter");
+    var reference_number = 1;
+
+    var url_ref_one = g_active_record.getJazzTaskRefLink(reference_number);
+
+    window.open(url_ref_one);
 
 } // onClickOpenUrlOne
 
 // Open reference two URL
 function onClickOpenUrlTwo()
 {
-    alert("onClickOpenUrlTwo Enter");
+    var reference_number = 2;
+
+    var url_ref_two = g_active_record.getJazzTaskRefLink(reference_number);
+
+    window.open(url_ref_two);
 
 } // onClickOpenUrlTwo
 
 // Open reference three URL
 function onClickOpenUrlThree()
 {
-    alert("onClickOpenUrlThree Enter");
+    var reference_number = 3;
+
+    var url_ref_three = g_active_record.getJazzTaskRefLink(reference_number);
+
+    window.open(url_ref_three);
 
 } // onClickOpenUrlThree
 
 // Open reference four URL
 function onClickOpenUrlFour()
 {
-    alert("onClickOpenUrlFour Enter");
+    var reference_number = 4;
+
+    var url_ref_four = g_active_record.getJazzTaskRefLink(reference_number);
+
+    window.open(url_ref_four);
 
 } // onClickOpenUrlFour
 
@@ -157,9 +205,13 @@ function getListOfTasksHtmlString(i_result_registration_numbers)
 
         var reg_number = i_result_registration_numbers[result_index];
 
-        var title_str = result_titles[result_index];
+        var task_number = g_display_table.getTaskNumberFromRegistrationNumber(reg_number);
 
-        var responsibles_str = 'TODO Resonsibles string';
+        var current_record = g_display_table.getJazzTaskRecord(task_number);
+    
+        var title_str = current_record.getJazzTaskTitle();
+
+        var responsibles_str = current_record.getJazzTaskResponsiblesString("NotYetUsed");
 
         ret_list_tasks_str = ret_list_tasks_str + getOneResultTaskString(reg_number, title_str, responsibles_str);
 
