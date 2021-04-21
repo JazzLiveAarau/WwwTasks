@@ -196,11 +196,13 @@ class JazzTasksTable
     // Returns an array with names that can be used for a dropdown control
     // Case reg_number: An array with registration numbers
     // Case titles: An array with titles
+	// Case responsible: An array of responsibles
     getJazzTasksNameArray(i_jazz_tasks_name_array_case)
     {
         this.m_jazz_tasks_name_array = [];
 
         if (i_jazz_tasks_name_array_case == 'reg_number' || 
+			i_jazz_tasks_name_array_case == 'responsible' || 
             i_jazz_tasks_name_array_case == 'title'         )
         {
             this.m_jazz_tasks_name_array_case = i_jazz_tasks_name_array_case;
@@ -222,6 +224,8 @@ class JazzTasksTable
 
             var task_title = current_task.getJazzTaskTitle();
 
+			var responsible_name = current_task.getJazzTaskResponsible();
+
             if (this.m_jazz_tasks_name_array_case == 'reg_number')
             {
                 this.m_jazz_tasks_name_array[task_number - 1] = reg_number; 
@@ -229,6 +233,10 @@ class JazzTasksTable
             else if (this.m_jazz_tasks_name_array_case == 'title')
             {
                 this.m_jazz_tasks_name_array[task_number - 1] = task_title; 
+            }
+			else if (this.m_jazz_tasks_name_array_case == 'responsible')
+            {
+                this.m_jazz_tasks_name_array[task_number - 1] = responsible_name; 
             }
 
         } // task_number

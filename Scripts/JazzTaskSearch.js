@@ -51,10 +51,11 @@ class JazzTasksSearch
 
         this.setSearchString(i_search_str);
 
-        ret_registration_numbers = this.m_registration_numbers; // Temporary for test QQQQQQQ
+        // ret_registration_numbers = this.m_registration_numbers; // Temporary for test QQQQQQQ
 
+        ret_registration_numbers = this.sortTitleTasks();
 
-        this.m_result_registration_numbers = ret_registration_numbers;
+        this.m_result_registration_numbers = ret_registration_numbers;   
 
         return ret_registration_numbers;
 
@@ -148,6 +149,92 @@ class JazzTasksSearch
         return ret_word_array;
     
     } // getSearchWordArray
+
+
+    // Returns an array with registration numbers after sorting with the title
+    sortTitleTasks()
+    {
+        var ret_numbers_sort = [];
+
+        var array_case = 'reg_number';
+
+        var registration_numbers = this.m_table.getJazzTasksNameArray(array_case);   
+
+        array_case = 'title';
+
+        var task_titles_sort = this.m_table.getJazzTasksNameArray(array_case);  
+
+        task_titles_sort.sort();
+        
+        var n_elements = registration_numbers.length;
+
+        var task_titles = this.m_table.getJazzTasksNameArray(array_case);  
+
+        for (var index_element=0; index_element < n_elements; index_element++)
+        {
+            var title_sorted = task_titles_sort[index_element];
+
+            for (var index_out=0; index_out < n_elements; index_out++)
+            {
+                var current_reg_number = registration_numbers[index_out];
+
+                var current_title = task_titles[index_out];
+
+                if (current_title == title_sorted)
+                {
+                    ret_numbers_sort[index_element] = current_reg_number;
+                }
+
+            } // index_out
+
+        } // index_element
+
+        return ret_numbers_sort;
+
+    } // sortTitleTasks
+
+        // Returns an array with registration numbers after sorting with the responsible
+        // Does not work. Names are not unique
+        sortResponsibleTasks()
+        {
+            var ret_numbers_sort = [];
+    
+            var array_case = 'reg_number';
+    
+            var registration_numbers = this.m_table.getJazzTasksNameArray(array_case);   
+    
+            array_case = 'responsible';
+    
+            var task_responsibles_sort = this.m_table.getJazzTasksNameArray(array_case);  
+    
+            task_responsibles_sort.sort();
+            
+            var n_elements = registration_numbers.length;
+    
+            var task_responsibles = this.m_table.getJazzTasksNameArray(array_case);  
+    
+            for (var index_element=0; index_element < n_elements; index_element++)
+            {
+                var responsible_sorted = task_responsibles_sort[index_element];
+    
+                for (var index_out=0; index_out < n_elements; index_out++)
+                {
+                    var current_reg_number = registration_numbers[index_out];
+    
+                    var current_responsible = task_responsibles[index_out];
+    
+                    if (current_responsible == responsible_sorted)
+                    {
+                        ret_numbers_sort[index_element] = current_reg_number;
+                    }
+    
+                } // index_out
+    
+            } // index_element
+    
+            return ret_numbers_sort;
+    
+        } // sortResponsibleTasks
 
 } // class
 
