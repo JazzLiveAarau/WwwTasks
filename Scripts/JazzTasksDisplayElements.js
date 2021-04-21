@@ -418,6 +418,20 @@ function getIdDivElementActiveRecordResponsibles()
 
 } // getIdDivElementActiveRecordResponsibles
 
+// Returns the search task list <div> element
+function getDivElementSearchTaskList()
+{
+    return document.getElementById(getIdDivElementSearchTaskList());
+
+} // getDivElementSearchTaskList
+
+//Returns the identity of the search task list <div> element
+function getIdDivElementSearchTaskList()
+{
+    return 'id_search_task_list';
+
+} // getIdDivElementSearchTaskList
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Element Functions ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

@@ -16,6 +16,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     font-family: 'Arial';
     font-size: 15px;
     width: 500px;
+    margin-left: 50px;
     overflow: hidden;
 }
 
@@ -45,6 +46,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     text-align: right;
     font-size: 30px;
     font-weight: bold;
+    cursor: pointer;
     padding-right: 20px;
 }
 
@@ -167,4 +169,42 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     width: 100%;
     padding: 5px;
     clear: both;
+}
+
+/* Search task list <div> element */
+.cl_search_task_list
+{
+    width: 100%;
+    clear: both;    
+}
+
+/* List record <div> element */
+.cl_list_record
+{
+    /* border: solid 1px red; */
+    width: 100%;
+    padding-left: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    clear: both;    
+}
+
+/* List record titel <div> element */
+.cl_list_record_title
+{
+    /* border: solid 1px blue; */
+    width: 80%;
+    padding-left: 5px;
+    cursor: pointer;
+    float: left;
+}
+
+/* List record reg number <div> element */
+.cl_list_record_number
+{
+    /* border: solid 1px blue; */
+    padding-left: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+    float: right;
 }

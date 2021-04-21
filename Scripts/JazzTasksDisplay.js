@@ -17,6 +17,9 @@ var g_display_xml = null;
 // JazzTasksTable object that hold all JazzTask records 
 var g_display_table = null;
 
+// JazzTasksSearch object for the search of objects
+var g_search = null;
+
 // Active jazz task record number
 var g_display_number = -12345;
 
@@ -44,11 +47,23 @@ function initJazzTasksDisplayAfterLoadOfXml()
 {
     g_display_table = new JazzTasksTable(g_display_xml);
 
-    g_display_number = 42;
+    g_search = new JazzTasksSearch(g_display_table);
+
+    g_display_number = 12;
 
     g_active_record = g_display_table.getJazzTaskRecord(g_display_number);
 
     setActiveRecordDiv();
+
+    var search_str= 'Gunnar visual studio';
+
+    var result_registration_numbers = g_search.search(search_str);
+
+    var list_str = getListOfTasksHtmlString(result_registration_numbers);
+
+    var el_list = getDivElementSearchTaskList();
+
+    el_list.innerHTML = list_str;
 
 } // initJazzTasksDisplayAfterLoadOfXml
 
@@ -66,6 +81,13 @@ function onClickCloseActiveRecord()
     closeActiveRecord();
 
 } // onClickCloseActiveRecord
+
+// User clicked a task record
+function onClickTaskRecord(i_reg_number)
+{
+    alert("onClickTaskRecord User clicked " + i_reg_number);
+
+} // onClickTaskRecord
 
 // Download the DOC document
 function onClickDownloadDoc()
@@ -111,6 +133,85 @@ function onClickOpenUrlFour()
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start List Tasks Functions //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Returns ...
+function getListOfTasksHtmlString(i_result_registration_numbers)
+{
+    var ret_list_tasks_str = '';
+
+    var array_case = 'title';
+
+    var result_titles = g_display_table.getJazzTasksNameArray(array_case); // QQQ Temporary
+
+    var n_records = i_result_registration_numbers.length;
+
+    // n_records = 1; 
+
+    for (var result_index=0; result_index < n_records; result_index++)
+    {
+
+        var reg_number = i_result_registration_numbers[result_index];
+
+        var title_str = result_titles[result_index];
+
+        var responsibles_str = 'TODO Resonsibles string';
+
+        ret_list_tasks_str = ret_list_tasks_str + getOneResultTaskString(reg_number, title_str, responsibles_str);
+
+    }
+
+    return ret_list_tasks_str;
+
+} // getListOfTasksHtmlString
+
+// Returns one ...
+function getOneResultTaskString(i_reg_number, i_title_str, i_responsibles_str)
+{
+    var ret_one_task_str = '';
+
+    var click_str = getOnClickTaskRecordString(i_reg_number);
+
+    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record" >';
+
+    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record_title"' + click_str + '>';
+
+    ret_one_task_str = ret_one_task_str + '<b>' + i_title_str + '</b>';
+
+    ret_one_task_str = ret_one_task_str + '</div>';
+
+    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record_number"' + click_str + '>';
+
+    ret_one_task_str = ret_one_task_str + i_reg_number;
+
+    ret_one_task_str = ret_one_task_str + '</div>';
+
+    ret_one_task_str = ret_one_task_str + '</div>';
+
+    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record"' + click_str + '>';
+
+    ret_one_task_str = ret_one_task_str + i_responsibles_str;
+
+    ret_one_task_str = ret_one_task_str + '</div>';
+
+    return ret_one_task_str;
+
+} // getOneResultTaskString
+
+// Returns the string for the on click task function
+// https://stackoverflow.com/questions/9643311/pass-a-string-parameter-in-an-onclick-function
+function getOnClickTaskRecordString(i_reg_number)
+{
+    return ' onclick= "onClickTaskRecord(\''+ i_reg_number + '\')" ';
+
+} // getOnClickTaskRecordString
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End List Tasks Functions ////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
