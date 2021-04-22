@@ -26,6 +26,9 @@ var g_display_number = -12345;
 // Active jazz task
 var g_active_record = null;
 
+// Search text box
+var g_search_text_box = null;
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -55,9 +58,22 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     setActiveRecordDiv();
 
-    var search_str= 'Gunnar visual studio';
+    createTextBoxSearch();
 
-    var result_registration_numbers = g_search.search(search_str);
+    closeActiveRecord();
+
+    var search_str= '';
+
+    searchDisplayResultList(search_str);
+
+} // initJazzTasksDisplayAfterLoadOfXml
+
+// Search and display search result
+function searchDisplayResultList(i_search_str)
+{
+    g_search_text_box.setValue(i_search_str)
+
+    var result_registration_numbers = g_search.search(i_search_str);
 
     var list_str = getListOfTasksHtmlString(result_registration_numbers);
 
@@ -65,9 +81,7 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     el_list.innerHTML = list_str;
 
-    closeActiveRecord();
-
-} // initJazzTasksDisplayAfterLoadOfXml
+} // searchSetResultList
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Main Functions //////////////////////////////////////////////
@@ -179,9 +193,35 @@ function onClickOpenUrlFour()
 
 } // onClickOpenUrlFour
 
+// User made a change in the search text box
+function oninputSearch()
+{
+    var search_str = g_search_text_box.getValue();
+
+    searchDisplayResultList(search_str);
+
+} // oninputSearch
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
+
+// Create the search text box
+function createTextBoxSearch()
+{
+    g_search_text_box = new JazzTextBox("id_search_text_box", getIdDivElementTextBoxSearch());
+
+    g_search_text_box.setLabelText("Suchen ");
+
+    g_search_text_box.setLabelTextPositionLeft();
+
+    g_search_text_box.setSize("22");
+
+    g_search_text_box.setTitle("Suchwörter eingeben");
+
+    g_search_text_box.setOninputFunctionName("oninputSearch");
+  
+} // createTextBoxSearch
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start List Tasks Functions //////////////////////////////////////

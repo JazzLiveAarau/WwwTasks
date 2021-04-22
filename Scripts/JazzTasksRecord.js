@@ -396,6 +396,26 @@ class JazzTask
 
     } // getJazzTaskResponsiblesString
 
+    // Returns a string with the responsible persons for a task
+    getJazzTaskDeputiesString()
+    {
+        var ret_str = '';
+
+        for (var deputy_number = 1; deputy_number <= this.getNumberOfJazzTaskDeputies(); deputy_number++)
+        {
+            var deputy_name = this.getJazzTaskDeputyByNumber(deputy_number);
+
+            if (deputy_name.length > 0)
+            {
+                ret_str = ret_str + '&nbsp;&nbsp;' + deputy_name;
+            }
+        }
+
+        return ret_str;
+
+    } // getJazzTaskDeputiesString
+        
+
     // Returns a jazz task reference link by number
     // TODO Remove this function
     getJazzTaskRefLinkByNumber(i_reference_number) 

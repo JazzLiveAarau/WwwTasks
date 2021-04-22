@@ -22,6 +22,7 @@ class JazzTasksSearch
         this.m_table = i_table;
 
         // Existing registration numbers (strings) of the input table
+        // The array may be ordered
         this.m_registration_numbers = [];        
 
         // Search string
@@ -45,21 +46,148 @@ class JazzTasksSearch
     // 1. Set members search string and search word array. Call of setSearchString.
     search(i_search_str)
     {
-        var ret_registration_numbers = [];
+        var ret_result_registration_numbers = [];
 
         this.m_result_registration_numbers = [];
 
         this.setSearchString(i_search_str);
 
-        // ret_registration_numbers = this.m_registration_numbers; // Temporary for test QQQQQQQ
+        // this.m_registration_numbers
 
-        ret_registration_numbers = this.sortTitleTasks();
+        if (i_search_str.length == 0)
+        {
+            this.m_result_registration_numbers = this.m_registration_numbers;
 
-        this.m_result_registration_numbers = ret_registration_numbers;   
+            return this.m_registration_numbers;
+        }
 
-        return ret_registration_numbers;
+        var index_hit = 0;
+
+        var search_word_array = this.getSearchWordArray(i_search_str);
+
+        for (var index_record=0; index_record < this.m_registration_numbers.length; index_record++)
+        {
+            var reg_number = this.m_registration_numbers[index_record];
+
+            var task_number = g_display_table.getTaskNumberFromRegistrationNumber(reg_number);
+
+            var current_record = g_display_table.getJazzTaskRecord(task_number);
+
+            if (this.searchOneRecord(search_word_array, current_record))
+            {
+                ret_result_registration_numbers[index_hit] = reg_number;
+
+                index_hit = index_hit + 1;
+            }
+          
+        } // index_record
+
+        this.m_result_registration_numbers = ret_result_registration_numbers;
+
+        return ret_result_registration_numbers;
 
     } // search
+
+
+    // Returns true if there are AND hits
+    searchOneRecord(i_search_array, i_record)
+    {
+        var hit_array = this.getHitArray(i_search_array);
+
+        var compare_array = this.getCompareArray(i_record);
+        
+        for (var index_compare=0; index_compare < compare_array.length; index_compare++)
+        {
+            var search_text = compare_array[index_compare];
+
+            for (var index_word=0; index_word < i_search_array.length; index_word++)
+            {
+                var search_word = i_search_array[index_word];
+
+                var b_hit = this.stringContainsSearchString(search_word, search_text);
+                
+                if (b_hit)
+                {
+                    hit_array[index_word] = true;
+                }
+
+            } // index_word
+
+        } // index_compare
+
+        return this.allHitArrayTrue(hit_array)
+
+    } // searchOneRecord
+
+    // Returns true if all elements in the input array are true
+    allHitArrayTrue(i_hit_array)
+    {
+        var n_elements = i_hit_array.length;
+
+        var hit_element_false_exists = false;
+
+        for (var index_element=0; index_element < n_elements; index_element++)
+        {
+            if (i_hit_array[index_element] == false)
+            {
+                hit_element_false_exists = true;
+            }
+        }
+
+        if (hit_element_false_exists)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+     
+    } // allHitArrayTrue
+
+    // Returns an array of texts to compare 
+    getCompareArray(i_record)
+    {
+        var ret_compare_array = [];
+
+        var title_str = i_record.getJazzTaskTitle();
+
+        var descr_str = i_record.getJazzTaskDescription();
+
+        var respons_str = i_record.getJazzTaskResponsible();
+
+        var remark_str = i_record.getJazzTaskRemark();
+
+        var deputies_str = i_record.getJazzTaskDeputiesString();
+
+        ret_compare_array[0] = title_str;
+
+        ret_compare_array[1] = descr_str;
+
+        ret_compare_array[2] = respons_str;
+
+        ret_compare_array[3] = remark_str;
+
+        ret_compare_array[3] = deputies_str;
+
+        return ret_compare_array;
+
+    } // getCompareArray
+
+    // Returns an array with false values (no hits). Size equal to input array
+    getHitArray(i_search_array)
+    {
+        var ret_hit_array = [];
+
+        var n_elements = i_search_array.length;
+
+        for (var index_element=0; index_element < n_elements; index_element++)
+        {
+            ret_hit_array[index_element] = false;
+        }
+
+        return ret_hit_array;
+    }
 
     // Get and set functions for the member variables
     // ==============================================
@@ -95,7 +223,13 @@ class JazzTasksSearch
 
         var array_case = 'reg_number';
 
-        this.m_registration_numbers = this.m_table.getJazzTasksNameArray(array_case);
+        var registration_numbers = this.m_table.getJazzTasksNameArray(array_case)
+
+        this.m_registration_numbers = registration_numbers;
+
+        var registration_numbers_ordered = this.sortTitleTasks(registration_numbers);
+
+        this.m_registration_numbers = registration_numbers_ordered;
 
     } // setRecordNumberArray
 
@@ -152,21 +286,17 @@ class JazzTasksSearch
 
 
     // Returns an array with registration numbers after sorting with the title
-    sortTitleTasks()
+    sortTitleTasks(i_registration_numbers)
     {
         var ret_numbers_sort = [];
 
-        var array_case = 'reg_number';
-
-        var registration_numbers = this.m_table.getJazzTasksNameArray(array_case);   
-
-        array_case = 'title';
+        var array_case = 'title';
 
         var task_titles_sort = this.m_table.getJazzTasksNameArray(array_case);  
 
         task_titles_sort.sort();
         
-        var n_elements = registration_numbers.length;
+        var n_elements = i_registration_numbers.length;
 
         var task_titles = this.m_table.getJazzTasksNameArray(array_case);  
 
@@ -176,7 +306,7 @@ class JazzTasksSearch
 
             for (var index_out=0; index_out < n_elements; index_out++)
             {
-                var current_reg_number = registration_numbers[index_out];
+                var current_reg_number = i_registration_numbers[index_out];
 
                 var current_title = task_titles[index_out];
 
@@ -235,6 +365,28 @@ class JazzTasksSearch
             return ret_numbers_sort;
     
         } // sortResponsibleTasks
+
+        // Returns true if search string is contained in the text string
+        // 1. Convert input strings to upper case. Calls of toUpperCase
+        // 2. Determine if string contains search string. Call of indexOf
+        stringContainsSearchString(i_search_str, i_text_str)
+        {
+            var search_string_upper_case = i_search_str.toUpperCase();
+
+            var text_string_upper_case = i_text_str.toUpperCase();
+
+            var index_pos = text_string_upper_case.indexOf(search_string_upper_case);
+
+            if (index_pos >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        } // stringContainsSearchString
 
 } // class
 

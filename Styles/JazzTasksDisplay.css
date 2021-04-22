@@ -32,6 +32,15 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     width: 100%;
 }
 
+/* Search text box <div> element */
+.cl_div_textbox_search
+{
+    border: solid 1px black;
+
+    padding: 5px;
+    width: 100%;
+}
+
 /* Active record <div> Element */
 .cl_display_active_record
 {

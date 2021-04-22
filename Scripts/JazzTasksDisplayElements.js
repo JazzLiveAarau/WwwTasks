@@ -11,6 +11,13 @@
 ///////////////////////// Start Element Functions /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+// Returns the search text box <div> element
+function getIdDivElementTextBoxSearch()
+{
+    return 'id_div_textbox_search';
+
+} // getIdDivElementActiveRecord
+
 // Returns the active record <div> element
 function getDivElementActiveRecord()
 {
