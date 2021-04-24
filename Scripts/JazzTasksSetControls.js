@@ -1,5 +1,5 @@
 // File: JazzTasksSetControls.js
-// Date: 2021-04-15
+// Date: 2021-04-23
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -46,9 +46,34 @@ function getUserInputFromFormSetActiveRecordTitle()
 
     if (!JazzTask.checkJazzTaskTitle(task_title))
     {
-        alert("Title error");
+        alert("Titel Fehler");
 
         return false;
+    }
+
+    var array_case = 'title';
+
+    var all_titles = g_table.getJazzTasksNameArray(array_case);
+
+    array_case = 'reg_number';
+
+    var all_reg_numbers = g_table.getJazzTasksNameArray(array_case);
+
+    var record_number = g_reg_number_text_box.getValue();
+
+    for (var index_title=0; index_title < all_titles.length; index_title++)
+    {
+        var current_title = all_titles[index_title];
+
+        var current_reg_number = all_reg_numbers[index_title];
+
+        if (current_title == task_title && current_reg_number != record_number)
+        {
+            alert("Titel ist schon verwendet für eine andere Aufgabe");
+
+            return;
+        }
+
     }
 
     g_record_active_task.setJazzTaskTitle(task_title);
