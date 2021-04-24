@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-04-20
+// Date: 2021-04-24
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -17,6 +17,13 @@ function getIdDivElementTextBoxSearch()
     return 'id_div_textbox_search';
 
 } // getIdDivElementActiveRecord
+
+// Returns the display help button <div> element
+function getIdDivElementDisplayHelpButton()
+{
+    return 'id_div_display_help_button';
+
+} // getIdDivElementDisplayHelpButton
 
 // Returns the active record <div> element
 function getDivElementActiveRecord()

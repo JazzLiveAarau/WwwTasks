@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-18
+// Date: 2021-04-24
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -483,7 +483,7 @@ function eventClickDownloadPdf()
 // The user clicked the help button
 function onClickOfHelpButton()
 {
-    var help_url = 'https://jazzliveaarau.ch/Tasks/JazzTasksHelp.htm';
+    var help_url = 'https://jazzliveaarau.ch/Tasks/Documents/A0043.pdf';
 
     window.open(help_url);
 

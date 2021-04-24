@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-04-21
+// Date: 2021-04-24
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -28,6 +28,9 @@ var g_active_record = null;
 
 // Search text box
 var g_search_text_box = null;
+
+// The tasks display help button
+var g_task_display_help_button = null;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -59,6 +62,8 @@ function initJazzTasksDisplayAfterLoadOfXml()
     setActiveRecordDiv();
 
     createTextBoxSearch();
+
+    CreateTasksDisplayHelpButton();
 
     closeActiveRecord();
 
@@ -112,6 +117,15 @@ function onClickTaskRecord(i_reg_number)
     window.scrollTo(0, 0);
 
 } // onClickTaskRecord
+
+// User clicked the jazz tasks display button
+function onClickOfDisplayHelpButton()
+{
+    var help_url = 'https://jazzliveaarau.ch/Tasks/Documents/A0047.pdf';
+
+    window.open(help_url);
+
+} // onClickOfDisplayHelpButton
 
 // Download the DOC document
 function onClickDownloadDoc()
@@ -206,6 +220,10 @@ function oninputSearch()
 ///////////////////////// End Event Functions /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Create Controls Functions /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
 // Create the search text box
 function createTextBoxSearch()
 {
@@ -222,6 +240,25 @@ function createTextBoxSearch()
     g_search_text_box.setOninputFunctionName("oninputSearch");
   
 } // createTextBoxSearch
+
+// Creates the help button control
+function CreateTasksDisplayHelpButton()
+{
+    g_task_display_help_button = new JazzButton("id_display_button_help", getIdDivElementDisplayHelpButton());
+
+    g_task_display_help_button.setOnclickFunctionName("onClickOfDisplayHelpButton");
+
+    g_task_display_help_button.setCaption("Help");
+
+    g_task_display_help_button.setLabelText("");
+
+    g_task_display_help_button.setTitle("Information über diese Applikation");
+
+} // CreateTasksDisplayHelpButton
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Create Controls Functions ///////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start List Tasks Functions //////////////////////////////////////
@@ -284,7 +321,7 @@ function getOneResultTaskString(i_reg_number, i_title_str, i_responsibles_str)
 
     ret_one_task_str = ret_one_task_str + '</div>';
 
-    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record"' + click_str + '>';
+    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record_responsible"' + click_str + '>';
 
     ret_one_task_str = ret_one_task_str + i_responsibles_str;
 

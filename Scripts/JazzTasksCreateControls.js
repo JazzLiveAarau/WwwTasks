@@ -1,5 +1,5 @@
 // File: JazzTasksCreateControls.js
-// Date: 2021-04-20
+// Date: 2021-04-24
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -123,7 +123,7 @@ function createControls()
 
     createTaskCancelButton();
 
-    cl_tasks_help_button();
+    CreateTasksHelpButton();
 
     createUploadDocControl();
 
@@ -293,7 +293,7 @@ function showCancelButton()
 } // showCancelButton
 
 // Creates the help button control
-function cl_tasks_help_button()
+function CreateTasksHelpButton()
 {
     g_task_help_button = new JazzButton("id_button_help", getIdDivElementButtonHelp());
 
@@ -305,7 +305,7 @@ function cl_tasks_help_button()
 
     g_task_help_button.setTitle("Information über diese Applikation");
 
-} // cl_tasks_help_button
+} // CreateTasksHelpButton
 
 // Creates the upload doc button control
 function createUploadDocButton()
@@ -398,7 +398,7 @@ function createTextBoxDescription()
 {
     g_description_text_box = new JazzTextBox("id_description_text_box", getIdDivElementDescription());
 
-    g_description_text_box.setLabelText("Inhalt (Suchwörter)");
+    g_description_text_box.setLabelText("Inhalt/Suchwörter");
 
     g_description_text_box.setLabelTextPositionAbove();
 

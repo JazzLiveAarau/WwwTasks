@@ -1,6 +1,6 @@
 /* 
 File: JazzTasksDisplay.css 
-Date: 2021-04-21 Author: Hanni Heller / Gunnar Liden
+Date: 2021-04-24 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -12,7 +12,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 /* Seitenumriss <div> Element */
 .cl_tasks_display_page
 {
-    border: solid 1px black;
+    /* border: solid 1px black; */
     font-family: 'Arial';
     font-size: 15px;
     width: 500px;
@@ -32,20 +32,42 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     width: 100%;
 }
 
+/* Search and help <div> element */
+.cl_div_search_help
+{
+    border: solid 2px black;
+    width: 99%;   
+    margin-top: 5px; 
+    margin-bottom: 10px; 
+    overflow: hidden;
+    clear: both;
+}
+
 /* Search text box <div> element */
 .cl_div_textbox_search
 {
-    border: solid 1px black;
-
+    /* border: solid 1px yellow; */
     padding: 5px;
-    width: 100%;
+    width: 70%;
+    float: left;
+}
+
+/* Help button <div> element */
+.cl_div_display_help_button
+{
+    /* border: solid 1px white; */
+    padding: 5px;
+    width: 10%;
+    float: right;
 }
 
 /* Active record <div> Element */
 .cl_display_active_record
 {
-    border: solid 1px yellow;
-    width: 100%;
+    border: solid 2px black;
+    width: 99%;
+    overflow: hidden;
+    margin-bottom: 15px;
     height: auto;
 }
 
@@ -197,6 +219,20 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     cursor: pointer;
     clear: both;    
 }
+
+
+/* List record <div> element */
+.cl_list_record_responsible
+{
+    border-bottom: 1px solid gray;
+    width: 100%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    clear: both;    
+}
+
 
 /* List record titel <div> element */
 .cl_list_record_title
