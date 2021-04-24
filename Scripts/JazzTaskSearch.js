@@ -1,5 +1,5 @@
 // File: JazzTaskSearch.js
-// Date: 2021-04-20
+// Date: 2021-04-24
 // Author: Gunnar Lidén
 
 // Content
@@ -160,6 +160,10 @@ class JazzTasksSearch
 
         var deputies_str = i_record.getJazzTaskDeputiesString();
 
+        var reg_number_str = i_record.getJazzTaskRegNumber();
+
+        var link_descr_str = i_record.getJazzTaskLinkDescriptionsString();
+
         ret_compare_array[0] = title_str;
 
         ret_compare_array[1] = descr_str;
@@ -168,7 +172,11 @@ class JazzTasksSearch
 
         ret_compare_array[3] = remark_str;
 
-        ret_compare_array[3] = deputies_str;
+        ret_compare_array[4] = deputies_str;
+
+        ret_compare_array[5] = reg_number_str;
+
+        ret_compare_array[6] = link_descr_str;
 
         return ret_compare_array;
 

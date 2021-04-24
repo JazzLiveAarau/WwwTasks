@@ -1,5 +1,5 @@
 // File: JazzTasksRecord.js
-// Date: 2020-06-21
+// Date: 2020-06-24
 // Author: Gunnar Lidén
 
 // File content
@@ -396,7 +396,7 @@ class JazzTask
 
     } // getJazzTaskResponsiblesString
 
-    // Returns a string with the responsible persons for a task
+    // Returns a string with the deputy persons for a task
     getJazzTaskDeputiesString()
     {
         var ret_str = '';
@@ -407,15 +407,33 @@ class JazzTask
 
             if (deputy_name.length > 0)
             {
-                ret_str = ret_str + '&nbsp;&nbsp;' + deputy_name;
+                ret_str = ret_str + ' ' + deputy_name;
             }
         }
 
         return ret_str;
 
     } // getJazzTaskDeputiesString
-        
 
+    // Returns a string with link descriptions  
+    getJazzTaskLinkDescriptionsString()
+    {
+        var ret_str = '';
+
+        for (var link_number = 1; link_number <= this.getNumberOfJazzTaskReferences(); link_number++)
+        {
+            var link_description = this.getJazzTaskRefDescriptionByNumber(link_number);
+
+            if (link_description.length > 0)
+            {
+                ret_str = ret_str + ' ' + link_description;
+            }
+        }
+
+        return ret_str;
+
+    } // getJazzTaskLinkDescriptionsString       
+        
     // Returns a jazz task reference link by number
     // TODO Remove this function
     getJazzTaskRefLinkByNumber(i_reference_number) 
