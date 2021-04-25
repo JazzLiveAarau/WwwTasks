@@ -156,7 +156,7 @@ function createTaskDropdown()
 {
     g_task_drop_down = new JazzDropdown("id_task_drop_down", getIdDivElementDropdown());
 
-    var name_array = g_table.getJazzTasksNameArray('title');
+    var name_array = g_table.getJazzTasksNameArray('reg_number_title');
 
     g_task_drop_down.setNameArray(name_array);
 

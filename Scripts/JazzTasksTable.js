@@ -1,5 +1,5 @@
 // File: JazzTasksTable.js
-// Date: 2020-06-19
+// Date: 2021-04-25
 // Author: Gunnar Lidén
 
 // File content
@@ -202,6 +202,7 @@ class JazzTasksTable
         this.m_jazz_tasks_name_array = [];
 
         if (i_jazz_tasks_name_array_case == 'reg_number' || 
+			i_jazz_tasks_name_array_case == 'reg_number_title' || 
 			i_jazz_tasks_name_array_case == 'responsible' || 
             i_jazz_tasks_name_array_case == 'title'         )
         {
@@ -233,6 +234,10 @@ class JazzTasksTable
             else if (this.m_jazz_tasks_name_array_case == 'title')
             {
                 this.m_jazz_tasks_name_array[task_number - 1] = task_title; 
+            }
+            else if (this.m_jazz_tasks_name_array_case == 'reg_number_title')
+            {
+                this.m_jazz_tasks_name_array[task_number - 1] = reg_number + '&nbsp;&nbsp;&nbsp;&nbsp;' + task_title; 
             }
 			else if (this.m_jazz_tasks_name_array_case == 'responsible')
             {

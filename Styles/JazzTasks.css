@@ -1,5 +1,5 @@
 /* 
-File: JazzTasks.css Date: 2021-04-16 Author: Hanni Heller / Gunnar Liden
+File: JazzTasks.css Date: 2021-04-25 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -18,10 +18,12 @@ die <div> Elemente der Datei JazzTasks.htm zeigen
 /* Seitenumriss <div> Element */
 .cl_tasks_page
 {
-border: solid 2px blue;
-font-family: 'Arial';
-width: 500px;
-height: 650px;
+    border: solid 2px blue;
+    font-family: 'Arial';
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 650px;
 }
 
 /* For all <label> elements */
@@ -33,13 +35,13 @@ label
 /* Header <div> Element */
 .cl_tasks_header
 {
-/* border: solid 2px yellow; */
-text-align: center;
-background-color: black;
-color: rgb(255, 0, 40);
-font-size: 20px;
-font-weight: bold;
-width: 100%;
+    /* border: solid 2px yellow; */
+    text-align: center;
+    background-color: black;
+    color: rgb(255, 0, 40);
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
 }
 
 /* Bild <img> Elemente im <div> Element Header */
@@ -61,10 +63,22 @@ width: 100%;
 /* Select task <div> element */
 .cl_tasks_select_task
 {
-/* border:solid 2px black; */
-width: 80%;
-padding: 2px;
-float: left;
+    /* border:solid 2px black; */
+    width: 80%;
+    padding: 2px;
+    float: left;
+}
+
+/* HTML <select> elements */
+select 
+{
+    cursor: pointer;
+}
+
+/* HTML <button> elements */
+button 
+{
+    cursor: pointer;
 }
 
 /* Registration number <div> element */

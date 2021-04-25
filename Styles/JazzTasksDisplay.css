@@ -1,6 +1,6 @@
 /* 
 File: JazzTasksDisplay.css 
-Date: 2021-04-24 Author: Hanni Heller / Gunnar Liden
+Date: 2021-04-25 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -226,7 +226,7 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 {
     border-bottom: 1px solid gray;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-bottom: 5px;
     margin-bottom: 4px;
     cursor: pointer;
