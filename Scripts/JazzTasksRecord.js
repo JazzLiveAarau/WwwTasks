@@ -1,5 +1,5 @@
 // File: JazzTasksRecord.js
-// Date: 2020-06-24
+// Date: 2021-04-27
 // Author: Gunnar Lidén
 
 // File content
@@ -776,6 +776,13 @@ class JazzTask
         var ret_b_check = true;
 
         var jazz_task_responsible = i_jazz_task_responsible.trim();
+
+        if (jazz_task_responsible.length == 0)
+        {
+            alert("Verantwortlich darf nicht leer sein");
+
+            ret_b_check = false;      
+        }        
 
         var msg_illegal_xml_chars = this.stringContainsIllegalXmlCharacter(jazz_task_responsible, "im Name des Verantwortliches.");
         if (msg_illegal_xml_chars.length > 0)
