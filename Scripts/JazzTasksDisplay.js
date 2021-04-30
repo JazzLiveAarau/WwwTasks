@@ -29,6 +29,12 @@ var g_active_record = null;
 // Search text box
 var g_search_text_box = null;
 
+// The tasks display intranet button
+var g_task_display_intranet_button = null;
+
+// The tasks display admin button
+var g_task_display_admin_button = null;
+
 // The tasks display help button
 var g_task_display_help_button = null;
 
@@ -63,7 +69,11 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     createTextBoxSearch();
 
-    CreateTasksDisplayHelpButton();
+    createTasksDisplayIntranetButton();
+
+    createTasksDisplayAdminButton();
+
+    createTasksDisplayHelpButton();
 
     closeActiveRecord();
 
@@ -131,6 +141,24 @@ function onClickEditActiveRecord()
     window.open(admin_url);
 
 } // onClickEditActiveRecord
+
+// User clicked the Intranet button
+function onClickOfDisplayIntranetButton()
+{
+    var intranet_url = 'https://jazzliveaarau.ch/Administration/Dokumentation.htm';
+
+    window.location.href = intranet_url;
+
+} // onClickOfDisplayIntranetButton
+
+// User clicked the Aufgaben Admin button
+function onClickOfDisplayAdminButton()
+{
+    var tasks_admin_url = 'JazzTasks.htm';
+
+    window.open(tasks_admin_url);
+
+} // onClickOfDisplayAdminButton
 
 // User clicked the jazz tasks display button
 function onClickOfDisplayHelpButton()
@@ -243,11 +271,11 @@ function createTextBoxSearch()
 {
     g_search_text_box = new JazzTextBox("id_search_text_box", getIdDivElementTextBoxSearch());
 
-    g_search_text_box.setLabelText("Suchen ");
+    g_search_text_box.setLabelText("Suchen in Aufgaben und Intranet");
 
-    g_search_text_box.setLabelTextPositionLeft();
+    g_search_text_box.setLabelTextPositionAbove();
 
-    g_search_text_box.setSize("22");
+    g_search_text_box.setSize("26");
 
     g_search_text_box.setTitle("Suchwörter eingeben");
 
@@ -255,8 +283,38 @@ function createTextBoxSearch()
   
 } // createTextBoxSearch
 
+// Creates the intranet button control
+function createTasksDisplayIntranetButton()
+{
+    g_task_display_intranet_button = new JazzButton("id_display_button_intranet", getIdDivElementDisplayIntranetButton());
+
+    g_task_display_intranet_button.setOnclickFunctionName("onClickOfDisplayIntranetButton");
+
+    g_task_display_intranet_button.setCaption("Intranet");
+
+    g_task_display_intranet_button.setLabelText("");
+
+    g_task_display_intranet_button.setTitle("Link zur Intranet Webseite");
+
+} // createTasksDisplayIntranetButton
+
+// Creates the admin button control
+function createTasksDisplayAdminButton()
+{
+    g_task_display_admin_button = new JazzButton("id_display_button_admin", getIdDivElementDisplayAdminButton());
+
+    g_task_display_admin_button.setOnclickFunctionName("onClickOfDisplayAdminButton");
+
+    g_task_display_admin_button.setCaption("Admin");
+
+    g_task_display_admin_button.setLabelText("");
+
+    g_task_display_admin_button.setTitle("Link zur Aufgaben Admin Webseite");
+
+} // createTasksDisplayAdminButton
+
 // Creates the help button control
-function CreateTasksDisplayHelpButton()
+function createTasksDisplayHelpButton()
 {
     g_task_display_help_button = new JazzButton("id_display_button_help", getIdDivElementDisplayHelpButton());
 
@@ -268,7 +326,7 @@ function CreateTasksDisplayHelpButton()
 
     g_task_display_help_button.setTitle("Information über diese Applikation");
 
-} // CreateTasksDisplayHelpButton
+} // createTasksDisplayHelpButton
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Create Controls Functions ///////////////////////////////////

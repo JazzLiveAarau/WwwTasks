@@ -20,6 +20,12 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     overflow: hidden;
 }
 
+/* All <button> elements */
+button
+{
+    cursor: pointer;
+}
+
 /* Header <div> Element */
 .cl_tasks_display_header
 {
@@ -48,15 +54,36 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
 {
     /* border: solid 1px yellow; */
     padding: 5px;
-    width: 70%;
+    width: 50%;
+    float: left;
+}
+
+/* Intranet button <div> element */
+.cl_div_display_intranet_button
+{
+    /* border: solid 1px blue; */
+    padding-left: 5px;
+    padding-top: 21px;
+    width: 15%;
+    float: left;
+}
+
+/* Admin button <div> element */
+.cl_div_display_admin_button
+{
+    /* border: solid 1px red;*/
+    padding-left: 18px;
+    padding-top: 21px;
+    width: 15%;
     float: left;
 }
 
 /* Help button <div> element */
 .cl_div_display_help_button
 {
-    /* border: solid 1px white; */
-    padding: 5px;
+    /* border: solid 1px blue; */
+    padding-right: 5px;
+    padding-top: 21px;
     width: 10%;
     float: right;
 }
