@@ -98,13 +98,13 @@ function initJazzTasksAfterLoadOfXml()
 {
     g_table = new JazzTasksTable(g_xml);
 
-    createControls();
-
-    g_record_active_number = 1;
-
-    g_task_drop_down.setSelectOptionNumber(g_record_active_number);
+    setActiveRecordNumberFromLocationSearchString();
 
     g_record_active_task = g_table.getJazzTaskRecord(g_record_active_number);
+
+    createControls();
+
+    g_task_drop_down.setSelectOptionNumber(g_record_active_number);
 
     setControlValues();
 
@@ -115,6 +115,34 @@ function initJazzTasksAfterLoadOfXml()
     makeXmlBackup();
 
 } // initJazzTasksAfterLoadOfXml
+
+// Sets the active record number (g_record_active_number) from the location search string
+// https://www.w3schools.com/jsref/prop_loc_search.asp
+function setActiveRecordNumberFromLocationSearchString()
+{
+    g_record_active_number = 1;
+
+    var loc_search_str = location.search;
+
+    if (loc_search_str.length == 0)
+    {
+        g_record_active_number = 1;
+
+        return;
+    }
+
+    var reg_number_str = loc_search_str.substring(1);
+
+    record_number = g_table.getTaskNumberFromRegistrationNumber(reg_number_str);
+
+    if (record_number < 0)
+    {
+        alert("setActiveRecordNumberFromLocationSearchString getTaskNumberFromRegistrationNumber failed for " + reg_number_str);
+    }
+
+    g_record_active_number = record_number;
+
+} // setActiveRecordNumberFromLocationSearchString
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////

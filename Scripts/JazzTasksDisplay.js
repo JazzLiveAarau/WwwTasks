@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-04-24
+// Date: 2021-04-30
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -117,6 +117,20 @@ function onClickTaskRecord(i_reg_number)
     window.scrollTo(0, 0);
 
 } // onClickTaskRecord
+
+// User clicked edit the task record
+// https://www.w3schools.com/jsref/prop_loc_search.asp
+function onClickEditActiveRecord()
+{
+    var reg_number = g_active_record.getJazzTaskRegNumber();
+
+    var loc_search_str = '?' + reg_number;
+
+    var admin_url = 'JazzTasks.htm' + loc_search_str;
+
+    window.open(admin_url);
+
+} // onClickEditActiveRecord
 
 // User clicked the jazz tasks display button
 function onClickOfDisplayHelpButton()

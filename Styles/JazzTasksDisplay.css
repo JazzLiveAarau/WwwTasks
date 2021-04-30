@@ -71,14 +71,41 @@ Definiert alle Style-Klassen für die Applikation Tasks Display
     height: auto;
 }
 
+.cl_active_record_edit_close
+{
+    /* border: solid 1px blue; */
+    padding-top: 10px;
+    width: 99%;
+    overflow: hidden;
+    height: auto;
+    clear: both;
+}
+
 /* Active close <div> Element */
 .cl_active_record_close 
 {
-    text-align: right;
-    font-size: 30px;
-    font-weight: bold;
+    float: right;
     cursor: pointer;
     padding-right: 20px;
+}
+/* Active close <button> Element */
+.cl_active_record_close button
+{
+    cursor: pointer;
+}
+
+/* Active edit <div> Element */
+.cl_active_record_edit
+{
+    float: left;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+/* Active edit <button> Element */
+.cl_active_record_edit button
+{
+    cursor: pointer;
 }
 
 /* Active record title-number <div> element */
