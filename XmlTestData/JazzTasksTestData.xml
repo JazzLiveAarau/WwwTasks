@@ -4,8 +4,8 @@
     <JazzTask>
         <JazzTaskRegNumber>A0001</JazzTaskRegNumber>
         <JazzTaskTitle>Fotos auf die Homepage stellen</JazzTaskTitle>
-        <JazzTaskDescription>Originalfotos in ZIP Datei und Galerie zum Server hochladen,  Korrigieren von falschen Musikernamen</JazzTaskDescription>
-        <JazzTaskRemark>Nach jedem Konzert wird die Fotos hochgeladen</JazzTaskRemark>
+        <JazzTaskDescription>Originalfotos in ZIP Datei und Galerie zum Server hochladen. Korrigieren von falschen Musikernamen</JazzTaskDescription>
+        <JazzTaskRemark>Nach jedem Konzert werden die Fotos hochgeladen</JazzTaskRemark>
         <JazzTaskLinkDoc>/www/Tasks/Documents/A0001.docx</JazzTaskLinkDoc>
         <JazzTaskLinkPdf>/www/Tasks/Documents/A0001.pdf</JazzTaskLinkPdf>
         <JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
