@@ -64,9 +64,20 @@
         </div> <!-- cl_div_search_help -->
 
         <div id= 'id_display_active_record' class= 'cl_display_active_record'>
-            <div class= 'cl_active_record_close'>
-                <button type="button" onclick="onClickCloseActiveRecord()" >&times;</button>
-            </div> <!-- cl_display_active_record -->
+
+            <div class= "cl_active_record_edit_close">
+                <div class= 'cl_active_record_edit'>
+                    <button type="button" onclick="onClickEditActiveRecord()" title="Edit Aufgabe">
+                        <img  src="Icons/icon_edit.png" height="30px">
+                    </button>
+                </div> <!-- cl_active_record_edit -->
+                <div class= 'cl_active_record_close'>
+                    <button type="button" onclick="onClickCloseActiveRecord()" title="Close Aufgabe">
+                        <img  src="Icons/icon_close_cross.png" height="20px">
+                    </button>
+                </div> <!-- cl_active_record_close -->
+
+            </div> <!-- cl_active_record_edit_close -->
 
             <div class= 'cl_active_record_title_number'>
             
