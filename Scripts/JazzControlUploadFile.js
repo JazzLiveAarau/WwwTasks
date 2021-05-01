@@ -1,5 +1,5 @@
 // File: JazzControlUploadFile.js
-// Date: 2021-04-12
+// Date: 2021-05-01
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -398,7 +398,7 @@ function replaceAll(txt, replace, with_this) {
 
     // this.m_id_upload_form
     // Returns the string that defines the HTML upload file button string
-    // <form action="UploadFileToServer.php" method="post" enctype="multipart/form-data">
+    // <form action="Php/UploadFileToServer.php" method="post" enctype="multipart/form-data">
     // <input type="file" id="id_upload_button" onchange="eventFileSelected" accept=".doc,.docx" title="Tip ...">  
     // <input type="submit" value="Upload file" name="submit">
     // </form>
@@ -410,7 +410,7 @@ function replaceAll(txt, replace, with_this) {
             '<form id= "' + this.m_id_upload_form + '" ';
 
             ret_html_str = ret_html_str + 
-            ' action="UploadFileToServer.php" method="post" enctype="multipart/form-data">';
+            ' action="Php/UploadFileToServer.php" method="post" enctype="multipart/form-data">';
 
         if (this.m_label_text.length > 0 && this.m_label_text_position == 'left')
         {

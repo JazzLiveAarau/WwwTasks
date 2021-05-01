@@ -1,5 +1,5 @@
 // File: JazzUtils.js
-// Date: 2021-04-20
+// Date: 2021-05-01
 // Author: Gunnar Lidén
 
 // File content
@@ -62,11 +62,13 @@ function jazzUtilLoadXml(i_path_file_name_xml, i_callback_function_name)
 // The function returns false for failure
 function saveFileWithJQueryPostFunction(i_file_name, i_content_string)
 {
+  var file_name = '../' + i_file_name;
+
     $.post
-      ('SaveFileOnServer.php',
+      ('Php/SaveFileOnServer.php',
         {
           file_content: i_content_string,
-          file_name: i_file_name
+          file_name: file_name
         },
         function(data_save,status_save)
 		{
@@ -99,6 +101,8 @@ function saveFileWithJQueryPostFunction(i_file_name, i_content_string)
 // Please refer to BackupFileOnServer.php for a detailed description of "post"
 // Input parameter i_url_file_to_copy is the url for server file name that shall be copied
 // Input parameter i_url_file_backup is the url for server file name for the backup copy
+// The input relative URLs assume that the php is in the top directory. Since it is
+// in the subdirectory Php the URLs are modified
 // The function returns false for failure
 function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
 {
@@ -109,11 +113,15 @@ function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
         return false;
     }
 
+    var url_file_to_copy = '../' + i_url_file_to_copy;
+
+    var url_file_backup = '../' + i_url_file_backup;
+
     $.post
-      ('BackupFileOnServer.php',
+      ('Php/BackupFileOnServer.php',
         {
-          file_to_copy: i_url_file_to_copy,
-          file_backup: i_url_file_backup
+          file_to_copy: url_file_to_copy,
+          file_backup: url_file_backup
         },
         function(data_save,status_save)
 		{
@@ -137,6 +145,8 @@ function backupFileWithJQueryPostFunction(i_url_file_to_copy, i_url_file_backup)
 // Please refer to BackupFileDelete.php for a detailed description of "post"
 // Input parameter i_url_file_copy_delete is the url for server file name that shall be copied
 // Input parameter i_url_file_backup is the url for server file name for the backup copy
+// The input relative URLs assume that the php is in the top directory. Since it is
+// in the subdirectory Php the URLs are modified
 // The function returns false for failure
 function backupFileAndDeleteWithJQueryPostFunction(i_url_file_copy_delete, i_url_file_backup)
 {
@@ -147,17 +157,21 @@ function backupFileAndDeleteWithJQueryPostFunction(i_url_file_copy_delete, i_url
         return false;
     }
 
+    var url_file_copy_delete = '../' + i_url_file_copy_delete;
+
+    var url_file_backup = '../' + i_url_file_backup;
+
     $.post
-      ('BackupFileDelete.php',
+      ('Php/BackupFileDelete.php',
         {
-          file_to_copy_delete: i_url_file_copy_delete,
-          file_backup: i_url_file_backup
+          file_to_copy_delete: url_file_copy_delete,
+          file_backup: url_file_backup
         },
         function(data_save,status_save)
 		{
             if (status_save == "success")
             {
-                // alert(data_save);
+                 // alert(data_save);
             }
             else
             {
