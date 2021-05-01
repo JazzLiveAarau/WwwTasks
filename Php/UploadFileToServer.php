@@ -3,7 +3,7 @@
         <?php
 
         // File: UploadFileToServer.php
-        // Date: 2021-04-12
+        // Date: 2021-05-01
         // Author: Gunnar Lidén
 
         // Uploads a file to the server
@@ -24,7 +24,7 @@
         // https://www.tutorialrepublic.com/faq/how-to-make-a-redirect-in-php.php (header)
 
         // Directory where the file will be saved
-        $target_dir = "Documents/";
+        $target_dir = "../Documents/";
 
         echo "UploadFileToServer target_dir= " . $target_dir . "<br>";
 
