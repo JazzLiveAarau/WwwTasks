@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-04-20
+// Date: 2021-05-10
 // Author: Gunnar Lidén
 
 // Content
@@ -21,7 +21,11 @@ function execApplicationOnServer()
 
     var index_url = current_base.indexOf(server_url);
 
-    if (index_url >= 0) // Actually 0
+    var server_url_old = 'http://www.jazzliveaarau.ch';
+
+    var index_url_old = current_base.indexOf(server_url_old);
+
+    if (index_url >= 0 || index_url_old >= 0) // Actually 0
     {
         return true;
     }

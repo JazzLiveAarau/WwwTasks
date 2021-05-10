@@ -50,20 +50,28 @@
         <div class= 'cl_tasks_display_header'>
 
             <img src="Icons/JazzNote.png" >
-            JAZZ <i>live</i> AARAU Aufgaben Intranet
-            <img src="Icons/JazzNote.png" >
+            JAZZ <i>live</i> AARAU 
+            <img src="Icons/JazzNote.png" > <br>
+
+            Intranet & Aufgaben
 
         </div> <!-- cl_tasks_display_header -->
 
         <div class= 'cl_div_search_help'>
 
+            <div class= cl_intranet_admin_help>
+
+                <div id= 'id_div_display_intranet_button' class= 'cl_div_display_intranet_button'></div>
+
+                <div id= 'id_div_display_admin_button' class= 'cl_div_display_admin_button'></div>
+    
+                <div id= 'id_div_display_help_button' class= 'cl_div_display_help_button'></div>
+
+            </div>
+
             <div id= 'id_div_textbox_search' class= 'cl_div_textbox_search'></div>
 
-            <div id= 'id_div_display_intranet_button' class= 'cl_div_display_intranet_button'></div>
 
-            <div id= 'id_div_display_admin_button' class= 'cl_div_display_admin_button'></div>
-
-            <div id= 'id_div_display_help_button' class= 'cl_div_display_help_button'></div>
 
         </div> <!-- cl_div_search_help -->
 
@@ -95,11 +103,11 @@
 
             <div id= 'id_active_record_description' class= 'cl_active_record_description'></div>
 
-            <div class= 'cl_active_record_document'>
+            <div  id= 'id_active_record_document' class= 'cl_active_record_document'>
 
                 <div id= 'id_active_record_document_name' class= 'cl_active_record_document_name'></div>
 
-                <button type="button" class= 'cl_active_record_document_doc'onclick="onClickDownloadDoc()" ><b>DOC</b></button>
+                <button type="button" id= "id_active_record_document_doc" class= 'cl_active_record_document_doc'onclick="onClickDownloadDoc()" ><b>DOC</b></button>
 
                 <button type="button" class= 'cl_active_record_document_pdf'onclick="onClickDownloadPdf()" ><b>PDF</b></button>
 
@@ -108,6 +116,8 @@
             <div id= 'id_active_record_reference_one' class= 'cl_active_record_reference'>
 
                 <div id= 'id_active_record_reference_one_url' class= 'cl_active_record_reference_url'></div>
+
+                <b>&nbsp;Referenz 1</b>
 
                 <button type="button" class= 'cl_active_record_reference_button' onclick="onClickOpenUrlOne()" ><b>Öffnen</b></button>
 
@@ -119,6 +129,8 @@
 
                 <div id= 'id_active_record_reference_two_url' class= 'cl_active_record_reference_url'></div>
 
+                <b>&nbsp;Referenz 2</b>
+
                 <button type="button" class= 'cl_active_record_reference_button' onclick="onClickOpenUrlTwo()" ><b>Öffnen</b></button>
 
                 <div id= 'id_active_record_reference_two_description' class= 'cl_active_record_reference_description'></div>
@@ -129,6 +141,8 @@
 
                 <div id= 'id_active_record_reference_three_url' class= 'cl_active_record_reference_url'></div>
 
+                <b>&nbsp;Referenz 3</b>
+
                 <button type="button" class= 'cl_active_record_reference_button' onclick="onClickOpenUrlThree()" ><b>Öffnen</b></button>
 
                 <div id= 'id_active_record_reference_three_description' class= 'cl_active_record_reference_description'></div>
@@ -138,6 +152,8 @@
             <div id= 'id_active_record_reference_four' class= 'cl_active_record_reference'>
 
                 <div id= 'id_active_record_reference_four_url' class= 'cl_active_record_reference_url'></div>
+
+                <b>&nbsp;Referenz 4</b>
 
                 <button type="button" class= 'cl_active_record_reference_button' onclick="onClickOpenUrlFour()" ><b>Öffnen</b></button>
 

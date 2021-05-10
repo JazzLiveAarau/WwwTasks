@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-04-30
+// Date: 2021-05-10
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -100,6 +100,24 @@ function getIdDivElementActiveRecordNumber()
 
 } // getIdDivElementActiveRecordNumber
 
+// Hides the active record description <div>
+function hideActiveRecordDescription()
+{
+    var el_active_document_doc = getDivElementActiveRecordDescription();
+
+    el_active_document_doc.style.display = 'none';
+
+} // hideActiveRecordDescription
+
+// Shows the active record description <div>
+function displayActiveRecordDescription()
+{
+    var el_active_document_doc = getDivElementActiveRecordDescription();
+
+    el_active_document_doc.style.display = 'block';
+
+} // displayActiveRecordDescription
+
 // Returns the active record description <div> element
 function getDivElementActiveRecordDescription()
 {
@@ -191,6 +209,78 @@ function displayActiveRecordReferenceOne()
     el_active_reference_one.style.display = 'block';
 
 } // displayActiveRecordReferenceOne
+
+// Hides the active reference one URL <div>
+function hideActiveRecordReferenceOneUrl()
+{
+    var el_active_reference_one_url = getDivElementActiveRecordReferenceOneUrl();
+
+    el_active_reference_one_url.style.display = 'none';
+
+} // hideActiveRecordReferenceOneUrl
+
+// Hides the active reference two URL <div>
+function hideActiveRecordReferenceTwoUrl()
+{
+    var el_active_reference_two_url = getDivElementActiveRecordReferenceTwoUrl();
+
+    el_active_reference_two_url.style.display = 'none';
+
+} // hideActiveRecordReferenceTwoUrl
+
+// Shows the active reference two URL <div>
+function displayActiveRecordReferenceTwoUrl()
+{
+    var el_active_reference_two_url = getDivElementActiveRecordReferenceTwoUrl();
+
+    el_active_reference_two_url.style.display = 'block';
+
+} // displayActiveRecordReferenceTwoUrl
+
+// Hides the active reference three URL <div>
+function hideActiveRecordReferenceThreeUrl()
+{
+    var el_active_reference_three_url = getDivElementActiveRecordReferenceThreeUrl();
+
+    el_active_reference_three_url.style.display = 'none';
+
+} // hideActiveRecordReferenceThreeUrl
+
+// Shows the active reference three URL <div>
+function displayActiveRecordReferenceThreeUrl()
+{
+    var el_active_reference_three_url = getDivElementActiveRecordReferenceThreeUrl();
+
+    el_active_reference_three_url.style.display = 'block';
+
+} // displayActiveRecordReferenceThreeUrl
+
+// Hides the active reference four URL <div>
+function hideActiveRecordReferenceFourUrl()
+{
+    var el_active_reference_four_url = getDivElementActiveRecordReferenceFourUrl();
+
+    el_active_reference_four_url.style.display = 'none';
+
+} // hideActiveRecordReferenceFourUrl
+
+// Shows the active reference four URL <div>
+function displayActiveRecordReferenceFourUrl()
+{
+    var el_active_reference_four_url = getDivElementActiveRecordReferenceFourUrl();
+
+    el_active_reference_four_url.style.display = 'block';
+
+} // displayActiveRecordReferenceFourUrl
+
+// Shows the active reference one URL <div>
+function displayActiveRecordReferenceOneUrl()
+{
+    var el_active_reference_one_url = getDivElementActiveRecordReferenceOneUrl();
+
+    el_active_reference_one_url.style.display = 'block';
+
+} // displayActiveRecordReferenceOneUrl
 
 // Returns the active record reference one URL <div> element
 function getDivElementActiveRecordReferenceOneUrl()
@@ -460,6 +550,74 @@ function getIdDivElementSearchTaskList()
     return 'id_search_task_list';
 
 } // getIdDivElementSearchTaskList
+
+// Hides the active document DOC <div>
+function hideActiveRecordDocumentDoc()
+{
+    var el_active_document_doc = getDivElementActiveRecordDocumentDoc();
+
+    el_active_document_doc.style.display = 'none';
+
+} // hideActiveRecordDocumentDoc
+
+// Shows the active document DOC <div>
+function displayActiveRecordDocumentDoc()
+{
+    var el_active_document_doc = getDivElementActiveRecordDocumentDoc();
+
+    el_active_document_doc.style.display = 'block';
+
+} // displayActiveRecordDocumentDoc
+
+
+// Returns the active record document DOC <div> element
+function getDivElementActiveRecordDocumentDoc()
+{
+    return document.getElementById(getIdDivElementActiveRecordDocumentDoc());
+
+} // getDivElementActiveRecordDocumentDoc
+
+//Returns the identity of the active record document DOC <div> element
+function getIdDivElementActiveRecordDocumentDoc()
+{
+    return 'id_active_record_document_doc';
+
+} // getIdDivElementActiveRecordDocumentDoc
+
+
+// Hides the active document <div>
+function hideActiveRecordDocument()
+{
+    var el_active_document = getDivElementActiveRecordDocument();
+
+    el_active_document.style.display = 'none';
+
+} // hideActiveRecordDocument
+
+// Shows the active document <div>
+function displayActiveRecordDocument()
+{
+    var el_active_document = getDivElementActiveRecordDocument();
+
+    el_active_document.style.display = 'block';
+
+} // displayActiveRecordDocument
+
+
+// Returns the active record document <div> element
+function getDivElementActiveRecordDocument()
+{
+    return document.getElementById(getIdDivElementActiveRecordDocument());
+
+} // getDivElementActiveRecordDocument
+
+//Returns the identity of the active record document <div> element
+function getIdDivElementActiveRecordDocument()
+{
+    return 'id_active_record_document';
+
+} // getIdDivElementActiveRecordDocument
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Element Functions ///////////////////////////////////////////

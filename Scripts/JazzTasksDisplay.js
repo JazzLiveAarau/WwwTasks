@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-04-30
+// Date: 2021-05-10
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -145,7 +145,7 @@ function onClickEditActiveRecord()
 // User clicked the Intranet button
 function onClickOfDisplayIntranetButton()
 {
-    var intranet_url = 'https://jazzliveaarau.ch/Administration/Dokumentation.htm';
+    var intranet_url = 'https://jazzliveaarau.ch/Intranet.htm';
 
     window.location.href = intranet_url;
 
@@ -271,7 +271,7 @@ function createTextBoxSearch()
 {
     g_search_text_box = new JazzTextBox("id_search_text_box", getIdDivElementTextBoxSearch());
 
-    g_search_text_box.setLabelText("Suchen in Aufgaben und Intranet");
+    g_search_text_box.setLabelText("Suchen in Intranet und Aufgaben");
 
     g_search_text_box.setLabelTextPositionAbove();
 
@@ -385,11 +385,11 @@ function getOneResultTaskString(i_reg_number, i_title_str, i_responsibles_str)
 
     ret_one_task_str = ret_one_task_str + '</div>';
 
-    ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record_number"' + click_str + '>';
+    //ret_one_task_str = ret_one_task_str + '<div class= "cl_list_record_number"' + click_str + '>';
 
-    ret_one_task_str = ret_one_task_str + i_reg_number;
+    //ret_one_task_str = ret_one_task_str + i_reg_number;
 
-    ret_one_task_str = ret_one_task_str + '</div>';
+    //ret_one_task_str = ret_one_task_str + '</div>';
 
     ret_one_task_str = ret_one_task_str + '</div>';
 
@@ -504,6 +504,8 @@ function setActiveRecordDivDescription()
 
     el_div_description.innerHTML = description_str;
 
+    hideActiveRecordDescription();
+
 } // setActiveRecordDivDescription
 
 // Sets the text of the active record remark <div> element
@@ -539,13 +541,35 @@ function setActiveRecordDivDocument()
 
     var document_name_str = '';
 
-    document_name_str = document_name_str + '<b>' + 'Dokument ' + '</b>';
+    document_name_str = document_name_str + '<b>' + 'Aufgabebeschreibung ' + '</b>';
 
     document_name_str = document_name_str + g_active_record.getJazzTaskRegNumber();
 
     el_div_document_name.innerHTML = document_name_str;
 
+    hideActiveRecordDocumentDoc();
+
+    //TODO Perhaps hideTaskDescriptionDocumentIfOnlyInformation();
+
 } // setActiveRecordDivDocument
+
+// Hides the link to the task description document if the responsible is 'Information'
+// TODO An additional flag need to be added to the XML file. There are task description
+// documents for some 'Information' tasks
+function hideTaskDescriptionDocumentIfOnlyInformation()
+{
+    var responsible_name = g_active_record.getJazzTaskResponsible();
+
+    if (responsible_name == 'Information')
+    {
+        hideActiveRecordDocument();
+    }
+    else
+    {
+        displayActiveRecordDocument();
+    }
+
+} // hideTaskDescriptionDocumentIfOnlyInformation
 
 // Sets the text of the active record reference one URL <div> element
 function setActiveRecordDivReferenceOneUrl()
@@ -569,11 +593,13 @@ function setActiveRecordDivReferenceOneUrl()
 
     var ref_one_url_str = '';
 
-    ref_one_url_str = ref_one_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+    // ref_one_url_str = ref_one_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
 
     ref_one_url_str = ref_one_url_str + url_str;
 
     el_div_ref_one_url.innerHTML = ref_one_url_str;
+
+    hideActiveRecordReferenceOneUrl();
 
 } // setActiveRecordDivReferenceOneUrl
 
@@ -599,11 +625,13 @@ function setActiveRecordDivReferenceTwoUrl()
 
     var ref_two_url_str = '';
 
-    ref_two_url_str = ref_two_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+    // ref_two_url_str = ref_two_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
 
     ref_two_url_str = ref_two_url_str + url_str;
 
     el_div_ref_two_url.innerHTML = ref_two_url_str;
+
+    hideActiveRecordReferenceTwoUrl();
 
 } // setActiveRecordDivReferenceTwoUrl
 
@@ -629,11 +657,13 @@ function setActiveRecordDivReferenceThreeUrl()
 
     var ref_three_url_str = '';
 
-    ref_three_url_str = ref_three_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+    // ref_three_url_str = ref_three_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
 
     ref_three_url_str = ref_three_url_str + url_str;
 
     el_div_ref_three_url.innerHTML = ref_three_url_str;
+
+    hideActiveRecordReferenceThreeUrl();
 
 } // setActiveRecordDivReferenceThreeUrl
 
@@ -659,11 +689,13 @@ function setActiveRecordDivReferenceFourUrl()
 
     var ref_four_url_str = '';
 
-    ref_four_url_str = ref_four_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
+    // ref_four_url_str = ref_four_url_str + '<b>' + 'Referenz ' + reference_number.toString() + '</b>' + '<br>';
 
     ref_four_url_str = ref_four_url_str + url_str;
 
     el_div_ref_four_url.innerHTML = ref_four_url_str;
+
+    hideActiveRecordReferenceFourUrl();
 
 } // setActiveRecordDivReferenceFourUrl
 
