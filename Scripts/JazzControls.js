@@ -1,5 +1,5 @@
 // File: JazzControls.js
-// Date: 2021-04-15
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -358,6 +358,9 @@ class JazzButton
         // The caption for the button
         this.m_caption = '';
 
+        // The width of the button
+        this.m_width = '';
+
         // Label text
         this.m_label_text = '';
 
@@ -402,6 +405,15 @@ class JazzButton
       this.setControl();
 
     } // setCaption    
+
+    // Sets the width of a button
+    setWidth(i_width)
+    {
+        this.m_width = i_width;
+
+        this.setControl();
+
+    } // setWidth
 
     // Sets the label text for the button
     // There will be no label if the text not is set
@@ -548,6 +560,11 @@ class JazzButton
             ret_html_str = ret_html_str + ' onclick="' + this.m_onclick_function + '()" ';
         }
 
+        if (this.m_width.length > 0)
+        {
+            ret_html_str = ret_html_str + '  style="width:' + this.m_width + '" ';
+        }
+
         if (this.m_title.length > 0)
         {
             ret_html_str = ret_html_str + ' title="' + this.m_title + '" ';
@@ -559,6 +576,8 @@ class JazzButton
         {
             ret_html_str = ret_html_str + this.m_caption;
         }
+
+        // this.m_width
         
         ret_html_str = ret_html_str + '</button>'; 
 

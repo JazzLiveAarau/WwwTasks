@@ -1,5 +1,5 @@
 // File: JazzTasksCreateControls.js
-// Date: 2021-04-24
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -242,6 +242,8 @@ function createTaskDeleteButton()
 
     g_task_delete_button.setCaption("Löschen");
 
+    g_task_delete_button.setWidth("77px");
+
     g_task_delete_button.setLabelText("");
 
     g_task_delete_button.setTitle("Aufgabe löschen");
@@ -256,6 +258,8 @@ function createTaskSaveButton()
     g_task_save_button.setOnclickFunctionName("eventClickButtonSave");
 
     g_task_save_button.setCaption("Speichern");
+
+    g_task_save_button.setWidth("77px");
 
     g_task_save_button.setLabelText("");
 
@@ -342,6 +346,8 @@ function createDownloadDocButton()
 
     g_download_doc_button.setCaption("Download");
 
+    g_download_doc_button.setWidth("77px");
+
     g_download_doc_button.setTitle("Eine DOC Datei herunterladen");
 
 } // createDownloadDocButton
@@ -354,6 +360,8 @@ function createDownloadPdfButton()
     g_download_pdf_button.setOnclickFunctionName("eventClickDownloadPdf");
 
     g_download_pdf_button.setCaption("Öffnen");
+
+    g_download_pdf_button.setWidth("77px");
 
     g_download_pdf_button.setTitle("Die PDF Datei öffnen");
 
@@ -468,9 +476,9 @@ function createTextBoxDoc()
 
     g_doc_text_box.setLabelText("DOC");
 
-    g_doc_text_box.setLabelTextPositionAbove();
+    g_doc_text_box.setLabelTextPositionLeft();
 
-    g_doc_text_box.setSize("40");
+    g_doc_text_box.setSize("30");
 
     g_doc_text_box.setTitle("Link zu einem Word Dokument, das die Aufgabe beschreibt.");
 
@@ -485,9 +493,9 @@ function createTextBoxPdf()
 
     g_pdf_text_box.setLabelText("PDF");
 
-    g_pdf_text_box.setLabelTextPositionAbove();
+    g_pdf_text_box.setLabelTextPositionLeft();
 
-    g_pdf_text_box.setSize("40");
+    g_pdf_text_box.setSize("30");
 
     g_pdf_text_box.setTitle("Link zu einem PDF Dokument, das die Aufgabe beschreibt.");
 

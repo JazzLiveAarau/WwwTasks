@@ -1,5 +1,7 @@
 /* 
-File: JazzTasks.css Date: 2021-04-25 Author: Hanni Heller / Gunnar Liden
+File: JazzTasks.css Date: 2021-05-11
+
+Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
 ========================
@@ -130,6 +132,7 @@ float: left;
 /* Link text, upload and download <div> element */
 .cl_div_display_upload_button
 {
+    /* border: solid 1px yellow; */
     overflow: hidden;
     clear: both;
 }
@@ -137,17 +140,17 @@ float: left;
 /* Link text <div> element */
 .cl_tasks_task_link_file
 {
-    /* border: solid 2px rgb(44, 7, 131); */
+    /* border: solid 1px rgb(44, 7, 131); */
     padding: 6px;  
     float: left;  
 }
 /* Upload button <div> element */
 .cl_div_upload_button
 {
-    /* border: solid 2px rgb(44, 7, 131); */  
-    margin-left: 5px;
-    padding-top: 25px;
-    float: left;
+    /* border: solid 1px rgb(44, 7, 131); */
+    margin-right: 15px;
+    padding-top: 7px;
+    float: right;
 }
 
 /* Download button <div> element */
@@ -156,7 +159,7 @@ float: left;
     /* border: solid 2px rgb(44, 7, 131); */
     margin-left: 5px;
     margin-right: 10px;
-    padding-top: 25px;
+    padding-top: 7px;
     float: right;
 }
 
