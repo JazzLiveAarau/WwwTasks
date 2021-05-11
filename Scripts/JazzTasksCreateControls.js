@@ -28,6 +28,9 @@ var g_remind_date_text_box = null;
 // The text box for the due date picker
 var g_due_date_text_box = null;
 
+// The use description documnt check box
+var g_use_description_check_box = null;
+
 // The text box for the document doc
 var g_doc_text_box = null;
 
@@ -124,6 +127,8 @@ function createControls()
     createTaskCancelButton();
 
     CreateTasksHelpButton();
+
+    createCheckBoxUseDescription();
 
     createUploadDocControl();
 
@@ -310,6 +315,21 @@ function CreateTasksHelpButton()
     g_task_help_button.setTitle("Information über diese Applikation");
 
 } // CreateTasksHelpButton
+
+// Creates the check box control
+function createCheckBoxUseDescription()
+{
+    g_use_description_check_box = new JazzCheckBox("id_check_box_use_description", getIdDivElementCheckboxUseDescription());
+
+    g_use_description_check_box.setOninputFunctionName("eventClickCheckBoxUseDescription");
+
+    g_use_description_check_box.setLabelText("Verwende DOC und PDF ");
+	
+	g_use_description_check_box.setLabelTextPositionLeft();
+
+     g_use_description_check_box.setTitle("Für Information (keine Aufgabebeschreibung) mit einem Link zum Intranet wird DOC und PDF nicht verwendet");
+
+} // createCheckBoxUseDescription
 
 // Creates the upload doc button control
 function createUploadDocButton()

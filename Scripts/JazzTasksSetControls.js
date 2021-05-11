@@ -1,5 +1,5 @@
 // File: JazzTasksSetControls.js
-// Date: 2021-04-23
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -18,6 +18,8 @@ function getUserInputFromFormSetActiveRecord()
     if (!getUserInputFromFormSetActiveRecordTitle()) return false;
 
     if (!getUserInputFromFormSetActiveRecordDescription()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordFlagUseDescription()) return false;
 
     if (!getUserInputFromFormSetActiveRecordRemark()) return false;
 
@@ -135,6 +137,17 @@ function getUserInputFromFormSetActiveRecordRemark()
     return true;
 
 } // getUserInputFromFormSetActiveRecordRemark
+
+// Gets, checks and sets the input form data for the flag telling if DOC and PDF are used
+function getUserInputFromFormSetActiveRecordFlagUseDescription()
+{
+    var flag_use_description_doc = g_use_description_check_box.getCheck();
+
+    g_record_active_task.setJazzTaskUseDescription(flag_use_description_doc);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordFlagUseDescription
 
 // Gets, checks and sets the input form data for the remind day
 function getUserInputFromFormSetActiveRecordRemindDay()
@@ -255,6 +268,10 @@ function setControlValues()
     var task_remark = g_record_active_task.getJazzTaskRemark();
 
     g_remark_text_box.setValue(task_remark);
+
+    var flag_use_description_doc_pdf = g_record_active_task.getJazzTaskUseDescription();
+
+    g_use_description_check_box.setCheck(flag_use_description_doc_pdf);
 
     var task_doc = g_record_active_task.getJazzTaskLinkDoc();
 

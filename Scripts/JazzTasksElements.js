@@ -1,5 +1,5 @@
 // File: JazzTasksElements.js
-// Date: 2021-04-15
+// Date: 2021-05-11
 // Author: Hanni Heller / Gunnar Liden
 
 // File content
@@ -57,6 +57,20 @@ function getDivElementDescription()
     return document.getElementById(getIdDivElementDescription());
 
 } // getDivElementDescription
+
+// Return value is the identity of the <div> element for the check box use desription document
+function getIdDivElementCheckboxUseDescription()
+{
+    return 'id_div_checkbox_use_description';
+
+} // getIdDivElementCheckboxUseDescription
+
+// Return value is the <div> element for the check box use desription document
+function getDivElementCheckboxUseDescription()
+{
+    return document.getElementById(getIdDivElementCheckboxUseDescription());
+
+} // getDivElementCheckboxUseDescription
 
 // Funktionsrückgabewert ist die Identität für das Titel-Div-Element
 // Return value is the identity of the <div> element displaying the title 

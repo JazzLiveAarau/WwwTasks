@@ -129,6 +129,13 @@ float: left;
     padding: 6px; 
 }
 
+/* Checkbox <div> element */
+.cl_div_checkbox_use_description
+{
+    padding: 6px;
+    clear: both;
+}
+
 /* Link text, upload and download <div> element */
 .cl_div_display_upload_button
 {

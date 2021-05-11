@@ -55,10 +55,9 @@ class JazzTask
         // Example /www/Administration/Aufgaben/A0002.pdf
         this.m_jazz_task_link_pdf = '';
 
-        // The task may also be defined by a web page in Intranet. The 
-        // member variable holds the absolute (full) URL to the web page
-        // Example: http://jazzliveaarau.ch/Administration/Finanzen/Finanzen.htm
-        this.m_jazz_task_link_html = '';
+        // Flag telling if the description documents DOC and PDF are used
+        // (or only a reference link to a document or a web page)
+        this.m_jazz_task_use_description = '';
 
         //
         this.m_jazz_task_remind_day = '';
@@ -193,14 +192,14 @@ class JazzTask
     // Returns the jazz task flag 'use description' (TRUE or FALSE)
     getJazzTaskUseDescription() 
     {
-      return this.m_jazz_task_link_html;
+      return this.m_jazz_task_use_description;
 
     } // getJazzTaskUseDescription
 
     // Sets the jazz task flag 'use description'
-    setJazzTaskUseDescription(i_jazz_task_link_html) 
+    setJazzTaskUseDescription(i_jazz_task_flag_use_description) 
     {
-        this.m_jazz_task_link_html = i_jazz_task_link_html;
+        this.m_jazz_task_use_description = i_jazz_task_flag_use_description;
 
     } // setJazzTaskUseDescription
 
@@ -651,19 +650,16 @@ class JazzTask
 
     } // checkJazzTaskLinkPdf
     
-    // Returns true if the jazz task link pdf is OK
-    static checkJazzTaskUseDescription(i_jazz_task_link_html) 
+    // Returns true if the jazz task flag use description document
+    static checkJazzTaskUseDescription(i_jazz_task_flag_use_description) 
     {
         var ret_b_check = true;
 
-        var jazz_task_link_html = i_jazz_task_link_html.trim();
-
-        var msg_illegal_xml_chars = this.stringContainsIllegalXmlCharacter(jazz_task_link_html, "im Link HTML.");
-        if (msg_illegal_xml_chars.length > 0)
+        if (i_jazz_task_flag_use_description != "TRUE" && i_jazz_task_flag_use_description != "FALSE")
         {
-            alert(msg_illegal_xml_chars);
-
             ret_b_check = false;
+
+            alert("checkJazzTaskUseDescription Flag " + i_jazz_task_flag_use_description + " is not TRUE or FALSE");
         }
         
         return ret_b_check;

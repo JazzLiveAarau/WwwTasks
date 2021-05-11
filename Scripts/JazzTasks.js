@@ -530,6 +530,17 @@ function oninputTitle()
 
 } // oninputTitle
 
+// User clicked the check box
+function eventClickCheckBoxUseDescription()
+{
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // eventClickCheckBoxUseDescription
+
 // Event function when user added or deleted a character in the doc text box
 function oninputDoc()
 {
