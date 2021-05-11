@@ -1,5 +1,5 @@
 // File: JazzTasksRecord.js
-// Date: 2021-04-27
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // File content
@@ -190,7 +190,7 @@ class JazzTask
 
     } // setJazzTaskLinkPdf
 
-    // Returns the jazz task flag 'use description'
+    // Returns the jazz task flag 'use description' (TRUE or FALSE)
     getJazzTaskUseDescription() 
     {
       return this.m_jazz_task_link_html;

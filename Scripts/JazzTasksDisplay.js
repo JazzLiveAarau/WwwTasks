@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-05-10
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -549,27 +549,25 @@ function setActiveRecordDivDocument()
 
     hideActiveRecordDocumentDoc();
 
-    //TODO Perhaps hideTaskDescriptionDocumentIfOnlyInformation();
+    hideTaskDescriptionDocumentIfNotUsed();
 
 } // setActiveRecordDivDocument
 
-// Hides the link to the task description document if the responsible is 'Information'
-// TODO An additional flag need to be added to the XML file. There are task description
-// documents for some 'Information' tasks
-function hideTaskDescriptionDocumentIfOnlyInformation()
+// Hides the link to the task description document if the document not is used
+function hideTaskDescriptionDocumentIfNotUsed()
 {
-    var responsible_name = g_active_record.getJazzTaskResponsible();
+    var flag_use = g_active_record.getJazzTaskUseDescription();
 
-    if (responsible_name == 'Information')
-    {
-        hideActiveRecordDocument();
-    }
-    else
+    if (flag_use == 'TRUE')
     {
         displayActiveRecordDocument();
     }
+    else
+    {
+        hideActiveRecordDocument();
+    }
 
-} // hideTaskDescriptionDocumentIfOnlyInformation
+} // hideTaskDescriptionDocumentIfNotUsed
 
 // Sets the text of the active record reference one URL <div> element
 function setActiveRecordDivReferenceOneUrl()
