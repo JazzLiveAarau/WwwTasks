@@ -541,7 +541,14 @@ function setActiveRecordDivDocument()
 
     var document_name_str = '';
 
-    document_name_str = document_name_str + '<b>' + 'Aufgabebeschreibung ' + '</b>';
+    if (activeTaskIsInformation())
+    {
+        document_name_str = document_name_str + '<b>' + 'Beschreibung ' + '</b>';
+    }
+    else
+    {
+        document_name_str = document_name_str + '<b>' + 'Aufgabebeschreibung ' + '</b>';
+    }
 
     document_name_str = document_name_str + g_active_record.getJazzTaskRegNumber();
 
@@ -835,7 +842,33 @@ function setActiveRecordDivResponsibles()
 
     el_div_responsibles.innerHTML = html_str;
 
+    if (activeTaskIsInformation())
+    {
+        hideActiveRecordResponsibles();
+    }
+    else
+    {
+        displayActiveRecordResponsibles();
+    }
+
 } // setActiveRecordDivResponsibles
+
+// Returns true if active task is of the type information and has no description
+// how to do a taskk
+function activeTaskIsInformation()
+{
+    var responsible_str = g_active_record.getJazzTaskResponsible();
+
+    if (responsible_str == "Information")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+} // activeTaskIsInformation
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Active Record Functions /////////////////////////////////////

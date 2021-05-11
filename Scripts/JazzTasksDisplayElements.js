@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-05-10
+// Date: 2021-05-11
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -536,6 +536,24 @@ function getIdDivElementActiveRecordResponsibles()
     return 'id_active_record_responsibles';
 
 } // getIdDivElementActiveRecordResponsibles
+
+// Hides the active responsibles <div>
+function hideActiveRecordResponsibles()
+{
+    var el_active_responsibles = getDivElementActiveRecordResponsibles();
+
+    el_active_responsibles.style.display = 'none';
+
+} // hideActiveRecordResponsibles
+
+// Shows the active responsibles <div>
+function displayActiveRecordResponsibles()
+{
+    var el_active_responsibles = getDivElementActiveRecordResponsibles();
+
+    el_active_responsibles.style.display = 'block';
+
+} // displayActiveRecordResponsibles
 
 // Returns the search task list <div> element
 function getDivElementSearchTaskList()
