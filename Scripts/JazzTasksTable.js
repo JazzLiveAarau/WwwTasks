@@ -445,8 +445,8 @@ class JazzTasksTable
 		var jazz_task_link_pdf = this.m_xml.getJazzTaskLinkPdf(i_task_number);
 		ret_jazz_task.setJazzTaskLinkPdf(jazz_task_link_pdf);
 
-		var jazz_task_link_html = this.m_xml.getJazzTaskLinkHtml(i_task_number);
-		ret_jazz_task.setJazzTaskLinkHtml(jazz_task_link_html);
+		var jazz_task_use_description = this.m_xml.getJazzTaskUseDescription(i_task_number);
+		ret_jazz_task.setJazzTaskUseDescription(jazz_task_use_description);
 
 		var jazz_task_remind_day = this.m_xml.getJazzTaskRemindDay(i_task_number);
 		ret_jazz_task.setJazzTaskRemindDay(jazz_task_remind_day);
@@ -529,8 +529,8 @@ class JazzTasksTable
 		var jazz_task_link_pdf = i_jazz_task.getJazzTaskLinkPdf();
 		this.m_xml.setJazzTaskLinkPdf(i_task_number, jazz_task_link_pdf);
 
-		var jazz_task_link_html = i_jazz_task.getJazzTaskLinkHtml();
-		this.m_xml.setJazzTaskLinkHtml(i_task_number, jazz_task_link_html);
+		var jazz_task_use_description = i_jazz_task.getJazzTaskUseDescription();
+		this.m_xml.setJazzTaskUseDescription(i_task_number, jazz_task_use_description);
 
 		var jazz_task_remind_day = i_jazz_task.getJazzTaskRemindDay();
 		this.m_xml.setJazzTaskRemindDay(i_task_number, jazz_task_remind_day);

@@ -190,19 +190,19 @@ class JazzTask
 
     } // setJazzTaskLinkPdf
 
-    // Returns the jazz task link html 
-    getJazzTaskLinkHtml() 
+    // Returns the jazz task flag 'use description'
+    getJazzTaskUseDescription() 
     {
       return this.m_jazz_task_link_html;
 
-    } // getJazzTaskLinkHtml
+    } // getJazzTaskUseDescription
 
-    // Sets the jazz task link html 
-    setJazzTaskLinkHtml(i_jazz_task_link_html) 
+    // Sets the jazz task flag 'use description'
+    setJazzTaskUseDescription(i_jazz_task_link_html) 
     {
         this.m_jazz_task_link_html = i_jazz_task_link_html;
 
-    } // setJazzTaskLinkHtml
+    } // setJazzTaskUseDescription
 
     // Returns the jazz task remind day 
     getJazzTaskRemindDay() 
@@ -652,7 +652,7 @@ class JazzTask
     } // checkJazzTaskLinkPdf
     
     // Returns true if the jazz task link pdf is OK
-    static checkJazzTaskLinkHtml(i_jazz_task_link_html) 
+    static checkJazzTaskUseDescription(i_jazz_task_link_html) 
     {
         var ret_b_check = true;
 
@@ -668,7 +668,7 @@ class JazzTask
         
         return ret_b_check;
 
-    } // checkJazzTaskLinkHtml
+    } // checkJazzTaskUseDescription
 
     // Returns true if the jazz task remind day is OK
     static checkJazzTaskRemindDay(i_jazz_task_remind_day) 

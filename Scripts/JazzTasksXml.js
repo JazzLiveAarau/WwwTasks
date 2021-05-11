@@ -134,12 +134,12 @@ class JazzTasksXml
         
     } // getJazzTaskLinkPdf
 
-    // Returns the jazz task link to html for a given task number
-    getJazzTaskLinkHtml(i_task_number)
+    // Returns the jazz task flag 'use description' for a given task number
+    getJazzTaskUseDescription(i_task_number)
     {
-        return this.getNodeValue(this.m_tags.getJazzTaskLinkHtml(), i_task_number);
+        return this.getNodeValue(this.m_tags.getJazzTaskUseDescription(), i_task_number);
         
-    } // getJazzTaskLinkHtml
+    } // getJazzTaskUseDescription
 
     // Returns the jazz task remind day for a given task number
     getJazzTaskRemindDay(i_task_number)
@@ -226,12 +226,12 @@ class JazzTasksXml
         
     } // setJazzTaskLinkPdf
 
-    // Sets the jazz task link to html for a given task number
-    setJazzTaskLinkHtml(i_task_number, i_node_value)
+    // Sets the jazz task flag 'use description' for a given task number
+    setJazzTaskUseDescription(i_task_number, i_node_value)
     {
-        return this.setJazzTaskNodeValue(this.m_tags.getJazzTaskLinkHtml(), i_task_number, i_node_value);
+        return this.setJazzTaskNodeValue(this.m_tags.getJazzTaskUseDescription(), i_task_number, i_node_value);
         
-    } // setJazzTaskLinkHtml
+    } // setJazzTaskUseDescription
 
     // Sets the jazz task remind day for a given task number
     setJazzTaskRemindDay(i_task_number, i_node_value)
@@ -666,7 +666,7 @@ class JazzTasksXml
 	   task_link_pdf_node.appendChild(task_link_pdf_text);
 	   new_jazz_task.appendChild(task_link_pdf_node);
 	   
-	   var task_link_html_node = this.m_file_xml.createElement(this.m_tags.getJazzTaskLinkHtml());
+	   var task_link_html_node = this.m_file_xml.createElement(this.m_tags.getJazzTaskUseDescription());
 	   var task_link_html_text = this.m_file_xml.createTextNode(this.m_not_yet_set_node_value);
 	   task_link_html_node.appendChild(task_link_html_text);
 	   new_jazz_task.appendChild(task_link_html_node);
@@ -1003,7 +1003,7 @@ class JazzTasksTags
         this.m_tag_jazz_task_remark = "JazzTaskRemark";
         this.m_tag_jazz_task_link_doc = "JazzTaskLinkDoc";
         this.m_tag_jazz_task_link_pdf = "JazzTaskLinkPdf";
-        this.m_tag_jazz_task_link_html = "JazzTaskLinkHtml";
+        this.m_tag_jazz_use_description = "JazzTaskUseDescription";
         this.m_tag_jazz_task_remind_day = "JazzTaskRemindDay";
         this.m_tag_jazz_task_remind_month = "JazzTaskRemindMonth";
         this.m_tag_jazz_task_finish_day = "JazzTaskFinishDay";
@@ -1026,7 +1026,7 @@ class JazzTasksTags
     getJazzTaskRemark(){return this.m_tag_jazz_task_remark;} 
     getJazzTaskLinkDoc(){return this.m_tag_jazz_task_link_doc;} 
     getJazzTaskLinkPdf(){return this.m_tag_jazz_task_link_pdf;} 
-    getJazzTaskLinkHtml(){return this.m_tag_jazz_task_link_html;} 
+    getJazzTaskUseDescription(){return this.m_tag_jazz_use_description;} 
     getJazzTaskRemindDay(){return this.m_tag_jazz_task_remind_day;}
     getJazzTaskRemindMonth(){return this.m_tag_jazz_task_remind_month;}
     getJazzTaskFinishDay(){return this.m_tag_jazz_task_finish_day;}
