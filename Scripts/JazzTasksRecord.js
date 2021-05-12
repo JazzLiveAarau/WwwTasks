@@ -1,5 +1,5 @@
 // File: JazzTasksRecord.js
-// Date: 2021-05-11
+// Date: 2021-05-12
 // Author: Gunnar Lidén
 
 // File content
@@ -57,7 +57,7 @@ class JazzTask
 
         // Flag telling if the description documents DOC and PDF are used
         // (or only a reference link to a document or a web page)
-        this.m_jazz_task_use_description = '';
+        this.m_jazz_task_use_description = 'TRUE';
 
         //
         this.m_jazz_task_remind_day = '';
