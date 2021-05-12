@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-05-11
+// Date: 2021-05-12
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -791,13 +791,13 @@ function setActiveRecordDivRemindDueDate()
 	
 	if (remind_day.length > 0)
 	{
-		remind_str = '<b>' + 'Remind date ' + '</b>' + 
+		remind_str = '<b>' + 'Erinnerung ' + '</b>' + 
 			remind_day.toString() + '. ' + getMonthName(remind_month);
 	}
 	
 	if (finish_day.length > 0)
 	{
-		finish_str = '<b>' + 'Due date ' + '</b>' + 
+		finish_str = '<b>' + 'Fälligkeit ' + '</b>' + 
 			finish_day.toString() + '. ' + getMonthName(finish_month);
 	}	
 	

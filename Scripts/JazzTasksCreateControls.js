@@ -1,6 +1,6 @@
 // File: JazzTasksCreateControls.js
-// Date: 2021-05-11
-// Author: Gunnar Lidén
+// Date: 2021-05-12
+// Authors: Gunnar Lidén / Hanni Heller
 
 // Inhalt
 // ======
