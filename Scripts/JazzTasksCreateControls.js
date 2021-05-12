@@ -568,7 +568,7 @@ function createRemindDatePickerControl()
 
     g_remind_date_text_box.setLabelTextPositionAbove();
 
-    g_remind_date_text_box.setTitle("Kommende Datum wird gezeigt. Nur Monat und Tag werden gespeichert.");
+    g_remind_date_text_box.setTitle("Kommende Daten werden gezeigt. Nur Monat und Tag werden gespeichert.");
 
     g_remind_date_text_box.setOnchangeFunctionName("eventUserSelectedRemindDate");
 
@@ -587,7 +587,7 @@ function createDueDatePickerControl()
 
     g_due_date_text_box.setLabelTextPositionAbove();
 
-    g_due_date_text_box.setTitle("Kommende Datum wird gezeigt. Nur Monat und Tag werden gespeichert.");
+    g_due_date_text_box.setTitle("Kommende Daten werden gezeigt. Nur Monat und Tag werden gespeichert.");
 
     g_due_date_text_box.setOnchangeFunctionName("eventUserSelectedDueDate");
 
