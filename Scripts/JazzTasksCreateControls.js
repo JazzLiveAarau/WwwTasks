@@ -562,7 +562,7 @@ function createRemindDatePickerControl()
 {
     g_remind_date_text_box = new JazzDatePicker('id_remind_date', getIdDivElementRemindDate());
 
-    g_remind_date_text_box.setLabelText("Remind date");
+    g_remind_date_text_box.setLabelText("Erinnerung");
 
     g_remind_date_text_box.setSize("10");
 
@@ -581,7 +581,7 @@ function createDueDatePickerControl()
 {
     g_due_date_text_box = new JazzDatePicker('id_due_date', getIdDivElementDueDate());
 
-    g_due_date_text_box.setLabelText("Due date");
+    g_due_date_text_box.setLabelText("Fälligkeit");
 
     g_due_date_text_box.setSize("10");
 
