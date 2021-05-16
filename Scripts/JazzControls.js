@@ -1,5 +1,5 @@
 // File: JazzControls.js
-// Date: 2021-05-11
+// Date: 2021-05-16
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -73,14 +73,41 @@ class JazzTextBox
         // moves over the element.
         this.m_title = '';
 
+        // Inner elements of start input m_el_div_container
+        this.m_div_container_inner_html_start = "";
+
         // Initialization
         // ==============        
 
         this.setDivContainerElement();
 
+        this.setDivInnerHtmlStartElements();
+
         this.setControl();
 
     } // constructor
+
+    // Set div inner elements if already existing at start
+    // Criterion is that '<input' or '<button' is contained in the string 
+    // TODO add more elements
+    setDivInnerHtmlStartElements()
+    {
+        var inner_html_start = this.m_el_div_container.innerHTML;
+
+        if (inner_html_start.length > 0)
+        {
+            var index_input = inner_html_start.indexOf("<input");
+
+            var index_button = inner_html_start.indexOf("<button");
+
+            if (index_input >= 0 || index_button >= 0)
+            {
+                this.m_div_container_inner_html_start = inner_html_start;
+            } // div is set with <input> and/or <button> elements
+
+        } // div is set with something ...
+
+    } // setDivInnerHtmlStartElements
 
     // Set and get functions
     // =====================
@@ -236,6 +263,7 @@ class JazzTextBox
     } // checkContainerElement
 
     // Sets the control
+    // Append if the input div element had elements
     setControl()
     {
         if (!this.checkContainerElement())
@@ -245,7 +273,18 @@ class JazzTextBox
 
         var html_str = this.getHtmlString();
 
-        this.m_el_div_container.innerHTML = html_str;
+
+        if (this.m_div_container_inner_html_start.length > 0)
+        {
+
+            var appended_html = this.m_div_container_inner_html_start + html_str;
+
+            this.m_el_div_container.innerHTML = appended_html;
+        }
+        else
+        {
+            this.m_el_div_container.innerHTML = html_str;
+        }       
 
     } // setControl
 
@@ -373,15 +412,42 @@ class JazzButton
         // The information is most often shown as a tooltip text when the mouse 
         // moves over the element.
         this.m_title = '';
+
+        // Inner elements of start input m_el_div_container
+        this.m_div_container_inner_html_start = "";
         
         // Initialization
         // ==============
 
         this.setDivContainerElement();
 
+        this.setDivInnerHtmlStartElements();
+
         this.setControl();
 
     } // constructor
+
+    // Set div inner elements if already existing at start
+    // Criterion is that '<input' or '<button' is contained in the string 
+    // TODO add more elements
+    setDivInnerHtmlStartElements()
+    {
+        var inner_html_start = this.m_el_div_container.innerHTML;
+
+        if (inner_html_start.length > 0)
+        {
+            var index_input = inner_html_start.indexOf("<input");
+
+            var index_button = inner_html_start.indexOf("<button");
+
+            if (index_input >= 0 || index_button >= 0)
+            {
+                this.m_div_container_inner_html_start = inner_html_start;
+            } // div is set with <input> and/or <button> elements
+
+        } // div is set with something ...
+
+    } // setDivInnerHtmlStartElements
 
     // Set functions for the layout member variables
     // =============================================
@@ -517,6 +583,7 @@ class JazzButton
     } // checkContainerElement
 
     // Sets the control
+    // Append if input div already had elements
     setControl()
     {
         if (!this.checkContainerElement())
@@ -526,7 +593,17 @@ class JazzButton
 
         var html_str = this.getHtmlString();
 
-        this.m_el_div_container.innerHTML = html_str;        
+        if (this.m_div_container_inner_html_start.length > 0)
+        {
+
+            var appended_html = this.m_div_container_inner_html_start + html_str;
+
+            this.m_el_div_container.innerHTML = appended_html;
+        }
+        else
+        {
+            this.m_el_div_container.innerHTML = html_str;
+        }       
 
     } // setControl
         
