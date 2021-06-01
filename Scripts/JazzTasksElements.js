@@ -1,5 +1,5 @@
 // File: JazzTasksElements.js
-// Date: 2021-05-11
+// Date: 2021-06-01
 // Author: Hanni Heller / Gunnar Liden
 
 // File content
@@ -346,3 +346,24 @@ function getIdDivElementDeputyText()
     return 'id_div_deputy_text';
 
 } // getIdDivElementDeputyText
+
+// Returns the identity of the <div> element for the login and logout controls
+function getIdDivLoginLogout()
+{
+    return 'id_div_login_logout';
+
+} // getIdDivLoginLogout
+
+// Returns the identity of the login and logout text box
+function getIdLoginLogoutTextBox()
+{
+    return 'id_login_logout_text_box';
+
+} // getIdLoginLogoutTextBox
+
+// Returns the identity of the login and logout button
+function getIdLoginLogoutButton()
+{
+    return 'id_login_logout_button';
+
+} // getIdLoginLogoutButton

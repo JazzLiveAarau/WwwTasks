@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-04-24
+// Date: 2021-06-01
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -47,6 +47,44 @@ var g_record_was_changed_str =
 var g_record_changed_original_data_set_str =
     'Die urprüngliche Daten wurden geholt.';
 
+// Object that handles the user name
+var g_user_name_object = null;
+
+// Object that have functions handling login and logout
+var g_login_logout = null;
+
+// Flag telling if the user has logged in.
+// Initial value is false. After succesful login it will be set to true
+// After logout it will be set to false.
+var g_user_has_logged_in = false;
+
+// Returns the flag telling if the user has logged in
+function userHasLoggedIn()
+{
+    if (g_login_logout != null)
+    {
+        var b_user_is_logged_in = g_login_logout.userIsLoggedIn();
+
+        if (b_user_is_logged_in != g_user_has_logged_in)
+        {
+            alert("Error userHasLoggedIn Flag LogoutLogin = " + b_user_is_logged_in.toString() 
+                    + " not equal to g_user_has_logged_in");
+        }
+    }
+
+    return g_user_has_logged_in;
+    
+} // userHasLoggedIn
+
+// Sets the flag telling if the user has logged in
+function setUserHasLoggedIn(i_b_has_logged_in)
+{
+    g_user_has_logged_in = i_b_has_logged_in;
+
+    g_login_logout.setUserIsLoggedIn(i_b_has_logged_in);
+
+} // setUserHasLoggedIn
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -82,20 +120,23 @@ function initJazzTasks()
 // defines a table of (an array of) JazzTask objects (records).
 // At the generation of the class (with the statement new) the constructor
 // will create the table from the input XML object (g_xml).  
-// 1. Creation of the JazzTasksTable object.
-// 2. Create all controls: Dropdowns, text boxes and buttons. Call of createControls
-// 3. Set the jazz task active record number to one (1). Set also the dropdown
+// 1. Login and logout initialization. Call of initLoginLogout
+// 2. Creation of the JazzTasksTable object.
+// 3. Create all controls: Dropdowns, text boxes and buttons. Call of createControls
+// 4. Set the jazz task active record number to one (1). Set also the dropdown
 //    to this value. Call of JazzDropdown.setSelectOptionNumber
-// 4. Get and set the active task record that shall be displayed and that can
+// 5. Get and set the active task record that shall be displayed and that can
 //    be edited by the user. Call of JazzTasksTable.getJazzTaskRecord
-// 5. Set (display) all controls with data from the JazzTask object. 
+// 6. Set (display) all controls with data from the JazzTask object. 
 //    Call of setControlValues
-// 6. Set the flag g_record_was_changed to false telling that user has made no 
+// 7. Set the flag g_record_was_changed to false telling that user has made no 
 //    text changes to the active jazz task record
-// 7. Hide the cancel button. Call of hideCancelButton
-// 8. Make a backup of the XML file. Call of makeXmlBackup. 
+// 8. Hide the cancel button. Call of hideCancelButton
+// 9. Make a backup of the XML file. Call of makeXmlBackup. 
 function initJazzTasksAfterLoadOfXml()
 {
+    initLoginLogout();
+
     g_table = new JazzTasksTable(g_xml);
 
     setActiveRecordNumberFromLocationSearchString();
@@ -115,6 +156,40 @@ function initJazzTasksAfterLoadOfXml()
     makeXmlBackup();
 
 } // initJazzTasksAfterLoadOfXml
+
+// Initialization for login and logout
+function initLoginLogout()
+{
+    g_user_name_object = new JazzUserName();
+
+    var user_name = g_user_name_object.getUserName();
+
+    if (user_name.trim().length < 2)
+    {
+        alert("initJazzLogin " + JazzLogin.userNameIsEmptyMessage());
+
+        location.reload();
+
+        return;       
+    }
+
+    g_login_logout = new LoginLogout( getIdLoginLogoutTextBox(), getIdLoginLogoutButton(), 
+                                      getIdDivLoginLogout(), "onClickLoginLogoutButton",
+                                      user_name);
+
+    
+    g_login_logout.loginIfPossible(callbackLoginIfPossible);
+
+} // initLoginLogout
+
+// Callback function for LoginLogout.loginIfPossible
+function callbackLoginIfPossible(i_logged_in_name, i_b_user_has_logged_in)
+{
+    setUserHasLoggedIn(i_b_user_has_logged_in);
+
+    g_login_logout.createSetControls(i_logged_in_name);
+
+} // callbackLoginIfPossible
 
 // Sets the active record number (g_record_active_number) from the location search string
 // https://www.w3schools.com/jsref/prop_loc_search.asp
@@ -368,63 +443,7 @@ function initReferenceAndDeputyDropdowns()
 
 } // initReferenceAndDeputyDropdowns
 
-// User clicked the save button
-function eventClickButtonSave()
-{
-    var b_check_set_input = getUserInputFromFormSetActiveRecord();
-    
-    if (!b_check_set_input)
-    {
-        return;
-    }
 
-    var b_append = g_task_drop_down.selectedOptionNumberIsAppendItem(g_record_active_number);
-
-    if (!b_append)
-    {
-        var b_set_table = g_table.setJazzTaskRecord(g_record_active_number, g_record_active_task);
-
-        if (!b_set_table)
-        {
-            alert("eventClickButtonSave JazzTasksTable.setJazzTaskRecord failed")
-            return;
-        }
-
-        var b_set_xml = g_table.setJazzTaskRecordXml(g_record_active_number, g_record_active_task);
-
-        if (!b_set_xml)
-        {
-            alert("eventClickButtonSave JazzTasksTable.setJazzTaskRecordXml failed")
-
-            return;
-        }        
-
-        g_table.saveJazzTasksXmlOnServer();
-    }
-    else
-    {
-        g_table.appendJazzTaskRecord(g_record_active_task);
-
-        g_table.appendJazzTaskRecordXml(g_record_active_task);
-
-        g_table.saveJazzTasksXmlOnServer();
-
-        // Save must preceed recreate
-        reCreateTaskDropdown(g_record_active_number);
-
-    }
-
-    g_record_was_changed = false;
-
-    hideCancelButton();
-
-    g_doc_upload.hideUploadDiv(true);
-
-    g_pdf_upload.hideUploadDiv(true);    
-
-    debugDisplayXmlAsText();
-
-} // eventClickButtonSave
 
 // User clicked the cancel button
 function eventClickButtonCancel()
@@ -678,10 +697,142 @@ function oninputReferenceDescription()
 
 } // oninputReferenceDescription
 
+// User clicked the save button
+function eventClickButtonSave()
+{
+    g_login_logout.getLoggedInName(callbackEventClickButtonSave);
+
+} // eventClickButtonSave
+
+// Callback function for getLoggedInName
+function callbackEventClickButtonSave(i_logged_in_name, i_b_user_has_logged_in)
+{
+    setUserHasLoggedIn(i_b_user_has_logged_in);
+
+    g_login_logout.createSetControls(i_logged_in_name);
+    
+    if (!i_b_user_has_logged_in)
+    {
+        alert(LoginLogout.saveNotPossibleOtherIsloggedIn());
+
+        return;
+    }
+
+    var b_check_set_input = getUserInputFromFormSetActiveRecord();
+    
+    if (!b_check_set_input)
+    {
+        return;
+    }
+
+    var b_append = g_task_drop_down.selectedOptionNumberIsAppendItem(g_record_active_number);
+
+    if (!b_append)
+    {
+        var b_set_table = g_table.setJazzTaskRecord(g_record_active_number, g_record_active_task);
+
+        if (!b_set_table)
+        {
+            alert("callbackEventClickButtonSave JazzTasksTable.setJazzTaskRecord failed")
+            return;
+        }
+
+        var b_set_xml = g_table.setJazzTaskRecordXml(g_record_active_number, g_record_active_task);
+
+        if (!b_set_xml)
+        {
+            alert("callbackEventClickButtonSave JazzTasksTable.setJazzTaskRecordXml failed")
+
+            return;
+        }        
+
+        g_table.saveJazzTasksXmlOnServer();
+    }
+    else
+    {
+        g_table.appendJazzTaskRecord(g_record_active_task);
+
+        g_table.appendJazzTaskRecordXml(g_record_active_task);
+
+        g_table.saveJazzTasksXmlOnServer();
+
+        // Save must preceed recreate
+        reCreateTaskDropdown(g_record_active_number);
+
+    }
+
+    g_record_was_changed = false;
+
+    hideCancelButton();
+
+    g_doc_upload.hideUploadDiv(true);
+
+    g_pdf_upload.hideUploadDiv(true);    
+
+    debugDisplayXmlAsText();
+
+} // eventClickButtonSave
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Event Login Logout Functions //////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// User clicked the login-logout button. 
+// The name of this function is defined at the creation of the JazzLogin object
+// This function calls (must call) JazzLogin.clickLoginLogoutButton
+function onClickLoginLogoutButton()
+{
+    g_login_logout.clickLoginLogoutButton(callbackOnClickLoginLogoutButton);
+
+} // onClickLoginLogoutButton
+
+// Callback function for LoginLogout.clickLoginLogoutButton
+function callbackOnClickLoginLogoutButton(i_logged_in_name, i_b_user_has_logged_in, i_warning_msg)
+{
+    if (i_warning_msg.length > 0)
+    {
+        alert(i_warning_msg);
+    }
+    
+    setUserHasLoggedIn(i_b_user_has_logged_in);
+
+    g_login_logout.createSetControls(i_logged_in_name);
+
+} // callbackOnClickLoginLogoutButton
+
+/*QQQQQQ
+// User clicked the save task button
+function clickSaveTaskButton()
+{
+    g_login_logout.getLoggedInName(callbackClickSaveTaskButton);
+
+} // clickSaveTaskButton
+
+// Callback function for getLoggedInName
+function callbackClickSaveTaskButton(i_logged_in_name, i_b_user_has_logged_in)
+{
+    setUserHasLoggedIn(i_b_user_has_logged_in);
+
+    g_login_logout.createSetControls(i_logged_in_name);
+    
+    if (i_b_user_has_logged_in)
+    {
+        alert("Änderungen wurden gespeichert!");
+    }
+    else
+    {
+        alert(LoginLogout.saveNotPossibleOtherIsloggedIn());
+    }
+
+} // callbackClickSaveTaskButton
+QQQQQ*/
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Event Login Logout Functions ////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 
 
