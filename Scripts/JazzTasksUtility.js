@@ -1,5 +1,5 @@
 // File: JazzTasksUtility.js
-// Date: 2021-05-19
+// Date: 2021-06-01
 // Author: Gunnar Lidén
 
 // Content
@@ -328,7 +328,9 @@ function getBackupFileName(i_file_name)
 
     var current_date_time_str = getCurrentDateTimeString();
 
-    ret_backup_name = file_name_without_ext + '_' + current_date_time_str;
+    var user_name = g_user_name_object.getUserName();
+
+    ret_backup_name = file_name_without_ext + '_' + current_date_time_str + '_' + user_name;
 
     ret_backup_name = ret_backup_name + file_ext;
   
