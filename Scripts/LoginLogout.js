@@ -1,5 +1,5 @@
 // File: LoginLogout.js
-// Date: 2021-05-31
+// Date: 2021-06-02
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -202,9 +202,11 @@ class LoginLogout
             }
             else
             {
- 					alert("Error JazzLogin.loginIfPossible: " + reply_trim_str);
+                var reply_trim_str = LoginLogout.removePhpEchoNewRowAndSpaces(reply_str);
+
+ 				alert("Error JazzLogin.loginIfPossible: " + reply_trim_str);
 					
-                    i_callback_login_if_possible(LoginLogout.getErrorMsgloginIfPossible(), false);
+                i_callback_login_if_possible(LoginLogout.getErrorMsgloginIfPossible(), false);
             }   
 
         } // function
@@ -277,6 +279,8 @@ class LoginLogout
             }
             else
             {
+                var reply_trim_str = LoginLogout.removePhpEchoNewRowAndSpaces(reply_str);
+
                 alert("Error JazzLogin.clickLoginLogoutButton: " + reply_trim_str);
                 
                 i_callback_click_login_logout(LoginLogout.getErrorMsgclickLoginLogoutButton(), false, "");
@@ -348,9 +352,11 @@ class LoginLogout
             }
             else
             {
- 					alert("Error JazzLogin.getLoggedInName: " + reply_trim_str);
+                var reply_trim_str = LoginLogout.removePhpEchoNewRowAndSpaces(reply_str);
+
+ 				alert("Error JazzLogin.getLoggedInName: " + reply_trim_str);
 					
-                    i_callback_get_logged_in_name(LoginLogout.getErrorMsgGetLoggedInName(), false);
+                i_callback_get_logged_in_name(LoginLogout.getErrorMsgGetLoggedInName(), false);
             }   
 
         } // function
@@ -413,9 +419,11 @@ class LoginLogout
             }
             else
             {
- 					alert("Error JazzLogin.setLoggedInName: " + reply_trim_str);
+                var reply_trim_str_error = LoginLogout.removePhpEchoNewRowAndSpaces(reply_str);
+
+ 				alert("Error JazzLogin.setLoggedInName: " + reply_trim_str_error);
 					
-                    i_callback_set_logged_in_name(LoginLogout.getErrorMsgSetLoggedInName());
+                i_callback_set_logged_in_name(LoginLogout.getErrorMsgSetLoggedInName());
             }   
 
         } // function
