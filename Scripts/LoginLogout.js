@@ -1,5 +1,5 @@
 // File: LoginLogout.js
-// Date: 2021-06-02
+// Date: 2021-06-03
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -82,7 +82,7 @@ class LoginLogout
 
         this.m_caption_login = "Login";
 
-        this.m_caption_force_login = "Login erzwingen";
+        this.m_caption_force_login = "Login erneut versuchen";
 
         this.m_label_login_your_name = "Dein Login-Name ";
 
@@ -96,13 +96,18 @@ class LoginLogout
 
         this.m_tooltip_login_nobody_logged_in = "Beim Klick des Login-Buttons wird dein Login-Name gezeigt.";
 
-        this.m_tooltip_button_logout = "Logout wenn alle Änderungen gemacht sind. " + 
-                                    "\nWebseite zuzumachen reicht nicht dafür.";
+        this.m_tooltip_button_logout = "Logout wenn alle Änderungen gemacht sind." + 
+                                     "\nWebseite zuzumachen reicht nicht dafür." +
+                                     "\nEin automatisches Ausloggen gibt es aber auch:" +
+                                     "\nNach 15 Minuten inaktivität kann das Login von" + 
+                                     "\neiner anderen Person übernommen werden";
 
         this.m_tooltip_button_login = "Klick für Login. \n";
 
-        this.m_tooltip_button_force_login = "Login erzwingen wenn du glaubst, dass Logout vergessen wurde." + 
-                                            "\nSonst warten und diese Webseite später wieder laden.";
+        this.m_tooltip_button_force_login = "Login ist möglich nach 15 Minuten inaktivität, d.h." + 
+                                          "\ndie eingeloggte Person hat während dieser Zeit nichts" +
+                                          "\ngespeichert.";
+
 
         this.m_value_login_nobody_logged_in = "----";
 
@@ -651,7 +656,7 @@ class LoginLogout
 
         button_el.style.marginLeft = "12px";
 
-        button_el.style.width = "114px";
+        button_el.style.minWidth = "114px";
 
         button_el.style.textAlign = "center";
 
@@ -798,7 +803,8 @@ class LoginLogout
 
     static saveNotPossibleOtherIsloggedIn()
     {
-        return "Speichern ist nicht möglich, weil du nicht eingeloggt bist";
+        return "Speichern ist nicht möglich, weil du nicht länger eingeloggt bist." +
+             "\nNach 15 Minuten inaktivität können andere dein Login übernehmen.";  
 
     } // saveNotPossibleOtherIsloggedIn
 
