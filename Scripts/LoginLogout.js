@@ -96,15 +96,15 @@ class LoginLogout
 
         this.m_tooltip_login_nobody_logged_in = "Beim Klick des Login-Buttons wird dein Login-Name gezeigt.";
 
-        this.m_tooltip_button_logout = "Logout wenn alle Änderungen gemacht sind." + 
-                                     "\nWebseite zuzumachen reicht nicht dafür." +
+        this.m_tooltip_button_logout = "Logout wenn alle Änderungen gemacht sind!" + 
+                                     "\nDie Webseite zu schliessen reicht nicht!" +
                                      "\nEin automatisches Ausloggen gibt es aber auch:" +
-                                     "\nNach 15 Minuten inaktivität kann das Login von" + 
+                                     "\nNach 15 Minuten Inaktivität kann das Login von" + 
                                      "\neiner anderen Person übernommen werden";
 
         this.m_tooltip_button_login = "Klick für Login. \n";
 
-        this.m_tooltip_button_force_login = "Login ist möglich nach 15 Minuten inaktivität, d.h." + 
+        this.m_tooltip_button_force_login = "Login ist möglich nach 15 Minuten Inaktivität, d.h." + 
                                           "\ndie eingeloggte Person hat während dieser Zeit nichts" +
                                           "\ngespeichert.";
 
@@ -113,7 +113,7 @@ class LoginLogout
 
         this.m_warning_file_empty =  "Bitte den Webmaster informieren, dass die Datei mit dem " + 
                                     "\nLogin-Name leer war." + 
-                                    "\nLogin Admin macht jetzt ein neuer Versuch eintzuloggen.";                                     
+                                    "\nLogin Admin macht jetzt ein neuer Versuch einzuloggen.";                                     
 
      ///////////////////////// End Strings /////////////////////////////////////////////////
 
