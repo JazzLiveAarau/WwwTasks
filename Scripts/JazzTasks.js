@@ -671,6 +671,32 @@ function eventUserSelectedDueDate()
 
 } // eventUserSelectedDueDate
 
+// Event function when user added or changed number of days before the concert
+function oninputBeforeConcert()
+{
+    // TODO Only accept numbers
+
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // oninputBeforeConcert
+
+// Event function when user added or changed number of days after the concert
+function oninputAfterConcert()
+{
+    // TODO Only accept numbers
+    
+    displayButtonCancelSetChangedFlag();
+
+    g_doc_upload.hideUploadDiv(true);
+	
+    g_pdf_upload.hideUploadDiv(true);
+
+} // oninputAfterConcert
+
 //  Event function when user added or deleted a character in the reference link text box
 function oninputReferenceUrl()
 {

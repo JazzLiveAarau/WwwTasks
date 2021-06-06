@@ -798,7 +798,31 @@ class JazzTask
         
         return ret_b_check;
 
-    } // checkJazzTaskFinishMonth     
+    } // checkJazzTaskFinishMonth
+
+    // Returns true if the jazz task days before or after concert is OK
+    static checkJazzTaskDaysConcert(i_jazz_task_number_days) 
+    {
+        var ret_b_check = true;
+
+        var jazz_task_number_days = i_jazz_task_number_days.trim();
+        
+        if (jazz_task_number_days.length == 0)
+        {
+            return true;
+        }
+
+        if (!JazzTask.stringContainsOnlyNumber(jazz_task_number_days))
+        {
+            alert("Anzahl Tage (" + i_jazz_task_number_days + ") ist keine Zahl");
+            
+            ret_b_check = false;
+        
+        }
+        
+        return ret_b_check;
+
+    } // checkJazzTaskDaysConcert     
     
     // Returns true if the jazz task link pdf is OK
     static checkJazzTaskResponsible(i_jazz_task_responsible) 
@@ -852,6 +876,66 @@ class JazzTask
         return ret_error_msg;
         
     } // stringContainsIllegalXmlCharacter
+
+    // Returns true if the input string only contains numbers
+    static stringContainsOnlyNumber(i_number_str)
+    {
+        var ret_only_numbers = true;
+
+        if (i_number_str.length == 0)
+        {
+            alert("stringContainsOnlyNumber Input string is empty");
+
+            return false;
+        }
+
+        for (var index_char=0; index_char < i_number_str.length; index_char++)
+        {
+            var number_char = i_number_str.substring(index_char, index_char + 1);
+
+            if (!JazzTask.charIsNumber(number_char))
+            {
+                ret_only_numbers = false;
+
+                break;
+            }
+
+        }
+
+        return ret_only_numbers;
+
+    } // stringContainsOnlyNumber
+
+    // Returns true if the input character is a number
+    static charIsNumber(i_char)
+    {
+        var ret_b_number = false;
+
+        if (i_char.length != 1)
+        {
+            alert("charIsNumber Input string length is not one (1)");
+
+            return ret_b_number;
+        }
+
+        var number_chars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        for (var index_char=0; index_char < number_chars.length; index_char++)
+        {
+            var number_char = number_chars[index_char];
+
+            if (i_char == number_char)
+            {
+                ret_b_number = true;
+
+                break;
+            }
+
+        } // index_char
+
+        return ret_b_number;
+
+    } // charIsNumber
 
 } // JazzTask
 

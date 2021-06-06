@@ -1,5 +1,5 @@
 // File: JazzTasksSetControls.js
-// Date: 2021-05-11
+// Date: 2021-06-06
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -26,6 +26,10 @@ function getUserInputFromFormSetActiveRecord()
     if (!getUserInputFromFormSetActiveRecordRemindDay()) return false;
 
     if (!getUserInputFromFormSetActiveRecordFinishDay()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordBeforeConcert()) return false;
+
+    if (!getUserInputFromFormSetActiveRecordAfterConcert()) return false;
 
     if (!getUserInputFromFormSetActiveRecordRefLink()) return false;
 
@@ -183,6 +187,42 @@ function getUserInputFromFormSetActiveRecordFinishDay()
 
 } // getUserInputFromFormSetActiveRecordFinishDay
 
+// Gets, checks and sets the input form data for the days before concert
+function getUserInputFromFormSetActiveRecordBeforeConcert()
+{
+    var task_before_concert = g_before_concert_text_box.getValue();
+
+    if (!JazzTask.checkJazzTaskDaysConcert(task_before_concert))
+    {
+        alert("Before concert error");
+
+        return false;
+    }
+
+    g_record_active_task.setJazzTaskBeforeConcert(task_before_concert);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordBeforeConcert
+
+// Gets, checks and sets the input form data for the days after concert
+function getUserInputFromFormSetActiveRecordAfterConcert()
+{
+    var task_after_concert = g_after_concert_text_box.getValue();
+
+    if (!JazzTask.checkJazzTaskDaysConcert(task_after_concert))
+    {
+        alert("After concert error");
+
+        return false;
+    }
+
+    g_record_active_task.setJazzTaskAfterConcert(task_after_concert);
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecordAfterConcert
+
 // Gets, checks and sets the input form data for the reference link
 function getUserInputFromFormSetActiveRecordRefLink()
 {
@@ -296,6 +336,14 @@ function setControlValues()
     var date_finish_str = getRemindFinishDateWithYear(finish_month, finish_day);
 
     g_due_date_text_box.setValue(date_finish_str);
+
+    var task_after_concert = g_record_active_task.getJazzTaskAfterConcert();
+
+    g_after_concert_text_box.setValue(task_after_concert);
+
+    var task_before_concert = g_record_active_task.getJazzTaskBeforeConcert();
+
+    g_before_concert_text_box.setValue(task_before_concert);
 	
     var ref_link_str = g_record_active_task.getJazzTaskRefLink(g_active_reference_number);
 

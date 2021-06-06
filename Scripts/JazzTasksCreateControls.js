@@ -28,6 +28,12 @@ var g_remind_date_text_box = null;
 // The text box for the due date picker
 var g_due_date_text_box = null;
 
+// The text box for the days before concert due time
+var g_before_concert_text_box = null;
+
+// The text box for the days after concert due time
+var g_after_concert_text_box = null;
+
 // The use description documnt check box
 var g_use_description_check_box = null;
 
@@ -145,6 +151,10 @@ function createControls()
     createRemindDatePickerControl();
 
     createDueDatePickerControl();
+
+    createTextBoxAfterConcert();
+
+    createTextBoxBeforeConcert();
 
     createReferenceDropdown();
 
@@ -564,7 +574,7 @@ function createRemindDatePickerControl()
 
     g_remind_date_text_box.setLabelText("Erinnerung");
 
-    g_remind_date_text_box.setSize("10");
+    g_remind_date_text_box.setSize("7");
 
     g_remind_date_text_box.setLabelTextPositionAbove();
 
@@ -583,7 +593,7 @@ function createDueDatePickerControl()
 
     g_due_date_text_box.setLabelText("Fälligkeit");
 
-    g_due_date_text_box.setSize("10");
+    g_due_date_text_box.setSize("7");
 
     g_due_date_text_box.setLabelTextPositionAbove();
 
@@ -594,6 +604,40 @@ function createDueDatePickerControl()
     g_due_date_text_box.startDatePicker();
   
 } // createDueDatePickerControl
+
+// Create the days before concert text box
+function createTextBoxBeforeConcert()
+{
+    g_before_concert_text_box = new JazzTextBox("id_before_concert_text_box", getIdDivElementBeforeConcert());
+
+    g_before_concert_text_box.setLabelText("Vor Konzert");
+
+    g_before_concert_text_box.setLabelTextPositionAbove();
+
+    g_before_concert_text_box.setSize("7");
+
+    g_before_concert_text_box.setTitle("Fälligkeit-Zeit: Anzahl Tage vor einem Konzert");
+
+    g_before_concert_text_box.setOninputFunctionName("oninputBeforeConcert");
+  
+} // createTextBoxBeforeConcert
+
+// Create the days before concert text box
+function createTextBoxAfterConcert()
+{
+    g_after_concert_text_box = new JazzTextBox("id_after_concert_text_box", getIdDivElementAfterConcert());
+
+    g_after_concert_text_box.setLabelText("Nach Konzert");
+
+    g_after_concert_text_box.setLabelTextPositionAbove();
+
+    g_after_concert_text_box.setSize("7");
+
+    g_after_concert_text_box.setTitle("Fälligkeit-Zeit: Anzahl Tage nach einem Konzert");
+
+    g_after_concert_text_box.setOninputFunctionName("oninputAfterConcert");
+  
+} // createTextBoxAfterConcert
 
 // Create the reference link text box
 function createTextBoxReferenceLink()

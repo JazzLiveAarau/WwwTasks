@@ -1,5 +1,5 @@
 // File: JazzTasksElements.js
-// Date: 2021-06-01
+// Date: 2021-06-06
 // Author: Hanni Heller / Gunnar Liden
 
 // File content
@@ -318,6 +318,20 @@ function getIdDivElementDueDate()
     return 'id_div_due_date';
 
 } // getIdDivElementDueDate
+
+// Return value is the identity of the div element days before concert
+function getIdDivElementBeforeConcert()
+{
+    return 'id_div_before_concert';
+
+} // getIdDivElementBeforeConcert
+
+// Return value is the identity of the div element days after concert
+function getIdDivElementAfterConcert()
+{
+    return 'id_div_after_concert';
+
+} // getIdDivElementAfterConcert
 
 // Return value is the identity of the div element responsible
 function getIdDivElementResponsible()

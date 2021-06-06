@@ -1,5 +1,5 @@
 /* 
-File: JazzTasks.css Date: 2021-06-01
+File: JazzTasks.css Date: 2021-06-06
 
 Author: Hanni Heller / Gunnar Liden
 
@@ -187,7 +187,7 @@ float: left;
 {
     /* border: solid 1px rgb(143, 50, 110); */
     overflow: hidden;
-    width: 90%;
+    width: 96%;
     padding: 6px;  
     clear: both;   
 }
@@ -196,9 +196,16 @@ float: left;
 .cl_div_date
 {
     /* border: solid 2px rgb(143, 50, 110); */
-    width: 25%;
-    margin-left: 20px;
+    width: 23%;
     float: left;
+}
+
+/* Days - before and after - <div> element */
+.cl_div_days_concert
+{
+    /* border: solid 2px rgb(50, 143, 97); */
+    width: 25%;
+    float: right;
 }
 
 /* Container <div> element for responsible and deputy */
