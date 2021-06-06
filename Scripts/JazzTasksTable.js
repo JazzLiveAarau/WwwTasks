@@ -1,5 +1,5 @@
 // File: JazzTasksTable.js
-// Date: 2021-05-11
+// Date: 2021-06-06
 // Author: Gunnar Lidén
 
 // File content
@@ -460,6 +460,12 @@ class JazzTasksTable
 		var jazz_task_finish_month = this.m_xml.getJazzTaskFinishMonth(i_task_number);
 		ret_jazz_task.setJazzTaskFinishMonth(jazz_task_finish_month);
 
+		var jazz_task_before_concert = this.m_xml.getJazzTaskBeforeConcert(i_task_number);
+		ret_jazz_task.setJazzTaskBeforeConcert(jazz_task_before_concert);
+
+		var jazz_task_after_concert = this.m_xml.getJazzTaskAfterConcert(i_task_number);
+		ret_jazz_task.setJazzTaskAfterConcert(jazz_task_after_concert);
+
 		var jazz_task_responsible = this.m_xml.getJazzTaskResponsible(i_task_number);
 		ret_jazz_task.setJazzTaskResponsible(jazz_task_responsible);
 
@@ -543,6 +549,12 @@ class JazzTasksTable
 
 		var jazz_task_finish_month = i_jazz_task.getJazzTaskFinishMonth();
 		this.m_xml.setJazzTaskFinishMonth(i_task_number, jazz_task_finish_month);
+
+		var jazz_task_before_concert = i_jazz_task.getJazzTaskBeforeConcert();
+		this.m_xml.setJazzTaskBeforeConcert(i_task_number, jazz_task_before_concert);		
+
+		var jazz_task_after_concert = i_jazz_task.getJazzTaskAfterConcert();
+		this.m_xml.setJazzTaskAfterConcert(i_task_number, jazz_task_after_concert);		
 
 		var jazz_task_responsible = i_jazz_task.getJazzTaskResponsible();
 		this.m_xml.setJazzTaskResponsible(i_task_number, jazz_task_responsible);

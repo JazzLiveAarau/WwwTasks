@@ -1,5 +1,5 @@
 // File: JazzTasksXml.js
-// Date: 2021-05-11
+// Date: 2021-06-06
 // Author: Gunnar Lidén
 
 // File content
@@ -176,6 +176,20 @@ class JazzTasksXml
         
     } // getJazzTaskResponsible
 
+    // Returns the jazz task days before concert for a given task number
+    getJazzTaskBeforeConcert(i_task_number)
+    {
+        return this.getNodeValue(this.m_tags.getJazzTaskBeforeConcert(), i_task_number);
+        
+    } // getJazzTaskBeforeConcert	
+
+    // Returns the jazz task days after concert for a given task number
+    getJazzTaskAfterConcert(i_task_number)
+    {
+        return this.getNodeValue(this.m_tags.getJazzTaskAfterConcert(), i_task_number);
+        
+    } // getJazzTaskAfterConcert	
+
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////// End Get Jazz Task Data //////////////////////////
     ///////////////////////////////////////////////////////////////////////////
@@ -267,6 +281,20 @@ class JazzTasksXml
         return this.setJazzTaskNodeValue(this.m_tags.getJazzTaskResponsible(), i_task_number, i_node_value);
         
     } // setJazzTaskResponsible
+
+    // Sets the jazz task days before concert for a given task number
+    setJazzTaskBeforeConcert(i_task_number, i_node_value)
+    {
+        return this.setJazzTaskNodeValue(this.m_tags.getJazzTaskBeforeConcert(), i_task_number, i_node_value);
+        
+    } // setJazzTaskBeforeConcert
+    
+    // Sets the jazz task days before concert for a given task number
+    setJazzTaskAfterConcert(i_task_number, i_node_value)
+    {
+        return this.setJazzTaskNodeValue(this.m_tags.getJazzTaskAfterConcert(), i_task_number, i_node_value);
+        
+    } // setJazzTaskAfterConcert
 
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////// End Set Jazz Task Data //////////////////////////
@@ -690,6 +718,16 @@ class JazzTasksXml
 	   var task_finish_month_text = this.m_file_xml.createTextNode(this.m_not_yet_set_node_value);
 	   task_finish_month_node.appendChild(task_finish_month_text);
 	   new_jazz_task.appendChild(task_finish_month_node);
+       
+	   var task_after_concert_node = this.m_file_xml.createElement(this.m_tags.getJazzTaskAfterConcert());
+	   var task_after_concert_text = this.m_file_xml.createTextNode(this.m_not_yet_set_node_value);
+	   task_after_concert_node.appendChild(task_after_concert_text);
+	   new_jazz_task.appendChild(task_after_concert_node);
+
+	   var task_before_concert_node = this.m_file_xml.createElement(this.m_tags.getJazzTaskBeforeConcert());
+	   var task_before_concert_text = this.m_file_xml.createTextNode(this.m_not_yet_set_node_value);
+	   task_before_concert_node.appendChild(task_before_concert_text);
+	   new_jazz_task.appendChild(task_before_concert_node);
 
 	   for (var reference_number=1; reference_number <= i_n_references; reference_number++)
 	   {
@@ -1012,7 +1050,9 @@ class JazzTasksTags
         this.m_tag_jazz_task_ref_link = "JazzTaskRefLink";
         this.m_tag_jazz_task_ref_description = "JazzTaskRefDescription";
         this.m_tag_jazz_task_responsible = "JazzTaskResponsible";
-        this.m_tag_jazz_task_deputy = "JazzTaskDeputy";        
+        this.m_tag_jazz_task_deputy = "JazzTaskDeputy";
+        this.m_tag_jazz_before_concert = "JazzTaskBeforeConcert";
+        this.m_tag_jazz_after_concert = "JazzTaskAfterConcert";
 
     } // constructor
 
@@ -1036,5 +1076,7 @@ class JazzTasksTags
     getJazzTaskRefDescription(){return this.m_tag_jazz_task_ref_description;}
     getJazzTaskResponsible(){return this.m_tag_jazz_task_responsible;}
     getJazzTaskDeputy(){return this.m_tag_jazz_task_deputy;}
+    getJazzTaskBeforeConcert(){return this.m_tag_jazz_before_concert;}
+    getJazzTaskAfterConcert(){return this.m_tag_jazz_after_concert;}
 
 } // JazzTasksTags

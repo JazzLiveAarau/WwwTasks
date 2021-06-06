@@ -1,5 +1,5 @@
 // File: JazzTasksRecord.js
-// Date: 2021-05-12
+// Date: 2021-06-06
 // Author: Gunnar Lidén
 
 // File content
@@ -70,6 +70,12 @@ class JazzTask
 
         //
         this.m_jazz_task_finish_month = '';
+
+        // Days before a concert
+        this.m_jazz_task_before_concert = '';
+
+        // Days after a concert
+        this.m_jazz_task_after_concert = '';        
 
         // Reference links
         this.m_jazz_task_ref_links = [];
@@ -258,6 +264,34 @@ class JazzTask
         this.m_jazz_task_finish_month = i_jazz_task_finish_month;
 
     } // setJazzTaskFinishMonth 
+
+    // Returns the number of days before a concert
+    getJazzTaskBeforeConcert() 
+    {
+      return this.m_jazz_task_before_concert;
+
+    } // getJazzTaskBeforeConcert
+
+    // Sets the number of days before a concert
+    setJazzTaskBeforeConcert(i_jazz_task_before_concert) 
+    {
+        this.m_jazz_task_before_concert = i_jazz_task_before_concert;
+
+    } // setJazzTaskBeforeConcert
+
+    // Returns the number of days after a concert
+    getJazzTaskAfterConcert() 
+    {
+      return this.m_jazz_task_after_concert;
+
+    } // getJazzTaskAfterConcert
+
+    // Sets the number of days after a concert
+    setJazzTaskAfterConcert(i_jazz_task_after_concert) 
+    {
+        this.m_jazz_task_after_concert = i_jazz_task_after_concert;
+
+    } // setJazzTaskAfterConcert 
 
     // Returns the jazz task responsible person
     getJazzTaskResponsible() 
