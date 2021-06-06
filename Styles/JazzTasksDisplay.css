@@ -1,6 +1,6 @@
 /* 
 File: JazzTasksDisplay.css 
-Date: 2021-05-10 
+Date: 2021-06-06
 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
@@ -263,6 +263,14 @@ button
     width: 100%;
     padding: 5px;
     clear: both;
+}
+
+/* Active record for the concert due days <div> element */
+.cl_active_record_due_days_concert
+{
+    width: 100%;
+    padding: 5px;
+    clear: both;    
 }
 
 /* Search task list <div> element */

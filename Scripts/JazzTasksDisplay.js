@@ -452,6 +452,8 @@ function setActiveRecordDiv()
 
     setActiveRecordDivRemindDueDate();
 
+    setActiveRecordDueDaysConcert();
+
 } // setActiveRecordDiv
 
 // Sets the text of the active record title <div> element
@@ -826,6 +828,55 @@ function setActiveRecordDivRemindDueDate()
     el_div_remind_due_date.innerHTML = date_str;
 
 } // setActiveRecordDivRemindDueDate
+
+// Sets the text of the active record remind and due date <div> element
+function setActiveRecordDueDaysConcert()
+{
+    var el_div_due_days = getDivElementActiveRecordDueDaysConcert();
+	
+	var after_concert = g_active_record.getJazzTaskAfterConcert();
+	
+	var before_concert = g_active_record.getJazzTaskBeforeConcert();
+	
+	var after_str = '';
+	
+	var before_str = '';
+	
+	if (before_concert.length > 0)
+	{
+		after_str = 'Vor Konzert ' + before_concert.toString();
+	}
+	
+	if (after_concert.length > 0)
+	{
+		before_str =  'Nach Konzert ' +  after_concert.toString();
+	}	
+	
+	if (after_str.length == 0 && before_str.lenght == 0)
+	{
+		hideActiveRecordDueDaysConcert();
+		
+		return;
+	}
+	else
+	{
+		displayActiveRecordDueDaysConcert();
+	}
+	
+    var due_days_str = '<b>Fälligkeit (Tage): </b>';
+
+    due_days_str = due_days_str + after_str;
+	
+	if (after_str.length > 0)
+	{
+		due_days_str = due_days_str + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	}
+
+    due_days_str = due_days_str + before_str;
+
+    el_div_due_days.innerHTML = due_days_str;
+
+} // setActiveRecordDueDaysConcert
 
 // Sets the text of the active record remind and due date <div> element
 function setActiveRecordDivResponsibles()

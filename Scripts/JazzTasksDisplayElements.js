@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-05-11
+// Date: 2021-06-06
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -505,6 +505,20 @@ function getIdDivElementActiveRecordRemindDueDate()
 
 } // getIdDivElementActiveRecordRemindDueDate
 
+// Returns the active record concert due days <div> element
+function getDivElementActiveRecordDueDaysConcert()
+{
+    return document.getElementById(getIdDivElementActiveRecordDueDaysConcert());
+
+} // getDivElementActiveRecordDueDaysConcert
+
+//Returns the identity of the active record concert due days <div> element
+function getIdDivElementActiveRecordDueDaysConcert()
+{
+    return 'id_active_record_due_days_concert';
+
+} // getIdDivElementActiveRecordDueDaysConcert
+
 // Hides the active remind and due date <div>
 function hideActiveRecordRemindDueDate()
 {
@@ -522,6 +536,24 @@ function displayActiveRecordRemindDueDate()
     el_active_remind_due_date.style.display = 'block';
 
 } // displayActiveRecordRemindDueDate
+
+// Hides the active concert due dates <div>
+function hideActiveRecordDueDaysConcert()
+{
+    var el_active_remind_due_date = getDivElementActiveRecordDueDaysConcert();
+
+    el_active_remind_due_date.style.display = 'none';
+
+} // hideActiveRecordDueDaysConcert
+
+// Shows the active concert due dates <div>
+function displayActiveRecordDueDaysConcert()
+{
+    var el_active_remind_due_date = getDivElementActiveRecordDueDaysConcert();
+
+    el_active_remind_due_date.style.display = 'block';
+
+} // displayActiveRecordDueDaysConcert
 
 // Returns the active record responsibles <div> element
 function getDivElementActiveRecordResponsibles()
