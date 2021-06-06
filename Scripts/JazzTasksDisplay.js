@@ -852,7 +852,7 @@ function setActiveRecordDueDaysConcert()
 		before_str =  'Nach Konzert ' +  after_concert.toString();
 	}	
 	
-	if (after_str.length == 0 && before_str.lenght == 0)
+	if (after_concert.length == 0 && before_concert.length == 0)
 	{
 		hideActiveRecordDueDaysConcert();
 		
