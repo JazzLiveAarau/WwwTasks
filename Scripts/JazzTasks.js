@@ -674,7 +674,18 @@ function eventUserSelectedDueDate()
 // Event function when user added or changed number of days before the concert
 function oninputBeforeConcert()
 {
-    // TODO Only accept numbers
+    var before_days_str = g_before_concert_text_box.getValue();
+
+    if (!JazzTask.stringContainsOnlyNumber(before_days_str))
+    {
+        alert("Nur Zahlen sind erlaubt");
+
+        var only_numbers = JazzTask.keepOnlyNumbers(before_days_str);
+
+        g_before_concert_text_box.setValue(only_numbers);
+
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -687,7 +698,18 @@ function oninputBeforeConcert()
 // Event function when user added or changed number of days after the concert
 function oninputAfterConcert()
 {
-    // TODO Only accept numbers
+    var after_days_str = g_after_concert_text_box.getValue();
+
+    if (!JazzTask.stringContainsOnlyNumber(after_days_str))
+    {
+        alert("Nur Zahlen sind erlaubt");
+
+        var only_numbers = JazzTask.keepOnlyNumbers(after_days_str);
+
+        g_after_concert_text_box.setValue(only_numbers);
+
+        return;
+    }
     
     displayButtonCancelSetChangedFlag();
 

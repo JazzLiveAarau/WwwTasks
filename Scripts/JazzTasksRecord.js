@@ -884,9 +884,7 @@ class JazzTask
 
         if (i_number_str.length == 0)
         {
-            alert("stringContainsOnlyNumber Input string is empty");
-
-            return false;
+            return ret_only_numbers;
         }
 
         for (var index_char=0; index_char < i_number_str.length; index_char++)
@@ -906,6 +904,38 @@ class JazzTask
 
     } // stringContainsOnlyNumber
 
+    // Returns a string where all none-number characters have been removed
+    static keepOnlyNumbers(i_number_str)
+    {
+        var ret_str = '';
+
+        if (i_number_str.length == 0)
+        {
+            return ret_str;
+        }
+
+        if (JazzTask.stringContainsOnlyNumber(i_number_str))
+        {
+            ret_str = i_number_str;
+
+            return ret_str;
+        }
+
+        for (var index_char=0; index_char < i_number_str.length; index_char++)
+        {
+            var number_char = i_number_str.substring(index_char, index_char + 1);
+
+            if (JazzTask.charIsNumber(number_char))
+            {
+                ret_str = ret_str + number_char;
+            }
+
+        }
+
+        return ret_str;
+
+    } // keepOnlyNumbers
+
     // Returns true if the input character is a number
     static charIsNumber(i_char)
     {
@@ -918,7 +948,7 @@ class JazzTask
             return ret_b_number;
         }
 
-        var number_chars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var number_chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
         for (var index_char=0; index_char < number_chars.length; index_char++)
         {
