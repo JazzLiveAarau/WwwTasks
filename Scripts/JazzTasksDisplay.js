@@ -5,7 +5,7 @@
 // Inhalt
 // =============
 //
-// Hauptfunktionen der Applikation Aufgaben Display
+// Hauptfunktionen der Applikation Intranet & Aufgaben
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Global Parameters /////////////////////////////////////////
@@ -13,6 +13,9 @@
 
 // XML object corresponding to XML file JazzTasks.xml
 var g_display_xml = null;
+
+// XML object for XML files JazzProgramm_2021_2022.xml, JazzProgramm_2022_2023.xml, ..
+var g_season_xml = null;
 
 // JazzTasksTable object that hold all JazzTask records 
 var g_display_table = null;
@@ -49,12 +52,18 @@ var g_calendar_check_box = null;
 ///////////////////////// Start Main Functions ////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// Load the XML object for XML file JazzTasks.xml and call initJazzTasksDisplayAfterLoadOfXml
+// Load the XML object for XML file JazzTasks.xml and call loadSeasonXml
 function initJazzTasksDisplay()
 {
-    g_display_xml = new JazzTasksXml(initJazzTasksDisplayAfterLoadOfXml);
+    g_display_xml = new JazzTasksXml(loadSeasonXml);
 
 } // initJazzTasksDisplay
+
+// Load the season XML object and call initJazzTasksDisplayAfterLoadOfXml
+function loadSeasonXml()
+{
+    g_season_xml = new JazzTasksXml(initJazzTasksDisplayAfterLoadOfXml);
+}
 
 // Initialization after load of the XML object for the XML file JazzTask.xml
 // 1. Creation of the JazzTasksTable object.
