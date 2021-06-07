@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-05-12
+// Date: 2021-06-07
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -38,6 +38,9 @@ var g_task_display_admin_button = null;
 // The tasks display help button
 var g_task_display_help_button = null;
 
+// The calendar check box
+var g_calendar_check_box = null;
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -68,6 +71,8 @@ function initJazzTasksDisplayAfterLoadOfXml()
     setActiveRecordDiv();
 
     createTextBoxSearch();
+
+    createCheckBoxCalendar();
 
     createTasksDisplayIntranetButton();
 
@@ -258,6 +263,13 @@ function oninputSearch()
 
 } // oninputSearch
 
+// User clicked the calendar check box
+function eventClickCheckBoxCalendar()
+{
+    alert("Terminskalender wird implementiert. Noch nicht fertig.");
+
+} // eventClickCheckBoxCalendar
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -282,6 +294,23 @@ function createTextBoxSearch()
     g_search_text_box.setOninputFunctionName("oninputSearch");
   
 } // createTextBoxSearch
+
+// Creates the check box control calendar
+function createCheckBoxCalendar()
+{
+    g_calendar_check_box = new JazzCheckBox("id_check_box_calendar", getIdDivElementCheckBoxCalendar());
+
+    g_calendar_check_box.setOninputFunctionName("eventClickCheckBoxCalendar");
+
+    g_calendar_check_box.setLabelText("Kalender");
+	
+	g_calendar_check_box.setLabelTextPositionAbove();
+
+     g_calendar_check_box.setTitle("Terminkalender anzeigen");
+
+     g_calendar_check_box.setCheck("FALSE");
+
+} // createCheckBoxCalendar
 
 // Creates the intranet button control
 function createTasksDisplayIntranetButton()
@@ -546,6 +575,10 @@ function setActiveRecordDivDocument()
     if (activeTaskIsInformation())
     {
         document_name_str = document_name_str + '<b>' + 'Beschreibung ' + '</b>';
+    }
+    else if (activeTaskIsCalendarEntry())
+    {
+        document_name_str = document_name_str + '<b>' + 'Beschreibung Termin' + '</b>';
     }
     else
     {
@@ -897,6 +930,10 @@ function setActiveRecordDivResponsibles()
     {
         hideActiveRecordResponsibles();
     }
+    else if (activeTaskIsCalendarEntry())
+    {
+        hideActiveRecordResponsibles();
+    }
     else
     {
         displayActiveRecordResponsibles();
@@ -920,6 +957,23 @@ function activeTaskIsInformation()
     }
 
 } // activeTaskIsInformation
+
+// Returns true if active task is of the type calender entry and has no description
+// how to do a taskk
+function activeTaskIsCalendarEntry()
+{
+    var responsible_str = g_active_record.getJazzTaskResponsible();
+
+    if (responsible_str == "Termin")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+} // activeTaskIsCalendarEntry
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Active Record Functions /////////////////////////////////////

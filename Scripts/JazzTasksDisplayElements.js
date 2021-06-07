@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2021-06-06
+// Date: 2021-06-07
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -15,6 +15,20 @@
 function getIdDivElementTextBoxSearch()
 {
     return 'id_div_textbox_search';
+
+} // getIdDivElementActiveRecord
+
+// Returns the calendar check box <div> element
+function getDivElementCheckBoxCalendar()
+{
+    return document.getElementById(getIdDivElementCheckBoxCalendar());
+
+} // getDivElementCheckBoxCalendar
+
+// Returns the calendar check box <div> identity
+function getIdDivElementCheckBoxCalendar()
+{
+    return 'id_div_checkbox_calendar';
 
 } // getIdDivElementActiveRecord
 
