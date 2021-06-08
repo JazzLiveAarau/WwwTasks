@@ -1,86 +1,61 @@
-// File: JazzTasksDisplay.js
-// Date: 2021-05-12
+// File: JazzTasksCalendar.js
+// Date: 2021-06-08
 // Author: Gunnar Lidén
 
 // Inhalt
 // =============
 //
-// Hauptfunktionen der Applikation Aufgaben Display
+// Calendar functions
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Global Parameters /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// XML object corresponding to XML file JazzTasks.xml
-var g_display_xml = null;
-
-// JazzTasksTable object that hold all JazzTask records 
-var g_display_table = null;
-
-// JazzTasksSearch object for the search of objects
-var g_search = null;
-
-// Active jazz task record number
-var g_display_number = -12345;
-
-// Active jazz task
-var g_active_record = null;
-
-// Search text box
-var g_search_text_box = null;
-
-// The tasks display intranet button
-var g_task_display_intranet_button = null;
-
-// The tasks display admin button
-var g_task_display_admin_button = null;
-
-// The tasks display help button
-var g_task_display_help_button = null;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Start Main Functions ////////////////////////////////////////////
+///////////////////////// Start Test Functions ////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// Load the XML object for XML file JazzTasks.xml and call initJazzTasksCalendarAfterLoadOfXml
-function initJazzTasksCalendar()
+
+// Temporary season XML test function
+function testSeasonXml()
 {
-    g_display_xml = new JazzTasksXml(initJazzTasksCalendarAfterLoadOfXml);
+    var year_autumn = g_season_xml.getYearAutumn();
 
-} // initJazzTasksCalendar
+    var year_autumn_int = g_season_xml.getYearAutumnInt();
 
-// Initialization after load of the XML object for the XML file JazzTask.xml
-// 1. Creation of the JazzTasksTable object.
-function initJazzTasksCalendarAfterLoadOfXml()
-{
-    g_display_table = new JazzTasksTable(g_display_xml);
+    var year_spring = g_season_xml.getYearSpring();
 
-    g_search = new JazzTasksSearch(g_display_table);
+    var publish_program = g_season_xml.getPublishProgram();
 
-    g_display_number = 1;
+    var publish_program_bool = g_season_xml.getPublishProgramBool();
 
-    g_active_record = g_display_table.getJazzTaskRecord(g_display_number);
+    var number_concerts = g_season_xml.getNumberOfConcerts();
 
-    setActiveRecordDiv();
+    var concert_cancelled = g_season_xml.getConcertCancelled(4);
 
-    createTextBoxSearch();
+    var concert_cancelled_bool = g_season_xml.ConcertIsCancelled(4);
 
-    createTasksDisplayIntranetButton();
+    var flyer_publish = g_season_xml.FlyerTextCanBePublishedOnHomepage(4);
 
-    createTasksDisplayAdminButton();
+    var concert_year = g_season_xml.getConcertYear(4);
 
-    createTasksDisplayHelpButton();
+    var concert_month = g_season_xml.getConcertMonth(4);
 
-    closeActiveRecord();
+    var concert_day = g_season_xml.getConcertDay(4);
 
-    var search_str= '';
+    var number_musicians = g_season_xml.getNumberOfMusicians(4);
 
-    searchDisplayResultList(search_str);
+    var musician_name = g_season_xml.getMusicianName(4, 2);
 
-} // initJazzTasksCalendarAfterLoadOfXml
+    alert("concert_cancelled= " + concert_cancelled);
 
+} // testSeasonXml
 
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Test Functions //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////

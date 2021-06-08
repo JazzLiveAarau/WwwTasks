@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2021-06-07
+// Date: 2021-06-08
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -14,7 +14,7 @@
 // XML object corresponding to XML file JazzTasks.xml
 var g_display_xml = null;
 
-// XML object for XML files JazzProgramm_2021_2022.xml, JazzProgramm_2022_2023.xml, ..
+// XML objects for all XML files JazzProgramm_2021_2022.xml, JazzProgramm_2022_2023.xml, ..
 var g_season_xml = null;
 
 // JazzTasksTable object that hold all JazzTask records 
@@ -62,13 +62,15 @@ function initJazzTasksDisplay()
 // Load the season XML object and call initJazzTasksDisplayAfterLoadOfXml
 function loadSeasonXml()
 {
-    g_season_xml = new JazzTasksXml(initJazzTasksDisplayAfterLoadOfXml);
+    g_season_xml = new JazzSeasonXml(2021, initJazzTasksDisplayAfterLoadOfXml);
 }
 
 // Initialization after load of the XML object for the XML file JazzTask.xml
 // 1. Creation of the JazzTasksTable object.
 function initJazzTasksDisplayAfterLoadOfXml()
 {
+    //QQQ g_active_xml = g_season_xml.getActiveXmlObject();
+
     g_display_table = new JazzTasksTable(g_display_xml);
 
     g_search = new JazzTasksSearch(g_display_table);
@@ -95,7 +97,10 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     searchDisplayResultList(search_str);
 
+    // testSeasonXml();
+
 } // initJazzTasksDisplayAfterLoadOfXml
+
 
 // Search and display search result
 function searchDisplayResultList(i_search_str)
