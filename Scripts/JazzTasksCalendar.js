@@ -177,6 +177,11 @@ class Calendar
 
             var responsibles_str = current_record.getJazzTaskResponsible();
 
+            if (responsibles_str == 'Termin')
+            {
+                responsibles_str = current_record.getJazzTaskRemark();
+            }
+
             var calendar_date = calendar_entry.getCalendarDate();
 
             var date_str = calendar_date.getDateSwissString();
@@ -282,7 +287,7 @@ class Calendar
 
             var current_date = current_entry.getCalendarDate();
 
-            var diff_days = this.diffCalendarEntryDays(now_calendar_date, current_date);
+            var diff_days = Calendar.daysBetweenDates(now_calendar_date, current_date);
 
             if (diff_days > 0 && diff_days < min_days)
             {
@@ -297,20 +302,6 @@ class Calendar
         return ret_index;
 
     } // indexMinNumberDays
-
-
-    // Returns the number of days between to calendar dates (objects)
-    diffCalendarEntryDays(i_now_calendar_date, i_calendar_date)
-    {
-        var now_date = i_now_calendar_date.getDate();
-
-        var date = i_calendar_date.getDate();
-
-        var diff_days = Calendar.daysBetweenDates(now_date, date);
-
-        return diff_days;
-
-    } // diffCalendarEntryDays
 
     // Returns a calendar date now object
     getCalenderDateNow()

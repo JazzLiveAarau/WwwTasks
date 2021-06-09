@@ -119,11 +119,10 @@ function searchDisplayResultList(i_search_str)
 
     if (g_calendar_check_box.getCheck() == "TRUE")
     {
-        list_str = getListOfTasksHtmlString(result_registration_numbers);
-        
-        // QQQQQQQQQQQvar calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table);
 
-        // QQQQQQQQQQQQQlist_str = calendar_object.getListOfTasksHtmlString();
+        var calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table);
+
+        list_str = calendar_object.getListOfTasksHtmlString();
     }
     else
     {
@@ -299,11 +298,11 @@ function oninputSearch()
 // User clicked the calendar check box
 function eventClickCheckBoxCalendar()
 {
-    alert("Kalender wird implementiert. Noch nicht fertig"); //QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+    // alert("Kalender wird implementiert. Noch nicht fertig"); 
 
-    //var search_str = g_search_text_box.getValue();
+    var search_str = g_search_text_box.getValue();
 
-    //searchDisplayResultList(search_str);
+    searchDisplayResultList(search_str);
 
 } // eventClickCheckBoxCalendar
 
