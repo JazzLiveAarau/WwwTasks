@@ -1,5 +1,5 @@
 // File: JazzTasksTable.js
-// Date: 2021-06-06
+// Date: 2021-06-09
 // Author: Gunnar Lidén
 
 // File content
@@ -98,7 +98,7 @@ class JazzTasksTable
         {
             var current_task = this.getJazzTaskRecordXml(task_number);
 
-            this.m_jazz_tasks_table[task_number - 1] = current_task;
+            //QQ ???? this.m_jazz_tasks_table[task_number - 1] = current_task;
 
 			var reg_number = current_task.getJazzTaskRegNumber();
 

@@ -62,15 +62,15 @@ function initJazzTasksDisplay()
 // Load the season XML object and call initJazzTasksDisplayAfterLoadOfXml
 function loadSeasonXml()
 {
-    g_season_xml = new JazzSeasonXml(2021, initJazzTasksDisplayAfterLoadOfXml);
+    var calendar_active_start_year = Calendar.getCalenderActiveSeasonStartYear();
+
+    g_season_xml = new JazzSeasonXml(calendar_active_start_year, initJazzTasksDisplayAfterLoadOfXml);
 }
 
 // Initialization after load of the XML object for the XML file JazzTask.xml
 // 1. Creation of the JazzTasksTable object.
 function initJazzTasksDisplayAfterLoadOfXml()
 {
-    //QQQ g_active_xml = g_season_xml.getActiveXmlObject();
-
     g_display_table = new JazzTasksTable(g_display_xml);
 
     g_search = new JazzTasksSearch(g_display_table);
@@ -103,13 +103,32 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
 
 // Search and display search result
+// 1. Set the search control text box
+// 2. Get an array of record numbers for a given search string. Call of JazzTaskSearch.search
+// 3. Get a list of records as an HTML string for the array of record numbers.
+//    Call of getListOfTasksHtmlString
+// 4. Get the <div> element where the list shall be displayed. Call of getDivElementSearchTaskList
+// 5. Display the list. Set attribute innerHTML of the display <div> element
 function searchDisplayResultList(i_search_str)
 {
     g_search_text_box.setValue(i_search_str)
 
     var result_registration_numbers = g_search.search(i_search_str);
 
-    var list_str = getListOfTasksHtmlString(result_registration_numbers);
+    var list_str = "";
+
+    if (g_calendar_check_box.getCheck() == "TRUE")
+    {
+        list_str = getListOfTasksHtmlString(result_registration_numbers);
+        
+        // QQQQQQQQQQQvar calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table);
+
+        // QQQQQQQQQQQQQlist_str = calendar_object.getListOfTasksHtmlString();
+    }
+    else
+    {
+        list_str = getListOfTasksHtmlString(result_registration_numbers);
+    }
 
     var el_list = getDivElementSearchTaskList();
 
@@ -280,7 +299,11 @@ function oninputSearch()
 // User clicked the calendar check box
 function eventClickCheckBoxCalendar()
 {
-    alert("Terminskalender wird implementiert. Noch nicht fertig.");
+    alert("Kalender wird implementiert. Noch nicht fertig"); //QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+
+    //var search_str = g_search_text_box.getValue();
+
+    //searchDisplayResultList(search_str);
 
 } // eventClickCheckBoxCalendar
 
@@ -379,7 +402,7 @@ function createTasksDisplayHelpButton()
 ///////////////////////// Start List Tasks Functions //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-// Returns ...
+// Returns a list of <div> elements for all records
 function getListOfTasksHtmlString(i_result_registration_numbers)
 {
     var ret_list_tasks_str = '';
@@ -413,7 +436,7 @@ function getListOfTasksHtmlString(i_result_registration_numbers)
 
 } // getListOfTasksHtmlString
 
-// Returns one ...
+// Returns the string with <div> elements corresponding to one task
 function getOneResultTaskString(i_reg_number, i_title_str, i_responsibles_str)
 {
     var ret_one_task_str = '';

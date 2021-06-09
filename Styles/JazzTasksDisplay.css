@@ -1,6 +1,6 @@
 /* 
 File: JazzTasksDisplay.css 
-Date: 2021-06-07
+Date: 2021-06-09
 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
@@ -328,7 +328,14 @@ button
     /* border: solid 1px blue; */
     padding-left: 5px;
     cursor: pointer;
-    float: left;
+    clear: both;
+}
+
+.cl_list_record_date
+{
+    padding-left: 5px;
+    cursor: pointer;    
+    clear: both;
 }
 
 /* List record reg number <div> element */

@@ -1,5 +1,5 @@
 // File: JazzUtils.js
-// Date: 2021-05-01
+// Date: 2021-06-09
 // Author: Gunnar Lidén
 
 // File content
@@ -245,6 +245,23 @@ function getIsoDateString(i_year, i_month, i_day)
     return ret_iso_date_str;
 
 } // getIsoDateString
+
+// Get the date string normally is used in Switzerland
+function getSwissDateString(i_year, i_month, i_day)
+{
+    var ret_swiss_date_str = '';
+
+    var concert_month_name = getMonthName(i_month);
+
+    ret_swiss_date_str = ret_swiss_date_str + i_day.toString() + '. ';
+
+    ret_swiss_date_str = ret_swiss_date_str + concert_month_name + ' ';
+
+    ret_swiss_date_str = ret_swiss_date_str + i_year.toString();
+
+    return ret_swiss_date_str;
+
+} // getSwissDateString
 
 // Get formatted number, i.e. starting with '0' for numbers 1 to 9
 function getFormattedTenNumber(i_number)
