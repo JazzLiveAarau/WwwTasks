@@ -1,5 +1,5 @@
 // File: JazzSeasonXml.js
-// Date: 2021-06-08
+// Date: 2021-06-17
 // Author: Gunnar Lidén
 
 // File content
@@ -20,7 +20,7 @@
 // ---------------
 // The class JazzSeasonXml also has functions for appending (adding) a concert. 
 
-// Class corresponding to the XML element <JazzTask> in the file JazzTasks.xml
+// Class for the retrieval of season data 
 class JazzSeasonXml
 {
     // Creates the instance of the class
@@ -39,7 +39,7 @@ class JazzSeasonXml
         // Call back function name
         this.m_callback_function_name = i_callback_function_name;
 
-        // The jazz tasks xml object
+        // The jazz season xml object
         this.m_active_file_xml = null;
 
         // Object holding the tags
@@ -773,7 +773,7 @@ class JazzSeasonTags
 
 		///////////////////////// End Season Tags /////////////////////////////////////////
 
-		///////////////////////// Start Concert Tags //////////////////////////////////////////////
+		///////////////////////// Start Concert Tags /////////////////////////////////////
 
         this.m_season_program_start_year_cancelled_tag = 2019;
         this.m_season_program_start_year_homepage_flyer_publish_tag = 2019;

@@ -20,6 +20,9 @@
 // (more easy to understand).
 var g_xml = null;
 
+// Object with get functions for the XML file JazzApplication.xml
+var g_application_xml = null;
+
 // JazzTasksTable object that hold all JazzTask records 
 var g_table = null;
 
@@ -110,9 +113,16 @@ function setUserHasLoggedIn(i_b_has_logged_in)
 //    calls the (callback) function initJazzTasksAfterLoadOfXml when the creation is finished.  
 function initJazzTasks()
 {
-    g_xml = new JazzTasksXml(initJazzTasksAfterLoadOfXml);
+    g_xml = new JazzTasksXml(initApplicationXmlAfterLoadOfJazzTasksXml);
 
 } // initJazzTasks
+
+// Load of JazzApplication.xml
+function initApplicationXmlAfterLoadOfJazzTasksXml()
+{
+    g_application_xml = new JazzApplicationXml(initJazzTasksAfterLoadOfXml);
+
+} // initApplicationXmlAfterLoadOfJazzTasksXml
 
 // Continue initialization after loading of the XML file JazzTasks.xml 
 // (creation of the XML "file-object")
@@ -160,7 +170,7 @@ function initJazzTasksAfterLoadOfXml()
 // Initialization for login and logout
 function initLoginLogout()
 {
-    g_user_name_object = new JazzUserName();
+    g_user_name_object = new JazzUserName(g_application_xml);
 
     var user_name = g_user_name_object.getUserName();
 

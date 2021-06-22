@@ -19,10 +19,13 @@ class JazzUserName
     // Function that is executed when an object of this class is created
     // Variables are defined and two inititialization functions are executed
     // Input parameters
-    constructor()
+    constructor(i_application_xml)
     {
         // Member variables
         // ================
+
+        // Application XML object
+        this.m_application_xml = i_application_xml;
 
         // User name
         this.m_user_name = "";
@@ -94,7 +97,7 @@ class JazzUserName
     // set by setUserName. 
     requestSetUserName()
     {
-        var user_name_requested = JazzUserName.requestUserName();
+        var user_name_requested = this.requestUserName();
 
         if (user_name_requested.length > 0)
         {
@@ -109,38 +112,111 @@ class JazzUserName
 
     // Request user name
     // Loop is used because reload page and recursive calling resulted in problems
-    static requestUserName()
+    requestUserName()
     {
         for (var i_request=1; i_request <= 100; i_request++)
         {
-            var user_name = prompt(JazzUserName.getPromptUserName(), "");
+            var user_name_password = prompt(JazzUserName.getPromptUserName(), "");
 
-            var user_name_trim = "";
-    
-            if (user_name == null)
+            var user_name = JazzUserName.getFirstWord(user_name_password);
+
+            var user_password = JazzUserName.getSecondWord(user_name_password);
+
+            var b_name_password = this.m_application_xml.namePasswordIsOk(user_name, user_password);
+
+            if (b_name_password)
             {
-                user_name_trim = "";
-            }
-            else if (user_name.length == 0)
-            {
-                user_name_trim = "";
+                // alert("Name= " + user_name + " und Passwort= " + user_password + " sind OK");
+
+                return user_name.trim();
             }
             else
             {
-                user_name_trim = user_name.trim();
+                // alert("Name= " + user_name + " und/oder Passwort= " + user_password + " sind NICHT OK");
+
+                alert(JazzUserName.getUserNamePasswortError());
             }
-    
-            if (JazzUserName.checkUserName(user_name_trim))
-            {
-                return user_name_trim;
-            }
+
         } // i_request
 
         return "AnyName";
 
     } // requestUserName
 
+    // Return the first word
+    static getFirstWord(i_name_password)
+    {
+        var ret_first_word = '';
+
+        if (null == i_name_password)
+        {
+            ret_first_word = '';
+        }
+        else if (i_name_password.length == 0)
+        {
+            ret_first_word = "";
+        }
+        else
+        {
+            var name_password_trim = i_name_password.trim();
+
+            var index_space = name_password_trim.indexOf(' ');
+
+            if (name_password_trim.length == 0)
+            {
+                ret_first_word = '';
+            }
+            else if (index_space < 0 && name_password_trim.length > 0)
+            {
+                ret_first_word = name_password_trim;
+            }
+            else
+            {
+                ret_first_word = name_password_trim.substring(0, index_space);
+            }
+        }
+
+        return ret_first_word;
+ 
+    } // getFirstWord
+
+    // Returns the second word
+    static getSecondWord(i_name_password)
+    {
+        var ret_second_word = '';
+
+        var first_word = this.getFirstWord(i_name_password);
+
+        if (first_word.length == 0)
+        {
+            ret_second_word = '';
+        }
+        else
+        {
+            var index_first = i_name_password.indexOf(first_word);
+
+            var length_first = first_word.length;
+
+            var removed_first = i_name_password.substring(index_first + length_first + 1);
+
+            var removed_first_trim = removed_first.trim();
+
+            if (removed_first_trim.length == 0)
+            {
+                ret_second_word = '';
+            }
+            else
+            {
+                ret_second_word = removed_first_trim;
+            }
+        }
+
+        return ret_second_word;
+
+    } // getSecondWord
+
     // Returns true if user name is OK
+    // This function is for the moment not used since member data names are used
     static checkUserName(i_user_name_trim)
     {
         if (i_user_name_trim.length == 0)
@@ -173,10 +249,11 @@ class JazzUserName
     // Strings and messages
     // --------------------
 
-    // Returns the prompt string for user name
+    // Returns the prompt string for user name and password
     static getPromptUserName()
     {
-        return "Bitte Benutzer-Name (Vor- oder Nachname) eingeben." +
+        return "Bitte Name und Passwort eingeben (die gleiche" +
+        "\nLogin-Daten wie für die Homepage)." + 
         "\nDer Name wird für das Backup von DOCs vervendet und" + 
         "\nfür Login. Der Name wird im Computer gespeichert." +
         "\nNach Cache löschen muss er wieder eingegeben werden.";
@@ -203,6 +280,15 @@ class JazzUserName
         return "Benutzer-Name enthält Leerschlag";
 
     } // getUserNameErrorContainsSpaces    
+
+    // Returns the error message user name and/or password not OK
+    static getUserNamePasswortError()
+    {
+        return "Name und/oder Passwort ist nicht OK." + 
+        "\nEingabe Daten sollen gleich sein als für Homepage Login.";
+
+    } // getUserNameErrorContainsSpaces    
+
 
 } // JazzUserName
 
