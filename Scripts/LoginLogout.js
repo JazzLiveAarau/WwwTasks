@@ -82,6 +82,8 @@ class LoginLogout
 
         this.m_caption_login = "Login";
 
+        this.m_caption_user_name = "Benutzername";
+
         this.m_caption_force_login = "Login erneut versuchen";
 
         this.m_label_login_your_name = "Dein Login-Name ";
@@ -103,6 +105,8 @@ class LoginLogout
                                      "\neiner anderen Person übernommen werden";
 
         this.m_tooltip_button_login = "Klick für Login. \n";
+
+        this.m_tooltip_button_user_name = "Klick für Benutzername zu speichern und Login. \n";        
 
         this.m_tooltip_button_force_login = "Login ist möglich nach 15 Minuten Inaktivität, d.h." + 
                                           "\ndie eingeloggte Person hat während dieser Zeit nichts" +
@@ -466,6 +470,13 @@ class LoginLogout
 
     } // getUserName
 
+    // Sets the user name
+    setUserName(i_user_name)
+    {
+        this.m_user_name = i_user_name;
+
+    } // setUserName    
+
     // Returns true if user is logged in
     userIsLoggedIn()
     {
@@ -572,8 +583,17 @@ class LoginLogout
         this.m_text_box.setSize("10");
 
         this.m_text_box.setReadOnlyFlag(true);
+        if (i_login_name == LoginLogout.UserNameIsUndefined())
+        {
+            this.m_text_box.setValue(this.m_value_login_nobody_logged_in);
 
-        if (i_login_name == this.getUserName())
+            this.m_text_box.setLabelText(this.m_label_login_nobody_logged_in);
+    
+            this.m_text_box.setTitle(this.m_tooltip_button_user_name); 
+
+            LoginLogout.debugToConsole('createSetControls i_login_name= ' + LoginLogout.UserNameIsUndefined() + ' (1)');
+        }              
+        else if (i_login_name == this.getUserName())
         {
             this.m_text_box.setValue(i_login_name);
 
@@ -602,7 +622,15 @@ class LoginLogout
 
         this.m_login_logout_button.setOnclickFunctionName(this.m_button_event_function_name);
 
-        if (i_login_name == this.getUserName())
+        if (i_login_name == LoginLogout.UserNameIsUndefined())
+        {
+            this.m_login_logout_button.setCaption(this.m_caption_user_name);
+    
+            this.m_login_logout_button.setTitle(this.m_tooltip_button_user_name); 
+
+            LoginLogout.debugToConsole('createSetControls i_login_name= ' + LoginLogout.UserNameIsUndefined() + ' (2)');
+        }      
+        else if (i_login_name == this.getUserName())
         {
             this.m_login_logout_button.setCaption(this.m_caption_logout);
     
@@ -623,7 +651,6 @@ class LoginLogout
 
         this.setElementStyles(i_login_name);
 
-   
     } // createSetControls
 
     // Checks the input data for createSetControls
@@ -716,12 +743,19 @@ class LoginLogout
     ///////////////////////// Start Strings ///////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    // Returns message flag that nobody is logged in
+    // Returns the message flag that nobody is logged in
     static loginNameNobody()
     {
         return "NobodyIsLoggedIn";
 
     } // loginNameNobody
+
+    // Returns the message flag that the user name is undefined
+    static UserNameIsUndefined()
+    {
+        return "UserNameIsUndefined";
+
+    } // UserNameIsUndefined
 
     // PHP execution case get the name of the person that is logged in
     static execPhpCaseGetLoggedInName()
@@ -996,6 +1030,13 @@ class LoginLogout
         }
 
     } // getDebugExecMsg
+
+    // Writes debug to the console
+    static debugToConsole(i_msg_str)
+    {
+        console.log('LoginLogout:' + i_msg_str);
+
+    } // debugToConsole    
     
     ///////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////// End Utility Functions ///////////////////////////////////////

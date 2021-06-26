@@ -1,5 +1,5 @@
 // File: JazzUserName.js
-// Date: 2021-05-23
+// Date: 2021-06-26
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -38,7 +38,7 @@ class JazzUserName
 
         // Get the user name from the local storage. 
         // If not yet stored, request name from the user, store and return it
-        this.getUserName();
+        //QQQQQ 2021-06-26 this.getUserName();
 
     } // constructor
 
@@ -48,7 +48,7 @@ class JazzUserName
     // Get the user name from the local storage. 
     // If not yet stored, request name from the user, store and return it
     // 1. Return m_user_name if it is set
-    // 2. If the user name not yet was saved in the computer, call requestSetUserName
+    // 2. If the user name not yet was saved in the computer, return JazzUserName.getUserNameNotYetSet
     // 3. If the user name is saved in the computer
     // 3.1 Set m_user_name with this name
     // 3.2 Return m_user_name
@@ -57,6 +57,8 @@ class JazzUserName
     {
         if (this.m_user_name.length > 0)
         {
+            JazzUserName.debugToConsole('getUserName m_user_name= ' + this.m_user_name);
+
             return this.m_user_name;
         }
 
@@ -64,7 +66,9 @@ class JazzUserName
 
         if (user_name_local_storage == null)
         {
-            var user_name_init = this.requestSetUserName();
+            var user_name_init = JazzUserName.getUserNameNotYetSet();
+
+            JazzUserName.debugToConsole('getUserName user_name_init= ' + user_name_init);
 
             return user_name_init;
         }
@@ -76,7 +80,9 @@ class JazzUserName
             return user_name_local_storage;
         }
 
-        var user_name = this.requestSetUserName();
+        var user_name = JazzUserName.getUserNameNotYetSet();
+
+        JazzUserName.debugToConsole('getUserName user_name= ' + user_name);
 
         return user_name;
         
@@ -103,16 +109,69 @@ class JazzUserName
         {
             localStorage.setItem(this.m_local_storage_jazz_user_name, user_name_requested);
 
+            this.setUserName(user_name_requested);    
+
+            JazzUserName.debugToConsole('requestSetUserName Local storage name: user_name_requested= ' + user_name_requested);
+            
+            return user_name_requested;
+        }
+        else
+        {
+            return JazzUserName.getUserNameNotYetSet();
+        }  
+
+    } // requestSetUserName    
+
+    // Request user name
+    // Returns empty string for failure
+    requestUserName()
+    {
+        var user_name_password = prompt(JazzUserName.getPromptUserName(), "");
+
+        var ret_user_name = JazzUserName.getFirstWord(user_name_password);
+
+        var user_password = JazzUserName.getSecondWord(user_name_password);
+
+        var b_name_password = this.m_application_xml.namePasswordIsOk(ret_user_name, user_password);
+
+        if (!b_name_password)
+        {
+            // alert("Name= " + user_name + " und/oder Passwort= " + user_password + " sind NICHT OK");
+
+            ret_user_name = "";
+
+            alert(JazzUserName.getUserNamePasswortError());
+  
+        }
+
+        JazzUserName.debugToConsole('requestUserName ret_user_name= ' + ret_user_name.trim());
+
+        return ret_user_name.trim();
+
+    } // requestUserName
+
+    /* QQQQQ 2021-06-26
+    // Request and set user name
+    // The calling function should use the returned user name and not m_user_name
+    // set by setUserName. 
+    requestSetUserNameRemove()
+    {
+        var user_name_requested = this.requestUserNameRemove();
+
+        if (user_name_requested.length > 0)
+        {
+            localStorage.setItem(this.m_local_storage_jazz_user_name, user_name_requested);
+
             this.setUserName(user_name_requested);               
         }
 
         return user_name_requested;
 
-    } // requestSetUserName
+    } // requestSetUserNameRemove
 
     // Request user name
     // Loop is used because reload page and recursive calling resulted in problems
-    requestUserName()
+    requestUserNameRemove()
     {
         for (var i_request=1; i_request <= 100; i_request++)
         {
@@ -141,7 +200,9 @@ class JazzUserName
 
         return "AnyName";
 
-    } // requestUserName
+    } // requestUserNameRemove
+
+    2021-06-26 QQQ */
 
     // Return the first word
     static getFirstWord(i_name_password)
@@ -175,6 +236,8 @@ class JazzUserName
                 ret_first_word = name_password_trim.substring(0, index_space);
             }
         }
+
+        JazzUserName.debugToConsole('getFirstWord ret_first_word= ' + ret_first_word);
 
         return ret_first_word;
  
@@ -210,6 +273,8 @@ class JazzUserName
                 ret_second_word = removed_first_trim;
             }
         }
+
+        JazzUserName.debugToConsole('getSecondWord ret_second_word= ' + ret_second_word);
 
         return ret_second_word;
 
@@ -289,6 +354,19 @@ class JazzUserName
 
     } // getUserNameErrorContainsSpaces    
 
+    // Returns user name (flag) telling that user name not yet is set
+    static getUserNameNotYetSet()
+    {
+        return "UserNameNotYetSet";
+
+    } // getUserNameNotYetSet        
+
+    // Writes debug to the console
+    static debugToConsole(i_msg_str)
+    {
+        console.log('JazzUserName:' + i_msg_str);
+
+    } // debugToConsole
 
 } // JazzUserName
 

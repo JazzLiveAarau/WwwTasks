@@ -145,6 +145,8 @@ function initApplicationXmlAfterLoadOfJazzTasksXml()
 // 9. Make a backup of the XML file. Call of makeXmlBackup. 
 function initJazzTasksAfterLoadOfXml()
 {
+    debugJazzTasks('initJazzTasksAfterLoadOfXml Enter');
+
     initLoginLogout();
 
     g_table = new JazzTasksTable(g_xml);
@@ -163,17 +165,31 @@ function initJazzTasksAfterLoadOfXml()
 
     hideCancelButton();
 
+    debugJazzTasks('initJazzTasksAfterLoadOfXml Call makeXmlBackup');
+
     makeXmlBackup();
+
+    debugJazzTasks('initJazzTasksAfterLoadOfXml Exit');
 
 } // initJazzTasksAfterLoadOfXml
 
 // Initialization for login and logout
 function initLoginLogout()
 {
+    debugJazzTasks('initLoginLogout Enter');
+
     g_user_name_object = new JazzUserName(g_application_xml);
 
     var user_name = g_user_name_object.getUserName();
 
+    if (user_name == JazzUserName.getUserNameNotYetSet())
+    {
+        user_name = LoginLogout.UserNameIsUndefined();
+    }
+
+    // UserNameIsUndefined
+
+    /*QQQ 2021-06-26
     if (user_name.trim().length < 2)
     {
         alert("initJazzLogin " + JazzLogin.userNameIsEmptyMessage());
@@ -182,13 +198,16 @@ function initLoginLogout()
 
         return;       
     }
+    2021-06-26 QQ*/
 
     g_login_logout = new LoginLogout( getIdLoginLogoutTextBox(), getIdLoginLogoutButton(), 
                                       getIdDivLoginLogout(), "onClickLoginLogoutButton",
                                       user_name);
 
-    
-    g_login_logout.loginIfPossible(callbackLoginIfPossible);
+    if (user_name != LoginLogout.UserNameIsUndefined())
+    {
+        g_login_logout.loginIfPossible(callbackLoginIfPossible);
+    }
 
 } // initLoginLogout
 
@@ -765,6 +784,10 @@ function eventClickButtonSave()
 // Callback function for getLoggedInName
 function callbackEventClickButtonSave(i_logged_in_name, i_b_user_has_logged_in)
 {
+    debugJazzTasks('callbackEventClickButtonSave i_logged_in_name= ' + i_logged_in_name);
+
+    debugJazzTasks('callbackEventClickButtonSave i_b_user_has_logged_in= ' + i_b_user_has_logged_in.toString());
+
     setUserHasLoggedIn(i_b_user_has_logged_in);
 
     g_login_logout.createSetControls(i_logged_in_name);
@@ -842,9 +865,36 @@ function callbackEventClickButtonSave(i_logged_in_name, i_b_user_has_logged_in)
 // User clicked the login-logout button. 
 // The name of this function is defined at the creation of the JazzLogin object
 // This function calls (must call) JazzLogin.clickLoginLogoutButton
+// 1. Get the user name. Call of JazzUserName.getUserName
+//    This call is for the case that the user name not yet is saved
+// 2. Case: User name is not saved
+// 2.a Request name and password from user and set user name. 
+//     Call of JazzUserName.requestSetUserName
+// 2.b Set user name. Call of LoginLogout.setUserName
+// 2.c Login if possible. Call of LoginLogout.loginIfPossible
+// 3. Case: User name is saved
+// 3.a Call member function LoginLogout.clickLoginLogoutButton
 function onClickLoginLogoutButton()
 {
-    g_login_logout.clickLoginLogoutButton(callbackOnClickLoginLogoutButton);
+    var user_name = g_user_name_object.getUserName();
+
+    debugJazzTasks('onClickLoginLogoutButton user_name= ' + user_name);
+
+    if (user_name == JazzUserName.getUserNameNotYetSet())
+    {
+        var request_name =  g_user_name_object.requestSetUserName();
+
+        if (request_name != JazzUserName.getUserNameNotYetSet())
+        {
+            g_login_logout.setUserName(request_name);
+
+           g_login_logout.loginIfPossible(callbackLoginIfPossible);
+        }
+    }
+    else
+    {
+        g_login_logout.clickLoginLogoutButton(callbackOnClickLoginLogoutButton);
+    }
 
 } // onClickLoginLogoutButton
 
@@ -862,36 +912,24 @@ function callbackOnClickLoginLogoutButton(i_logged_in_name, i_b_user_has_logged_
 
 } // callbackOnClickLoginLogoutButton
 
-/*QQQQQQ
-// User clicked the save task button
-function clickSaveTaskButton()
-{
-    g_login_logout.getLoggedInName(callbackClickSaveTaskButton);
-
-} // clickSaveTaskButton
-
-// Callback function for getLoggedInName
-function callbackClickSaveTaskButton(i_logged_in_name, i_b_user_has_logged_in)
-{
-    setUserHasLoggedIn(i_b_user_has_logged_in);
-
-    g_login_logout.createSetControls(i_logged_in_name);
-    
-    if (i_b_user_has_logged_in)
-    {
-        alert("Änderungen wurden gespeichert!");
-    }
-    else
-    {
-        alert(LoginLogout.saveNotPossibleOtherIsloggedIn());
-    }
-
-} // callbackClickSaveTaskButton
-QQQQQ*/
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Login Logout Functions ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Debug Function ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Displays the input string in the debugger Console
+function debugJazzTasks(i_msg_str)
+{
+    console.log('JazzTasks:' + i_msg_str);
+
+} // debugJazzTasks
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Debug Function //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 
 
