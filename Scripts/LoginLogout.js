@@ -1,5 +1,5 @@
 // File: LoginLogout.js
-// Date: 2021-06-03
+// Date: 2021-06-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -305,7 +305,6 @@ class LoginLogout
     ///////////////////////// End Click Login Logout //////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////     
 
-
     ///////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////// Start Get Logged In Name ////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////    
@@ -314,6 +313,15 @@ class LoginLogout
 	getLoggedInName(i_callback_get_logged_in_name)
     {
         var user_name = this.getUserName();
+
+        if (user_name == LoginLogout.UserNameIsUndefined())
+        {
+            var b_not_logged_in = false;
+
+            i_callback_get_logged_in_name(user_name, b_not_logged_in);
+
+            return;
+        }
 
         if (!LoginLogout.execApplicationOnServer())
         {
@@ -437,7 +445,6 @@ class LoginLogout
 
         } // function
         ); // post
-
 
     } // setLoggedInName
 
@@ -841,6 +848,13 @@ class LoginLogout
              "\nNach 15 Minuten inaktivität können andere dein Login übernehmen.";  
 
     } // saveNotPossibleOtherIsloggedIn
+
+    // Returns the message that changes only are allowed after login
+    static changeNotPossibleOtherIsloggedIn()
+    {
+        return "Diese Änderung ist nicht möglich, weil du nicht eingeloggt bist.";  
+
+    } // changeNotPossibleOtherIsloggedIn    
 
     ///////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////// End Strings /////////////////////////////////////////////////

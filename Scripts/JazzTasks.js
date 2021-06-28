@@ -1,5 +1,5 @@
 // File: JazzTasks.js
-// Date: 2021-06-01
+// Date: 2021-06-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -78,6 +78,23 @@ function userHasLoggedIn()
     return g_user_has_logged_in;
     
 } // userHasLoggedIn
+
+// Returns true if the user hasn't logged in and tells him to try to login	
+// Reset of values also for this case
+function userIsNotLoggedIn()
+{
+    if (!userHasLoggedIn())
+    {
+		setControlValues();
+		
+		alert(LoginLogout.changeNotPossibleOtherIsloggedIn());
+		
+        return true;
+    }
+	
+	return false;
+
+} // userIsNotLoggedIn
 
 // Sets the flag telling if the user has logged in
 function setUserHasLoggedIn(i_b_has_logged_in)
@@ -187,19 +204,6 @@ function initLoginLogout()
         user_name = LoginLogout.UserNameIsUndefined();
     }
 
-    // UserNameIsUndefined
-
-    /*QQQ 2021-06-26
-    if (user_name.trim().length < 2)
-    {
-        alert("initJazzLogin " + JazzLogin.userNameIsEmptyMessage());
-
-        location.reload();
-
-        return;       
-    }
-    2021-06-26 QQ*/
-
     g_login_logout = new LoginLogout( getIdLoginLogoutTextBox(), getIdLoginLogoutButton(), 
                                       getIdDivLoginLogout(), "onClickLoginLogoutButton",
                                       user_name);
@@ -273,6 +277,16 @@ function setActiveRecordNumberFromLocationSearchString()
 //    Call of JazzUploadFile.displayButtonCaption
 function eventUserSelectedDoc()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     g_doc_upload.setSelectedFileNameActivateUploadFileFunction();
 
     var b_check = g_doc_upload.checkSelectedFileName(g_record_active_task.getJazzTaskRegNumber());
@@ -311,6 +325,16 @@ function eventUserSelectedDoc()
 // The user selected a PDF that shall be uploaded
 function eventUserSelectedPdf()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+    
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     g_pdf_upload.setSelectedFileNameActivateUploadFileFunction();
 
     var b_check = g_pdf_upload.checkSelectedFileName(g_record_active_task.getJazzTaskRegNumber());
@@ -400,13 +424,6 @@ function eventSelectTaskDropDown()
 // User selected reference
 function eventSelectReferenceDropDown()
 {
-    if (g_record_was_changed)
-    {
-        alert(g_record_was_changed_str);
-        
-        return;
-    }
-
     g_active_reference_number = g_ref_drop_down.getSelectOptionNumber();
 
     setControlValues();
@@ -416,13 +433,6 @@ function eventSelectReferenceDropDown()
 // User selected deputy
 function eventSelectDeputyDropDown()
 {
-    if (g_record_was_changed)
-    {
-        alert(g_record_was_changed_str);
-        
-        return;
-    }
-
     g_active_deputy_number = g_deputy_drop_down.getSelectOptionNumber();
 
     setControlValues();
@@ -432,6 +442,16 @@ function eventSelectDeputyDropDown()
 // User clicked the delete button
 function eventClickButtonDelete()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     var msg_str = 'Willst du wirklich Aufgabe "' + g_record_active_task.getJazzTaskTitle() + '" löschen?';
 
     var b_confirm = confirm(msg_str);
@@ -498,6 +518,16 @@ function displayButtonCancelSetChangedFlag()
 // User clicked the upload DOC button
 function eventClickUploadDoc()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+
+	if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     g_doc_upload.hideUploadDiv(false);
 
     g_pdf_upload.hideUploadDiv(true);    
@@ -507,6 +537,16 @@ function eventClickUploadDoc()
 // User clicked the upload PDF button
 function eventClickUploadPdf()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     g_pdf_upload.hideUploadDiv(false);
 
     g_doc_upload.hideUploadDiv(true);
@@ -568,7 +608,17 @@ function onClickOfHelpButton()
 // Event function when user added or deleted a character in the title text box
 function oninputTitle()
 {
-    //alert("New value is" + g_title_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        setControlValues();
+        
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -581,6 +631,18 @@ function oninputTitle()
 // User clicked the check box
 function eventClickCheckBoxUseDescription()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        setControlValues();
+
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     displayButtonCancelSetChangedFlag();
 
     g_doc_upload.hideUploadDiv(true);
@@ -598,10 +660,6 @@ function oninputDoc()
 
     g_doc_text_box.setValue(task_doc);
 
-    // g_doc_text_box.setValue();
-    // alert("New value is" + g_doc_text_box.getValue());
-    // displayButtonCancelSetChangedFlag();
-
 } // oninputDoc
 
 // Event function when user added or deleted a character in the pdf text box
@@ -613,18 +671,22 @@ function oninputPdf()
 
     g_pdf_text_box.setValue(task_pdf);
 
-    // alert("New value is" + g_pdf_text_box.getValue());
-
-    // displayButtonCancelSetChangedFlag();
-
-    // TODO Check by save if value is empty or 'right'
-
 } // oninputPdf
 
 // Event function when user added or deleted a character in the description text box
 function oninputDescription()
 {
-    //alert("New value is" + g_description_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -637,7 +699,17 @@ function oninputDescription()
 // Event function when user added or deleted a character in the deputy name text box
 function oninputDeputyName()
 {
-    //alert("New value is" + g_deputy_name_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -651,7 +723,17 @@ function oninputDeputyName()
 // Event function when user added or deleted a character in the remark text box
 function oninputRemark()
 {
-    //alert("New value is" + g_remark_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -664,7 +746,17 @@ function oninputRemark()
 // Event function when user added or deleted a character in the responsible text box
 function oninputResponsible()
 {
-    //alert("New value is" + g_responsible_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -677,7 +769,17 @@ function oninputResponsible()
 // Event function when user added or changed remind date
 function eventUserSelectedRemindDate()
 {
-    //alert("New value is" + g_responsible_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -690,7 +792,17 @@ function eventUserSelectedRemindDate()
 // Event function when user added or changed due (finish) date
 function eventUserSelectedDueDate()
 {
-    //alert("New value is" + g_responsible_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -703,6 +815,18 @@ function eventUserSelectedDueDate()
 // Event function when user added or changed number of days before the concert
 function oninputBeforeConcert()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     var before_days_str = g_before_concert_text_box.getValue();
 
     if (!JazzTask.stringContainsOnlyNumber(before_days_str))
@@ -727,6 +851,18 @@ function oninputBeforeConcert()
 // Event function when user added or changed number of days after the concert
 function oninputAfterConcert()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
+
     var after_days_str = g_after_concert_text_box.getValue();
 
     if (!JazzTask.stringContainsOnlyNumber(after_days_str))
@@ -751,7 +887,17 @@ function oninputAfterConcert()
 //  Event function when user added or deleted a character in the reference link text box
 function oninputReferenceUrl()
 {
-    //alert("New value is" + g_ref_link_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -764,7 +910,17 @@ function oninputReferenceUrl()
 //  Event function when user added or deleted a character in the reference description text box
 function oninputReferenceDescription()
 {
-    //alert("New value is" + g_ref_descr_text_box.getValue());
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+		setControlValues();
+		
+        return;
+    }
+
+    if (userIsNotLoggedIn())
+    {
+        return;
+    }
 
     displayButtonCancelSetChangedFlag();
 
@@ -777,16 +933,30 @@ function oninputReferenceDescription()
 // User clicked the save button
 function eventClickButtonSave()
 {
+    if (g_user_name_object.userNameIsNotSaved())
+    {
+        return;
+    }
+
     g_login_logout.getLoggedInName(callbackEventClickButtonSave);
 
 } // eventClickButtonSave
 
-// Callback function for getLoggedInName
+// Callback function for eventClickButtonSave
+// 1. Check that the user name has been saved. If not, return telling the user to login
+// 2. 
 function callbackEventClickButtonSave(i_logged_in_name, i_b_user_has_logged_in)
 {
-    debugJazzTasks('callbackEventClickButtonSave i_logged_in_name= ' + i_logged_in_name);
+    // debugJazzTasks('callbackEventClickButtonSave i_logged_in_name= ' + i_logged_in_name);
 
-    debugJazzTasks('callbackEventClickButtonSave i_b_user_has_logged_in= ' + i_b_user_has_logged_in.toString());
+    // debugJazzTasks('callbackEventClickButtonSave i_b_user_has_logged_in= ' + i_b_user_has_logged_in.toString());
+
+    if (i_logged_in_name == LoginLogout.UserNameIsUndefined())
+    {
+        alert(JazzUserName.getUserNameNotSavedError());
+
+        return;
+    }
 
     setUserHasLoggedIn(i_b_user_has_logged_in);
 

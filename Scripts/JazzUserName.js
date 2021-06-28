@@ -1,5 +1,5 @@
 // File: JazzUserName.js
-// Date: 2021-06-26
+// Date: 2021-06-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -36,9 +36,7 @@ class JazzUserName
         // Initialization functions
         // ========================
 
-        // Get the user name from the local storage. 
-        // If not yet stored, request name from the user, store and return it
-        //QQQQQ 2021-06-26 this.getUserName();
+        // Keine 
 
     } // constructor
 
@@ -95,6 +93,25 @@ class JazzUserName
 
     } // setUserName
 
+    // Returns true if user name not is saved and prompt the user to login
+    // Returns false if the user name has been saved
+    userNameIsNotSaved()
+    {
+        var user_name = this.getUserName();
+
+        if (user_name == JazzUserName.getUserNameNotYetSet())
+        {
+            alert(JazzUserName.getUserNameNotSavedError());
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    } // userNameIsNotSaved
+
     // Utility functions
     // -----------------
 
@@ -149,60 +166,6 @@ class JazzUserName
         return ret_user_name.trim();
 
     } // requestUserName
-
-    /* QQQQQ 2021-06-26
-    // Request and set user name
-    // The calling function should use the returned user name and not m_user_name
-    // set by setUserName. 
-    requestSetUserNameRemove()
-    {
-        var user_name_requested = this.requestUserNameRemove();
-
-        if (user_name_requested.length > 0)
-        {
-            localStorage.setItem(this.m_local_storage_jazz_user_name, user_name_requested);
-
-            this.setUserName(user_name_requested);               
-        }
-
-        return user_name_requested;
-
-    } // requestSetUserNameRemove
-
-    // Request user name
-    // Loop is used because reload page and recursive calling resulted in problems
-    requestUserNameRemove()
-    {
-        for (var i_request=1; i_request <= 100; i_request++)
-        {
-            var user_name_password = prompt(JazzUserName.getPromptUserName(), "");
-
-            var user_name = JazzUserName.getFirstWord(user_name_password);
-
-            var user_password = JazzUserName.getSecondWord(user_name_password);
-
-            var b_name_password = this.m_application_xml.namePasswordIsOk(user_name, user_password);
-
-            if (b_name_password)
-            {
-                // alert("Name= " + user_name + " und Passwort= " + user_password + " sind OK");
-
-                return user_name.trim();
-            }
-            else
-            {
-                // alert("Name= " + user_name + " und/oder Passwort= " + user_password + " sind NICHT OK");
-
-                alert(JazzUserName.getUserNamePasswortError());
-            }
-
-        } // i_request
-
-        return "AnyName";
-
-    } // requestUserNameRemove
-
-    2021-06-26 QQQ */
 
     // Return the first word
     static getFirstWord(i_name_password)
@@ -317,7 +280,7 @@ class JazzUserName
     // Returns the prompt string for user name and password
     static getPromptUserName()
     {
-        return "Bitte Name und Passwort eingeben (die gleiche" +
+        return "Bitte Name, Leerschlag und Passwort eingeben (die gleiche" +
         "\nLogin-Daten wie für die Homepage)." + 
         "\nDer Name wird für das Backup von DOCs vervendet und" + 
         "\nfür Login. Der Name wird im Computer gespeichert." +
@@ -353,6 +316,14 @@ class JazzUserName
         "\nEingabe Daten sollen gleich sein als für Homepage Login.";
 
     } // getUserNameErrorContainsSpaces    
+
+    // Returns the error message user name not yet saved
+    static getUserNameNotSavedError()
+    {
+        return "Der Benutzername ist noch nicht gespeichert." + 
+        "\nBitte mit Benutzername und Passwort einloggen";
+
+    } // getUserNameNotSavedError    
 
     // Returns user name (flag) telling that user name not yet is set
     static getUserNameNotYetSet()
