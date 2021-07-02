@@ -1,5 +1,5 @@
 // File: LoginLogout.js
-// Date: 2021-06-28
+// Date: 2021-07-02
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -161,8 +161,16 @@ class LoginLogout
     // Login if possible. The callback functions returns the name of the logged in person
 	loginIfPossible(i_callback_login_if_possible)
     {
-
         var user_name = this.getUserName();
+
+        if (user_name == LoginLogout.UserNameIsUndefined())
+        {
+            alert("loginIfPossible Programming error: User name is undefined (= " + LoginLogout.UserNameIsUndefined());
+
+            i_callback_click_login_logout(LoginLogout.getErrorMsgUserNameIsUndefined());
+
+            return;       
+        }
 
         if (user_name.length < 2)
         {
@@ -238,6 +246,16 @@ class LoginLogout
     {
 
         var user_name = this.getUserName();
+
+
+        if (user_name == LoginLogout.UserNameIsUndefined())
+        {
+            alert("clickLoginLogoutButton Programming error: User name is undefined (= " + LoginLogout.UserNameIsUndefined());
+
+            i_callback_click_login_logout(LoginLogout.getErrorMsgUserNameIsUndefined(), false, "");
+
+            return;       
+        }
 
         if (user_name.length < 2)
         {
@@ -820,6 +838,13 @@ class LoginLogout
 
     } // getErrorMsgLoggedInNameTooShort
 
+     // Returns the error message logged in name is undefined (not set)
+     static getErrorMsgUserNameIsUndefined()
+     {
+         return "PhpErrorGetLoggedInName";
+ 
+     } // getErrorMsgUserNameIsUndefined
+    
     // Warning message when somebody else forced a login
     static otherForcedLoginMessage()
     {
