@@ -1,5 +1,5 @@
 // File: JazzControls.js
-// Date: 2021-05-16
+// Date: 2022-05-09
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -8,6 +8,13 @@
 // Classes for standard controls: Text box, button and dropdown 
 //
 // Reference: https://www.w3schools.com/js/js_classes.asp
+
+// These controls (this file) is used for the following web applications
+// WwwTasks
+// WwwQrCode
+// WwwIntranet
+//
+// If a change is made, please make the change for all projects
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Start Control Text Box //////////////////////////////////////////
