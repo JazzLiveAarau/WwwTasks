@@ -1,0 +1,18 @@
+/* 
+File: JazzTasksList.css 
+Date: 2023-03-23
+Author: Gunnar Liden
+
+Allgemeine Informationen
+========================
+
+Definiert alle Style-Klassen für die Applikation Tasks List
+
+*/
+
+body, table, tr, td, th
+{
+    font-family: 'Arial';
+    font-size: 15px;
+    padding-left: 10px;
+}
