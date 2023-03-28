@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2023-03-23
+// Date: 2023-03-27
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -643,7 +643,7 @@ function setActiveRecordDivDocument()
     }
     else if (activeTaskIsCalendarEntry())
     {
-        document_name_str = document_name_str + '<b>' + 'Beschreibung Termin' + '</b>';
+        document_name_str = document_name_str + '<b>' + 'Traktandenliste ' + '</b>';
     }
     else
     {

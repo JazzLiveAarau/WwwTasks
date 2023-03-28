@@ -1,5 +1,5 @@
 // File: JazzTasksCalendar.js
-// Date: 2021-06-09
+// Date: 2023-03-28
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -459,6 +459,9 @@ class Calendar
     } // isConcertDate
 
     // Returns the active current year 
+    // 20230328 Changed day from 29 to 21
+    // This is a weakness in the application. Calender events are
+    // only displayed for the current season that is defined by this date
     static getCalenderActiveSeasonStartYear()
     {
         var ret_active_year = -12345;
@@ -469,7 +472,7 @@ class Calendar
 
         var season_end_month = 3;
 
-        var season_end_day = 29;
+        var season_end_day = 21;
 
         if (DateIsPassed(current_year, season_end_month, season_end_day))
         {
