@@ -289,7 +289,7 @@ class Calendar
 
             var diff_days = Calendar.daysBetweenDates(now_calendar_date, current_date);
 
-            if (diff_days > 0 && diff_days < min_days)
+            if (diff_days >= 0 && diff_days < min_days)
             {
                 ret_index = index_entry;
 
