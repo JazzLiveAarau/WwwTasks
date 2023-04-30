@@ -1,0 +1,199 @@
+
+Datei: AddButton.txt
+
+2020-06-27
+
+Tasks: Button Objekt zufügen
+==============================
+Beispiel: Save
+
+1.
+Global variable für den Button zufügen in der Gruppe mit den anderen globalen Variablen. 
+var g_task_save_button = null;
+Kommentar zufügen, dass es ein Objekt von der Klasse JazzButton ist.
+
+2. Get-Id-Funktion für Button und Container <div> in der Datei JazzTasksElements.js zufügen
+
+function getIdDivSaveButton()
+{
+    return 'id_tasks_task_saving';
+
+} // getIdDivSaveButton
+
+function getIdSaveButton()
+{
+    return 'id_button_save';
+    
+} // getIdSaveButton
+
+3. Funktion für das kreieren vom Button zufügen
+
+// Button für das Speichern
+// 1. Objekt von der Klasse (mit new) kreieren. 
+//    Eingabedaten sind die Identität vom Button und die Identität vom <div> 
+// 2. Name der Event-Funktion definieren.
+// 3. Button Text definieren
+// 5. Set Tooltip für den Button. 
+function createTaskSaveButton()
+{
+    g_task_save_button = new JazzButton(getIdSaveButton(), getIdDivSaveButton());
+
+    g_task_save_button.setOnclickFunctionName("eventClickButtonSave");
+
+    g_task_save_button.setCaption("Speichern");
+
+    g_task_save_button.setTitle("Daten werden zuerst geprüft und danach gespeichert");
+
+} // createTaskSaveButton
+
+4. Die Funktion createTaskSaveButton() in der Funktion createControls() zufügen
+
+function createControls()
+{
+    createTaskDropdown();
+
+    createTextBoxTitle();
+	
+	createTaskSaveButton();
+
+} // createControls
+
+5. Mit Visual Studio Code und Debugger kontrollieren, dass es funktioniert
+
+6. Event-Funktion für Speichern zufügen
+
+// Benutzer klickte auf dem Speichern-Button
+// 1. Benutzer Eingabedaten vom Formular holen und der aktive Datensatz (record) aktualisieren
+//    Return wenn daten nicht in Ordnung sind
+// 2. Mit der Funktion JazzDropdown.selectedOptionNumberIsAppendItem herausfinden ob den
+//    aktiven Datensatz (record) ist zugefügt oder ob es ein existierende Aufgabe ist
+function eventClickButtonSave()
+{
+    var b_check_set_input = getUserInputFromFormSetActiveRecord();
+    
+    if (!b_check_set_input)
+    {
+        return;
+    }
+
+    var b_append = g_task_drop_down.selectedOptionNumberIsAppendItem(g_record_active_number);
+
+    if (b_append)
+    {
+        appendNewTaskRecord();
+    }
+    else
+    {
+        saveExistentTaskRecord();
+    }
+
+} // eventClickButtonSave
+
+7. Funktionen getUserInputFromFormSetActiveRecord und getTextBoxTitleSetRecord zufügen
+
+// Benutzer Eingabedaten vom Formular holen und der aktive Datensatz (record) aktualisieren
+// Rückgabewert ist false wenn Daten nich OK sind
+// 1. Daten von Text-Box Titel mit der Funktion getTextBoxTitleSetRecord holen
+function getUserInputFromFormSetActiveRecord()
+{
+    if (!getTextBoxTitleSetRecord())
+    {
+        return false;
+    }
+
+    return true;
+
+} // getUserInputFromFormSetActiveRecord
+
+// Titel vom Text-Box holen und kontrollieren.
+// Rückgabewert ist false wenn Titel Text fehlt oder ist zu lang
+// 1. Titel holen mit der Funktion JazzTextBox.getValue
+// 2. Titel-Text prüfen mit Funktion JazzTask.checkJazzTaskTitle
+//    Funktion verlassen wenn Titel-Text nicht OK ist
+// 3. Datensatz (active record) aktualisieren mit der Funktion JazzTask.setJazzTaskTitle
+function getTextBoxTitleSetRecord()
+{
+    var task_title = g_title_text_box.getValue();
+
+    if (!JazzTask.checkJazzTaskTitle(task_title))
+    {
+        return false;
+    }
+
+    g_record_active_task.setJazzTaskTitle(task_title);
+
+    return true;
+
+} // getTextBoxTitleSetRecord
+
+8. Zwei Funktionen für das Speichern zufügen
+
+// Existierender Datensatz (record) speichern
+// 1. Mit der Funktion JazzTasksTable.setJazzTaskRecord den Datensatz (record) in der Tabelle
+//    mit dem aktiven Datensatz (record) ersetzen.
+// 2. Mit der Funktion JazzTasksTable.setJazzTaskRecordXml den Datensatz in der XML Objekt
+//    mit dem aktiven Datensatz (record) ersetze
+// 3. Mit der Funktion JazzTasksTable.saveJazzTasksXmlOnServer die aktualisierte XML Datei
+//    auf dem Server speichern
+function saveExistentTaskRecord()
+{
+    var b_set_table = g_table.setJazzTaskRecord(g_record_active_number, g_record_active_task);
+
+    if (!b_set_table)
+    {
+        alert("saveExistentTaskRecord JazzTasksTable.setJazzTaskRecord failed")
+        return;
+    }
+
+    var b_set_xml = g_table.setJazzTaskRecordXml(g_record_active_number, g_record_active_task);
+
+    if (!b_set_xml)
+    {
+        alert("saveExistentTaskRecord JazzTasksTable.setJazzTaskRecordXml failed")
+
+        return;
+    }        
+
+    g_table.saveJazzTasksXmlOnServer();
+
+} // saveExistentTaskRecord
+
+// Neuer Datensatz (record) zufügen
+// 1. Mit der Funktion JazzTasksTable.appendJazzTaskRecord den aktiven Datensatz (record)
+//    zur Tabelle zufügen.
+// 2. Mit der Funktion JazzTasksTable.appendJazzTaskRecordXml den aktiven Datensatz (record)
+//    zum XML Objekt zufügen
+// 3. Mit der Funktion JazzTasksTable.saveJazzTasksXmlOnServer die XML Datei mit dem 
+//    zugefügten Datensatz auf dem Server speichern
+// 4. Mit der Funktion reCreateTaskDropdown das Dropdown Menü aktualisieren (mit der 
+//    zugefügten Aufgabe)
+function appendNewTaskRecord()
+{
+    g_table.appendJazzTaskRecord(g_record_active_task);
+
+    g_table.appendJazzTaskRecordXml(g_record_active_task);
+
+    g_table.saveJazzTasksXmlOnServer();
+
+    reCreateTaskDropdown(g_record_active_number);
+
+} // appendNewTaskRecord
+
+9. Dropdown Menü muss wieder kreiert werden wenn ein Record zugefügt wird
+
+Funktion reCreateTaskDropdown zufügen
+
+// Recreate the dropdown after append and delete of jazz task
+function reCreateTaskDropdown(i_active_task_number)
+{
+    g_record_active_number = i_active_task_number;
+
+    createTaskDropdown();
+
+    g_task_drop_down.setSelectOptionNumber(g_record_active_number);
+
+    g_record_active_task = g_table.getJazzTaskRecord(g_record_active_number);
+
+    setControls();
+
+} // reCreateTaskDropdown

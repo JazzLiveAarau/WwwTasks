@@ -1,0 +1,105 @@
+﻿Datei: AddTextBox.txt
+
+2020-06-27
+
+Tasks: Text Box Objekt zufügen
+==============================
+Beispiel: Titel
+
+1.
+Global variable für den Text Box zufügen in der Gruppe mit den anderen globalen Variablen. 
+var g_title_text_box = null;
+Kommentar zufügen, dass es ein Objekt von der Klasse JazzTextBox ist.
+
+
+2. Get-Id-Funktion für den Text-Box in der Datei JazzTasksElements.js zufügen
+function getIdTextBoxTitle()
+{
+    return 'id_text_box_title';
+    
+} // getIdTextBoxTitle
+
+3. Funktion für das kreieren vom Text-Box zufügen
+
+// Text Box für den Titel Text
+// 1. Objekt von der Klasse (mit new) kreieren. 
+//    Eingabedaten sind die Identität vom Text Box und die Identität vom <div> Container
+// 2. Label Text Element zufügen.
+// 3. Die grösse (anzahl Buchstaben) für den Text Box definieren.
+// 4. Definiere die Position für den Label. 
+//    (Alternative sind setLabelTextPositionLeft und setLabelTextPositionRight)
+// 5. Set Tooltip für den Text Box. 
+function createTextBoxTitle()
+{
+    g_title_text_box = new JazzTextBox(getIdTextBoxTitle(), getIdDivElementTitle());
+
+    g_title_text_box.setLabelText("Titel");
+
+    g_title_text_box.setSize("50");
+
+    g_title_text_box.setLabelTextPositionAbove();
+
+    g_title_text_box.setTitle("Titel für die Aufgabe. Max anzahl Zeichen ist 50. Titel muss definiert werden.");
+
+} // createTextBoxTitle
+
+4. Die Funktion createTextBoxTitle() in der Funktion createControls() zufügen
+
+function createControls()
+{
+    createTaskDropdown();
+
+    createTextBoxTitle();
+
+} // createControls
+
+5. Mit Visual Studio Code und Debugger kontrollieren, dass es funktioniert
+(Anrufe von setAllDivElementsWithJavaScript() nicht länger anrufen. Wird zweimal gemacht)
+
+6. Funktion setControls() zufügen (leer) und in function initJazzTasksAfterLoadOfXml() anrufen 
+
+function setControls()
+{
+
+} // setControls
+
+initJazzTasksAfterLoadOfXml()
+{
+   g_table = new JazzTasksTable(g_xml);
+
+    createControls();
+
+    g_record_active_number = 1;
+
+    g_task_drop_down.setSelectOptionNumber(g_record_active_number);
+
+    g_record_active_task = g_table.getJazzTaskRecord(g_record_active_number);
+
+	setControls();
+	
+} // initJazzTasksAfterLoadOfXml
+
+7. Funktion setTextBoxTitle zufügen
+
+function setTextBoxTitle()
+{
+   var task_title = g_record_active_task.getJazzTaskTitle();
+
+    g_title_text_box.setValue(task_title);
+
+} // setTextBoxTitle
+
+8. Funktion setTextBoxTitle in der Funktion setControls zufügen
+
+function setControls()
+{
+    setTextBoxTitle();
+
+} // setControls    
+
+9. Funktion setControls() in der Funktion eventSelectTaskDropDown zufügen
+
+und setAllDivElementsWithJavaScript() wegnehmen
+
+
+ 

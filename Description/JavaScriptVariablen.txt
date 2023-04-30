@@ -1,0 +1,111 @@
+﻿Datei: JavaScriptVariablen.txt
+
+Deklaration 
+------------
+Variablen sollte man immer deklarieren, d.h. wenn man sie zum ersten Mal verwendet schreibt man 'var'
+Die Variable kriegt nicht immer direkt eine Wert. Dann ist es gut die Variable eine 'undefinierte'
+Wert zu geben. Dann kan man mit dem Debugger sehen, ob die Variable eine richtige Wert bekommen hat.
+In einer Applikation die zum Beispiel Daten über eine Gruppe Personen organisieren hat man vermutlich eine
+Variable für Vorname (String) und Geburtsjahr (Nummer) die Werte bekommen erst, wenn der Benutzer 
+eine Person gewählt hat. Erst dann kriegen sie eine richtige Wert.
+
+Deklaration von Variablen ohne dass sie eine Wert bekommen:
+var person_vorname = 'Undefiniert';
+var geburtags_jahr = -12345;
+
+Für ein Objekt einer Klasse ist die undefinierte Wert null
+var g_title_text_box = null;
+
+Lokale Variablen
+-----------------
+
+Eine lokale Variable kann nur in einer Funktion verwendet werden
+
+// Rückgabewert (return value) ist das Alter einer Person
+function  getAgeOfPerson(i_person_number) 
+{
+	var geburtags_jahr = -12345;
+	
+	var dieses_jahr = -12345;
+	
+	geburtags_jahr = getBirthYear(i_person_number);
+	
+	dieses_jahr = getThisYear();
+	
+	var person_age = dieses_jahr - geburtags_jahr;
+	
+	return person_age;
+
+} // getAgeOfPerson
+
+Eine andere Funktion hat keinen Zugang zu den lokalen Variablen 
+
+// Rückgabewert ist das Jahr wenn die Person fünfzig wird
+function getYearWhenPersonIsFifty()
+{
+	var fifty_year = geburtags_jahr + 50; // Fehler: geburtags_jahr Variable existiert nicht (hier)
+	
+	return fifty_year;
+	
+} // getYearWhenPersonIsFifty
+
+
+Globale Variablen
+-----------------
+
+Jeder Funktion hat zugang zu den globalen Variablen. Die globalen Variablen werden 'draussen' (outside)
+eine Funktion deklariert. Diese Variablen sollte man immer zusammen deklarieren und gerne auch Namen
+geben die zeigen, dass sie globale Variablen sind. In den Jazz Aplikationen wird es mit g_ bezeichnet.
+
+var g_geburtags_jahr = -12345;
+
+// Rückgabewert (return value) ist das Alter einer Person
+function  getAgeOfPerson(i_person_number) 
+{
+	var dieses_jahr = -12345;
+	
+	g_geburtags_jahr = getBirthYear(i_person_number);
+	
+	dieses_jahr = getThisYear();
+	
+	var person_age = dieses_jahr - geburtags_jahr;
+	
+	return person_age;
+
+} // getAgeOfPerson
+
+Eine andere Funktion hat  Zugang zu den lokalen Variablen 
+(aber die Variable hat natürlich nur eine Wert wenn getAgeOfPerson
+ vorher angerufen/called ist)
+
+// Rückgabewert ist das Jahr wenn die Person fünfzig wird
+function getYearWhenPersonIsFifty()
+{
+	var fifty_year = g_geburtags_jahr + 50;
+	
+	return fifty_year;
+	
+} // getYearWhenPersonIsFifty
+
+
+Organisation von globalen Variablen
+-----------------------------------
+
+In allen Jazz Applikationen sind sie in einee Gruppe gesammelt oberst in der JavaScript 
+Datei zwischen diese Kommentar-Zeilen.
+In den Anweisungen für JazzTextBox und JazzButton steht folgendes:
+"Global variable für den Text Box zufügen in der Gruppe mit den anderen globalen Variablen."
+
+Starte gerne http://www.jazzliveaarau.ch/GunnarTasks/JazzTasks.htm und schaue mit dem Debugger
+die Datei JazzTasks.js an. 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Global Parameters /////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Global Parameters ///////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+

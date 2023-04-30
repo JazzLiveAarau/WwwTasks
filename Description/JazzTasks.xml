@@ -1,0 +1,86 @@
+<?xml version= "1.0" encoding="utf-8"?>
+<!--  JAZZ live AARAU tasks -->  
+<HomepageJazzTasks>
+
+	<JazzTask>
+		<JazzTaskRegNumber>A0001</JazzTaskRegNumber>
+		<JazzTaskTitle>Fotos auf die Homepage stellen und auf dem Server speichern</JazzTaskTitle>
+		<JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+		<JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+		<JazzTaskLinkDoc>/www/Administration/Aufgaben/A0001.docx</JazzTaskLinkDoc>
+		<JazzTaskLinkPdf>/www/Administration/Aufgaben/A0001.pdf</JazzTaskLinkPdf>
+		<JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+		<JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+		<JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+		<JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+		<JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+		<JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+		<JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+		<JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+		<JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+		<JazzTaskReferences>
+			<JazzTaskReference>
+				<JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+				<JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+			</JazzTaskReference>
+		</JazzTaskReferences>
+		<JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
+		<JazzTaskDeputies>
+			<JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+		</JazzTaskDeputies>
+	</JazzTask>
+
+	<JazzTask>
+		<JazzTaskRegNumber>A0002</JazzTaskRegNumber>
+		<JazzTaskTitle>Kasse</JazzTaskTitle>
+		<JazzTaskDescription>Zum Beispiel Kurzbeschreibung </JazzTaskDescription>
+		<JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+		<JazzTaskLinkDoc>/www/Administration/Aufgaben/A0002.docx</JazzTaskLinkDoc>
+		<JazzTaskLinkPdf>/www/Administration/Aufgaben/A0002.pdf</JazzTaskLinkPdf>
+		<JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+		<JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+		<JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+		<JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+		<JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+		<JazzTaskReferences>
+			<JazzTaskReference>
+				<JazzTaskRefLink>http://jazzliveaarau.ch/Administration/Finanzen/Finanzen.htm</JazzTaskRefLink>
+				<JazzTaskRefDescription>Finanzen</JazzTaskRefDescription>
+			</JazzTaskReference>
+		</JazzTaskReferences>
+		<JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
+		<JazzTaskDeputies>
+			<JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+		</JazzTaskDeputies>
+	</JazzTask>
+	
+<!--
+	JazzTaskRefLink can be a link to a web page, a document or JazzTaskRegNumber
+-->	
+	
+	<JazzTask>
+		<JazzTaskRegNumber>NotYetSetNodeValue</JazzTaskRegNumber>
+		<JazzTaskTitle>NotYetSetNodeValue</JazzTaskTitle>
+		<JazzTaskDescription>NotYetSetNodeValue</JazzTaskDescription>
+		<JazzTaskRemark>NotYetSetNodeValue</JazzTaskRemark>
+		<JazzTaskLinkDoc>NotYetSetNodeValue</JazzTaskLinkDoc>
+		<JazzTaskLinkPdf>NotYetSetNodeValue</JazzTaskLinkPdf>
+		<JazzTaskLinkHtml>NotYetSetNodeValue</JazzTaskLinkHtml>
+		<JazzTaskRemindDay>NotYetSetNodeValue</JazzTaskRemindDay>
+		<JazzTaskRemindMonth>NotYetSetNodeValue</JazzTaskRemindMonth>
+		<JazzTaskFinishDay>NotYetSetNodeValue</JazzTaskFinishDay>
+		<JazzTaskFinishMonth>NotYetSetNodeValue</JazzTaskFinishMonth>
+		<JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
+		<JazzTaskReferences>
+			<JazzTaskReference>
+				<JazzTaskRefLink>NotYetSetNodeValue</JazzTaskRefLink>
+				<JazzTaskRefDescription>NotYetSetNodeValue</JazzTaskRefDescription>
+			</JazzTaskReference>
+		</JazzTaskReferences>
+		<JazzTaskResponsible>NotYetSetNodeValue</JazzTaskResponsible>
+		<JazzTaskDeputies>
+			<JazzTaskDeputy>NotYetSetNodeValue</JazzTaskDeputy>
+		</JazzTaskDeputies>
+	</JazzTask>
+
+</HomepageJazzTasks>	
