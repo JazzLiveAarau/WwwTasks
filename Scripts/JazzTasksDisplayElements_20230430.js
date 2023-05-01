@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2023-03-23
+// Date: 2023-04-30
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -18,6 +18,20 @@ function getIdDivElementTextBoxSearch()
 
 } // getIdDivElementActiveRecord
 
+// Returns the IT check box <div> element
+function getDivElementCheckBoxIt()
+{
+    return document.getElementById(getIdDivElementCheckBoxIt());
+
+} // getDivElementCheckBoxIt
+
+// Returns the IT check box <div> identity
+function getIdDivElementCheckBoxIt()
+{
+    return 'id_div_checkbox_it';
+
+} // getIdDivElementCheckBoxIt
+
 // Returns the calendar check box <div> element
 function getDivElementCheckBoxCalendar()
 {
@@ -31,6 +45,20 @@ function getIdDivElementCheckBoxCalendar()
     return 'id_div_checkbox_calendar';
 
 } // getIdDivElementActiveRecord
+
+// Returns the calendar all check box <div> element
+function getDivElementCheckBoxCalendarAll()
+{
+    return document.getElementById(getIdDivElementCheckBoxCalendarAll());
+
+} // getDivElementCheckBoxCalendarAll
+
+// Returns the calendar all check box <div> identity
+function getIdDivElementCheckBoxCalendarAll()
+{
+    return 'id_div_checkbox_calendar_all';
+
+} // getIdDivElementCheckBoxCalendarAll
 
 // Returns the identity of the display help button <div> element
 function getIdDivElementDisplayHelpButton()

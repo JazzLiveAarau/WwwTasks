@@ -1,5 +1,5 @@
 // File: JazzTasksCalendar.js
-// Date: 2023-03-28
+// Date: 2023-04-30
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -44,10 +44,16 @@ class CalendarEntry
 
     } // getCalendarDate
 
-    // Reurns the registration number
+    // Returns the registration number
     getRegNumber()
     {
         return this.m_reg_number;
+    }
+
+    // Returns the title
+    getTitle()
+    {
+        return this.m_title;
     }
 
 } // CalendarEntry
@@ -99,7 +105,7 @@ class CalendarDate
 class Calendar
 {
     // Input is an array of task registration numbers.
-    constructor(i_task_reg_numbers, i_season_xml, i_display_table)
+    constructor(i_task_reg_numbers, i_season_xml, i_display_table, i_display_all_entries)
     {
         // Input array of task registration numbers
         this.m_task_reg_numbers = i_task_reg_numbers;
@@ -107,6 +113,9 @@ class Calendar
         this.m_season_xml = i_season_xml;
 
         this.m_display_table = i_display_table;
+
+        // Flag telling if all calendar entries shall be displayed or only for coming dates
+        this.m_display_all_entries = i_display_all_entries;
 
         // Array of calendar entries
         this.entry_array = [];
@@ -135,7 +144,20 @@ class Calendar
             {
                 if (this.isOneFixDate(current_record))
                 {
-                    this.appendCalendarEntry(reg_number, current_record);
+                    var current_season_str = 'current';
+
+                    this.appendCalendarEntry(reg_number, current_record, current_season_str);
+
+                    current_season_str = 'next';
+
+                    this.appendCalendarEntry(reg_number, current_record, current_season_str);
+
+                    if ( this.m_display_all_entries)
+                    {
+                        current_season_str = 'previous';
+
+                        this.appendCalendarEntry(reg_number, current_record, current_season_str);
+                    }
                 }
                 else if (this.isConcertDate(current_record))
                 {
@@ -177,6 +199,8 @@ class Calendar
 
             var responsibles_str = current_record.getJazzTaskResponsible();
 
+            var deputies_str = current_record.getJazzTaskDeputiesLabelString();
+
             if (responsibles_str == 'Termin')
             {
                 responsibles_str = current_record.getJazzTaskRemark();
@@ -186,7 +210,7 @@ class Calendar
 
             var date_str = calendar_date.getDateSwissString();
 
-            ret_list_tasks_str = ret_list_tasks_str + this.getOneResultTaskString(reg_number, title_str, responsibles_str, date_str);
+            ret_list_tasks_str = ret_list_tasks_str + this.getOneResultTaskString(reg_number, title_str, responsibles_str + deputies_str, date_str);
 
         }
 
@@ -228,6 +252,7 @@ class Calendar
     } // getOneResultTaskString    
 
     // Sort and remove passed calendar entries
+    // 1. Create a copy of the 
     getSortedCalendarEntryArray()
     {
         var sorted_array = [];
@@ -246,7 +271,7 @@ class Calendar
                         entry_date.getYear(), entry_date.getMonth(), entry_date.getDay());
         }
 
-        var used_calendar_entry = new CalendarEntry("UsedEntry", "UsedEntry", "UsedEntry", 1996, 1, 1);
+        var used_calendar_entry = new CalendarEntry("UsedEntry", "UsedEntry", "UsedEntry", 2040, 1, 1);
 
         for (var index_entry=0; index_entry < copy_array.length; index_entry++)
         {
@@ -285,17 +310,35 @@ class Calendar
         {
             var current_entry = i_entry_array[index_entry];
 
-            var current_date = current_entry.getCalendarDate();
+            var title_str = current_entry.getTitle();
 
-            var diff_days = Calendar.daysBetweenDates(now_calendar_date, current_date);
-
-            if (diff_days >= 0 && diff_days < min_days)
+            if (title_str == "NotUsedEntry")
             {
-                ret_index = index_entry;
+                var current_date = current_entry.getCalendarDate();
 
-                min_days = diff_days;
+                var diff_days = Calendar.daysBetweenDates(now_calendar_date, current_date);
+    
+                if (this.m_display_all_entries)
+                {
+                    if (diff_days < min_days)
+                    {
+                        ret_index = index_entry;
+        
+                        min_days = diff_days;
+                    }  
+                }
+                else
+                {
+                    if (diff_days >= 0 && diff_days < min_days)
+                    {
+                        ret_index = index_entry;
+        
+                        min_days = diff_days;
+                    }              
+                }
+            } // NotUsedEntry
 
-            } 
+
             
         } // index_entry
 
@@ -321,7 +364,7 @@ class Calendar
     } // getCalenderDateNow
 
     // Appends a calendry entry for one fix date
-    appendCalendarEntry(i_reg_number, i_record)
+    appendCalendarEntry(i_reg_number, i_record, i_current_season_str)
     {
         var finish_month = i_record.getJazzTaskFinishMonth();
 
@@ -332,6 +375,38 @@ class Calendar
         if (finish_month >= 1 && finish_month <= 3)
         {
             finish_year = finish_year + 1;
+        }
+
+        if (i_current_season_str == 'next')
+        {
+            if (i_record.getJazzTaskResponsible() == 'Termin')
+            {
+                return;
+            }
+            else if (finish_month >= 4 && finish_month <= 5)
+            {
+                finish_year = finish_year + 1;
+            }     
+            else
+            {
+                return;
+            }         
+        }
+
+        if (i_current_season_str == 'previous')
+        {
+            if (finish_month >= 1 && finish_month <= 3)
+            {
+                finish_year = finish_year - 1;
+            }            
+            else if (finish_month >= 10 && finish_month <= 12)
+            {
+                finish_year = finish_year - 1;
+            }  
+            else
+            {
+                return;
+            }         
         }
 
         var title_str = i_record.getJazzTaskTitle();

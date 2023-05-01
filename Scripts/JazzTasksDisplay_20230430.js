@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2023-03-27
+// Date: 2023-04-30
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -19,6 +19,9 @@ var g_season_xml = null;
 
 // JazzTasksTable object that hold all JazzTask records 
 var g_display_table = null;
+
+// Flag telling if all calendar entries shall be displayed or only for coming dates
+var g_display_all_entries = false;
 
 // JazzTasksSearch object for the search of objects
 var g_search = null;
@@ -44,8 +47,14 @@ var g_task_display_list_button = null;
 // The tasks display help button
 var g_task_display_help_button = null;
 
+// The IT check box 
+var g_it_check_box = null;
+
 // The calendar check box
 var g_calendar_check_box = null;
+
+// The calendar check box all
+var g_calendar_all_check_box = null;
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Global Parameters ///////////////////////////////////////////
@@ -86,7 +95,19 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     createTextBoxSearch();
 
+    createCheckBoxIt();
+
+    var el_check_box_it = getDivElementCheckBoxIt(); // TODO 
+
+    el_check_box_it.style.display = 'none';
+
     createCheckBoxCalendar();
+
+    createCheckBoxCalendarAll();
+
+    var el_check_box_all = getDivElementCheckBoxCalendarAll();
+
+    el_check_box_all.style.display = 'none';
 
     createTasksDisplayIntranetButton();
 
@@ -124,8 +145,7 @@ function searchDisplayResultList(i_search_str)
 
     if (g_calendar_check_box.getCheck() == "TRUE")
     {
-
-        var calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table);
+        var calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table, g_display_all_entries);
 
         list_str = calendar_object.getListOfTasksHtmlString();
     }
@@ -139,6 +159,32 @@ function searchDisplayResultList(i_search_str)
     el_list.innerHTML = list_str;
 
 } // searchSetResultList
+
+// Search after change of check box all
+function searchDisplayResultAfterAllChange()
+{
+	if (g_calendar_check_box.getCheck() == "FALSE")
+	{
+		alert("searchDisplayResultAfterAllChange Programming error calendar");
+		
+		return;
+	}
+	
+    var search_str = g_search_text_box.getValue()
+
+    var result_registration_numbers = g_search.search(search_str);
+
+    var list_str = "";
+
+    var calendar_object = new Calendar(result_registration_numbers, g_season_xml, g_display_table, g_display_all_entries);
+
+    list_str = calendar_object.getListOfTasksHtmlString();
+
+    var el_list = getDivElementSearchTaskList();
+
+    el_list.innerHTML = list_str;
+
+} // searchDisplayResultAfterAllChange
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Main Functions //////////////////////////////////////////////
@@ -309,16 +355,48 @@ function oninputSearch()
 
 } // oninputSearch
 
+// User clicked the IT check box
+function eventClickCheckBoxIt()
+{
+    alert("IT. Noch nicht fertig"); 
+
+} // eventClickCheckBoxIt
+
 // User clicked the calendar check box
 function eventClickCheckBoxCalendar()
 {
-    // alert("Kalender wird implementiert. Noch nicht fertig"); 
+    var el_check_box_all = getDivElementCheckBoxCalendarAll();
+   
+    if (g_calendar_check_box.getCheck() == "TRUE")
+    {
+        el_check_box_all.style.display = 'block';
+	}
+	else
+	{
+	    el_check_box_all.style.display = 'none';
+	}
 
     var search_str = g_search_text_box.getValue();
 
     searchDisplayResultList(search_str);
 
 } // eventClickCheckBoxCalendar
+
+// User clicked the calendar all check box
+function eventClickCheckBoxCalendarAll()
+{
+    if (g_calendar_all_check_box.getCheck() == "TRUE")
+    {
+        g_display_all_entries = true;
+	}
+	else
+	{
+	    g_display_all_entries = false;
+	}
+
+    searchDisplayResultAfterAllChange();
+
+} // eventClickCheckBoxCalendarAll
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Event Functions /////////////////////////////////////////////
@@ -333,17 +411,34 @@ function createTextBoxSearch()
 {
     g_search_text_box = new JazzTextBox("id_search_text_box", getIdDivElementTextBoxSearch());
 
-    g_search_text_box.setLabelText("Suchen in Intranet und Aufgaben");
+    g_search_text_box.setLabelText("Suchen in Aufgaben");
 
     g_search_text_box.setLabelTextPositionAbove();
 
-    g_search_text_box.setSize("26");
+    g_search_text_box.setSize("20");
 
     g_search_text_box.setTitle("Suchwörter eingeben");
 
     g_search_text_box.setOninputFunctionName("oninputSearch");
   
 } // createTextBoxSearch
+
+// Creates the check box control IT
+function createCheckBoxIt()
+{
+    g_it_check_box = new JazzCheckBox("id_checkbox_it", getIdDivElementCheckBoxIt());
+
+    g_it_check_box.setOninputFunctionName("eventClickCheckBoxIt");
+
+    g_it_check_box.setLabelText("IT");
+	
+	g_it_check_box.setLabelTextPositionAbove();
+
+     g_it_check_box.setTitle("Nur IT Information zeigen");
+
+     g_it_check_box.setCheck("FALSE");
+
+} // createCheckBoxIt
 
 // Creates the check box control calendar
 function createCheckBoxCalendar()
@@ -361,6 +456,23 @@ function createCheckBoxCalendar()
      g_calendar_check_box.setCheck("FALSE");
 
 } // createCheckBoxCalendar
+
+// Creates the check box control calendar all
+function createCheckBoxCalendarAll()
+{
+    g_calendar_all_check_box = new JazzCheckBox("id_check_box_calendar_all", getIdDivElementCheckBoxCalendarAll());
+
+    g_calendar_all_check_box.setOninputFunctionName("eventClickCheckBoxCalendarAll");
+
+    g_calendar_all_check_box.setLabelText("Alle");
+	
+	g_calendar_all_check_box.setLabelTextPositionAbove();
+
+     g_calendar_all_check_box.setTitle("Alle Kalender-Einträge anzeigen");
+
+     g_calendar_all_check_box.setCheck("FALSE");
+
+} // createCheckBoxCalendarAll
 
 // Creates the intranet button control
 function createTasksDisplayIntranetButton()

@@ -1,6 +1,6 @@
 /* 
 File: JazzTasksDisplay.css 
-Date: 2023-03-23
+Date: 2023-04-30
 Author: Hanni Heller / Gunnar Liden
 
 Allgemeine Informationen
@@ -72,15 +72,33 @@ button
 {
     /* border: solid 1px yellow; */
     padding: 5px;
-    width: 60%;
+    width: 45%;
     float: left;
 }
+
+.cl_div_checkbox_it
+{
+    /* border: solid 1px yellow; */
+    padding: 5px;
+    width: 10%;
+    float: left;
+}
+
 /* Search calendar checkbox <div> element */
 .cl_div_checkbox_calendar
 {
     /* border: solid 1px yellow; */
     padding: 5px;
-    width: 30%;
+    width: 20%;
+    float: right;
+}
+
+/* Search calendar checkbox all <div> element */
+.cl_div_checkbox_calendar_all
+{
+    /* border: solid 1px yellow; */
+    padding: 5px;
+    width: 12%;
     float: right;
 }
 
