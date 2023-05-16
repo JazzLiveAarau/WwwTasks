@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="Styles/JazzTasksDisplay_20230430.css">
 
     <!--  Haupt-Funktionen für die Applikation Tasks Display -->
-    <script type="text/javascript" src="Scripts/JazzTasksDisplay_20230430.js"></script>
+    <script type="text/javascript" src="Scripts/JazzTasksDisplay_20230514.js"></script>
 
     <!--  Calendar functions -->
     <script type="text/javascript" src="Scripts/JazzTasksCalendar_20230430.js"></script>
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="Scripts/JazzTaskSearch.js"></script> 
 
     <!--  Application tasks display elements -->
-    <script type="text/javascript" src="Scripts/JazzTasksDisplayElements_20230430.js"></script>
+    <script type="text/javascript" src="Scripts/JazzTasksDisplayElements_20230514.js"></script>
 
     <!--  Class corresponding to the XML file JazzTasks.xml -->
     <script type="text/javascript" src="Scripts/JazzTasksXml.js"></script>
@@ -44,10 +44,19 @@
     <script type="text/javascript" src="Scripts/JazzTasksElements.js"></script>   
 
      <!--  Classes for standard controls like text box, button and dropdown -->
-     <script type="text/javascript" src="Scripts/JazzControls.js"></script>     
+     <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/JazzControls.js"></script> -->    
 
      <!--  Class for the standard controls check box -->
-     <script type="text/javascript" src="Scripts/JazzControlCheckBox.js"></script>          
+     <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/JazzControlCheckBox.js"></script> -->
+
+    <!--  Class for the application XML file JazzApplication.xml and other XML files -->
+    <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/Xml_20230515.js"></script> 
+
+     <!-- Login and logout for web applications -->
+     <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/LoginLogout_20230515.js"></script>
+
+     <!-- Standard controls -->
+     <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/Controls_20230514.js"></script>
     
      <!--  Utility functions for jazz applications -->
      <script type="text/javascript" src="Scripts/JazzUtils.js"></script>       
@@ -71,7 +80,10 @@
 
         </div> <!-- cl_tasks_display_header -->
 
-        <div class= 'cl_div_search_help'>
+        <!-- Place holder for the member login logout controls -->
+        <div id= "id_div_web_login_logout" ></div>
+
+        <div id= 'id_div_search_help' class= 'cl_div_search_help'>
 
             <div class= cl_intranet_admin_help>
 

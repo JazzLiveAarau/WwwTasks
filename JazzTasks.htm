@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="Styles/JazzTasks.css">
 
      <!--  Haupt-Funktionen für die Applikation Tasks -->
-    <script type="text/javascript" src="Scripts/JazzTasks.js?20210628"></script>
+    <script type="text/javascript" src="Scripts/JazzTasks_20230514.js"></script>
 
-    <!--  Class for the application XML file JazzApplication.xml -->
-    <script type="text/javascript" src="Scripts/JazzApplicationXml.js"></script>            
+    <!--  Class for the application XML file JazzApplication.xml and other XML files -->
+    <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/Xml_20230515.js"></script> 
 
      <!--  Functions creating the controls of the application -->
      <script type="text/javascript" src="Scripts/JazzTasksCreateControls.js"></script>
@@ -51,28 +51,34 @@
     <script type="text/javascript" src="Scripts/JazzTasksTable_20230323.js"></script>
 
      <!--  Get HTML element functions -->
-    <script type="text/javascript" src="Scripts/JazzTasksDisplayElements_20230430.js"></script>   
+    <script type="text/javascript" src="Scripts/JazzTasksDisplayElements_20230514.js"></script>   
 
     <!--  Get HTML element functions -->
     <script type="text/javascript" src="Scripts/JazzTasksElements.js"></script>   
 
      <!--  Classes for standard controls like text box, button and dropdown -->
-     <script type="text/javascript" src="Scripts/JazzControls.js"></script>     
+     <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/JazzControls.js"></script> -->    
 
      <!--  Class for the standard controls check box -->
-     <script type="text/javascript" src="Scripts/JazzControlCheckBox.js"></script>     
+     <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/JazzControlCheckBox.js"></script>   -->  
 
      <!--  Class handling user name as local storage parameter -->
-     <script type="text/javascript" src="Scripts/JazzUserName.js?20210628"></script>   
+      <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/JazzUserName.js?20210628"></script>   -->
 
      <!--  Class handling login and logout -->
-     <script type="text/javascript" src="Scripts/LoginLogout_20210702_1.js"></script>     
+      <!--  Remove QQQQQQ <script type="text/javascript" src="Scripts/LoginLogout_20210702_1.js"></script>    --> 
 
      <!--  Control upload a file -->
      <script type="text/javascript" src="Scripts/JazzControlUploadFile_20220302_1.js"></script>          
 
      <!--  Control pick a date -->
-     <script type="text/javascript" src="Scripts/JazzControlDatePicker.js"></script>       
+     <script type="text/javascript" src="Scripts/JazzControlDatePicker.js"></script>   
+
+     <!-- Login and logout for web applications -->
+     <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/LoginLogout_20230515.js"></script>
+     
+     <!-- Standard controls -->
+     <script type="text/javascript" src="https://jazzliveaarau.ch/JazzScripts/Controls_20230514.js"></script>
 
      <!--  Utility functions for jazz applications -->
      <script type="text/javascript" src="Scripts/JazzUtils.js"></script>       
@@ -98,62 +104,64 @@
 
         <div id= "id_div_login_logout" ></div>
 
-        <div id= "id_div_select_reg_number" class= "cl_div_select_reg_number">
-            <div id= 'id_tasks_select_task' class='cl_tasks_select_task'></div>
+        <div id="id_div_admin_record_content" >
 
-            <div id= 'id_div_reg_number' class='cl_div_reg_number'></div>
-        </div>
+            <div id= "id_div_select_reg_number" class= "cl_div_select_reg_number">
+                <div id= 'id_tasks_select_task' class='cl_tasks_select_task'></div>
 
-        <div id= "id_div_title_delete_number" class= "cl_div_title_delete_number">
-            <div id= 'id_tasks_task_title' class= 'cl_tasks_task_title'></div> 
-            <div id= 'id_tasks_task_delete' class='cl_tasks_task_delete'></div>
-        </div>
+                <div id= 'id_div_reg_number' class='cl_div_reg_number'></div>
+            </div>
 
-        <div id= 'id_tasks_task_description' class='cl_tasks_task_description'></div>
+            <div id= "id_div_title_delete_number" class= "cl_div_title_delete_number">
+                <div id= 'id_tasks_task_title' class= 'cl_tasks_task_title'></div> 
+                <div id= 'id_tasks_task_delete' class='cl_tasks_task_delete'></div>
+            </div>
 
-        <div id= 'id_div_checkbox_use_description' class='cl_div_checkbox_use_description'></div>
+            <div id= 'id_tasks_task_description' class='cl_tasks_task_description'></div>
 
-        <div id= "id_div_doc_display_upload_button" class= "cl_div_display_upload_button">
+            <div id= 'id_div_checkbox_use_description' class='cl_div_checkbox_use_description'></div>
 
-            <div id= 'id_tasks_task_link_doc_file' class='cl_tasks_task_link_file'></div>
+            <div id= "id_div_doc_display_upload_button" class= "cl_div_display_upload_button">
 
-            <div id= "id_div_download_doc_button" class= "cl_div_download_button"></div>
+                <div id= 'id_tasks_task_link_doc_file' class='cl_tasks_task_link_file'></div>
 
-            <div id= "id_div_upload_doc_button" class= "cl_div_upload_button"></div>
+                <div id= "id_div_download_doc_button" class= "cl_div_download_button"></div>
 
-        </div>
+                <div id= "id_div_upload_doc_button" class= "cl_div_upload_button"></div>
 
-        <div id= "id_div_upload_doc" class= "cl_div_upload_form"></div>
+            </div>
 
-        <div id= "id_div_pdf_display_upload_button" class= "cl_div_display_upload_button">
+            <div id= "id_div_upload_doc" class= "cl_div_upload_form"></div>
 
-            <div id= 'id_tasks_task_link_pdf_file' class='cl_tasks_task_link_file'></div>
+            <div id= "id_div_pdf_display_upload_button" class= "cl_div_display_upload_button">
 
-            <div id= "id_div_download_pdf_button" class= "cl_div_download_button"></div>
+                <div id= 'id_tasks_task_link_pdf_file' class='cl_tasks_task_link_file'></div>
 
-            <div id= "id_div_upload_pdf_button" class= "cl_div_upload_button"></div>
+                <div id= "id_div_download_pdf_button" class= "cl_div_download_button"></div>
 
-        </div>
+                <div id= "id_div_upload_pdf_button" class= "cl_div_upload_button"></div>
 
-        <div id= "id_div_upload_pdf" class= "cl_div_upload_form"></div>
+            </div>
 
-        <div id= "id_div_ref_dropdown" class= "cl_div_ref_dropdown"></div>
+            <div id= "id_div_upload_pdf" class= "cl_div_upload_form"></div>
 
-        <div id= "id_div_ref_link" class= "cl_div_ref_link"></div>
+            <div id= "id_div_ref_dropdown" class= "cl_div_ref_dropdown"></div>
 
-        <div id= "id_div_ref_descr" class= "cl_div_ref_descr"></div>
+            <div id= "id_div_ref_link" class= "cl_div_ref_link"></div>
 
-        <div id= 'id_tasks_task_remark' class='cl_tasks_task_remark'></div>
+            <div id= "id_div_ref_descr" class= "cl_div_ref_descr"></div>
 
-        <div id= "id_div_dates" class= "cl_div_dates">
+            <div id= 'id_tasks_task_remark' class='cl_tasks_task_remark'></div>
 
-            <div id= "id_div_remind_date" class= "cl_div_date"></div>
+            <div id= "id_div_dates" class= "cl_div_dates">
 
-            <div id= "id_div_due_date" class= "cl_div_date"></div>
+                <div id= "id_div_remind_date" class= "cl_div_date"></div>
 
-            <div id= "id_div_before_concert" class= "cl_div_days_concert"></div>
+                <div id= "id_div_due_date" class= "cl_div_date"></div>
 
-            <div id= "id_div_after_concert" class= "cl_div_days_concert"></div>
+                <div id= "id_div_before_concert" class= "cl_div_days_concert"></div>
+
+                <div id= "id_div_after_concert" class= "cl_div_days_concert"></div>
 
         </div>
 
@@ -179,7 +187,9 @@
 
             <div id= 'id_tasks_task_saving' class='cl_tasks_task_saving'></div>
             
-        </div>       
+        </div>   
+        
+    </div>
     
     </div>  
     

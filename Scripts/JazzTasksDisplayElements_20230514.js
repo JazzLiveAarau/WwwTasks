@@ -1,5 +1,5 @@
 // File: JazzTasksDisplayElements.js
-// Date: 2023-04-30
+// Date: 2023-05-14
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -649,6 +649,27 @@ function getIdDivElementSearchTaskList()
     return 'id_search_task_list';
 
 } // getIdDivElementSearchTaskList
+
+//Returns the identity of the place holder <div> for the login-logout controls
+function getIdDivWebLoginLogout()
+{
+    return 'id_div_web_login_logout';
+
+} // getIdDivWebLoginLogout
+
+// Returns the element search-help <div> element
+function getDivElementSearchHelp()
+{
+    return document.getElementById(getIdDivElementSearchHelp());
+
+} // getDivElementSearchHelp
+
+//Returns the identity of the search-help <div> element
+function getIdDivElementSearchHelp()
+{
+    return 'id_div_search_help';
+
+} // getIdDivElementSearchHelp
 
 // Hides the active document DOC <div>
 function hideActiveRecordDocumentDoc()

@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2023-04-30
+// Date: 2023-05-15
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -123,10 +123,11 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     searchDisplayResultList(search_str);
 
+    initWebLoginLogout();
+
     // testSeasonXml();
 
 } // initJazzTasksDisplayAfterLoadOfXml
-
 
 // Search and display search result
 // 1. Set the search control text box
@@ -188,6 +189,72 @@ function searchDisplayResultAfterAllChange()
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End Main Functions //////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Start Web Login Functions ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Initialization for the web login controls
+// 1. Set the array of elements that shall be displayed only after login
+// 2. Instantiate the class WebLoginLogout. Set g_web_login_logout.
+// 3. Load application XML
+function initWebLoginLogout()
+{
+    var hide_display_elements = [];
+    hide_display_elements[0] = getDivElementSearchHelp();
+    hide_display_elements[1] = getDivElementSearchTaskList();
+
+    // Only read data for all applications except Admin Tasks
+    var b_only_read_data = true;
+
+    // Number of directory levels to top directory for directory /www/XML/
+    var n_level_xml = 1;
+
+    g_web_login_logout = new WebLoginLogout(getIdDivWebLoginLogout(), 
+                          hide_display_elements, b_only_read_data, n_level_xml);
+
+    g_web_login_logout.loadXml();
+
+} // initWebLoginLogout
+
+// Callback function after the creation of the application XML object
+function createLoginControlsAfterXml()
+{
+    // debugToConsole("createLoginControlsAfterXml Enter");
+
+    g_web_login_logout.createLoginControlsAfterXml();
+   
+} // initTestAfterObjectCreation
+
+// Event function user clicked the login-logout button
+function onClickWebLoginButton()
+{
+    // debugToConsole("onClickWebLoginButton Enter");
+
+    g_web_login_logout.onClickWebLoginButton();
+
+} // onClickWebLoginButton
+
+function callbackonClickWebLoginButton(i_logged_in_name, i_b_user_has_logged_in, i_warning_msg)
+{
+    // debugToConsole("callbackonClickWebLoginButton Enter");
+
+    g_web_login_logout.callbackonClickWebLoginButton(i_logged_in_name, i_b_user_has_logged_in, i_warning_msg);
+    
+} // callbackonClickWebLoginButton
+
+// Callback function for LoginLogout.loginIfPossible
+function callbackWebLoginIfPossible(i_logged_in_name, i_b_user_has_logged_in)
+{
+    // debugToConsole("callbackWebLoginIfPossible Enter");
+
+    g_web_login_logout.callbackWebLoginIfPossible(i_logged_in_name, i_b_user_has_logged_in);
+
+} // callbackWebLoginIfPossible
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// End Web Login Functions /////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
