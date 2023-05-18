@@ -1,5 +1,5 @@
 // File: JazzTaskList.js
-// Date: 2023-03-20
+// Date: 2023-05-18
 // Author: Gunnar Lidén
 
 // Content
@@ -119,7 +119,7 @@ class JazzTasksList
         {
             var current_name = name_list[i_name];
 
-            if (current_name != 'Information' && current_name != 'Alle' && current_name != 'Termin' && current_name != 'Vakanz' )
+            if (current_name != 'Information' && current_name != 'IT_Information' && current_name != 'Alle' && current_name != 'Termin' && current_name != 'Vakanz' )
             {
                 html_array[html_index] = this.getResponsibilityDeputyHtml(current_name);
 
@@ -137,6 +137,12 @@ class JazzTasksList
         html_index = html_index + 1;
 
         html_array[html_index] = this.getResponsibilityDeputyHtml('Information');
+
+        all_html_str = all_html_str + html_array[html_index];
+
+        html_index = html_index + 1;
+
+        html_array[html_index] = this.getResponsibilityDeputyHtml('IT_Information');
 
         all_html_str = all_html_str + html_array[html_index];
 
@@ -223,7 +229,7 @@ class JazzTasksList
     {
         var ret_dep_html_str = '';
 
-        if (i_member_name == 'Information')
+        if (i_member_name == 'Information' || i_member_name == 'IT_Information' )
         {
             return ret_dep_html_str;
         }

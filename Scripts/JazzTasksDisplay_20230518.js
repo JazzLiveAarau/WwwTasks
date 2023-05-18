@@ -1,5 +1,5 @@
 // File: JazzTasksDisplay.js
-// Date: 2023-05-15
+// Date: 2023-05-18
 // Author: Gunnar Lidén
 
 // Inhalt
@@ -97,10 +97,6 @@ function initJazzTasksDisplayAfterLoadOfXml()
 
     createCheckBoxIt();
 
-    var el_check_box_it = getDivElementCheckBoxIt(); // TODO 
-
-    el_check_box_it.style.display = 'none';
-
     createCheckBoxCalendar();
 
     createCheckBoxCalendarAll();
@@ -128,6 +124,32 @@ function initJazzTasksDisplayAfterLoadOfXml()
     // testSeasonXml();
 
 } // initJazzTasksDisplayAfterLoadOfXml
+
+// Set the visibility for the IT check box
+function setCheckBoxItVisibility()
+{
+    var user_name = g_web_login_logout.getUserName();
+
+    var it_keywords = [];
+    it_keywords[0] = 'Webmaster';
+    it_keywords[1] = 'Programmierer';
+    it_keywords[2] = ' IT ';
+    it_keywords[3] = 'Entwicklung';
+
+    var b_it_team = g_web_login_logout.getApplicationXmlObject().memberOfItTeam(user_name, it_keywords);
+
+    var el_check_box_it = getDivElementCheckBoxIt();
+
+    if (b_it_team)
+    {
+        el_check_box_it.style.visibility = 'visible';
+    }
+    else
+    {
+        el_check_box_it.style.visibility = 'hidden';
+    }
+
+} // setCheckBoxItVisibility
 
 // Search and display search result
 // 1. Set the search control text box
@@ -241,6 +263,8 @@ function callbackonClickWebLoginButton(i_logged_in_name, i_b_user_has_logged_in,
     // debugToConsole("callbackonClickWebLoginButton Enter");
 
     g_web_login_logout.callbackonClickWebLoginButton(i_logged_in_name, i_b_user_has_logged_in, i_warning_msg);
+
+    setCheckBoxItVisibility();
     
 } // callbackonClickWebLoginButton
 
@@ -250,6 +274,8 @@ function callbackWebLoginIfPossible(i_logged_in_name, i_b_user_has_logged_in)
     // debugToConsole("callbackWebLoginIfPossible Enter");
 
     g_web_login_logout.callbackWebLoginIfPossible(i_logged_in_name, i_b_user_has_logged_in);
+
+    setCheckBoxItVisibility();
 
 } // callbackWebLoginIfPossible
 
@@ -425,7 +451,9 @@ function oninputSearch()
 // User clicked the IT check box
 function eventClickCheckBoxIt()
 {
-    alert("IT. Noch nicht fertig"); 
+    var search_str = g_search_text_box.getValue();
+
+    searchDisplayResultList(search_str);
 
 } // eventClickCheckBoxIt
 
@@ -501,9 +529,9 @@ function createCheckBoxIt()
 	
 	g_it_check_box.setLabelTextPositionAbove();
 
-     g_it_check_box.setTitle("Nur IT Information zeigen");
+     g_it_check_box.setTitle("IT Information wird auch gezeigt");
 
-     g_it_check_box.setCheck("FALSE");
+     g_it_check_box.setCheck("TRUE");
 
 } // createCheckBoxIt
 
@@ -630,14 +658,17 @@ function getListOfTasksHtmlString(i_result_registration_numbers)
         var task_number = g_display_table.getTaskNumberFromRegistrationNumber(reg_number);
 
         var current_record = g_display_table.getJazzTaskRecord(task_number);
+
+        if (displayRecordFilterIt(current_record))
+        {
+            var title_str = current_record.getJazzTaskTitle();
+
+            var responsibles_str = current_record.getJazzTaskResponsiblesString("NotYetUsed");
     
-        var title_str = current_record.getJazzTaskTitle();
+            ret_list_tasks_str = ret_list_tasks_str + getOneResultTaskString(reg_number, title_str, responsibles_str);
+        }
 
-        var responsibles_str = current_record.getJazzTaskResponsiblesString("NotYetUsed");
-
-        ret_list_tasks_str = ret_list_tasks_str + getOneResultTaskString(reg_number, title_str, responsibles_str);
-
-    }
+    } // result_index
 
     return ret_list_tasks_str;
 
@@ -683,6 +714,37 @@ function getOnClickTaskRecordString(i_reg_number)
     return ' onclick= "onClickTaskRecord(\''+ i_reg_number + '\')" ';
 
 } // getOnClickTaskRecordString
+
+// Returns true for none IT (normal) records and if the input record is of type IT and the 
+// IT flag is true
+function displayRecordFilterIt(i_record)
+{
+    var responsibles_str = i_record.getJazzTaskResponsible();
+
+    var it_code_str = 'IT_Information';
+
+    var index_it = responsibles_str.indexOf(it_code_str);
+
+    if (index_it < 0)
+    {
+        return true;
+    }
+    else if (index_it != 0)
+    {
+        return true;
+    }
+
+    if (g_it_check_box.getCheck() == "TRUE")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+
+} // displayRecordFilterIt
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// End List Tasks Functions ////////////////////////////////////////
